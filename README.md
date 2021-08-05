@@ -6,24 +6,24 @@ As we create common libraries, that will get split out into a separate folder.
 As a future state, test assets that are applicable to a given repository will be removed from this repo and pushed to the more applicable repositories.  For example, login screens will all eventually go to the Login Server repo, the "trifecta-auth" repo.  
 
 Coding principles and architecture ideals to consider are:
-	* Contain common functions into a series of basic libraries such as
-		* Navigation
-		* Validation
-		* Try/Catch
-		* Error handling
-	* Contain common navigations into a series of basic libraries based around functionality such as
-		* Logins
-		* Cart purchases
-		* Editing subscription cart
-		* Editing shipments/skip dates
-		* Editing addresses
-		* Editing payment methods
-		* Shop navigation
-		* Product validation
-		* Admin UI
-	* Create singluar scripts that encapsulate a combination of navigations and common functions
-	* Create a master script that calls each script.  Master scripts can be broken out into Sanity, Smoke, and Regression suites.  It needs to be able to run tests in parallel
-	* Create separate data files for use in Data Driven Testing
+* Contain common functions into a series of basic libraries such as
+	* Navigation
+	* Validation
+	* Try/Catch
+	* Error handling
+* Contain common navigations into a series of basic libraries based around functionality such as
+	* Logins
+	* Cart purchases
+	* Editing subscription cart
+	* Editing shipments/skip dates
+	* Editing addresses
+	* Editing payment methods
+	* Shop navigation
+	* Product validation
+	* Admin UI
+* Create singluar scripts that encapsulate a combination of navigations and common functions
+* Create a master script that calls each script.  Master scripts can be broken out into Sanity, Smoke, and Regression suites.  It needs to be able to run tests in parallel
+* Create separate data files for use in Data Driven Testing
 
 A master suite script will allow us to quickly add/remove test scripts without significant edits.
 
