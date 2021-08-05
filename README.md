@@ -6,6 +6,7 @@ As we create common libraries, that will get split out into a separate folder.
 As a future state, test assets that are applicable to a given repository will be removed from this repo and pushed to the more applicable repositories.  For example, login screens will all eventually go to the Login Server repo, the "trifecta-auth" repo.  
 
 Coding principles and architecture ideals to consider are:
+
 * Contain common functions into a series of basic libraries such as
 	* Navigation
 	* Validation
