@@ -1,5 +1,6 @@
 *** Settings ***
 Library	SeleniumLibrary
+Library     TestRailAPIClient   testrail_server_name    tester_user_name    tester_user_password    run_id
 
 *** Variables ***
 ${Login URL}	https://woocommerce-trifecta-qa-3.trifecta.dev/
@@ -9,13 +10,14 @@ ${password}     tester123
 
 *** Test Cases ***
 Valid Login
+    [Tags]  testrailid=710
     Open Browser To Shop Home Page
     Click Account Icon
     Input Username
     Input Password
     Submit Credentials
     Click Logout
-    Close All Browsers
+    [Teardown]  Close All Browsers
 
 *** Keywords ***
 Open Browser To Shop Home Page
