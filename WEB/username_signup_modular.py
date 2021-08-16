@@ -1,4 +1,8 @@
-import time
+import time, os, sys
+sys.path.append('Common/')
+sys.path.append('Pages/Account')
+sys.path.append('Pages/Auth')
+sys.path.append('Pages/Shop')
 from setupteardown import SeleniumSetupTearDown
 from shop_landing_page import ValidateShopHome, NavigateShop
 from login_page import ValidateLoginPg, NavigateLogin
