@@ -1,3 +1,5 @@
+import os, sys
+sys.path.append('Common/')
 from selenium import webdriver
 from elements import GetElement
 from assertions import AssertText
