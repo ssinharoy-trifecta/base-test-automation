@@ -1,0 +1,5 @@
+selenium
+webdrivermanager
+robotframework
+robotframework-seleniumlibrary
+robotframework-testrail
