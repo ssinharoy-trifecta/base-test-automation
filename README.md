@@ -19,9 +19,20 @@ There may be subfolders under each of these that break functionality down furthe
 Robot Framework is the chosen scripting language for Web test automation.  In order to configure your environment to use it, please run the following command line script:
 	* `pip install -U -r requirements.txt`
 
-Once installed, you'll need to run the following commands to set your PATH and PYTHONPATH orientations.  This may be best to be added to your `.bash_profile`:
-	* `export PATH=${PWD}/RobotFramework:${PWD}/RobotFramework/PythonLibraries:${PWD}/SeleniumDrivers:/Library/Frameworks/Python.framework/Versions/3.9/bin:$PATH`
-	* `export PYTHONPATH=${PWD}/RobotFramework:${PWD}/RobotFramework/PythonLibraries:${PWD}/SeleniumDrivers:${PWD}:/Library/Frameworks/Python.framework/Versions/3.9/bin`
+#### Webdriver files
+Once installed, you'll need to add the correct selenium path to your PATH variable.  You'll need to add either `mac`, `linux`, or `win` to the `${PWD}/SeleniumDrivers/<your OS>`.  For Macs, it should look like the following command.  This may be best to be added to your `.bash_profile`:
+	* `export PATH=${PWD}/SeleniumDrivers/mac:/Library/Frameworks/Python.framework/Versions/3.9/bin:$PATH`
+Conversely, you should be able to add all the paths in case you want to run the others.  It would look like this:
+	* `export PATH=${PWD}/SeleniumDrivers/mac:${PWD}/SeleniumDrivers/linux:${PWD}/SeleniumDrivers/win:/Library/Frameworks/Python.framework/Versions/3.9/bin:$PATH`
+These are the most recent drivers, so you may need to update your browsers to the latest versions.  We should try to stay up to date with these and should update whenever our browsers auto-update.  These are the driver versions:
+	* Firefox - 0.29.1
+	* Chrome - 93.0.4577.63
+	* MS Edge - 93.0.961.47
+	* Safari - 14.1.2
+
+#### PythonPath
+You'll also likely need to update your PYTHONPATH if you're using any of the included python files in the Libraries folder.  
+	* `export PYTHONPATH=${PWD}/RobotFramework:${PWD}/RobotFramework/Libraries:/Library/Frameworks/Python.framework/Versions/3.9/bin`
 
 ## GitIgnore
 The .gitignore file will automatically ignore all the result log files and not commit them to the repo.  It also is also ignoring the `__pycache__` and `.DS_Store` folders.
