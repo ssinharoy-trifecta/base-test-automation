@@ -1,35 +1,27 @@
-# base-test-automation
-This repo is to be used as the new home base for test automation script development.  Initially, all new work will go into the WEB, Android, and iOS directories as applicable.  
+# Introduction
+This is the new home repository for Test Automation.  This should comprise of two primary folders with a number of subfolders beneath it:
+	* Mobile - For all mobile related test scripts
+	* Web - For all web related test scripts
 
-As we create common libraries, that will get split out into a separate folder.  
+## Mobile
+TBD - Probably includes two sub folders for Android and iOS?
 
-As a future state, test assets that are applicable to a given repository will be removed from this repo and pushed to the more applicable repositories.  For example, login screens will all eventually go to the Login Server repo, the "trifecta-auth" repo.  
+## Web
+This contains four primary subfolders:
+	* Libraries - For any Python files needed for custom scripting. This includes the TestRail Python file
+	* Resources - For all Robot files that contain reusable keyword definitions such as Setup / Tear Down functions.  Subfolders will include common functions as broken down by unique web pages and functional areas of the code.
+	* Results - For all result logs.
+	* Tests - For all Robot test script files.  Subfolders will contain test scripts grouped by functional areas of the code
 
-Coding principles and architecture ideals to consider are:
+There may be subfolders under each of these that break functionality down further into more succinct groupings.  This will be updated as more test scripts are created.
 
-* Contain common functions into a series of basic libraries such as
-	* Navigation
-	* Validation
-	* Try/Catch
-	* Error handling
-* Contain common navigations into a series of basic libraries based around functionality such as
-	* Logins
-	* Cart purchases
-	* Editing subscription cart
-	* Editing shipments/skip dates
-	* Editing addresses
-	* Editing payment methods
-	* Shop navigation
-	* Product validation
-	* Admin UI
-* Create singluar scripts that encapsulate a combination of navigations and common functions
-* Create a master script that calls each script.  Master scripts can be broken out into Sanity, Smoke, and Regression suites.  It needs to be able to run tests in parallel
-* Create separate data files for use in Data Driven Testing
+### Robot Framework
+Robot Framework is the chosen scripting language for Web test automation.  In order to configure your environment to use it, please run the following command line script:
+	* `pip install -U -r requirements.txt`
 
-A master suite script will allow us to quickly add/remove test scripts without significant edits.
+Once installed, you'll need to run the following commands to set your PATH and PYTHONPATH orientations.  This may be best to be added to your `.bash_profile`:
+	* `export PATH=${PWD}/RobotFramework:${PWD}/RobotFramework/PythonLibraries:${PWD}/SeleniumDrivers:/Library/Frameworks/Python.framework/Versions/3.9/bin:$PATH`
+	* `export PYTHONPATH=${PWD}/RobotFramework:${PWD}/RobotFramework/PythonLibraries:${PWD}/SeleniumDrivers:${PWD}:/Library/Frameworks/Python.framework/Versions/3.9/bin`
 
-Encapsulating navigations and functions allows us to create the test script once, then only make changes if the overall flow of the user interface changes.  An example of needing to update this would be to update the onboarding flow for the Mobile Apps.  This will include the ability to run validation points and report back.  This will provide the ability to address wait states.  This is where you would include references to data files for Data Driven Testing
-
-Capturing the individual navigations into a single library allows us to have a single file that needs to be updated if/when the UI is changing.  Since this is strictly navigation, this allows the user to only need to address navigational issues in.  This will be specific to finding elements and interacting with them.
-
-Capturing reusable features such as locating items, assertions, wait states, file I/O, and randomization functions will allow users to spend less time re-writing the same code regularly and focus time on developing the logic for test execution.
+## GitIgnore
+The .gitignore file will automatically ignore all the result log files and not commit them to the repo.  It also is also ignoring the `__pycache__` and `.DS_Store` folders.
