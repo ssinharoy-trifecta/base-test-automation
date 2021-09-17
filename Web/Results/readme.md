@@ -1,6 +1,6 @@
 The Results folder is where all the .xml and .html files will be deposited when using the `-d results` command line 
 switch when running robot.  For example, the following files will be deposited when the following is run:
-`robot -d results RobotFramework/Tests/trial.robot`
+`robot -d results Web/Tests/trial.robot`
 	* log.html
 	* output.html
 	* report.html

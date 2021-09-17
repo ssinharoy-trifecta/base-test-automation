@@ -1,6 +1,6 @@
 *** Settings ***
 Library 	SeleniumLibrary
-Library 	RobotFramework/Libraries/random_email_generator.py
+Library 	Web/Libraries/random_email_generator.py
 
 *** Variables ***
 ${email}
