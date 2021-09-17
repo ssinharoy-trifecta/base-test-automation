@@ -25,6 +25,17 @@ use it, please run either of the following bash scripts.  There's one for ZSH an
 	* Bash: `RobotFrameworkSetup.sh`
 	* ZSH:  `RobotFrameworkSetup.zsh`
 
+The Bash scripts will:
+	* Install HomeBrew
+	* Install supporting programs
+	* Install PyEnv and the current Python version
+	* Update your PATH and PYTHONPATH system variables
+	* Pip Install the requirements.txt file
+	* Download and install Python 3.9.1
+
+For reference, we should always use Python 3.9.1 until we decide to change.  Robot Framework and it's supporting 
+counterparts are also locked to versions as specified in the requirements.txt file.  
+
 ## GitIgnore
 The .gitignore file will automatically ignore all the result log files and not commit them to the repo.  It also is 
 also ignoring the `__pycache__` and `.DS_Store` folders.
