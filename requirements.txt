@@ -7,9 +7,3 @@ robotframework-requests  == 0.9.1
 robotframework-seleniumlibrary  == 5.1.3
 robotframework-seleniumtestability  == 1.1.0
 robotframework-testrail  == 2.0.1
-
-robocorp-dialog  == 0.2.3
-rpaframework  == 11.1.2
-rpaframework-core  == 6.4.0
-rpaframework-dialogs ==  0.3.2
-rpaframework-pdf  == 0.8.0
