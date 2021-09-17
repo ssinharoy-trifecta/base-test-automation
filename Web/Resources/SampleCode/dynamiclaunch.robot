@@ -1,7 +1,7 @@
 # browser types are found here:
 # https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Open%20Browser
 # To run this, use:
-# robot -v plt:woo -v env:qa1 -v browser:ff RobotFramework/Resources/SampleCode/dynamiclaunch.robot
+# robot -v plt:woo -v env:qa1 -v browser:ff Web/Resources/SampleCode/dynamiclaunch.robot
 *** Settings ***
 Library 	SeleniumLibrary
 
