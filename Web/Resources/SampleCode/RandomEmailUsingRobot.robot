@@ -1,10 +1,6 @@
 *** Settings ***
 Library 	DateTime
 
-*** Variables ***
-# ${email-local}		Set Variable	selenium+
-# ${email-domain}		Set Variable	\@trifectanutrition.com
-
 *** Test Cases ***
 Log eMail
 	Log email address
