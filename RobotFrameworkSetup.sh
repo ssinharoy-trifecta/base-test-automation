@@ -1,39 +1,45 @@
 #!/bin/bash
-# Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-# Update path to point to Homebrew
-export PATH=/usr/local/opt/python/libexec/bin:$PATH
+# confirm that Python3 is installed on the system
+pythonVersion=$(python3 -V)
 
-# Install PyEnv, supporting PyEnv files, and Python3 
-brew install pyenv
-brew install python
-brew install openssl readline sqlite3 xz zlib
+if [[ "$pythonVersion" == 'Python 3'* ]]; then
+    echo "Python3 is installed";
+else
+    echo "Please install Python3 on this system";
+    exit;
+fi
 
-# Install Pip
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python get-pip.py
+# create virtual env
+python3 -m venv env
 
-# Update the Bash Profile
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
-echo 'eval "$(pyenv init --path)"' >> ~/.profile
-
-# Update Path and PythonPath System variables
-echo 'export PATH=${PWD}/SeleniumDrivers/mac:${PWD}/SeleniumDrivers/linux:${PWD}/SeleniumDrivers/win:/Library/Frameworks/Python.framework/Versions/3.9/bin:$PATH' >> ~/.profile
-echo 'export PYTHONPATH=${PWD}/RobotFramework:${PWD}/RobotFramework/Libraries:/Library/Frameworks/Python.framework/Versions/3.9/bin:$PYTHONPATH' >> ~/.profile
-
-# Enable AutoCompletion for PyEnv
-echo 'eval "$(pyenv init -)"' >> ~/.bashrc 
-
-# Enable PyEnv
-source ~/.profile
+# activate virtual env
+source env/bin/activate
 
 # Pip Install the items in the Requirements.txt file
 pip3 install -U -r requirements.txt
 
-# PyEnv install Python 3.9.1
-pyenv install 3.9.1
+# Move Selenium drivers into virtual environment location that is part of the PATH
+if [[ ${OSTYPE} == 'linux-gnu'* ]]; then
+    # move linux contents
+    cp -r SeleniumDrivers/linux/ env/bin
+elif [[ ${OSTYPE} == 'darwin'* ]]; then
+    # move mac contents
+    cp -r SeleniumDrivers/mac/ env/bin
+elif [[ ${OSTYPE} == 'cygwin'* || ${OSTYPE} == 'msys' ]]; then
+    # move win contents
+    cp -r SeleniumDrivers/win/ env/bin
+else 
+    echo "ERROR: Unknown OS type";
+fi
+echo "========================================================================"
+echo "A Python virtual environment has been created for you.
+This virtual environment contains all the python libraries required to run
+Robot test cases.
 
-# Set 3.9.1 as the Python Version
-pyenv global 3.9.1
+Make sure to activate the virtual environment by running in the terminal -
+\"source env/bin/activate\"
+
+When you are finished working make sure to deactivate by running -
+\"deactivate\""
+echo "========================================================================"
