@@ -7,8 +7,13 @@ Library         SeleniumLibrary
 *** Keywords ***
 Begin Browser Test
     Log     "Browser Test is starting!"
-    Open Browser  about:blank  chrome
+    Open Browser  ${URL}  ${BROWSER}
 
 End Browser Test
     Log     "Browser Test is ending!"
     Close Browser
+
+Begin Maximize Browser Test
+    Log     "Browser Test is starting at maximum size!"
+    # Needs to be implemented
+    
