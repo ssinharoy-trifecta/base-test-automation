@@ -2,12 +2,14 @@
 Library         SeleniumLibrary
 
 *** Variables ***
-
+${minicartBtn}  id = btn-minicart-close
+${checkoutBtn}  id = top-cart-btn-checkout
 
 *** Keywords ***
-Close cart
+Close_Cart
   sleep  1s
-  click button  id = btn-minicart-close
+  click button  ${minicartBtn}
 
-Go to checkout
-  Click button  id = top-cart-btn-checkout
+Go_To_Checkout
+  Click button  ${checkoutBtn}
+  Log  Continuing to checkout...

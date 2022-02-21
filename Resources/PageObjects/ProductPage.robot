@@ -2,30 +2,11 @@
 Library         SeleniumLibrary
 
 *** Variables ***
-
+${addToCartBtn}=  id = product-addtocart-button
 
 *** Keywords ***
-Add product to cart
+Add_Product_To_Cart
   Wait until page contains  Build your meal plan
-  Click button  id = product-addtocart-button
-  Sleep  2s
-
-Add multiple items to the cart  
-  Click button  id = product-addtocart-button
-  Sleep  2s
-  Click button  id = product-addtocart-button
-  Sleep  2s
-  Click button  id = product-addtocart-button
-  Sleep  2s
-  Click button  id = product-addtocart-button
-  Sleep  2s
-  Click button  id = product-addtocart-button
-  Sleep  2s
-  Click button  id = product-addtocart-button
-  Sleep  2s
-  Click button  id = product-addtocart-button
-  Sleep  2s
-  Click button  id = product-addtocart-button
-  Sleep  2s
-  Click button  id = product-addtocart-button
+  Click button  ${addToCartBtn}
+  Log  Added products to cart...
   Sleep  2s

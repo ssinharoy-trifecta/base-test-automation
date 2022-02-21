@@ -5,32 +5,33 @@ Library         SeleniumLibrary
 
 
 *** Keywords ***
-Navigate to App
+Navigate_To_App
   click link  App
 
-Navigate to FAQ
+Navigate_To_FAQ
   click link  FAQ
 
-Navigate to HealthArticles
+Navigate_To_Health_Articles
   click link  Resources
   click link  Health Articles
   sleep  2s
 
-Navigate to HowItWorks
+Navigate_To_How_It_Works
   click link  How It Works
 
-Navigate to NutritionArticles
+Navigate_To_Nutrition_Articles
   click link  Resources
   click link  Nutrition Articles
   sleep  2s
 
-Navigate to Testimonials
+Navigate_To_Testimonials
   click link  Testimonials
 
-Navigate to Tools
+Navigate_To_Tools
   click link  Resources
   click link  Tools
   sleep  2s
 
-Navigate to ProductSelector
+Navigate_To_Product_Selector
+  Log  Going to Product Selector from header button...
   click link  xpath = //*[@id="html-body"]/div[2]/header/div[1]/div[2]/ul/li/a
