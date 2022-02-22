@@ -15,5 +15,6 @@ End Browser Test
 
 Begin Maximize Browser Test
     Log     "Browser Test is starting at maximum size!"
-    # Needs to be implemented
+    Open Browser  ${URL}  ${BROWSER}
+    Set Window Size  2000  1600
     
