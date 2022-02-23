@@ -2,7 +2,7 @@
 Library         SeleniumLibrary
 
 *** Variables ***
-
+${minicartBtn}  xpath = //*[@id="html-body"]/div[2]/header/div[1]/div[2]/ul/li/a
 
 *** Keywords ***
 Navigate_To_App
@@ -34,4 +34,4 @@ Navigate_To_Tools
 
 Navigate_To_Product_Selector
   Log  Going to Product Selector from header button...
-  click link  xpath = //*[@id="html-body"]/div[2]/header/div[1]/div[2]/ul/li/a
+  click link  ${minicartBtn}

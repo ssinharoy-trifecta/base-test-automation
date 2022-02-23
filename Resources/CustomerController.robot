@@ -7,7 +7,6 @@ Resource        ./PageObjects/ProductPage.robot
 
 
 *** Variables ***
-${index}=  1
 
 *** Keywords ***
 User can get to checkout with a valid cart
