@@ -5,33 +5,33 @@ Library         SeleniumLibrary
 ${minicartBtn}  xpath = //*[@id="html-body"]/div[2]/header/div[1]/div[2]/ul/li/a
 
 *** Keywords ***
-Navigate_To_App
-  click link  App
+Navigate To App
+  Click Link    App
 
-Navigate_To_FAQ
-  click link  FAQ
+Navigate To FAQ
+  Click Link    FAQ
 
-Navigate_To_Health_Articles
-  click link  Resources
-  click link  Health Articles
-  sleep  2s
+Navigate To Health Articles
+  Click Link    Resources
+  Click Link    Health Articles
+  Sleep         2s
 
-Navigate_To_How_It_Works
-  click link  How It Works
+Navigate To How It Works
+  Click Link    How It Works
 
-Navigate_To_Nutrition_Articles
-  click link  Resources
-  click link  Nutrition Articles
-  sleep  2s
+Navigate To Nutrition Articles
+  Click Link    Resources
+  Click Link    Nutrition Articles
+  Sleep         2s
 
-Navigate_To_Testimonials
-  click link  Testimonials
+Navigate To Testimonials
+  Click Link    Testimonials
 
-Navigate_To_Tools
-  click link  Resources
-  click link  Tools
-  sleep  2s
+Navigate To Tools
+  Click Link    Resources
+  Click Link    Tools
+  Sleep         2s
 
-Navigate_To_Product_Selector
-  Log  Going to Product Selector from header button...
-  click link  ${minicartBtn}
+Navigate To Product Selector
+  Log           Going to Product Selector from header button...
+  Click Link    ${minicartBtn}
