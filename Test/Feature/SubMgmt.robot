@@ -19,3 +19,22 @@ Customer Can Get To Checkout
   # Close Browser
   End Browser Test
 
+Customer Can Create Account And Logout
+  [Documentation]  Customer can create a new account successfully.
+  [Tags]           Auth  Smoke
+  # Open Browser
+  Begin Browser Test
+  User Can Create A New Account
+  Logout From My Account
+  # Close Browser
+  End Browser Test
+
+Customer Can Login
+  [Documentation]  Customer can login as a previously created user.
+  [Tags]           Auth  Smoke
+  # Open Browser
+  Begin Browser Test
+  User Can Login
+  # Close Browser
+  End Browser Test
+
