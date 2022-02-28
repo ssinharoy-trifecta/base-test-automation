@@ -2,8 +2,8 @@
 Library                     SeleniumLibrary
 
 *** Variables ***
-${emailField1}              id = email
-${passwordField1}           id = pass
+${loginEmailField}          id = email
+${loginPassField}           id = pass
 ${password}                 F4rF4rAway
 
 *** Keywords ***
@@ -13,11 +13,11 @@ Click Create An Account Button
 
 Login As Registered Customer
   Wait Until Page Contains  Customer Login
-  Click Element             ${emailField1}
-  Input Text                ${emailField1}      ${TEST_EMAIL}
+  Click Element             ${loginEmailField}
+  Input Text                ${LoginEmailField}  ${TEST_EMAIL}
   Log                       ${TEST_EMAIL}
-  Click Element             ${passwordField1} 
-  Input Text                ${passwordField1}   ${password}
+  Click Element             ${loginPassField} 
+  Input Text                ${loginPassField}   ${password}
   Click Button              Sign In
   Wait Until Page Contains  My Account
   Sleep                     2s 
