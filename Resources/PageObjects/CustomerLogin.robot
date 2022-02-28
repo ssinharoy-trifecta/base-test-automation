@@ -14,7 +14,7 @@ Click Create An Account Button
 Login As Registered Customer
   Wait Until Page Contains  Customer Login
   Click Element             ${loginEmailField}
-  Input Text                ${LoginEmailField}  ${TEST_EMAIL}
+  Input Text                ${loginEmailField}  ${TEST_EMAIL}
   Log                       ${TEST_EMAIL}
   Click Element             ${loginPassField} 
   Input Text                ${loginPassField}   ${password}
