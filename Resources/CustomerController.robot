@@ -21,7 +21,6 @@ User Can Get To Checkout With A Valid Cart
 User Can Create A New Account
   Navigate To Account Redirects
   Click Create An Account Button
-  Sleep  3s
   Complete New Customer Form
 
 Logout From My Account

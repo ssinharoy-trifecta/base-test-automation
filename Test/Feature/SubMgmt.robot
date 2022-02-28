@@ -8,6 +8,7 @@ Resource           ../../Resources/CustomerController.robot
 *** Variables ***
 ${URL} =           https://test-magento-app-trifecta-qa1.trifecta.dev
 ${BROWSER} =       chrome
+${TEST_EMAIL}
 
 *** Test Cases ***
 Customer Can Get To Checkout
