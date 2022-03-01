@@ -21,7 +21,7 @@ Begin Maximize Browser Test
     Open Browser            ${URL}            ${BROWSER}
     Set Window Size         2000              1600
     
-Setup Global Variables
+Initialize Global Variables
     #Create new user with unique email string
     ${currentDate}=         Get Current Date  result_format=%m-%d-%y.%H.%M.%S.%s
     ${TEST_EMAIL}           Set Variable      selenium+${currentDate}\@trifectanutrition.com

@@ -2,7 +2,7 @@
 Documentation      These tests will cover general product catalog, subscription and coupon management use cases.
 Resource           ../../Resources/Common.robot
 Resource           ../../Resources/CustomerController.robot
-Suite Setup        Setup Global Variables
+Suite Setup        Initialize Global Variables
 
 # robot -d results test/Feature/SubMgmt.robot
 
