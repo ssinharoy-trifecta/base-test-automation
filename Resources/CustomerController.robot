@@ -12,13 +12,13 @@ Resource          ./PageObjects/CustomerLogin.robot
 *** Variables ***
 
 *** Keywords ***
-User Can Get To Checkout With A Valid Cart
+Go To Checkout With A Valid Cart
   Navigate To Product Selector
   Select Category And Go To Specific Product Page
   Repeat Keyword  10  Add Product To Cart
   Go To Checkout
 
-User Can Create A New Account
+Create A New Account
   Navigate To Account Redirects
   Click Create An Account Button
   Complete New Customer Form
@@ -26,6 +26,6 @@ User Can Create A New Account
 Logout From My Account
   Click Log Out
 
-User Can Login
+Login
   Navigate To Account Redirects
   Login As Registered Customer
