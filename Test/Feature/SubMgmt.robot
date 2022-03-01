@@ -2,6 +2,7 @@
 Documentation      These tests will cover general product catalog, subscription and coupon management use cases.
 Resource           ../../Resources/Common.robot
 Resource           ../../Resources/CustomerController.robot
+Suite Setup        Setup Global Variables
 
 # robot -d results test/Feature/SubMgmt.robot
 
@@ -10,10 +11,6 @@ ${URL} =           https://test-magento-app-trifecta-qa1.trifecta.dev
 ${BROWSER} =       chrome
 
 *** Test Cases ***
-Setup Test Variables
-  [Tags]           Auth  Smoke  Setup
-  Set Global TEST_EMAIL
-
 Test Customer Can Get To Checkout
   [Documentation]  Customer can add items to cart and proceed to checkout.
   [Tags]           Smoke

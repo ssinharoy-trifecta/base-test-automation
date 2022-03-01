@@ -19,7 +19,7 @@ Login As Registered Customer
   Click Element             ${loginPassField} 
   Input Text                ${loginPassField}   ${password}
   Click Button              Sign In
-  Wait Until Page Contains  My Account
+  Wait Until Page Contains  Log Out
   Sleep                     2s 
 
 
