@@ -31,9 +31,9 @@ Initialize Global Variables
 
 Scroll To Element
 	Documentation	
-  ...	This function addresses a MoveTargetOutOfBoundsException that occurs in Firefox when using 
-	...	the `Scroll Element Into View` keyword.  Please reference WEB-4456
-	[Arguments]             ${locator}
-	${x}=                   Get Horizontal Position   ${locator}
-	${y}=                   Get Vertical Position     ${locator}
-	Execute Javascript      window.scrollTo(${x}, ${y})
+  ... This function addresses a MoveTargetOutOfBoundsException that occurs in Firefox when using 
+  ... the `Scroll Element Into View` keyword.  Please reference WEB-4456
+  [Arguments]             ${locator}
+  ${x}=                   Get Horizontal Position   ${locator}
+  ${y}=                   Get Vertical Position     ${locator}
+  Execute Javascript      window.scrollTo(${x}, ${y})
