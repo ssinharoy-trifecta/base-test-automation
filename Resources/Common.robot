@@ -30,7 +30,7 @@ Initialize Global Variables
   Log                     ${TEST_EMAIL}
 
 Scroll To Element
-	Documentation	
+  Documentation	
   ... This function addresses a MoveTargetOutOfBoundsException that occurs in Firefox when using 
   ... the `Scroll Element Into View` keyword.  Please reference WEB-4456
   [Arguments]             ${locator}
