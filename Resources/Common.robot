@@ -28,6 +28,7 @@ Initialize Global Variables
     #Use same test email for other tests
     Set Global Variable     ${TEST_EMAIL}
     Log                     ${TEST_EMAIL}
+
 Scroll To Element
 	Documentation	
     ...	This function addresses a MoveTargetOutOfBoundsException that occurs in Firefox when using 
