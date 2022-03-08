@@ -14,11 +14,13 @@ ${MAGENTO_SHOP_HOME}      https://test-magento-app-trifecta-${ENV}.trifecta.dev/
 # This aids in generating dynamic eMail addresses for user creation
 ${TEST_EMAIL}
 ${currentDate}
+${urlForNavigation}       about:blank
 
 *** Keywords ***
 Begin Browser Test
+  [Arguments]             ${urlForNavigation}
   Log                     "Browser Test is starting!"
-  Open Browser            about:blank               ${BROWSER}
+  Open Browser            ${urlForNavigation}               ${BROWSER}
 
 End Browser Test
   Log                     "Browser Test is ending!"

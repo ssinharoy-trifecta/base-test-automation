@@ -14,14 +14,12 @@ Resource          ./PageObjects/ShopLandingPage.robot
 
 *** Keywords ***
 Go To Checkout With A Valid Cart
-  Navigate to Magento Shop Home
   Navigate To Product Selector
   Select Category And Go To Specific Product Page
   Repeat Keyword  10  Add Product To Cart
   Go To Checkout
 
 Create A New Account
-  Navigate to Magento Shop Home
   Navigate To Account Redirects
   Click Create An Account Button
   Complete New Customer Form
@@ -30,6 +28,5 @@ Logout From My Account
   Click Log Out
 
 Login
-  Navigate to Magento Shop Home
   Navigate To Account Redirects
   Login As Registered Customer
