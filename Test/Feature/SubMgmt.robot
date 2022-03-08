@@ -4,6 +4,16 @@ Documentation
 Resource            ../../Resources/Common.robot
 Resource            ../../Resources/CustomerController.robot
 Suite Setup         Initialize Global Variables
+
+Documentation
+...   The `Test Setup` and `Test Teardown` allows the script to create a new browser and close that
+...   browser each time a Test Case(below) is run.  It takes a keyword or a direct command to open 
+...   a browser with a location to navigate to.  This can be overridden at the individual test 
+...   case level to change the parameters set in the Settings section here.  Using the [Setup] and
+...   [Teardown] blocks inside the Test Case allows those items to be be overridden. 
+# TODO: Additional discussion how `Test Setup`, `Begin Browser Test` and `Begin Maximize Browser 
+# Test` are implemented. For example, should all tests be run at 1920 x 1024px browser size?
+# If so, these two keywords can be merged or should they remain standalone
 Test Setup          Begin Browser Test    ${MAGENTO_SHOP_HOME}
 Test Teardown       End Browser Test
 
