@@ -17,8 +17,6 @@ Test Customer Can Get To Checkout
   # Open Browser
   Begin Maximize Browser Test
   Go To Checkout With A Valid Cart
-  # Close Browser
-  End Browser Test
 
 Test Customer Can Create Account And Logout
   [Documentation]
@@ -28,8 +26,6 @@ Test Customer Can Create Account And Logout
   # Begin Browser Test
   Create A New Account
   Logout From My Account
-  # Close Browser
-  End Browser Test
 
 Test Customer Can Login
   [Documentation]
@@ -38,6 +34,3 @@ Test Customer Can Login
   # Open Browser
   # Begin Browser Test
   Login
-  # Close Browser
-  End Browser Test
-
