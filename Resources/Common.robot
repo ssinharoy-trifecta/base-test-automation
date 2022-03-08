@@ -18,10 +18,11 @@ ${currentDate}
 *** Keywords ***
 Begin Browser Test
   Log                     "Browser Test is starting!"
+  Open Browser            about:blank               ${BROWSER}
 
 End Browser Test
   Log                     "Browser Test is ending!"
-  Close Browser
+  Close All Browsers
 
 Begin Maximize Browser Test
   Log                     "Browser Test is starting at maximum size!"

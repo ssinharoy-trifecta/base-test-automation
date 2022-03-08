@@ -4,8 +4,8 @@ Documentation
 Resource            ../../Resources/Common.robot
 Resource            ../../Resources/CustomerController.robot
 Suite Setup         Initialize Global Variables
-Test Setup          Open Browser    about:blank   ${BROWSER}
-Test Teardown       Close All Browsers
+Test Setup          Begin Browser Test
+Test Teardown       End Browser Test
 
 *** Variables ***
 
@@ -25,7 +25,7 @@ Test Customer Can Create Account And Logout
   ...   Customer can create a new account successfully.
   [Tags]            Auth  Smoke
   # Open Browser
-  Begin Browser Test
+  # Begin Browser Test
   Create A New Account
   Logout From My Account
   # Close Browser
@@ -36,7 +36,7 @@ Test Customer Can Login
   ...   Customer can login as a previously created user.
   [Tags]            Auth  Smoke
   # Open Browser
-  Begin Browser Test
+  # Begin Browser Test
   Login
   # Close Browser
   End Browser Test
