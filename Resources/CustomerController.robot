@@ -1,5 +1,6 @@
 *** Settings ***
-Documentation     Common Keywords and Variables to be used across all customer flow features.
+Documentation
+...   Common Keywords and Variables to be used across all customer flow features.
 Resource          ./PageObjects/Cart.robot
 Resource          ./PageObjects/ProductSelector.robot
 Resource          ./PageObjects/TopNav.robot
@@ -7,7 +8,7 @@ Resource          ./PageObjects/ProductPage.robot
 Resource          ./PageObjects/CustomerAccount.robot
 Resource          ./PageObjects/CustomerCreate.robot
 Resource          ./PageObjects/CustomerLogin.robot
-
+Resource          ./PageObjects/ShopLandingPage.robot
 
 *** Variables ***
 

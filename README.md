@@ -1,7 +1,6 @@
 # Introduction
-This is the **base-test-automation** repository. It contains a plethora of Robot specific test scripts.  
-Robot Framework is a generic open source automation framework. It can be used for test automation and robotic process 
-automation (RPA).  
+This is the **base-test-automation** repository. Test scripts are created using Robot Framework, which is a generic open 
+source test automation framework. 
 [robotframework.org](https://robotframework.org/)
 
 We will be using the Robot framework to write test cases that will in turn use a Selenium library to emulate an end user
@@ -80,3 +79,11 @@ should be uploaded to our test management SaaS - TestRail.
 ### Robot Framework
 For reference, we should always use Python 3.9.1 until we decide to change.  Robot Framework and it's supporting 
 counterparts are also locked to versions as specified in the requirements.txt file.  
+
+## Launching Robot Framework Scripts
+Scripts can be launched with the following Command Line Interface parameters:
+- Environment: `-v env:qa1`
+- Browser: `-v browser:ff`
+- Results Directory: `-d Results`
+Example: 
+`robot -v env:qa3 -v browser:ff -d results test/Feature/SubMgmt.robot`

@@ -1,41 +1,41 @@
 *** Settings ***
-Documentation      These tests will cover general product catalog, subscription and coupon management use cases.
-Resource           ../../Resources/Common.robot
-Resource           ../../Resources/CustomerController.robot
-Suite Setup        Initialize Global Variables
+Documentation
+...   These tests will cover general product catalog, subscription and coupon management use cases.
+...   The `Test Setup` and `Test Teardown` allows the script to create a new browser and close that
+...   browser each time a Test Case(below) is run.  It takes a keyword or a direct command to open 
+...   a browser with a location to navigate to.  This can be overridden at the individual test 
+...   case level to change the parameters set in the Settings section here.  Using the [Setup] and
+...   [Teardown] blocks inside the Test Case allows those items to be be overridden. 
+# TODO: Additional discussion how `Test Setup`, `Begin Browser Test` and `Begin Maximize Browser 
+# Test` are implemented. For example, should all tests be run at 1920 x 1024px browser size?
+# If so, these two keywords can be merged or should they remain standalone
 
-# robot -d results test/Feature/SubMgmt.robot
+Resource            ../../Resources/Common.robot
+Resource            ../../Resources/CustomerController.robot
+Suite Setup         Initialize Global Variables
+
+Test Setup          Begin Browser Test    ${MAGENTO_SHOP_HOME}
+Test Teardown       End Browser Test
 
 *** Variables ***
-${URL} =           https://test-magento-app-trifecta-qa1.trifecta.dev
-${BROWSER} =       chrome
 
 *** Test Cases ***
 Test Customer Can Get To Checkout
-  [Documentation]  Customer can add items to cart and proceed to checkout.
-  [Tags]           Smoke
-  # Open Browser
+  [Documentation]
+  ...   Customer can add items to cart and proceed to checkout.
+  [Tags]            Smoke
   Begin Maximize Browser Test
   Go To Checkout With A Valid Cart
-  # Close Browser
-  End Browser Test
 
 Test Customer Can Create Account And Logout
-  [Documentation]  Customer can create a new account successfully.
-  [Tags]           Auth  Smoke
-  # Open Browser
-  Begin Browser Test
+  [Documentation]
+  ...   Customer can create a new account successfully.
+  [Tags]            Auth  Smoke
   Create A New Account
   Logout From My Account
-  # Close Browser
-  End Browser Test
 
 Test Customer Can Login
-  [Documentation]  Customer can login as a previously created user.
-  [Tags]           Auth  Smoke
-  # Open Browser
-  Begin Browser Test
+  [Documentation]
+  ...   Customer can login as a previously created user.
+  [Tags]            Auth  Smoke
   Login
-  # Close Browser
-  End Browser Test
-
