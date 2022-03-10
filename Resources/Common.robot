@@ -33,6 +33,7 @@ Begin Maximize Browser Test
 Initialize Test Scoped Variables
   Documentation	
   ...   Create new user with unique email string.  This global variable is scoped to the Test Case
+  # TODO: Provide ability to make this accept commandline parameters
   ${currentDate}=               Get Current Date          result_format=%m-%d-%y.%H.%M.%S.%s
   Generate New eMail Address    ${currentDate}
   Log                           ${UNIQUE_EMAIL_TEST_SCOPED}
