@@ -12,8 +12,6 @@ Documentation
 
 Resource            ../../Resources/Common.robot
 Resource            ../../Resources/CustomerController.robot
-Suite Setup         Initialize Global Variables
-
 Test Setup          Begin Browser Test    ${MAGENTO_SHOP_HOME}
 Test Teardown       End Browser Test
 

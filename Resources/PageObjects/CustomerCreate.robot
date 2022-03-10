@@ -12,6 +12,7 @@ ${password}                 F4rF4rAway
 ${passwordConfirmField}     id = password-confirmation    
 ${createAccountBtn}         xpath = //*[@id="form-validate"]/div/div[1]/button
 ${createValidationText}     Create New Customer Account
+${uniqueData}               TestTestTest
 
 *** Keywords ***
 Complete New Customer Form
@@ -30,3 +31,14 @@ Complete New Customer Form
   Sleep                     2s
   Click Button              ${createAccountBtn} 
   Wait Until Page Contains  My Account
+  
+Generate New eMail Address
+  [Documentation]
+  ...   This is a Test Case scoped global variable and can be reference anywhere in a given test
+  ...   case.  Should this value need to be scoped larger than that, this can be re-scoped to use
+  ...   a Test Suite or Global scope using `Set Suite Variable` or `Set Global Variable` 
+  ...   respectively.  This should be executed at the Test Case level and should be used sparingly
+  [Arguments]               ${uniqueData}
+  ${generatedEmail}         Set Variable                  selenium+${uniqueData}\@trifectanutrition.com
+  Set Test Variable         ${UNIQUE_EMAIL_TEST_SCOPED}            ${generatedEmail}
+  Log                       ${UNIQUE_EMAIL_TEST_SCOPED}
