@@ -1,5 +1,6 @@
 *** Settings ***
 Library                     SeleniumLibrary
+Library                     DateTime
 
 *** Variables ***
 ${firstNameField}           id = firstname
@@ -7,15 +8,16 @@ ${firstName}                Elden
 ${lastNameField}            id = lastname
 ${lastName}                 Ring
 ${emailField}               id = email_address
+${emailAddress}             Generate New eMail Address
 ${passwordField}            id = password
 ${password}                 F4rF4rAway
 ${passwordConfirmField}     id = password-confirmation    
 ${createAccountBtn}         xpath = //*[@id="form-validate"]/div/div[1]/button
 ${createValidationText}     Create New Customer Account
-${uniqueData}               TestTestTest
 
 *** Keywords ***
 Complete New Customer Form
+  #TODO: Refactor hardcoded values to allow values to be passed in
   Wait Until Page Contains  ${createValidationText}
   #Input form
   Click Element             ${firstNameField}
@@ -23,7 +25,7 @@ Complete New Customer Form
   Click Element             ${lastNameField}
   Input Text                ${lastNameField}              ${lastName}
   Click Element             ${emailField}
-  Input Text                ${emailField}                 ${TEST_EMAIL}
+  Input Text                ${emailField}                 ${emailAddress}
   Click Element             ${passwordField}
   Input Text                ${passwordField}              ${password}
   Click Element             ${passwordConfirmField}
@@ -34,11 +36,7 @@ Complete New Customer Form
   
 Generate New eMail Address
   [Documentation]
-  ...   This is a Test Case scoped global variable and can be reference anywhere in a given test
-  ...   case.  Should this value need to be scoped larger than that, this can be re-scoped to use
-  ...   a Test Suite or Global scope using `Set Suite Variable` or `Set Global Variable` 
-  ...   respectively.  This should be executed at the Test Case level and should be used sparingly
-  [Arguments]               ${uniqueData}
-  ${generatedEmail}         Set Variable                  selenium+${uniqueData}\@trifectanutrition.com
-  Set Test Variable         ${UNIQUE_EMAIL_TEST_SCOPED}   ${generatedEmail}
-  Log                       ${UNIQUE_EMAIL_TEST_SCOPED}
+  ...   This creates a unique eMail based on DateTime
+  ${currentDate}=           Get Current Date              result_format=%m-%d-%y.%H.%M.%S.%s
+  ${generatedEmail}         Set Variable                  selenium+${currentDate}\@trifectanutrition.com
+  [return]                  ${generatedEmail}
