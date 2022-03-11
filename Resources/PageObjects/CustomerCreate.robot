@@ -19,15 +19,15 @@ Complete New Customer Form
   Wait Until Page Contains  ${createValidationText}
   #Input form
   Click Element             ${firstNameField}
-  Input Text                ${firstNameField}        ${firstName}
+  Input Text                ${firstNameField}             ${firstName}
   Click Element             ${lastNameField}
-  Input Text                ${lastNameField}         ${lastName}
+  Input Text                ${lastNameField}              ${lastName}
   Click Element             ${emailField}
-  Input Text                ${emailField}            ${TEST_EMAIL}
+  Input Text                ${emailField}                 ${TEST_EMAIL}
   Click Element             ${passwordField}
-  Input Text                ${passwordField}         ${password}
+  Input Text                ${passwordField}              ${password}
   Click Element             ${passwordConfirmField}
-  Input Text                ${passwordConfirmField}  ${password}
+  Input Text                ${passwordConfirmField}       ${password}
   Sleep                     2s
   Click Button              ${createAccountBtn} 
   Wait Until Page Contains  My Account
@@ -40,5 +40,5 @@ Generate New eMail Address
   ...   respectively.  This should be executed at the Test Case level and should be used sparingly
   [Arguments]               ${uniqueData}
   ${generatedEmail}         Set Variable                  selenium+${uniqueData}\@trifectanutrition.com
-  Set Test Variable         ${UNIQUE_EMAIL_TEST_SCOPED}            ${generatedEmail}
+  Set Test Variable         ${UNIQUE_EMAIL_TEST_SCOPED}   ${generatedEmail}
   Log                       ${UNIQUE_EMAIL_TEST_SCOPED}

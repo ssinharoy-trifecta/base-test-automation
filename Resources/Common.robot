@@ -19,7 +19,7 @@ ${urlForNavigation}             about:blank
 Begin Browser Test
   [Arguments]                   ${urlForNavigation}
   Log                           "Browser Test is starting!"
-  Open Browser                  ${urlForNavigation}               ${BROWSER}
+  Open Browser                  ${urlForNavigation}       ${BROWSER}
   Initialize Test Scoped Variables
 
 End Browser Test
