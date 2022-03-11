@@ -1,13 +1,10 @@
 *** Settings ***
 
-
 Library    AppiumLibrary
 Library    BuiltIn
 Resource    ../../base-test-automation/Resources/MobileResources/iOSElements.robot
 
-
 *** Test Cases ***
-
 
 Test Launch Trifecta Application
     Open Application  remote_url=http://hub-cloud.browserstack.com/wd/hub  browserstack.user=tylerthomas6  browserstack.key=FQtVoY5xMMxVa9bh1c1Z  app=bs://2c8a853b0ed25d819fd6a76cbca8f3b1f5a15a51  device=iPhone 13 mini  os_version=15  project=iOS Test Run  build=browserstack-build-1  name=iOS_Test_Run  browserstack.idleTimeout=30
@@ -36,8 +33,8 @@ Test Shop Dashboard UI
     Page Should Contain Element          ${currentSubscriptionTxt}
     Wait Until Page Contains Element     ${nextDeliveryTxt}            timeout=30
     Page Should Contain Element          ${nextDeliveryTxt}
-    Wait Until Page Contains Element     ${fAQTxt}                     timeout=30
-    Page Should Contain Element          ${fAQTxt}
+    Wait Until Page Contains Element     ${faqTxt}                     timeout=30
+    Page Should Contain Element          ${faqTxt}
     Wait Until Page Contains Element     ${subscriptionDetailsTxt}     timeout=30
     Page Should Contain Element          ${subscriptionDetailsTxt}
     Wait Until Element Is Visible        ${shopCloseBtn}
@@ -48,10 +45,3 @@ Test Log Out Using Logout Button
     Click Element                        ${mainMenuBtn}
     Scroll Down                          ${logoutBtn}
     Click Element                        ${logoutBtn}
-
-    
-
-    
-    #[Teardown]    Run Keyword If        'Test Log Out Using Logout Button' == 'PASS'    driver.execute_script='browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed", "reason": "reason"}}'
-   
-   #Run Keyword If    'Test Log Out Using Logout Button' == 'PASS'    Browserstack Results
