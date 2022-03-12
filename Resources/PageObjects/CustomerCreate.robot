@@ -8,7 +8,6 @@ ${firstName}                Elden
 ${lastNameField}            id = lastname
 ${lastName}                 Ring
 ${emailField}               id = email_address
-${emailAddress}             Generate New eMail Address
 ${passwordField}            id = password
 ${password}                 F4rF4rAway
 ${passwordConfirmField}     id = password-confirmation    
@@ -18,6 +17,7 @@ ${createValidationText}     Create New Customer Account
 *** Keywords ***
 Complete New Customer Form
   #TODO: Refactor hardcoded values to allow values to be passed in
+  ${emailAddress}           Generate New eMail Address
   Wait Until Page Contains  ${createValidationText}
   #Input form
   Click Element             ${firstNameField}
