@@ -11,11 +11,11 @@ Click Create An Account Button
   Click Link                  Create an Account
 
 Login As Registered Customer
-  [Arguments]                 ${CREATED_EMAIL}    ${password}
+  [Arguments]                 ${testCaseEmail}    ${password}
   Wait Until Page Contains    Customer Login
   Click Element               ${loginEmailField}
-  Input Text                  ${loginEmailField}  ${CREATED_EMAIL}
-  Log                         ${CREATED_EMAIL}
+  Input Text                  ${loginEmailField}  ${testCaseEmail}
+  Log                         ${testCaseEmail}
   Click Element               ${loginPassField} 
   Input Text                  ${loginPassField}   ${password}
   Click Button                Sign In

@@ -12,15 +12,15 @@ Documentation
 
 Resource                  ../../Resources/Common.robot
 Resource                  ../../Resources/CustomerController.robot
+Resource                  ../../Resources/PageObjects/CustomerCreate.robot
 Test Setup                Begin Browser Test    ${MAGENTO_SHOP_HOME}
 Test Teardown             End Browser Test
 
 *** Variables ***
-${CREATED_EMAIL}          #defaultEmail@trifectanutrition.com
-${testCaseEmail}
+${testCaseEmail}          selenium+03-15-22.12.47.04.1647373624@trifectanutrition.com
 ${firstName}              Elden
 ${lastName}               Ring
-${password}               F4rF4rAway
+${password}               tester123!
 
 *** Test Cases ***
 Test Customer Can Get To Checkout
@@ -34,15 +34,18 @@ Test Customer Can Create Account And Logout
   [Documentation]
   ...   Customer can create a new account successfully.
   [Tags]                  Auth                  Smoke
-  ${testCaseEmail}        Create A New Account  ${firstName}  ${lastName}   ${password}
+  # Generate a new user and eMail account for the test case
+  ${testCaseEmail}        Generate New eMail Address
+  Create A New Account    ${firstName}          ${lastName}   ${testCaseEmail}   ${password}
   Log   ${testCaseEmail}
-  #TODO: Do we need to return the eMail address here?
   Logout From My Account
-  [Return]   ${CREATED_EMAIL}        Set Variable    ${testCaseEmail}
+  # Log back in as the newly created user
+  Login                   ${testCaseEmail}      ${password}
+  Logout From My Account
 
 Test Customer Can Login
   [Documentation]
   ...   Customer can login as a previously created user.  Can be overridden 
   ...   at the CommandLine
   [Tags]                  Auth                  Smoke
-  Login                   ${CREATED_EMAIL}      ${password}
+  Login                   ${testCaseEmail}      ${password}

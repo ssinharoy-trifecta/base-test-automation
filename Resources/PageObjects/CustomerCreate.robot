@@ -13,10 +13,7 @@ ${createValidationText}     Create New Customer Account
 
 *** Keywords ***
 Complete New Customer Form
-  [Arguments]               ${firstName}                  ${lastName}   ${password}
-  #TODO: Refactor hardcoded values to allow values to be passed in
-  #TODO: Can we just setup a new function to set the variable at the suite level?
-  ${emailAddress}           Generate New eMail Address
+  [Arguments]               ${firstName}                  ${lastName}   ${testCaseEmail}   ${password}
   Wait Until Page Contains  ${createValidationText}
   #Input form
   Click Element             ${firstNameField}
@@ -24,7 +21,7 @@ Complete New Customer Form
   Click Element             ${lastNameField}
   Input Text                ${lastNameField}              ${lastName}
   Click Element             ${emailField}
-  Input Text                ${emailField}                 ${emailAddress}
+  Input Text                ${emailField}                 ${testCaseEmail}
   Click Element             ${passwordField}
   Input Text                ${passwordField}              ${password}
   Click Element             ${passwordConfirmField}
@@ -32,7 +29,6 @@ Complete New Customer Form
   Sleep                     2s
   Click Button              ${createAccountBtn} 
   Wait Until Page Contains  My Account
-  [Return]                  ${emailAddress}
   
 Generate New eMail Address
   [Documentation]
