@@ -10,30 +10,39 @@ Documentation
 # Test` are implemented. For example, should all tests be run at 1920 x 1024px browser size?
 # If so, these two keywords can be merged or should they remain standalone
 
-Resource            ../../Resources/Common.robot
-Resource            ../../Resources/CustomerController.robot
-Test Setup          Begin Browser Test    ${MAGENTO_SHOP_HOME}
-Test Teardown       End Browser Test
+Resource                  ../../Resources/Common.robot
+Resource                  ../../Resources/CustomerController.robot
+Test Setup                Begin Browser Test    ${MAGENTO_SHOP_HOME}
+Test Teardown             End Browser Test
 
 *** Variables ***
+${CREATED_EMAIL}          #defaultEmail@trifectanutrition.com
+${testCaseEmail}
+${firstName}              Elden
+${lastName}               Ring
+${password}               F4rF4rAway
 
 *** Test Cases ***
 Test Customer Can Get To Checkout
   [Documentation]
   ...   Customer can add items to cart and proceed to checkout.
-  [Tags]            Smoke
+  [Tags]                  Smoke
   Begin Maximize Browser Test
   Go To Checkout With A Valid Cart
 
 Test Customer Can Create Account And Logout
   [Documentation]
   ...   Customer can create a new account successfully.
-  [Tags]            Auth  Smoke
-  Create A New Account
+  [Tags]                  Auth                  Smoke
+  ${testCaseEmail}        Create A New Account  ${firstName}  ${lastName}   ${password}
+  Log   ${testCaseEmail}
+  #TODO: Do we need to return the eMail address here?
   Logout From My Account
+  [Return]   ${CREATED_EMAIL}        Set Variable    ${testCaseEmail}
 
 Test Customer Can Login
   [Documentation]
-  ...   Customer can login as a previously created user.
-  [Tags]            Auth  Smoke
-  Login
+  ...   Customer can login as a previously created user.  Can be overridden 
+  ...   at the CommandLine
+  [Tags]                  Auth                  Smoke
+  Login                   ${CREATED_EMAIL}      ${password}
