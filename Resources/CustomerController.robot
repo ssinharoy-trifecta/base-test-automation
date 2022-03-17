@@ -24,7 +24,6 @@ Create A New Account
   Navigate To Account Redirects
   Click Create An Account Button
   Complete New Customer Form    ${firstName}      ${lastName}   ${testCaseEmail}   ${password}
-  # [Return]                      ${emailAddress}
 
 Logout From My Account
   Click Log Out
