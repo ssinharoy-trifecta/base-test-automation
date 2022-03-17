@@ -3,7 +3,7 @@
 
 Library    AppiumLibrary
 Library    BuiltIn
-Resource    ../../base-test-automation/Resources/MobileResources/iOSElements.robot
+Resource   ${EXECDIR}//Resources/MobileResources/iOSElements.robot
 
 
 *** Test Cases ***
