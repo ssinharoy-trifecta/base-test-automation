@@ -6,6 +6,12 @@ Documentation
 ...   a browser with a location to navigate to.  This can be overridden at the individual test 
 ...   case level to change the parameters set in the Settings section here.  Using the [Setup] and
 ...   [Teardown] blocks inside the Test Case allows those items to be be overridden. 
+...   Command Line Parameters:
+...   - Environment: `-v env:qa1`
+...   - Browser: `-v browser:ff`
+...   - Existing User Login: `-v testCaseEmail:overriddenEmailAddress@trifectanutrition.com`
+...   - Existing User Password: `-v password:OverRiddenPa$$word123`
+...   - Results Directory: `-d Results`
 # TODO: Additional discussion how `Test Setup`, `Begin Browser Test` and `Begin Maximize Browser 
 # Test` are implemented. For example, should all tests be run at 1920 x 1024px browser size?
 # If so, these two keywords can be merged or should they remain standalone
