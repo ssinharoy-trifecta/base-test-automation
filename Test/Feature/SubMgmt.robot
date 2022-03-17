@@ -36,7 +36,9 @@ Test Customer Can Create Account And Logout
   [Tags]                  Auth                  Smoke
   # Generate a new user and eMail account for the test case
   ${testCaseEmail}        Generate New eMail Address
-  Create A New Account    ${firstName}          ${lastName}   ${testCaseEmail}   ${password}
+  Create A New Account
+  ...   ${firstName}      ${lastName}
+  ...   ${testCaseEmail}  ${password}
   Log   ${testCaseEmail}
   Logout From My Account
   # Log back in as the newly created user

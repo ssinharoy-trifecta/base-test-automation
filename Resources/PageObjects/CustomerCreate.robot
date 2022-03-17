@@ -13,7 +13,9 @@ ${createValidationText}     Create New Customer Account
 
 *** Keywords ***
 Complete New Customer Form
-  [Arguments]               ${firstName}                  ${lastName}   ${testCaseEmail}   ${password}
+  [Arguments]
+  ...   ${firstName}        ${lastName}
+  ...   ${testCaseEmail}    ${password}
   Wait Until Page Contains  ${createValidationText}
   #Input form
   Click Element             ${firstNameField}
