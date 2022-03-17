@@ -10,8 +10,8 @@ Documentation
 # Test` are implemented. For example, should all tests be run at 1920 x 1024px browser size?
 # If so, these two keywords can be merged or should they remain standalone
 
-Resource            ${EXECDIR}/Resources/Common.robot
-Resource            ${EXECDIR}/Resources/CustomerController.robot
+Resource            ${EXECDIR}/Resources/Common/Common.robot
+Resource            ${EXECDIR}/Resources/Common/CustomerController.robot
 Test Setup          Begin Browser Test    ${MAGENTO_SHOP_HOME}
 Test Teardown       End Browser Test
 
