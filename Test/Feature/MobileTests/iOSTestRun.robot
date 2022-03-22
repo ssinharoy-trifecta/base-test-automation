@@ -28,23 +28,25 @@ Test Launch Trifecta Application
     # ...                 deviceName=iPhone 13 mini
     # ...                 automationName=XCUITest
 
+#THIS WILL CHECK IF IOS NATIVE ALERT EXISTS AND CLICK ON 'ALLOW' BUTTON IF IT DOES
 Test Check for Data Alert
     Sleep                    3
-    ${ALERT}                 Run Keyword And Return Status    Page Should Not Contain Element    ${allowBtn}    timeout=10
-    Run Keyword If           '${ALERT}' == 'False'    Click Element    ${allowBtn}
+    ${alert}                 Run Keyword And Return Status    Page Should Not Contain Element    ${allowBtn}    timeout=10
+    Run Keyword If           '${alert}' == 'False'    Click Element    ${allowBtn}
 
 Test Sign In With Existing User
     Wait Until Element Is Visible    ${getStartedBtn}    timeout=30
     Click Element                    ${getStartedBtn}
     Wait Until Element Is Visible    ${emailField}    timeout=30
-    Input Text                       ${emailField}    ${TESTUSER1_DETAILS}
-    Input Text                       ${passwordField}    ${TESTUSER1_PASSWORD}
+    Input Text                       ${emailField}    ${testUserEmail}
+    Input Text                       ${passwordField}    ${testUserPassword}
     Click Element                    ${signInBtn}
 
+#THIS WILL CHECK IF IOS NATIVE ALERT EXISTS AND CLICK ON 'ALLOW' BUTTON IF IT DOES
 Test Check For Notifications Alert
     Sleep                    3
-    ${ALERT2}                Run Keyword And Return Status    Page Should Not Contain Element    ${allowBtn}    timeout=10
-    Run Keyword If           '${ALERT2}' == 'False'    Click Element    ${allowBtn}
+    ${alert2}                Run Keyword And Return Status    Page Should Not Contain Element    ${allowBtn}    timeout=10
+    Run Keyword If           '${alert2}' == 'False'    Click Element    ${allowBtn}
 
 Test Shop Dashboard UI
     Wait Until Element Is Visible        ${shopBtn}    timeout=30

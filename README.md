@@ -90,5 +90,5 @@ Example:
 
 ## Launching iOS Test Run on Browserstack
 Run the following command in order to launch and run iOS Test Run on BrowserStack emulator
-`robot -d Test/Feature/Results/iOSTestResults Test/Feature/MobileTests/iOSTestRun.robot`
+`robot -d Results/iOSTestResults Test/Feature/MobileTests/iOSTestRun.robot`
 - results will be outputted in Results/iOSTestResults folder
