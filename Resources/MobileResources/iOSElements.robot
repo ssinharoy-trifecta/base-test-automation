@@ -6,7 +6,7 @@ Library    AppiumLibrary
 
 #Text Variables
 
-${testUserEmail}     trifectatester2@gmail.com
+${testUserEmail}       trifectatester2@gmail.com
 ${testUserPassword}    tester123
 
 #Warnings
