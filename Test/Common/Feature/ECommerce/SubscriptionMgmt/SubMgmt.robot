@@ -48,7 +48,6 @@ Test Customer Can Create Account And Logout
   Create A New Account
   ...   ${firstName}      ${lastName}
   ...   ${testCaseEmail}  ${password}
-  Log   ${testCaseEmail}
   Logout From My Account
   # Log back in as the newly created user
   Login                   ${testCaseEmail}      ${password}
