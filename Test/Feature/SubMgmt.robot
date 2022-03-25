@@ -40,8 +40,11 @@ Test Customer Can Create Account And Logout
   [Documentation]
   ...   Customer can create a new account successfully.
   [Tags]                  Auth                  Smoke
-  # Generate a new user and eMail account for the test case
-  ${testCaseEmail}        Generate New eMail Address
+  # Generate a new user and eMail account for the test case it not passed in
+  IF    '${testCaseEmail}' == 'selenium+03-15-22.12.47.04.1647373624@trifectanutrition.com'
+          ${testCaseEmail} =    Generate New eMail Address
+          Log                   ${testCaseEmail}
+  END
   Create A New Account
   ...   ${firstName}      ${lastName}
   ...   ${testCaseEmail}  ${password}

@@ -20,7 +20,7 @@ Go To Checkout With A Valid Cart
   Go To Checkout
 
 Create A New Account
-  [Arguments]                   ${firstName}      ${lastName}   ${testCaseEmail}
+  [Arguments]                   ${firstName}      ${lastName}   ${testCaseEmail}   ${password}
   Navigate To Account Redirects
   Click Create An Account Button
   Complete New Customer Form    ${firstName}      ${lastName}   ${testCaseEmail}   ${password}
