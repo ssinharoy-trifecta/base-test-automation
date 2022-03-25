@@ -16,17 +16,19 @@ Resource          ${EXECDIR}/Resources/Common/ECommerce/Checkout/Cart.robot
 Go To Checkout With A Valid Cart
   Navigate To Product Selector
   Select Category And Go To Specific Product Page
-  Repeat Keyword  10  Add Product To Cart
+  Repeat Keyword                10                Add Product To Cart
   Go To Checkout
 
 Create A New Account
+  [Arguments]                   ${firstName}      ${lastName}   ${testCaseEmail}   ${password}
   Navigate To Account Redirects
   Click Create An Account Button
-  Complete New Customer Form
+  Complete New Customer Form    ${firstName}      ${lastName}   ${testCaseEmail}   ${password}
 
 Logout From My Account
   Click Log Out
 
 Login
+  [Arguments]                   ${testCaseEmail}   ${password}
   Navigate To Account Redirects
-  Login As Registered Customer
+  Login As Registered Customer  ${testCaseEmail}   ${password}
