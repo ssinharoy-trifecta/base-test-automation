@@ -1,14 +1,14 @@
 *** Settings ***
 Documentation
 ...   Common Keywords and Variables to be used across all customer flow features.
-Resource          ./PageObjects/Cart.robot
-Resource          ./PageObjects/ProductSelector.robot
-Resource          ./PageObjects/TopNav.robot
-Resource          ./PageObjects/ProductPage.robot
-Resource          ./PageObjects/CustomerAccount.robot
-Resource          ./PageObjects/CustomerCreate.robot
-Resource          ./PageObjects/CustomerLogin.robot
-Resource          ./PageObjects/ShopLandingPage.robot
+Resource                        ./PageObjects/Cart.robot
+Resource                        ./PageObjects/ProductSelector.robot
+Resource                        ./PageObjects/TopNav.robot
+Resource                        ./PageObjects/ProductPage.robot
+Resource                        ./PageObjects/CustomerAccount.robot
+Resource                        ./PageObjects/CustomerCreate.robot
+Resource                        ./PageObjects/CustomerLogin.robot
+Resource                        ./PageObjects/ShopLandingPage.robot
 
 *** Variables ***
 
@@ -16,17 +16,19 @@ Resource          ./PageObjects/ShopLandingPage.robot
 Go To Checkout With A Valid Cart
   Navigate To Product Selector
   Select Category And Go To Specific Product Page
-  Repeat Keyword  10  Add Product To Cart
+  Repeat Keyword                10                Add Product To Cart
   Go To Checkout
 
 Create A New Account
+  [Arguments]                   ${firstName}      ${lastName}   ${testCaseEmail}   ${password}
   Navigate To Account Redirects
   Click Create An Account Button
-  Complete New Customer Form
+  Complete New Customer Form    ${firstName}      ${lastName}   ${testCaseEmail}   ${password}
 
 Logout From My Account
   Click Log Out
 
 Login
+  [Arguments]                   ${testCaseEmail}   ${password}
   Navigate To Account Redirects
-  Login As Registered Customer
+  Login As Registered Customer  ${testCaseEmail}   ${password}
