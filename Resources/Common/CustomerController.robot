@@ -1,14 +1,14 @@
 *** Settings ***
 Documentation
 ...   Common Keywords and Variables to be used across all customer flow features.
-Resource          ${EXECDIR}/Resources/Common/Authentication/CustomerCreate.robot
-Resource          ${EXECDIR}/Resources/Common/Authentication/CustomerLogin.robot
-Resource          ${EXECDIR}/Resources/Common/Authentication/Account/CustomerAccount.robot
-Resource          ${EXECDIR}/Resources/Common/ECommerce/TopNav.robot
-Resource          ${EXECDIR}/Resources/Common/ECommerce/Catalog/ProductPage.robot
-Resource          ${EXECDIR}/Resources/Common/ECommerce/Catalog/ProductSelector.robot
-Resource          ${EXECDIR}/Resources/Common/ECommerce/Catalog/ShopLandingPage.robot
-Resource          ${EXECDIR}/Resources/Common/ECommerce/Checkout/Cart.robot
+Resource          ../../Resources/Common/Authentication/CustomerCreate.robot
+Resource          ../../Resources/Common/Authentication/CustomerLogin.robot
+Resource          ../../Resources/Common/Authentication/Account/CustomerAccount.robot
+Resource          ../../Resources/Common/ECommerce/TopNav.robot
+Resource          ../../Resources/Common/ECommerce/Catalog/ProductPage.robot
+Resource          ../../Resources/Common/ECommerce/Catalog/ProductSelector.robot
+Resource          ../../Resources/Common/ECommerce/Catalog/ShopLandingPage.robot
+Resource          ../../Resources/Common/ECommerce/Checkout/Cart.robot
 
 *** Variables ***
 

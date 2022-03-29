@@ -2,7 +2,7 @@
 Documentation
 ...   Common Keywords and Variables to be used across all Features
 Library                         SeleniumLibrary
-Resource                        ${EXECDIR}/Resources/Common/Authentication/CustomerCreate.robot
+Resource                        ../../Resources/Common/Authentication/CustomerCreate.robot
 
 *** Variables ***
 # This allows you to submit which browser you want to leverage, but the default is Chrome

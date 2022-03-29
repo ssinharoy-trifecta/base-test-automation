@@ -1,14 +1,14 @@
 *** Settings ***
 Documentation   Test cases for Store Management Feature of the ECommerce Product
 Library         SeleniumLibrary
-Resource        ${EXECDIR}/Resources/Common/Common.robot
+Resource        ../../../../../Resources/Common/Common.robot
 
 *** Variables ***
 
 *** Test Cases ***
 Site admin can create new user
     # Open Browser
-    Common.Begin Browser Test
+    Common.Begin Browser Test       ${urlForNavigation}
     # Navigate to Admin Portal Landing 
     # Login As User Admin
     # Navigate to User Admin Screen
