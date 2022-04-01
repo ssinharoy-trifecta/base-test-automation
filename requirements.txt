@@ -18,5 +18,5 @@ six==1.16.0
 soupsieve==2.3.1
 tqdm==4.62.3
 urllib3==1.26.8
-webdrivermanager==0.10.0
+webdriver-manager==3.5.4
 wrapt==1.13.3
