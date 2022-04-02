@@ -86,9 +86,9 @@ Scripts can be launched with the following Command Line Interface parameters:
 - Browser: `-v browser:ff`
 - Results Directory: `-d Results`
 Example: 
-`robot -v env:qa3 -v browser:ff -d results test/Feature/SubMgmt.robot`
+`robot -v env:qa3 -v browser:ff -d results Common/Test/Feature/ECommerce/SubscriptionMgmt/SubMgmt.robot`
 
 ## Launching iOS Test Run on Browserstack
 Run the following command in order to launch and run iOS Test Run on BrowserStack emulator
-`robot -d Results/iOSTestResults Test/Feature/MobileTests/iOSTestRun.robot`
+`robot -d Results/iOSTestResults iOS/Test/iOSTestRun.robot`
 - results will be outputted in Results/iOSTestResults folder
