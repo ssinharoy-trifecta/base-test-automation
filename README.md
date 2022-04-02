@@ -32,10 +32,10 @@ across all products.
 ### SeleniumDrivers
 This `SeleniumDrivers` directory contains drivers required in order for Selenium to be able to actually use the browsers we
 want to support. There are drivers specific to the machine/OS type that is executing the test cases. Occasionally these
-drivers will need to be updated. There is a python package installed called `webdrivermanager` that can almost be used to
-manage these drivers. It works fine at this time for the chrome driver, but other drivers will need to be manually
+drivers will need to be updated. There is a python package installed called `webdriver-manager` that can almost be used to
+manage these drivers. It works fine at this time for Chrome and Firefox, but other drivers will need to be manually
 downloaded and moved into this directory. The installation script referenced above will move these drivers into a location
-that Robot can reference them when running tests.
+that Robot can reference them when running tests.  Edge and Safari will need to manually be updated from time to time.
 
 ### Examples
 This `Examples` directory contains a good deal of POC code that the QA team initially created when evaluating Robot as a 
