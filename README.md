@@ -25,6 +25,13 @@ After running the script make sure to activate the virtual environment by runnin
 
 When you are done testing in that repository make sure to deactivate your python virtual environment -  
 `deactivate`
+### Updating Packages
+If packages are updated via the `requirements.txt` file, please run the following command from the CLI:
+`pip3 install -U -r requirements.txt`
+Conversely, you can just rerun the two setup scripts: 
+- Bash: `RobotFrameworkSetup.sh`
+- ZSH:  `RobotFrameworkSetup.zsh`
+
 ## Test Automation Organization
 The directory structure follows a pattern of thinking that is relative to the Features our Trifecta teams implement
 across all products. 
