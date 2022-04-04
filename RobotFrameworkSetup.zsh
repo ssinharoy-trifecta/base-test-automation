@@ -18,6 +18,7 @@ source env/bin/activate
 
 # Pip Install the items in the Requirements.txt file
 pip3 install -U -r requirements.txt
+webdrivermanager chrome firefox
 
 # Move Selenium drivers into virtual environment location that is part of the PATH
 if [[ ${OSTYPE} == 'linux-gnu'* ]] then
