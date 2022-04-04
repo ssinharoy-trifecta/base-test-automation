@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   Test cases for Store Management Feature of the ECommerce Product
 Library         SeleniumLibrary
-Resource        ../../../../../Resources/Common/Common.robot
+Resource        ../../../../Common/Resources/Common.robot
 
 *** Variables ***
 
