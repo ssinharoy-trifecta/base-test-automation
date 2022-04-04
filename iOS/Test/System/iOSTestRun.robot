@@ -1,10 +1,13 @@
 *** Settings ***
 
-
 Library    AppiumLibrary
 Library    BuiltIn
-Resource   ../../Resources/iOSElements.robot
-
+Resource   ../../Resources/AccountMgmt.robot
+Resource   ../../Resources/Authentication.robot
+Resource   ../../Resources/Fitness.robot
+Resource   ../../Resources/Nutrition.robot
+Resource   ../../Resources/Onboarding.robot
+Resource   ../../Resources/WebViewShop.robot
 
 *** Test Cases ***
 
