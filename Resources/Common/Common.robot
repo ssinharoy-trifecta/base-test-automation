@@ -2,7 +2,6 @@
 Documentation
 ...   Common Keywords and Variables to be used across all Features
 Library                         SeleniumLibrary
-Resource                        ../../Resources/Common/Authentication/CustomerCreate.robot
 
 *** Variables ***
 # This allows you to submit which browser you want to leverage, but the default is Chrome
@@ -36,3 +35,16 @@ Scroll To Element
   ${x}=                         Get Horizontal Position   ${locator}
   ${y}=                         Get Vertical Position     ${locator}
   Execute Javascript            window.scrollTo(${x}, ${y})
+
+Setup Browserstack
+  [Arguments]                 ${urlForNavigation}
+  ${remoteUrl}                Set Variable    http://${BS_USER}:${BS_KEY}@${BS_REMOTE_URL}
+  &{desiredCapabilities}      Create Dictionary   
+  ...                         os=${BS_OS}     
+  ...                         os_version=${BS_PC_OS_VERSION}     
+  ...                         browser=${BS_BROWSER}   
+  ...                         browser_version=${BS_BROWSER_VERSION}
+  Open Browser                ${urlForNavigation}
+  ...                         remote_url=${remoteUrl}     
+  ...                         desired_capabilities=${desiredCapabilities}
+  Begin Maximize Browser Test
