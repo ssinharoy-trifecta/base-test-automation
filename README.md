@@ -25,6 +25,15 @@ After running the script make sure to activate the virtual environment by runnin
 
 When you are done testing in that repository make sure to deactivate your python virtual environment -  
 `deactivate`
+### Updating Packages
+If packages are updated via the `requirements.txt` file, please run the following command from the CLI:
+
+- `pip3 install -U -r requirements.txt`
+
+Conversely, you can just rerun the two setup scripts: 
+- Bash: `RobotFrameworkSetup.sh`
+- ZSH:  `RobotFrameworkSetup.zsh`
+
 ## Test Automation Organization
 The directory structure follows a pattern of thinking that is relative to the Features our Trifecta teams implement
 across all products. 
@@ -32,10 +41,10 @@ across all products.
 ### SeleniumDrivers
 This `SeleniumDrivers` directory contains drivers required in order for Selenium to be able to actually use the browsers we
 want to support. There are drivers specific to the machine/OS type that is executing the test cases. Occasionally these
-drivers will need to be updated. There is a python package installed called `webdrivermanager` that can almost be used to
-manage these drivers. It works fine at this time for the chrome driver, but other drivers will need to be manually
+drivers will need to be updated. There is a python package installed called `webdriver-manager` that can almost be used to
+manage these drivers. It works fine at this time for Chrome and Firefox, but other drivers will need to be manually
 downloaded and moved into this directory. The installation script referenced above will move these drivers into a location
-that Robot can reference them when running tests.
+that Robot can reference them when running tests.  Edge and Safari will need to manually be updated from time to time.
 
 ### Examples
 This `Examples` directory contains a good deal of POC code that the QA team initially created when evaluating Robot as a 
@@ -85,10 +94,12 @@ Scripts can be launched with the following Command Line Interface parameters:
 - Environment: `-v env:qa1`
 - Browser: `-v browser:ff`
 - Results Directory: `-d Results`
+
 Example: 
 `robot -v env:qa3 -v browser:ff -d results Common/Test/Feature/ECommerce/SubscriptionMgmt/SubMgmt.robot`
 
 ## Launching iOS Test Run on Browserstack
 Run the following command in order to launch and run iOS Test Run on BrowserStack emulator
-`robot -d Results/iOSTestResults iOS/Test/iOSTestRun.robot`
+
+`robot -d Results/iOSTestResults Test/Feature/MobileTests/iOSTestRun.robot`
 - results will be outputted in Results/iOSTestResults folder
