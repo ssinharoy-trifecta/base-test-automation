@@ -27,7 +27,9 @@ When you are done testing in that repository make sure to deactivate your python
 `deactivate`
 ### Updating Packages
 If packages are updated via the `requirements.txt` file, please run the following command from the CLI:
-`pip3 install -U -r requirements.txt`
+
+- `pip3 install -U -r requirements.txt`
+
 Conversely, you can just rerun the two setup scripts: 
 - Bash: `RobotFrameworkSetup.sh`
 - ZSH:  `RobotFrameworkSetup.zsh`
