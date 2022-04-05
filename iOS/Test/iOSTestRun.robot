@@ -66,3 +66,4 @@ Test Log Out Using Logout Button
     Click Element                    ${mainMenuBtn}
     Scroll Down                      ${logoutBtn}
     Click Element                    ${logoutBtn}
+    

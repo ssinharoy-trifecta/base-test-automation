@@ -18,3 +18,4 @@ ${BS_OS}                Windows
 ${BS_PC_OS_VERSION}     10
 ${BS_BROWSER}           chrome
 ${BS_BROWSER_VERSION}   98
+ 
