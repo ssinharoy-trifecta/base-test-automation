@@ -59,3 +59,4 @@ Test Customer Can Login
   ...   at the CommandLine
   [Tags]                  Auth                  Smoke
   Login                   ${testCaseEmail}      ${password}
+  
