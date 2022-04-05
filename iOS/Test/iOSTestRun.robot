@@ -3,11 +3,8 @@ Library    AppiumLibrary
 Library    BuiltIn
 Resource   ../Resources/iOSElements.robot
 Resource   ../../Common/Resources/Integrations/Browserstack.robot
-Resource   ../Resources/iOSElements.robot
-
 
 *** Test Cases ***
-
 Test Launch Trifecta Application
     #LAUNCH THE APP ON BROWSERSTACK EMULATOR
     Open Application    remote_url=http://${BS_REMOTE_URL}
