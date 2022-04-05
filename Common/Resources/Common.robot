@@ -55,4 +55,3 @@ Setup Browserstack
   ...                         remote_url=${remoteUrl}     
   ...                         desired_capabilities=${desiredCapabilities}
   Begin Maximize Browser Test
-  
