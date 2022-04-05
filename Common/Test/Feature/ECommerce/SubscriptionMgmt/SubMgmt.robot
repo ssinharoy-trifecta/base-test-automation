@@ -19,7 +19,7 @@ Documentation
 Resource            ../../../../Resources/Common.robot
 Resource            ../../../../Resources/CustomerController.robot
 Resource            ../../../../Resources/Authentication/CustomerCreate.robot
-Test Setup          Setup Browserstack    ${MAGENTO_SHOP_HOME}
+Test Setup          Begin Browser Test  ${MAGENTO_SHOP_HOME}  ${runlocal}
 Test Teardown       End Browser Test
 
 *** Variables ***
@@ -33,6 +33,7 @@ Test Customer Can Get To Checkout
   [Documentation]
   ...   Customer can add items to cart and proceed to checkout.
   [Tags]                  Smoke
+  Begin Maximize Browser Test
   Go To Checkout With A Valid Cart
 
 Test Customer Can Create Account And Logout

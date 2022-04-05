@@ -2,7 +2,7 @@
 Documentation
 ...   Common Keywords and Variables to be used across all Features
 Library                         SeleniumLibrary
-Resource                        Authentication/CustomerCreate.robot
+Resource                        Integrations/Browserstack.robot
 
 *** Variables ***
 # This allows you to submit which browser you want to leverage, but the default is Chrome
@@ -13,12 +13,18 @@ ${ENV}                          qa1
 ${MAGENTO_SHOP_HOME}            https://test-magento-app-trifecta-${ENV}.trifecta.dev/
 # This aids in generating dynamic eMail addresses for user creation
 ${urlForNavigation}             about:blank
+# This keyword is to run locally or through Browserstack. Browserstack is default
+${runLocal}                     no
 
 *** Keywords ***
 Begin Browser Test
-  [Arguments]                   ${urlForNavigation}
-  Log                           "Browser Test is starting!"
-  Open Browser                  ${urlForNavigation}       ${BROWSER}
+  [Arguments]           ${urlForNavigation}       ${runLocal}
+  Log                   "Browser Test is starting!"
+  IF                    '${runLocal}' == 'no'
+    Setup Browserstack  ${urlForNavigation}
+  ELSE       
+    Open Browser        ${urlForNavigation}       ${BROWSER}
+  END
 
 End Browser Test
   Log                           "Browser Test is ending!"
@@ -38,8 +44,8 @@ Scroll To Element
   Execute Javascript            window.scrollTo(${x}, ${y})
 
 Setup Browserstack
-  [Arguments]                 ${urlForNavigation}
-  ${remoteUrl}                Set Variable    http://${BS_USER}:${BS_KEY}@${BS_REMOTE_URL}
+  [Arguments]                 ${urlForNavigation}   
+  ${remoteUrl}                Set Variable          http://${BS_USER}:${BS_KEY}@${BS_REMOTE_URL}
   &{desiredCapabilities}      Create Dictionary   
   ...                         os=${BS_OS}     
   ...                         os_version=${BS_PC_OS_VERSION}     

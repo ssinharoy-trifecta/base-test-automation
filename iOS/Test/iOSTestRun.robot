@@ -1,8 +1,8 @@
 *** Settings ***
 Library    AppiumLibrary
 Library    BuiltIn
-Resource   ../Resources/Mobile/iOSElements.robot
-Resource   ../Resources/Common/Integrations/Browserstack.robot
+Resource   ../Resources/iOSElements.robot
+Resource   ../../Common/Resources/Integrations/Browserstack.robot
 Resource   ../Resources/iOSElements.robot
 
 
