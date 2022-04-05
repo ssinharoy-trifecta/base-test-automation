@@ -2,12 +2,12 @@
 
 Library    AppiumLibrary
 Library    BuiltIn
-Resource   ../../Resources/AccountMgmt.robot
-Resource   ../../Resources/Authentication.robot
-Resource   ../../Resources/Fitness.robot
-Resource   ../../Resources/Nutrition.robot
-Resource   ../../Resources/Onboarding.robot
-Resource   ../../Resources/WebViewShop.robot
+Resource   ../../Resources/AccountMgmtResourcesiOS.robot
+Resource   ../../Resources/AuthenticationResourcesiOS.robot
+Resource   ../../Resources/FitnessResourcesiOS.robot
+Resource   ../../Resources/NutritionResourcesiOS.robot
+Resource   ../../Resources/OnboardingResourcesiOS.robot
+Resource   ../../Resources/ShopResourcesiOS.robot
 
 *** Test Cases ***
 
@@ -19,9 +19,9 @@ Test Launch Trifecta Application
     ...                 app=bs://362fd79ea6457c0bbd9feb481bfe4ec65dbbc2d7
     ...                 device=iPhone 13
     ...                 os_version=15
-    ...                 project=iOS Test Run
-    ...                 build=browserstack-build-1  
-    ...                 name=iOS_Test_Run
+    ...                 project=iOS System Smoke Test
+    ...                 build=iOS 
+    ...                 name=iOS_System_Smoke_Test
     ...                 browserstack.idleTimeout=5
 
     # LAUNCH THE APP ON XCODE EMULATOR

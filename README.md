@@ -102,9 +102,9 @@ Example:
 Run the following command in order to launch and run iOS Test Run on BrowserStack emulator
 
 iOS
-`robot -d iOS/Results iOS/Test/System/iOSTestRun.robot`
+`robot -d iOS/Results iOS/Test/System/SystemSmokeTestiOS.robot`
 - results will be outputted in iOS/Results folder
 
 Android
-`robot -d Android/Results Android/Test/System/AndroidTestRun.robot`
+`robot -d Android/Results Android/Test/System/SystemSmokeTestAndroid.robot`
 - results will be outputted in Android/Results folder
