@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.9.0 on darwin)" generated="20220405 12:26:17.054" rpa="false" schemaversion="2">
+<suite id="s1" name="SystemSmokeTestAndroid" source="/Users/ivan.wize/Desktop/Projects/base-test-automation/Android/Test/System/SystemSmokeTestAndroid.robot">
+<test id="s1-t1" name="Test Launch Trifecta Application">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>remote_url=http://hub-cloud.browserstack.com/wd/hub</arg>
+<arg>browserstack.user=tylerthomas6</arg>
+<arg>browserstack.key=FQtVoY5xMMxVa9bh1c1Z</arg>
+<arg>app=bs://a4d0becc184bdf02f991641ed71600aabbb2f8fa</arg>
+<arg>device=Google Pixel 3</arg>
+<arg>os_version=9.0</arg>
+<arg>project=Android System Smoke Test</arg>
+<arg>build=Android</arg>
+<arg>name=Android_System_Smoke_Test</arg>
+<arg>browserstack.idleTimeout=5</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<status status="PASS" starttime="20220405 12:26:17.183" endtime="20220405 12:26:42.229"/>
+</kw>
+<status status="PASS" starttime="20220405 12:26:17.182" endtime="20220405 12:26:42.229"/>
+</test>
+<status status="PASS" starttime="20220405 12:26:17.056" endtime="20220405 12:26:42.230"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="SystemSmokeTestAndroid">SystemSmokeTestAndroid</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
