@@ -32,4 +32,3 @@ Login
   [Arguments]                   ${testCaseEmail}   ${password}
   Navigate To Account Redirects
   Login As Registered Customer  ${testCaseEmail}   ${password}
-  
