@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.3 (Python 3.9.0 on darwin)" generated="20220407 16:27:28.240" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1.3 (Python 3.9.0 on darwin)" generated="20220407 16:38:14.202" rpa="false" schemaversion="2">
 <suite id="s1" name="SystemSmokeTestiOS" source="/Users/ivan.wize/Desktop/Projects/base-test-automation/iOS/Test/System/SystemSmokeTestiOS.robot">
 <test id="s1-t1" name="Test Launch Trifecta Application">
 <kw name="Open Application" library="AppiumLibrary">
@@ -19,17 +19,17 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 | *Option*            | *Man.* | *Description*     |
 | remote_url          | Yes    | Appium server url |
 | alias               | no     | alias             |</doc>
-<status status="PASS" starttime="20220407 16:27:28.468" endtime="20220407 16:28:04.975"/>
+<status status="PASS" starttime="20220407 16:38:14.417" endtime="20220407 16:38:48.194"/>
 </kw>
-<status status="PASS" starttime="20220407 16:27:28.468" endtime="20220407 16:28:04.975"/>
+<status status="PASS" starttime="20220407 16:38:14.416" endtime="20220407 16:38:48.194"/>
 </test>
 <test id="s1-t2" name="Test Sign In As Existing User iOS">
 <kw name="Check Data Alert iOS" library="AuthenticationResourcesiOS">
 <kw name="Sleep" library="BuiltIn">
 <arg>3</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20220407 16:28:07.978" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20220407 16:28:04.977" endtime="20220407 16:28:07.978"/>
+<msg timestamp="20220407 16:38:51.196" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220407 16:38:48.196" endtime="20220407 16:38:51.196"/>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <var>${alertiOS}</var>
@@ -43,14 +43,14 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <doc>Verifies that current page not contains `locator` element.</doc>
 <kw name="Capture Page Screenshot" library="AppiumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into the log.</doc>
-<msg timestamp="20220407 16:28:09.495" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20220407 16:28:08.528" endtime="20220407 16:28:09.495"/>
+<msg timestamp="20220407 16:38:52.616" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220407 16:38:51.751" endtime="20220407 16:38:52.617"/>
 </kw>
-<msg timestamp="20220407 16:28:09.496" level="FAIL">Page should not have contained element 'xpath=//XCUIElementTypeButton[@name="Allow"]'</msg>
-<status status="FAIL" starttime="20220407 16:28:07.979" endtime="20220407 16:28:09.496"/>
+<msg timestamp="20220407 16:38:52.617" level="FAIL">Page should not have contained element 'xpath=//XCUIElementTypeButton[@name="Allow"]'</msg>
+<status status="FAIL" starttime="20220407 16:38:51.197" endtime="20220407 16:38:52.618"/>
 </kw>
-<msg timestamp="20220407 16:28:09.496" level="INFO">${alertiOS} = False</msg>
-<status status="PASS" starttime="20220407 16:28:07.979" endtime="20220407 16:28:09.496"/>
+<msg timestamp="20220407 16:38:52.618" level="INFO">${alertiOS} = False</msg>
+<status status="PASS" starttime="20220407 16:38:51.196" endtime="20220407 16:38:52.618"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${alertiOS}' == 'False'</arg>
@@ -60,60 +60,60 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <kw name="Click Element" library="AppiumLibrary">
 <arg>${allowBtniOS}</arg>
 <doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220407 16:28:09.499" level="INFO">Clicking element 'xpath=//XCUIElementTypeButton[@name="Allow"]'.</msg>
-<status status="PASS" starttime="20220407 16:28:09.497" endtime="20220407 16:28:10.803"/>
+<msg timestamp="20220407 16:38:52.620" level="INFO">Clicking element 'xpath=//XCUIElementTypeButton[@name="Allow"]'.</msg>
+<status status="PASS" starttime="20220407 16:38:52.618" endtime="20220407 16:38:53.902"/>
 </kw>
-<status status="PASS" starttime="20220407 16:28:09.496" endtime="20220407 16:28:10.804"/>
+<status status="PASS" starttime="20220407 16:38:52.618" endtime="20220407 16:38:53.902"/>
 </kw>
-<status status="PASS" starttime="20220407 16:28:04.976" endtime="20220407 16:28:10.804"/>
+<status status="PASS" starttime="20220407 16:38:48.195" endtime="20220407 16:38:53.902"/>
 </kw>
 <kw name="Sign In As Existing User iOS" library="AuthenticationResourcesiOS">
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <arg>${getStartedBtniOS}</arg>
 <arg>timeout=30</arg>
 <doc>Waits until element specified with `locator` is visible.</doc>
-<status status="PASS" starttime="20220407 16:28:10.805" endtime="20220407 16:28:11.225"/>
+<status status="PASS" starttime="20220407 16:38:53.903" endtime="20220407 16:38:54.233"/>
 </kw>
 <kw name="Click Element" library="AppiumLibrary">
 <arg>${getStartedBtniOS}</arg>
 <doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220407 16:28:11.229" level="INFO">Clicking element 'xpath=//XCUIElementTypeButton[@name="Get Started"]'.</msg>
-<status status="PASS" starttime="20220407 16:28:11.225" endtime="20220407 16:28:11.694"/>
+<msg timestamp="20220407 16:38:54.235" level="INFO">Clicking element 'xpath=//XCUIElementTypeButton[@name="Get Started"]'.</msg>
+<status status="PASS" starttime="20220407 16:38:54.233" endtime="20220407 16:38:54.698"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <arg>${emailFieldiOS}</arg>
 <arg>timeout=30</arg>
 <doc>Waits until element specified with `locator` is visible.</doc>
-<status status="PASS" starttime="20220407 16:28:11.694" endtime="20220407 16:28:12.232"/>
+<status status="PASS" starttime="20220407 16:38:54.698" endtime="20220407 16:38:55.881"/>
 </kw>
 <kw name="Input Text" library="AppiumLibrary">
 <arg>${emailFieldiOS}</arg>
 <arg>${testUserEmail}</arg>
 <doc>Types the given `text` into text field identified by `locator`.</doc>
-<msg timestamp="20220407 16:28:12.236" level="INFO">Typing text 'trifectatester2@gmail.com' into text field 'xpath=//XCUIElementTypeOther[@name="AuthenticationViewController"]/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeTextField'</msg>
-<status status="PASS" starttime="20220407 16:28:12.232" endtime="20220407 16:28:13.432"/>
+<msg timestamp="20220407 16:38:55.885" level="INFO">Typing text 'trifectatester2@gmail.com' into text field 'xpath=//XCUIElementTypeOther[@name="AuthenticationViewController"]/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeTextField'</msg>
+<status status="PASS" starttime="20220407 16:38:55.881" endtime="20220407 16:38:57.237"/>
 </kw>
 <kw name="Input Text" library="AppiumLibrary">
 <arg>${passwordFieldiOS}</arg>
 <arg>${testUserPassword}</arg>
 <doc>Types the given `text` into text field identified by `locator`.</doc>
-<msg timestamp="20220407 16:28:13.436" level="INFO">Typing text 'tester123' into text field 'xpath=//XCUIElementTypeOther[@name="AuthenticationViewController"]/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeSecureTextField'</msg>
-<status status="PASS" starttime="20220407 16:28:13.432" endtime="20220407 16:28:14.407"/>
+<msg timestamp="20220407 16:38:57.241" level="INFO">Typing text 'tester123' into text field 'xpath=//XCUIElementTypeOther[@name="AuthenticationViewController"]/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeSecureTextField'</msg>
+<status status="PASS" starttime="20220407 16:38:57.237" endtime="20220407 16:38:58.171"/>
 </kw>
 <kw name="Click Element" library="AppiumLibrary">
 <arg>${signInBtniOS}</arg>
 <doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220407 16:28:14.411" level="INFO">Clicking element 'xpath=//XCUIElementTypeButton[@name="Sign in"]'.</msg>
-<status status="PASS" starttime="20220407 16:28:14.407" endtime="20220407 16:28:15.080"/>
+<msg timestamp="20220407 16:38:58.174" level="INFO">Clicking element 'xpath=//XCUIElementTypeButton[@name="Sign in"]'.</msg>
+<status status="PASS" starttime="20220407 16:38:58.171" endtime="20220407 16:38:58.820"/>
 </kw>
-<status status="PASS" starttime="20220407 16:28:10.804" endtime="20220407 16:28:15.081"/>
+<status status="PASS" starttime="20220407 16:38:53.903" endtime="20220407 16:38:58.820"/>
 </kw>
 <kw name="Check Notifications Alert iOS" library="AuthenticationResourcesiOS">
 <kw name="Sleep" library="BuiltIn">
 <arg>3</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20220407 16:28:18.082" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20220407 16:28:15.082" endtime="20220407 16:28:18.082"/>
+<msg timestamp="20220407 16:39:01.822" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220407 16:38:58.821" endtime="20220407 16:39:01.822"/>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <var>${alert2iOS}</var>
@@ -127,14 +127,14 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <doc>Verifies that current page not contains `locator` element.</doc>
 <kw name="Capture Page Screenshot" library="AppiumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into the log.</doc>
-<msg timestamp="20220407 16:28:19.302" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-2.png"&gt;&lt;img src="appium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20220407 16:28:18.645" endtime="20220407 16:28:19.302"/>
+<msg timestamp="20220407 16:39:02.980" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-2.png"&gt;&lt;img src="appium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220407 16:39:02.308" endtime="20220407 16:39:02.981"/>
 </kw>
-<msg timestamp="20220407 16:28:19.303" level="FAIL">Page should not have contained element 'xpath=//XCUIElementTypeButton[@name="Allow"]'</msg>
-<status status="FAIL" starttime="20220407 16:28:18.083" endtime="20220407 16:28:19.303"/>
+<msg timestamp="20220407 16:39:02.981" level="FAIL">Page should not have contained element 'xpath=//XCUIElementTypeButton[@name="Allow"]'</msg>
+<status status="FAIL" starttime="20220407 16:39:01.823" endtime="20220407 16:39:02.981"/>
 </kw>
-<msg timestamp="20220407 16:28:19.303" level="INFO">${alert2iOS} = False</msg>
-<status status="PASS" starttime="20220407 16:28:18.083" endtime="20220407 16:28:19.303"/>
+<msg timestamp="20220407 16:39:02.981" level="INFO">${alert2iOS} = False</msg>
+<status status="PASS" starttime="20220407 16:39:01.823" endtime="20220407 16:39:02.981"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${alert2iOS}' == 'False'</arg>
@@ -144,14 +144,14 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <kw name="Click Element" library="AppiumLibrary">
 <arg>${allowBtniOS}</arg>
 <doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220407 16:28:19.306" level="INFO">Clicking element 'xpath=//XCUIElementTypeButton[@name="Allow"]'.</msg>
-<status status="PASS" starttime="20220407 16:28:19.303" endtime="20220407 16:28:20.580"/>
+<msg timestamp="20220407 16:39:02.984" level="INFO">Clicking element 'xpath=//XCUIElementTypeButton[@name="Allow"]'.</msg>
+<status status="PASS" starttime="20220407 16:39:02.982" endtime="20220407 16:39:04.466"/>
 </kw>
-<status status="PASS" starttime="20220407 16:28:19.303" endtime="20220407 16:28:20.580"/>
+<status status="PASS" starttime="20220407 16:39:02.981" endtime="20220407 16:39:04.467"/>
 </kw>
-<status status="PASS" starttime="20220407 16:28:15.081" endtime="20220407 16:28:20.580"/>
+<status status="PASS" starttime="20220407 16:38:58.821" endtime="20220407 16:39:04.467"/>
 </kw>
-<status status="PASS" starttime="20220407 16:28:04.976" endtime="20220407 16:28:20.581"/>
+<status status="PASS" starttime="20220407 16:38:48.195" endtime="20220407 16:39:04.467"/>
 </test>
 <test id="s1-t3" name="Test Dashboard UI And Details iOS">
 <kw name="Open Shop iOS" library="ShopResourcesiOS">
@@ -159,82 +159,82 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>${shopBtniOS}</arg>
 <arg>timeout=30</arg>
 <doc>Waits until element specified with `locator` is visible.</doc>
-<status status="PASS" starttime="20220407 16:28:20.582" endtime="20220407 16:28:21.154"/>
+<status status="PASS" starttime="20220407 16:39:04.469" endtime="20220407 16:39:04.997"/>
 </kw>
 <kw name="Click Element" library="AppiumLibrary">
 <arg>${shopBtniOS}</arg>
 <doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220407 16:28:21.158" level="INFO">Clicking element 'xpath=//XCUIElementTypeButton[@name="Shop"]'.</msg>
-<status status="PASS" starttime="20220407 16:28:21.155" endtime="20220407 16:28:21.840"/>
+<msg timestamp="20220407 16:39:05.000" level="INFO">Clicking element 'xpath=//XCUIElementTypeButton[@name="Shop"]'.</msg>
+<status status="PASS" starttime="20220407 16:39:04.997" endtime="20220407 16:39:05.692"/>
 </kw>
-<status status="PASS" starttime="20220407 16:28:20.582" endtime="20220407 16:28:21.840"/>
+<status status="PASS" starttime="20220407 16:39:04.468" endtime="20220407 16:39:05.693"/>
 </kw>
 <kw name="Validate Dashboard UI And Details iOS" library="ShopResourcesiOS">
 <kw name="Wait Until Page Contains Element" library="AppiumLibrary">
 <arg>${currentSubscriptionTxtiOS}</arg>
 <arg>timeout=30</arg>
 <doc>Waits until element specified with `locator` appears on current page.</doc>
-<status status="PASS" starttime="20220407 16:28:21.840" endtime="20220407 16:28:28.255"/>
+<status status="PASS" starttime="20220407 16:39:05.693" endtime="20220407 16:39:12.137"/>
 </kw>
 <kw name="Page Should Contain Element" library="AppiumLibrary">
 <arg>${currentSubscriptionTxtiOS}</arg>
 <doc>Verifies that current page contains `locator` element.</doc>
-<msg timestamp="20220407 16:28:29.013" level="INFO">Current page contains element 'xpath=//XCUIElementTypeOther[@name="Current Subscription"]'.</msg>
-<status status="PASS" starttime="20220407 16:28:28.255" endtime="20220407 16:28:29.014"/>
+<msg timestamp="20220407 16:39:12.729" level="INFO">Current page contains element 'xpath=//XCUIElementTypeOther[@name="Current Subscription"]'.</msg>
+<status status="PASS" starttime="20220407 16:39:12.137" endtime="20220407 16:39:12.729"/>
 </kw>
 <kw name="Wait Until Page Contains Element" library="AppiumLibrary">
 <arg>${nextDeliveryTxtiOS}</arg>
 <arg>timeout=30</arg>
 <doc>Waits until element specified with `locator` appears on current page.</doc>
-<status status="PASS" starttime="20220407 16:28:29.014" endtime="20220407 16:28:29.728"/>
+<status status="PASS" starttime="20220407 16:39:12.730" endtime="20220407 16:39:13.554"/>
 </kw>
 <kw name="Page Should Contain Element" library="AppiumLibrary">
 <arg>${nextDeliveryTxtiOS}</arg>
 <doc>Verifies that current page contains `locator` element.</doc>
-<msg timestamp="20220407 16:28:30.329" level="INFO">Current page contains element 'xpath=//XCUIElementTypeStaticText[@name="Next Delivery"]'.</msg>
-<status status="PASS" starttime="20220407 16:28:29.728" endtime="20220407 16:28:30.329"/>
+<msg timestamp="20220407 16:39:14.167" level="INFO">Current page contains element 'xpath=//XCUIElementTypeStaticText[@name="Next Delivery"]'.</msg>
+<status status="PASS" starttime="20220407 16:39:13.554" endtime="20220407 16:39:14.167"/>
 </kw>
 <kw name="Wait Until Page Contains Element" library="AppiumLibrary">
 <arg>${faqTxtiOS}</arg>
 <arg>timeout=30</arg>
 <doc>Waits until element specified with `locator` appears on current page.</doc>
-<status status="PASS" starttime="20220407 16:28:30.329" endtime="20220407 16:28:30.893"/>
+<status status="PASS" starttime="20220407 16:39:14.167" endtime="20220407 16:39:14.745"/>
 </kw>
 <kw name="Page Should Contain Element" library="AppiumLibrary">
 <arg>${faqTxtiOS}</arg>
 <doc>Verifies that current page contains `locator` element.</doc>
-<msg timestamp="20220407 16:28:31.461" level="INFO">Current page contains element 'xpath=//XCUIElementTypeStaticText[@name="Frequently Asked Questions"]'.</msg>
-<status status="PASS" starttime="20220407 16:28:30.893" endtime="20220407 16:28:31.461"/>
+<msg timestamp="20220407 16:39:15.296" level="INFO">Current page contains element 'xpath=//XCUIElementTypeStaticText[@name="Frequently Asked Questions"]'.</msg>
+<status status="PASS" starttime="20220407 16:39:14.746" endtime="20220407 16:39:15.296"/>
 </kw>
 <kw name="Wait Until Page Contains Element" library="AppiumLibrary">
 <arg>${subscriptionDetailsTxtiOS}</arg>
 <arg>timeout=30</arg>
 <doc>Waits until element specified with `locator` appears on current page.</doc>
-<status status="PASS" starttime="20220407 16:28:31.462" endtime="20220407 16:28:32.035"/>
+<status status="PASS" starttime="20220407 16:39:15.296" endtime="20220407 16:39:15.985"/>
 </kw>
 <kw name="Page Should Contain Element" library="AppiumLibrary">
 <arg>${subscriptionDetailsTxtiOS}</arg>
 <doc>Verifies that current page contains `locator` element.</doc>
-<msg timestamp="20220407 16:28:32.674" level="INFO">Current page contains element 'xpath=//XCUIElementTypeStaticText[@name="Subscription Details"]'.</msg>
-<status status="PASS" starttime="20220407 16:28:32.035" endtime="20220407 16:28:32.674"/>
+<msg timestamp="20220407 16:39:16.599" level="INFO">Current page contains element 'xpath=//XCUIElementTypeStaticText[@name="Subscription Details"]'.</msg>
+<status status="PASS" starttime="20220407 16:39:15.985" endtime="20220407 16:39:16.599"/>
 </kw>
-<status status="PASS" starttime="20220407 16:28:21.840" endtime="20220407 16:28:32.675"/>
+<status status="PASS" starttime="20220407 16:39:05.693" endtime="20220407 16:39:16.599"/>
 </kw>
 <kw name="Close Shop iOS" library="ShopResourcesiOS">
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <arg>${shopCloseBtniOS}</arg>
 <doc>Waits until element specified with `locator` is visible.</doc>
-<status status="PASS" starttime="20220407 16:28:32.675" endtime="20220407 16:28:33.379"/>
+<status status="PASS" starttime="20220407 16:39:16.599" endtime="20220407 16:39:17.404"/>
 </kw>
 <kw name="Click Element" library="AppiumLibrary">
 <arg>${shopCloseBtniOS}</arg>
 <doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220407 16:28:33.383" level="INFO">Clicking element 'xpath=//XCUIElementTypeButton[@name="ic sideMenu close"]'.</msg>
-<status status="PASS" starttime="20220407 16:28:33.379" endtime="20220407 16:28:34.447"/>
+<msg timestamp="20220407 16:39:17.407" level="INFO">Clicking element 'xpath=//XCUIElementTypeButton[@name="ic sideMenu close"]'.</msg>
+<status status="PASS" starttime="20220407 16:39:17.404" endtime="20220407 16:39:18.413"/>
 </kw>
-<status status="PASS" starttime="20220407 16:28:32.675" endtime="20220407 16:28:34.447"/>
+<status status="PASS" starttime="20220407 16:39:16.599" endtime="20220407 16:39:18.414"/>
 </kw>
-<status status="PASS" starttime="20220407 16:28:20.581" endtime="20220407 16:28:34.447"/>
+<status status="PASS" starttime="20220407 16:39:04.468" endtime="20220407 16:39:18.414"/>
 </test>
 <test id="s1-t4" name="Test Log Out iOS">
 <kw name="Log Out iOS" library="AccountMgmtResourcesiOS">
@@ -242,30 +242,30 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>${mainMenuBtniOS}</arg>
 <arg>timeout=30</arg>
 <doc>Waits until element specified with `locator` is visible.</doc>
-<status status="PASS" starttime="20220407 16:28:34.449" endtime="20220407 16:28:35.332"/>
+<status status="PASS" starttime="20220407 16:39:18.415" endtime="20220407 16:39:19.131"/>
 </kw>
 <kw name="Click Element" library="AppiumLibrary">
 <arg>${mainMenuBtniOS}</arg>
 <doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220407 16:28:35.336" level="INFO">Clicking element 'xpath=//XCUIElementTypeButton[@name="ic side menu"]'.</msg>
-<status status="PASS" starttime="20220407 16:28:35.333" endtime="20220407 16:28:35.916"/>
+<msg timestamp="20220407 16:39:19.134" level="INFO">Clicking element 'xpath=//XCUIElementTypeButton[@name="ic side menu"]'.</msg>
+<status status="PASS" starttime="20220407 16:39:19.131" endtime="20220407 16:39:19.679"/>
 </kw>
 <kw name="Scroll Down" library="AppiumLibrary">
 <arg>${logoutBtniOS}</arg>
 <doc>Scrolls down to element</doc>
-<status status="PASS" starttime="20220407 16:28:35.916" endtime="20220407 16:28:41.022"/>
+<status status="PASS" starttime="20220407 16:39:19.679" endtime="20220407 16:39:25.005"/>
 </kw>
 <kw name="Click Element" library="AppiumLibrary">
 <arg>${logoutBtniOS}</arg>
 <doc>Click element identified by `locator`.</doc>
-<msg timestamp="20220407 16:28:41.026" level="INFO">Clicking element 'xpath=//XCUIElementTypeButton[@name="Logout"]'.</msg>
-<status status="PASS" starttime="20220407 16:28:41.023" endtime="20220407 16:28:42.129"/>
+<msg timestamp="20220407 16:39:25.009" level="INFO">Clicking element 'xpath=//XCUIElementTypeButton[@name="Logout"]'.</msg>
+<status status="PASS" starttime="20220407 16:39:25.005" endtime="20220407 16:39:26.157"/>
 </kw>
-<status status="PASS" starttime="20220407 16:28:34.448" endtime="20220407 16:28:42.129"/>
+<status status="PASS" starttime="20220407 16:39:18.415" endtime="20220407 16:39:26.157"/>
 </kw>
-<status status="PASS" starttime="20220407 16:28:34.448" endtime="20220407 16:28:42.130"/>
+<status status="PASS" starttime="20220407 16:39:18.414" endtime="20220407 16:39:26.158"/>
 </test>
-<status status="PASS" starttime="20220407 16:27:28.241" endtime="20220407 16:28:42.132"/>
+<status status="PASS" starttime="20220407 16:38:14.203" endtime="20220407 16:39:26.159"/>
 </suite>
 <statistics>
 <total>
