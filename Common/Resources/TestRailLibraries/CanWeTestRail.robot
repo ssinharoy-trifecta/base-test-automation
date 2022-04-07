@@ -1,0 +1,52 @@
+*** Settings ***
+# Library 	SeleniumLibrary
+Library		RequestsLibrary
+Variables		../../Common/Resources/TestRailLibraries/testrail_env.py
+
+*** Variables ***
+${baseURL}						https://${TESTRAIL_URL}
+${getURL}							index.php?/api/v2/get_case/8696
+${singleCasePost}			index.php?/api/v2/add_result_for_case/326/8696
+${multiCasePost}			index.php?/api/v2/add_results_for_cases/326
+${headers}						Authorization=Basic		Content-Type=application/json  accept=application/json
+@{authData}   				${TESTRAIL_USER}		${TESTRAIL_APIKEY}
+
+
+
+*** Test Cases ***
+Sample Get Request
+	# ${authData}=   Create List   ${TESTRAIL_USER}		${TESTRAIL_APIKEY}
+	Create Session    httpbin    ${baseURL}     auth=${authData}
+  ${resp}=  GET On Session  httpbin		url=${getURL}
+	log		${resp} 
+	log		${TESTRAIL_URL}
+	log		${TESTRAIL_USER}
+	log		${TESTRAIL_PASSWORD}
+	log		${TESTRAIL_APIKEY}
+
+Sample Post Request
+	# ${authData}=   		Create List   ${TESTRAIL_USER}		${TESTRAIL_APIKEY}
+	Create Session		httpbin		${baseURL}		auth=${authData}
+	# Generate results dictionary
+	${myJSON}=				Create Dictionary		status_id=5		comment=This is a post from Robot
+	# Convert to JSON
+	${postJSON}=			evaluate		json.dumps(${myJSON})                 json
+	log		${postJSON}
+	# Post results to TestRail using JSON
+  ${resp}=  POST On Session  httpbin		url=${singleCasePost}		json=${myJSON}
+	log		${resp} 
+
+Sample Post Request For Cases
+	Create Session		httpbin		${baseURL}		auth=${authData}
+	# Dictionary for result set 1
+	${handWritten1}=		Create Dictionary		case_id=8696	status_id=5		comment=This fails because I said so
+	# Dictionary for result set 2
+	${handWritten2}=		Create Dictionary		case_id=8697	status_id=1		comment=This passes because I said so
+	# Add all results to a list
+	${handWritten3}=		Create List		${handWritten1}		${handWritten2}
+	# Results list is added to a final dictionary for submission
+	${handWrittenFinal}=		Create Dictionary		results=${handWritten3}
+	Log								'${handWrittenFinal}'
+	# Post created
+	${resp}=  POST On Session  httpbin		url=${multiCasePost}		json=${handWrittenFinal}
+	log		${resp} 
