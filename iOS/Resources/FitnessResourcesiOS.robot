@@ -5,6 +5,6 @@ Library    BuiltIn
 
 *** Variables ***
 
-${fitnessBtn}   xpath=//XCUIElementTypeButton[@name="Fitness"]
+${fitnessBtniOS}   xpath=//XCUIElementTypeButton[@name="Fitness"]
 
 *** Keywords ***

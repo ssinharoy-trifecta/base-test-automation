@@ -23,13 +23,13 @@ Test Launch Trifecta Application
     ...                 name=Android_System_Smoke_Test
     ...                 browserstack.idleTimeout=5
 
-Test Sign In As Existing User
-    Sign In As Existing User
+Test Sign In As Existing User Android
+    Sign In As Existing User Android
 
-Test Dashboard UI and Details
-    Open Shop
-    Validadate Dashboard UI And Details
-    Close Shop
+Test Dashboard UI and Details Android
+    Open Shop Android
+    Validadate Dashboard UI And Details Android
+    Close Shop Android
 
-Test Log Out
-    Log Out
+Test Log Out Android
+    Log Out Android

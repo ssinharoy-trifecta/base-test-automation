@@ -5,16 +5,16 @@ Library    BuiltIn
 
 *** Variables ***
 
-${mainMenuBtn}    //android.widget.ImageButton[@content-desc="Navigate up"]
-${accountBtn}     id=com.n_ix.pocket_wod:id/valueTextView
-${logoutBtn}      id=com.n_ix.pocket_wod:id/logoutBtn
+${mainMenuBtnAndroid}    //android.widget.ImageButton[@content-desc="Navigate up"]
+${accountBtnAndroid}     id=com.n_ix.pocket_wod:id/valueTextView
+${logoutBtnAndroid}      id=com.n_ix.pocket_wod:id/logoutBtn
 
 *** Keywords ***
 
-Log Out
-    Wait Until Element Is Visible    ${mainMenuBtn}    timeout=5
-    Click Element                    ${mainMenuBtn}
-    Wait Until Element Is Visible    ${accountBtn}   timeout=5
-    Click Element                    ${accountBtn}
-    Wait Until Element Is Visible    ${logoutBtn}   timeout=5
-    Click Element                    ${logoutBtn}
+Log Out Android
+    Wait Until Element Is Visible    ${mainMenuBtnAndroid}    timeout=5
+    Click Element                    ${mainMenuBtnAndroid}
+    Wait Until Element Is Visible    ${accountBtnAndroid}   timeout=5
+    Click Element                    ${accountBtnAndroid}
+    Wait Until Element Is Visible    ${logoutBtnAndroid}   timeout=5
+    Click Element                    ${logoutBtnAndroid}

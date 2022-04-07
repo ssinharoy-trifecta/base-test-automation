@@ -5,25 +5,25 @@ Library    BuiltIn
 
 *** Variables ***
 
-${shopBtn}                  id=com.n_ix.pocket_wod:id/shop
-${shopCloseBtn}             id=com.n_ix.pocket_wod:id/closeButton
-${shopBackBtn}              id=com.n_ix.pocket_wod:id/backButton
-${dashboardBtn}             xpath=//android.view.View[@content-desc=\"Dashboard\"]/android.widget.TextView
-${modifyBtn}                xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.widget.Button
+${shopBtnAndroid}                  id=com.n_ix.pocket_wod:id/shop
+${shopCloseBtnAndroid}             id=com.n_ix.pocket_wod:id/closeButton
+${shopBackBtnAndroid}              id=com.n_ix.pocket_wod:id/backButton
+${dashboardBtnAndroid}             xpath=//android.view.View[@content-desc=\"Dashboard\"]/android.widget.TextView
+${modifyBtnAndroid}                xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.widget.Button
 
 
 *** Keywords ***
 
-Open Shop
-    Wait Until Element Is Visible        ${shopBtn}    timeout=30
-    Click Element                        ${shopBtn}
+Open Shop Android
+    Wait Until Element Is Visible        ${shopBtnAndroid}    timeout=30
+    Click Element                        ${shopBtnAndroid}
 
-Validadate Dashboard UI And Details
-    Wait Until Page Contains Element     ${dashboardBtn}    timeout=30
-    Page Should Contain Element          ${dashboardBtn}
-    Wait Until Page Contains Element     ${modifyBtn}    timeout=30
-    Page Should Contain Element          ${modifyBtn}
+Validadate Dashboard UI And Details Android
+    Wait Until Page Contains Element     ${dashboardBtnAndroid}    timeout=30
+    Page Should Contain Element          ${dashboardBtnAndroid}
+    Wait Until Page Contains Element     ${modifyBtnAndroid}    timeout=30
+    Page Should Contain Element          ${modifyBtnAndroid}
 
-Close Shop
-    Wait Until Element Is Visible        ${shopCloseBtn}
-    Click Element                        ${shopCloseBtn}
+Close Shop Android
+    Wait Until Element Is Visible        ${shopCloseBtnAndroid}
+    Click Element                        ${shopCloseBtnAndroid}

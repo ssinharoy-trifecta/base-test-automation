@@ -5,13 +5,13 @@ Library    BuiltIn
 
 *** Variables ***
 
-${mainMenuBtn}    xpath=//XCUIElementTypeButton[@name="ic side menu"]
-${logoutBtn}      xpath=//XCUIElementTypeButton[@name="Logout"]
+${mainMenuBtniOS}    xpath=//XCUIElementTypeButton[@name="ic side menu"]
+${logoutBtniOS}      xpath=//XCUIElementTypeButton[@name="Logout"]
 
 *** Keywords ***
 
-Log Out
-    Wait Until Element Is Visible    ${mainMenuBtn}    timeout=30
-    Click Element                    ${mainMenuBtn}
-    Scroll Down                      ${logoutBtn}
-    Click Element                    ${logoutBtn}
+Log Out iOS
+    Wait Until Element Is Visible    ${mainMenuBtniOS}    timeout=30
+    Click Element                    ${mainMenuBtniOS}
+    Scroll Down                      ${logoutBtniOS}
+    Click Element                    ${logoutBtniOS}
