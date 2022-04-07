@@ -12,7 +12,6 @@ Resource   ../../Resources/ShopResourcesAndroid.robot
 *** Test Cases ***
 
 Test Launch Trifecta Application
-    #LAUNCH THE APP ON BROWSERSTACK EMULATOR
     Open Application    remote_url=http://hub-cloud.browserstack.com/wd/hub
     ...                 browserstack.user=tylerthomas6    
     ...                 browserstack.key=FQtVoY5xMMxVa9bh1c1Z
@@ -24,3 +23,13 @@ Test Launch Trifecta Application
     ...                 name=Android_System_Smoke_Test
     ...                 browserstack.idleTimeout=5
 
+Test Sign In As Existing User
+    Sign In As Existing User
+
+Test Dashboard UI and Details
+    Open Shop
+    Validadate Dashboard UI And Details
+    Close Shop
+
+Test Log Out
+    Log Out

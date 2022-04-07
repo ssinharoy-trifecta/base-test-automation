@@ -5,6 +5,6 @@ Library    BuiltIn
 
 *** Variables ***
 
-${nutritionBtn}    xpath=//XCUIElementTypeButton[@name="Nutrition"]
+${nutritionBtn}    id=com.n_ix.pocket_wod:id/nutrition
 
 *** Keywords ***
