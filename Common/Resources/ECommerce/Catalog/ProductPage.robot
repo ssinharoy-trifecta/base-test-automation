@@ -9,4 +9,3 @@ Add Product To Cart
   Sleep                     2s
   Click Button              ${addToCartBtn}
   Log                       Added products to cart...
-  Sleep                     2s
