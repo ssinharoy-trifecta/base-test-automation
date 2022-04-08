@@ -44,4 +44,4 @@ Generate New eMail Address
   [Return]                  ${generatedEmail}
 
 Create An Account From OverLay
-  Click element             ${createAccountOLBtn}
+  Click Element             ${createAccountOLBtn}
