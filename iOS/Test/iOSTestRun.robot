@@ -1,25 +1,22 @@
 *** Settings ***
-
-
 Library    AppiumLibrary
 Library    BuiltIn
 Resource   ../Resources/iOSElements.robot
-
+Resource   ../../Common/Resources/Integrations/Browserstack.robot
 
 *** Test Cases ***
-
 Test Launch Trifecta Application
     #LAUNCH THE APP ON BROWSERSTACK EMULATOR
-    Open Application    remote_url=http://hub-cloud.browserstack.com/wd/hub
-    ...                 browserstack.user=tylerthomas6    
-    ...                 browserstack.key=FQtVoY5xMMxVa9bh1c1Z
-    ...                 app=bs://362fd79ea6457c0bbd9feb481bfe4ec65dbbc2d7
-    ...                 device=iPhone 13
-    ...                 os_version=15
-    ...                 project=iOS Test Run
-    ...                 build=browserstack-build-1  
-    ...                 name=iOS_Test_Run
-    ...                 browserstack.idleTimeout=5
+    Open Application    remote_url=http://${BS_REMOTE_URL}
+    ...                 browserstack.user=${BS_USER}
+    ...                 browserstack.key=${BS_KEY}    
+    ...                 app=${BS_APP}
+    ...                 device=${BS_DEVICE}
+    ...                 os_version=${BS_iOS_VERSION}  
+    ...                 project=${BS_PROJECT}
+    ...                 build=${BS_BUILD}  
+    ...                 name=${BS_NAME}
+    ...                 browserstack.idleTimeout=${BS_IDLE_TIMEOUT}
 
     # LAUNCH THE APP ON XCODE EMULATOR
     # Open Application    http://localhost:4723/wd/hub

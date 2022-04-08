@@ -20,7 +20,7 @@ Documentation
 Resource            ../../../../Resources/Common.robot
 Resource            ../../../../Resources/CustomerController.robot
 Resource            ../../../../Resources/Authentication/CustomerCreate.robot
-Test Setup          Begin Browser Test    ${MAGENTO_SHOP_HOME}
+Test Setup          Begin Browser Test  ${MAGENTO_SHOP_HOME}  ${runlocal}
 Test Teardown       End Browser Test
 
 *** Variables ***
