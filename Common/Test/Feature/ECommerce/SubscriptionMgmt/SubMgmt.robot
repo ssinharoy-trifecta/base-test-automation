@@ -33,7 +33,7 @@ ${password}               tester123!
 Test 1.2 Non-Logged In User Must Be Able To Create Account From Checkout
   [Documentation]
   ...   Customer can add items to cart and proceed to checkout. Uses Luma Theme.
-  [Tags]    Smoke   Luma
+  [Tags]    Smoke   Luma    testcaseid=16784
   Begin Maximize Browser Test
   Go To Checkout With A Valid Cart
   ...       ${firstName}          ${lastName}
@@ -44,7 +44,6 @@ Test Customer Can Create Account And Logout
   ...   Customer can create a new account successfully. Uses TRI Theme.
   [Tags]    Auth    TRI   Smoke
   # Generate a new user and eMail account for the test case it not passed in
-  # Uses Luma Theme
   Create A New Account
   ...       ${firstName}          ${lastName}
   ...       ${testCaseEmail}      ${password}

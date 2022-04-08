@@ -9,9 +9,11 @@ ${cartTxt}            Cart Subtotal
 
 *** Keywords ***
 Close Cart
+  Wait Until Page Contains  ${closeMinicartBtn}
   Click Button              ${closeMinicartBtn}
 
 Go To Checkout
+  Wait Until Page Contains  ${checkoutBtn}
   Click button              ${checkoutBtn}
   Sleep                     2s
 
