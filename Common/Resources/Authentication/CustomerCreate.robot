@@ -17,21 +17,22 @@ ${createValidationText}     Create New Customer Account
 Complete New Customer Form
   [Arguments]
   ...                       ${customerInfo}
-  IF                        '${testCaseEmail}' == 'selenium+03-15-22.12.47.04.1647373624@trifectanutrition.com'
-                            ${testCaseEmail} =        Generate New eMail Address
-                            Log                       ${testCaseEmail}               
+  IF                        '${customerInfo.email}' == 'selenium+03-15-22.12.47.04.1647373624@trifectanutrition.com'
+                            ${customerInfo.email} =        Generate New eMail Address
+                            Log                       ${customerInfo.email}               
   END
   Wait Until Page Contains  ${createValidationText}
   #Input form
   Input Text                ${firstNameField}         ${firstName}
   Input Text                ${lastNameField}          ${lastName}
-  Input Text                ${emailField}             ${testCaseEmail}
+  Input Text                ${emailField}             ${customerInfo.email}
   Input Text                ${passwordField}          ${password}
   Input Text                ${passwordConfirmField}   ${password}
   Sleep                     2s
   Click Button              ${createAccountBtn} 
   #Assign value to customerInfo list
-  Set List Value            ${customerInfo}     2     ${testCaseEmail}
+  #${customerInfo.email}=    Set Variable              ${testCaseEmail}
+  #Log                       ${customerInfo}
   [Return]                  ${customerInfo}
 
 Generate New eMail Address

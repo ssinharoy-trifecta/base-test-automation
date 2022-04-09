@@ -29,11 +29,11 @@ ${firstName}              Elden
 ${lastName}               Ring
 ${password}               tester123!
 #Customer list variable
-@{customerInfo}               
-...                       ${firstName}          
-...                       ${lastName}
-...                       ${testCaseEmail}      
-...                       ${password}
+&{customerInfo}               
+...                       firstName=${firstName}          
+...                       lastName=${lastName}
+...                       email=${testCaseEmail}      
+...                       password=${password}
 
 *** Test Cases ***
 Test 1.2 Non-Logged In User Must Be Able To Create Account From Checkout

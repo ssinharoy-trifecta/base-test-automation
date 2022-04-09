@@ -13,7 +13,7 @@ Click Create An Account Button
 Login As Registered Customer
   [Arguments]                 ${customerInfo}
   Wait Until Page Contains    Customer Login
-  Input Text                  ${loginEmailField}  ${customerInfo}[2]
-  Input Text                  ${loginPassField}   ${customerInfo}[3]
+  Input Text                  ${loginEmailField}  ${customerInfo.email}
+  Input Text                  ${loginPassField}   ${customerInfo.password}
   Click Button                Sign In
   Wait Until Page Contains    Log Out
