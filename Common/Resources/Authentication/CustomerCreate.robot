@@ -31,8 +31,6 @@ Complete New Customer Form
   Sleep                     2s
   Click Button              ${createAccountBtn} 
   #Assign value to customerInfo list
-  #${customerInfo.email}=    Set Variable              ${testCaseEmail}
-  #Log                       ${customerInfo}
   [Return]                  ${customerInfo}
 
 Generate New eMail Address
