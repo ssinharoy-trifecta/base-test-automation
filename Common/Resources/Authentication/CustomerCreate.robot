@@ -18,7 +18,7 @@ Complete New Customer Form
   [Arguments]
   ...                       ${customerInfo}
   IF                        '${customerInfo.email}' == 'selenium+03-15-22.12.47.04.1647373624@trifectanutrition.com'
-                            ${customerInfo.email} =        Generate New eMail Address
+                            ${customerInfo.email} =   Generate New eMail Address
                             Log                       ${customerInfo.email}               
   END
   Wait Until Page Contains  ${createValidationText}
