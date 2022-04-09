@@ -30,13 +30,8 @@ Complete New Customer Form
   Input Text                ${passwordConfirmField}   ${password}
   Sleep                     2s
   Click Button              ${createAccountBtn} 
-  Log                       ${testCaseEmail}
-  Log                       ${customerInfo}
-  Set List Value         ${customerInfo}
-  ...                       2
-  ...                       ${testCaseEmail}
-  Log                       ${testCaseEmail}
-  Log                       ${customerInfo}
+  #Assign value to customerInfo list
+  Set List Value            ${customerInfo}     2     ${testCaseEmail}
   [Return]                  ${customerInfo}
 
 Generate New eMail Address
