@@ -28,28 +28,30 @@ ${testCaseEmail}          selenium+03-15-22.12.47.04.1647373624@trifectanutritio
 ${firstName}              Elden
 ${lastName}               Ring
 ${password}               tester123!
+#Customer list variable
+@{customerInfo}               
+...                       ${firstName}          
+...                       ${lastName}
+...                       ${testCaseEmail}      
+...                       ${password}
 
 *** Test Cases ***
 Test 1.2 Non-Logged In User Must Be Able To Create Account From Checkout
   [Documentation]
   ...   Customer can add items to cart and proceed to checkout. Uses Luma Theme.
-  [Tags]    Smoke   Luma    testcaseid=16784
-  Begin Maximize Browser Test
-  Go To Checkout With A Valid Cart
-  ...       ${firstName}          ${lastName}
-  ...       ${testCaseEmail}      ${password}
+  [Tags]                              Smoke   Luma    testcaseid=16784
+  #Begin Maximize Browser Test
+  Go To Checkout With A Valid Cart    ${customerInfo}
 
 Test Customer Can Create Account And Logout
   [Documentation]
   ...   Customer can create a new account successfully. Uses TRI Theme.
-  [Tags]    Auth    TRI   Smoke
+  [Tags]                  Auth    TRI   Smoke
   # Generate a new user and eMail account for the test case it not passed in
-  Create A New Account
-  ...       ${firstName}          ${lastName}
-  ...       ${testCaseEmail}      ${password}
+  ${customerInfo}=        Create A New Account    ${customerInfo}
   Logout From My Account
   # Log back in as the newly created user
-  Login     ${testCaseEmail}      ${password}
+  Login                   ${customerInfo}
   Logout From My Account
 
 Test Customer Can Login
@@ -57,4 +59,4 @@ Test Customer Can Login
   ...   Customer can login as a previously created user.  Can be overridden 
   ...   at the CommandLine. Uses TRI Theme.
   [Tags]    Auth    TRI   Smoke
-  Login     ${testCaseEmail}      ${password}
+  Login     ${customerInfo}

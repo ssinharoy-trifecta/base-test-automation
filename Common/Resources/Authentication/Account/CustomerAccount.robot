@@ -1,8 +1,6 @@
 *** Settings ***
 Library                         SeleniumLibrary
 
-*** Variables ***
-
 *** Keywords ***
 Click Log Out
     Click Link                  Log Out
