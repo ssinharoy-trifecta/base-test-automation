@@ -23,12 +23,12 @@ Go To Checkout With A Valid Cart
   Checkout.Validate Checkout Page As New Customer
 
 Create A New Account
-  [Arguments]                                  ${customerInfo}
+  [Arguments]         ${customerInfo}
   TopNav.Navigate To Account Redirects
   CustomerLogin.Click Create An Account Button
-  ${customerInfo}=                             CustomerCreate.Complete New Customer Form    ${customerInfo}
+  ${customerInfo}=    CustomerCreate.Complete New Customer Form    ${customerInfo}
   CustomerAccount.Validate My Account Page
-  [Return]                                     ${customerInfo}
+  [Return]            ${customerInfo}
 
 Logout From My Account
   CustomerAccount.Click Log Out
