@@ -5,8 +5,8 @@ Variables		testrail_env.py
 *** Variables ***
 ${baseURL}						https://${TESTRAIL_URL}
 ${getURL}							index.php?/api/v2/get_case/8696
-${singleCasePost}			index.php?/api/v2/add_result_for_case/321/8696
-${multiCasePost}			index.php?/api/v2/add_results_for_cases/321
+${singleCasePost}			index.php?/api/v2/add_result_for_case/326/8696
+${multiCasePost}			index.php?/api/v2/add_results_for_cases/326
 ${headers}						Authorization=Basic		Content-Type=application/json  accept=application/json
 ${authData}   				${TESTRAIL_USER}		${TESTRAIL_APIKEY}
 
