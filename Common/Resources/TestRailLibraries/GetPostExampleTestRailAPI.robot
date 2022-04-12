@@ -7,8 +7,8 @@ ${baseURL}						https://${TESTRAIL_URL}
 ${getURL}							index.php?/api/v2/get_case/8696
 ${singleCasePost}			index.php?/api/v2/add_result_for_case/326/8696
 ${multiCasePost}			index.php?/api/v2/add_results_for_cases/326
-${headers}						Authorization=Basic		Content-Type=application/json  accept=application/json
-${authData}   				${TESTRAIL_USER}		${TESTRAIL_APIKEY}
+${headers}						Authorization=Basic		Content-Type=application/json	accept=application/json
+${authData}	 					${TESTRAIL_USER}		${TESTRAIL_APIKEY}
 
 
 
@@ -16,8 +16,8 @@ ${authData}   				${TESTRAIL_USER}		${TESTRAIL_APIKEY}
 Sample Get Request
 	[Documentation]
 	...		Returns the contents of the Purchase A Meal Plan test case 
-	Create Session		httpbin    			${baseURL}			auth=${authData}
-  ${resp}=					GET On Session  httpbin					url=${getURL}
+	Create Session		httpbin					${baseURL}			auth=${authData}
+	${resp}=					GET On Session	httpbin					url=${getURL}
 
 Sample Post Request
 	[Documentation]
@@ -26,10 +26,10 @@ Sample Post Request
 	# Generate results dictionary
 	${myJSON}=				Create Dictionary		status_id=5		comment=This is a post from Robot
 	# Convert to JSON
-	${postJSON}=			evaluate						json.dumps(${myJSON})                 json
+	${postJSON}=			evaluate						json.dumps(${myJSON})									json
 	log		${postJSON}
 	# Post results to TestRail using JSON
-  ${resp}=  				POST On Session  		httpbin				url=${singleCasePost}		json=${myJSON}
+	${resp}=					POST On Session			httpbin				url=${singleCasePost}		json=${myJSON}
 	log		${resp} 
 
 Sample Post Request For Cases
@@ -49,5 +49,5 @@ Sample Post Request For Cases
 	${handWrittenFinal}=									Create Dictionary		results=${handWritten3}
 	Log								'${handWrittenFinal}'
 	# Post created
-	${resp}=					POST On Session  		httpbin		url=${multiCasePost}		json=${handWrittenFinal}
+	${resp}=					POST On Session			httpbin		url=${multiCasePost}		json=${handWrittenFinal}
 	log								${resp} 
