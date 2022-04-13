@@ -46,4 +46,3 @@ class TestRailListener(object):
 	def sendToTestRail(resultsJSON):
 		# Connect to TestRail
 		# Post to TestRail
-		
