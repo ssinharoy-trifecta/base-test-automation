@@ -13,4 +13,3 @@ Log eMail
 Log email address
 	${email}	Generate_Email
 	Log to Console 	${email}
-	
