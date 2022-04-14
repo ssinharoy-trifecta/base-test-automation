@@ -1,6 +1,9 @@
 *** Settings ***
 Library			RequestsLibrary
 Variables		testrail_env.py
+Documentation
+...		You'll need to update the testrail_env.py file with the TestRail User, password, and API Key
+...		This is found in LastPass
 
 *** Variables ***
 ${baseURL}						https://${TESTRAIL_URL}
