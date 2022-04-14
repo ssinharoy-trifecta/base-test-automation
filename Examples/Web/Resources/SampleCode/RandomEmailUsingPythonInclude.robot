@@ -1,6 +1,6 @@
 *** Settings ***
 Library 	SeleniumLibrary
-Library 	Web/Libraries/random_email_generator.py
+Library 	../../Libraries/random_email_generator.py
 
 *** Variables ***
 ${email}
