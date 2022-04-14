@@ -1,5 +1,14 @@
+# Mac OS files
 **.DS_Store
+
+# Python Files
 **__pycache__/
 
+# Virtual Environment files
 /env
+
+# Results files
 **/Results/**
+
+# Changes to the TestRail Python Environment file
+**testrail_env.py**
