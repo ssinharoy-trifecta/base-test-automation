@@ -7,4 +7,4 @@ Click Log Out
     Wait Until Page Contains    You are signed out
 
 Validate My Account Page
-    Wait Until Page Contains    My Account
+    Wait Until Page Contains    Account Information
