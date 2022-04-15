@@ -9,9 +9,9 @@ Resource   ../../Resources/FitnessResourcesiOS.robot
 Resource   ../../Resources/NutritionResourcesiOS.robot
 Resource   ../../Resources/OnboardingResourcesiOS.robot
 Resource   ../../Resources/ShopResourcesiOS.robot
+Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
-Suite Teardown    Run Keyword If All Tests Passed
-...               Execute Script    browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed"}}
+Suite Teardown    Mark App Automate Session Satus Browserstack
 
 *** Test Cases ***
 

@@ -8,5 +8,6 @@ Resource   ../../Resources/FitnessResourcesAndroid.robot
 Resource   ../../Resources/NutritionResourcesAndroid.robot
 Resource   ../../Resources/OnboardingResourcesAndroid.robot
 Resource   ../../Resources/ShopResourcesAndroid.robot
+Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
 *** Test Cases ***

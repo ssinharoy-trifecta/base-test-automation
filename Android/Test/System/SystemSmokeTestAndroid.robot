@@ -9,10 +9,9 @@ Resource   ../../Resources/FitnessResourcesAndroid.robot
 Resource   ../../Resources/NutritionResourcesAndroid.robot
 Resource   ../../Resources/OnboardingResourcesAndroid.robot
 Resource   ../../Resources/ShopResourcesAndroid.robot
+Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
-Suite Teardown    Run Keyword If All Tests Passed
-...               Execute Script    browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed"}}
-
+Suite Teardown    Mark App Automate Session Satus Browserstack
 
 *** Test Cases ***
 
@@ -31,12 +30,11 @@ Test Launch Trifecta Application
 Test Sign In As Existing User Android
     Sign In As Existing User Android
 
-Test Dashboard UI and Details Android
-    Open Shop Android
-    Validadate Dashboard UI And Details Android
-    Close Shop Android
+# Test Dashboard UI and Details Android
+#     Open Shop Android
+#     Validadate Dashboard UI And Details Android
+#     Close Shop Android
 
 Test Log Out Android
     Log Out Android
-
 
