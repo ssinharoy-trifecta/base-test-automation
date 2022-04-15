@@ -2,12 +2,16 @@
 
 Library    AppiumLibrary
 Library    BuiltIn
+
 Resource   ../../Resources/AccountMgmtResourcesiOS.robot
 Resource   ../../Resources/AuthenticationResourcesiOS.robot
 Resource   ../../Resources/FitnessResourcesiOS.robot
 Resource   ../../Resources/NutritionResourcesiOS.robot
 Resource   ../../Resources/OnboardingResourcesiOS.robot
 Resource   ../../Resources/ShopResourcesiOS.robot
+
+Suite Teardown    Run Keyword If All Tests Passed
+...               Execute Script    browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed"}}
 
 *** Test Cases ***
 
