@@ -24,4 +24,6 @@ ${BS_BROWSER_VERSION}   98
 Mark App Automate Session Satus Browserstack
     Run Keyword If All Tests Passed
     ...    Execute Script    browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed"}}
+    Run Keyword If Any Tests Failed
+    ...    Execute Script    browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed"}}
     Close All Applications
