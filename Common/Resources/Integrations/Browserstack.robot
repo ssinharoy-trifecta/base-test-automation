@@ -30,7 +30,7 @@ ${BS_BROWSER_VERSION}   98
 *** Keywords ***
 
 #MARK APP AUTOMATE SESSION STATUS PASS/FAIL IN BROWSERSTACK
-Mark App Automate Session Satus Browserstack
+Mark App Automate Session Status Browserstack
     Run Keyword If All Tests Passed
     ...    Execute Script    browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed"}}
     Run Keyword If Any Tests Failed

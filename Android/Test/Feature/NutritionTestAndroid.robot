@@ -11,6 +11,7 @@ Resource   ../../Resources/OnboardingResourcesAndroid.robot
 Resource   ../../Resources/ShopResourcesAndroid.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
-Suite Teardown    Mark App Automate Session Satus Browserstack
+Suite Setup       Launch Application Android
+Suite Teardown    Mark App Automate Session Status Browserstack
 
 *** Test Cases ***

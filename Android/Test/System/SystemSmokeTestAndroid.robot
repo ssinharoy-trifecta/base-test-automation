@@ -12,7 +12,7 @@ Resource   ../../Resources/ShopWooResourcesAndroid.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
 Suite Setup       Launch Application Android
-Suite Teardown    Mark App Automate Session Satus Browserstack
+Suite Teardown    Mark App Automate Session Status Browserstack
 
 *** Test Cases ***
 
