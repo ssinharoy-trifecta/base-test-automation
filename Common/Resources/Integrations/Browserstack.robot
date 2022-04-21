@@ -26,7 +26,7 @@ ${BS_OS}                Windows
 ${BS_PC_OS_VERSION}     10
 ${BS_BROWSER}           chrome
 ${BS_BROWSER_VERSION}   98
-${BS_BUILD_WEB}         Web
+${BS_BUILD_WEB}         ${SUITE NAME}
 
 *** Keywords ***
 
