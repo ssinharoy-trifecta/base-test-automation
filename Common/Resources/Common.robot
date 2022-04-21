@@ -51,6 +51,9 @@ Setup Browserstack
   ...                         os_version=${BS_PC_OS_VERSION}     
   ...                         browser=${BS_BROWSER}   
   ...                         browser_version=${BS_BROWSER_VERSION}
+  ...                         project=${BS_PROJECT_WEB}
+  ...                         build=${BS_BUILD_WEB}
+  ...                         name=${BS_NAME_WEB}
   Open Browser                ${urlForNavigation}
   ...                         remote_url=${remoteUrl}     
   ...                         desired_capabilities=${desiredCapabilities}
