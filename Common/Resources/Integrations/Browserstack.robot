@@ -26,8 +26,6 @@ ${BS_OS}                Windows
 ${BS_PC_OS_VERSION}     10
 ${BS_BROWSER}           chrome
 ${BS_BROWSER_VERSION}   98
-${BS_PROJECT_WEB}       Web Test
-${BS_NAME_WEB}          Web_Test
 ${BS_BUILD_WEB}         Web
 
 *** Keywords ***
@@ -65,3 +63,19 @@ Launch Application Android
     ...                 build=${BS_BUILD_ANDROID}
     ...                 name=${BS_NAME_ANDROID}
     ...                 browserstack.idle.Timeout=${BS_IDLE_TIMEOUT}
+
+# WEB BROWSERSTACK LAUNCHER
+Setup Browserstack For WEB
+  [Arguments]                 ${urlForNavigation}
+  ${remoteUrl}                Set Variable          http://${BS_USER}:${BS_KEY}@${BS_REMOTE_URL}
+  &{desiredCapabilities}      Create Dictionary   
+  ...                         os=${BS_OS}     
+  ...                         os_version=${BS_PC_OS_VERSION}     
+  ...                         browser=${BS_BROWSER}   
+  ...                         browser_version=${BS_BROWSER_VERSION}
+  ...                         build=${BS_BUILD_WEB}
+  ...                         name=${TEST NAME}
+  Open Browser                ${urlForNavigation}
+  ...                         remote_url=${remoteUrl}     
+  ...                         desired_capabilities=${desiredCapabilities}
+  Begin Maximize Browser Test
