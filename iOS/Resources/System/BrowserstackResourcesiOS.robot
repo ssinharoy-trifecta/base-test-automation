@@ -21,12 +21,6 @@ ${BS_NAME_ANDROID}          Android_System_Smoke_Test
 ${BS_DEVICE_ANDROID}        Google Pixel 3
 ${BS_OS_VERSION_ANDROID}    9.0
 
-#WEB
-${BS_OS}                Windows
-${BS_PC_OS_VERSION}     10
-${BS_BROWSER}           chrome
-${BS_BROWSER_VERSION}   98
-
 *** Keywords ***
 
 #MARK APP AUTOMATE SESSION STATUS PASS/FAIL IN BROWSERSTACK

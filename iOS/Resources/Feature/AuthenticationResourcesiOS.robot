@@ -26,7 +26,7 @@ ${allowBtniOS}    xpath=//XCUIElementTypeButton[@name="Allow"]
 
 Check Data Alert iOS
     Sleep             3
-    ${alertiOS}       Run Keyword And Return Status    Page Should Not Contain Element    ${allowBtniOS}    timeout=10
+    ${alertiOS}       Run Keyword And Return Status    Page Should Not Contain Element    ${allowBtniOS}    timeout=3
     Run Keyword If    '${alertiOS}' == 'False'    Click Element    ${allowBtniOS}
 
 Sign Up As New User iOS
@@ -52,5 +52,5 @@ Sign In As Existing User iOS
 
 Check Notifications Alert iOS
     Sleep             3
-    ${alert2iOS}      Run Keyword And Return Status    Page Should Not Contain Element    ${allowBtniOS}    timeout=10
+    ${alert2iOS}      Run Keyword And Return Status    Page Should Not Contain Element    ${allowBtniOS}    timeout=3
     Run Keyword If    '${alert2iOS}' == 'False'    Click Element    ${allowBtniOS}
