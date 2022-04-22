@@ -47,7 +47,7 @@ Sample Post Request For Cases
 	${handWritten3}=        Create List         ${handWritten1}   ${handWritten2}
 	# Results list is added to a final dictionary for submission
 	${handWrittenFinal}=    Create Dictionary   results=${handWritten3}
-	Log											'${handWrittenFinal}'
+	Log                     '${handWrittenFinal}'
 	# Post created
 	API.Send POST Request   ${baseURL}		
 	...                     ${handWrittenFinal}
