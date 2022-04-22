@@ -2,16 +2,17 @@
 
 Library    AppiumLibrary
 Library    BuiltIn
+Library    DateTime
 
-Resource   ../../Resources/AccountMgmtResourcesAndroid.robot
-Resource   ../../Resources/AuthenticationResourcesAndroid.robot
-Resource   ../../Resources/FitnessResourcesAndroid.robot
-Resource   ../../Resources/NutritionResourcesAndroid.robot
-Resource   ../../Resources/OnboardingResourcesAndroid.robot
-Resource   ../../Resources/ShopWooResourcesAndroid.robot
-Resource   ../../../Common/Resources/Integrations/Browserstack.robot
+Resource   ../../Resources/Feature/AccountMgmtResourcesAndroid.robot
+Resource   ../../Resources/Feature/AuthenticationResourcesAndroid.robot
+Resource   ../../Resources/Feature/FitnessResourcesAndroid.robot
+Resource   ../../Resources/Feature/NutritionResourcesAndroid.robot
+Resource   ../../Resources/Feature/OnboardingResourcesAndroid.robot
+Resource   ../../Resources/Feature/ShopWooResourcesAndroid.robot
+Resource   ../../Resources/System/EmulatorResourcesAndroid.robot
 
-Suite Setup       Launch Application Android
+Suite Setup       Launch Android Application On Browserstack
 Suite Teardown    Mark App Automate Session Status Browserstack
 
 *** Test Cases ***

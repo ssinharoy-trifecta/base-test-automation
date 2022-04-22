@@ -11,7 +11,7 @@ Resource   ../../Resources/Feature/NutritionResourcesiOS.robot
 Resource   ../../Resources/Feature/OnboardingResourcesiOS.robot
 Resource   ../../Resources/Feature/ShopWooResourcesiOS.robot
 Resource   ../../Resources/System/BrowserstackResourcesiOS.robot
-Resource   ../../Resources/System/XcodeEmulatorResourcesiOS.robot
+Resource   ../../Resources/System/EmulatorResourcesiOS.robot
 
 Suite Setup    Set Library Search Order    AppiumLibrary    SeleniumLibrary
 
