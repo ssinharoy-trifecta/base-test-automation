@@ -43,12 +43,12 @@ Send POST Request
     ...                 ${apiPostUrl}          
     ...                 @{apiAuthData}	
     Create Session      Test_Session            ${apiBaseEndpoint}          auth=${apiAuthData}	
-	${postJSON}=		evaluate			    json.dumps(${dictJSON})	    json
-	Log		            ${postJSON}
-	# Post results to TestRail using JSON
-	${response}=		POST On Session			
+    ${postJSON}=		evaluate			    json.dumps(${dictJSON})	    json
+    Log		            ${postJSON}
+    # Post results to TestRail using JSON
+    ${response}=		POST On Session			
     ...                 Test_Session		        
     ...                 url=${apiPostUrl}		
     ...                 json=${dictJSON}
-	Log		            ${response} 
-	Delete All Sessions
+    Log		            ${response} 
+    Delete All Sessions
