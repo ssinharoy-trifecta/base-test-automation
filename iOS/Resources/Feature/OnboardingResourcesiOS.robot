@@ -48,19 +48,19 @@ ${termsOfUseAgreeBtniOS}     xpath=//XCUIElementTypeStaticText[@name="Agree"]
 *** Keywords ***
 
 Complete User Onboarding iOS
-    Wait Until Element Is Visible    ${letsDoItBtniOS}    timeout=30
+    Wait Until Element Is Visible    ${letsDoItBtniOS}  timeout=30
     Click Element                    ${letsDoItBtniOS}
-    Wait Until Element Is Visible    ${maleBtniOS}    timeout=10
+    Wait Until Element Is Visible    ${maleBtniOS}  timeout=10
     Click Element                    ${maleBtniOS}
     Wait Until Element Is Visible    ${loseWeightBtniOS}    timeout=10
     Click Element                    ${loseWeightBtniOS}
-    Wait Until Element Is Visible    ${moderatelyActiveBtniOS}    timeout=10
+    Wait Until Element Is Visible    ${moderatelyActiveBtniOS}  timeout=10
     Click Element                    ${moderatelyActiveBtniOS}
     Wait Until Element Is Visible    ${noKetoBtniOS}    timeout=10
     Click Element                    ${noKetoBtniOS}
-    Wait Until Element Is Visible    ${weightOnboardingPickeriOS}    timeout=10
-    Input Value                      ${weightOnboardingPickeriOS}    200
-    Wait Until Element Is Visible    ${heightOnboardingPickeriOS}    timeout=10
+    Wait Until Element Is Visible    ${weightOnboardingPickeriOS}   timeout=10
+    Input Value                      ${weightOnboardingPickeriOS}   200
+    Wait Until Element Is Visible    ${heightOnboardingPickeriOS}   timeout=10
     Click Element                    ${heightOnboardingPickeriOS}
     Click Text                       cm    exact_match=True
     Wait Until Element Is Visible    ${heightOnboardingPickerCmiOS}    timeout=10
@@ -69,10 +69,13 @@ Complete User Onboarding iOS
     Wait Until Element Is Visible    ${birthdayOnboardingPickeriOS}    timeout=10
     Click Element                    ${birthdayOnboardingPickeriOS}
     Sleep                            1
-    Click Text                       Done    exact_match=True
+    Click Text                       Done   exact_match=True
     Sleep                            1
     Wait Until Element Is Visible    ${doneOnboardingBtniOS}    timeout=10
     Click Element                    ${doneOnboardingBtniOS}
+
+Agree To Terms Of Use
+    Check Notifications Alert iOS
     Wait Until Element Is Visible    ${allowNotificationsBtniOS}    timeout=10
     Click Element                    ${allowNotificationsBtniOS}
     Check Notifications Alert iOS

@@ -8,7 +8,7 @@ Library    DateTime
 *** Variables ***
 
 #EXISTING PREMIUM USER CREDENTIALS
-${testUserEmail}       trifectatester2@gmail.com
+${testUserEmail}       trifectaqa@gmail.com
 ${testUserPassword}    tester123
 
 #AUTENTICATION SCREEN OBJECTS
@@ -34,9 +34,9 @@ Sign Up As New User iOS
     Click Element                    ${getStartedBtniOS}
     Wait Until Element Is Visible    ${createAccountBtniOS}    timeout=30
     Click Element                    ${createAccountBtniOS}
-    Wait Until Element Is Visible    ${emailFieldiOS}    timeout=30
-    ${date}                          Get Current Date     result_format=%m-%d-%y-%H.%M.%S
-    Input Text                       ${emailFieldiOS}    app+${date}@trifectanutrition.com
+    Wait Until Element Is Visible    ${emailFieldiOS}   timeout=30
+    ${date}                          Get Current Date   result_format=%m-%d-%y-%H.%M.%S
+    Input Text                       ${emailFieldiOS}   trifectaqa+${date}@gmail.com
     Input Text                       ${passwordFieldiOS}    ${testUserPassword}
     Click Element                    ${signUpBtniOS}
     Wait Until Element Is Visible    ${OnboardingImgiOS}    timeout=30
@@ -45,8 +45,8 @@ Sign Up As New User iOS
 Sign In As Existing User iOS
     Wait Until Element Is Visible    ${getStartedBtniOS}    timeout=30
     Click Element                    ${getStartedBtniOS}
-    Wait Until Element Is Visible    ${emailFieldiOS}    timeout=30
-    Input Text                       ${emailFieldiOS}    ${testUserEmail}
+    Wait Until Element Is Visible    ${emailFieldiOS}   timeout=30
+    Input Text                       ${emailFieldiOS}   ${testUserEmail}
     Input Text                       ${passwordFieldiOS}    ${testUserPassword}
     Click Element                    ${signInBtniOS}
 

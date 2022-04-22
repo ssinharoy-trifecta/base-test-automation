@@ -13,36 +13,42 @@ Resource   ../../Resources/Feature/ShopWooResourcesiOS.robot
 Resource   ../../Resources/System/BrowserstackResourcesiOS.robot
 Resource   ../../Resources/System/XcodeEmulatorResourcesiOS.robot
 
-Suite Setup       Set Library Search Order    AppiumLibrary    SeleniumLibrary
+Suite Setup    Set Library Search Order    AppiumLibrary    SeleniumLibrary
 
-#BROWSERSTACK ONLY
-Suite Teardown    Mark App Automate Session Status Browserstack
+#BROWSERSTACK
+Suite Teardown    Run Keywords    Log Out iOS
+...                               Mark App Automate Session Status Browserstack
+
+#XCODE EMULATOR
+# Suite Teardown    Run Keywords    Log Out iOS
 
 *** Test Cases ***
 
-Test Launch Application iOS
-    #Launch iOS Application On Browserstack
-    Launch iOS App Xcode Emulator
+Launch Application T102659
+    Launch iOS Application On Browserstack
+    #Launch iOS App On Xcode Emulator
 
-Test Sign Up - New User
+Intro Screen UI Review T100431
     Check Data Alert iOS
+
+Sign Up - New User T100433
     Sign Up As New User iOS
 
-Test Complete User Onboarding
+Complete User Onboarding T100621
     Complete User Onboarding iOS
 
-Test Log Out iOS 1
+Terms Of Use - Agree T101518
+    Agree To Terms Of Use
+
+Log Out From the Main Menu T100460
     Log Out iOS
 
-Test Sign In As Existing User iOS
+Sign In - Existing User T100505
     Check Data Alert iOS
     Sign In As Existing User iOS
     Check Notifications Alert iOS
 
-Test Dashboard UI And Details iOS
+Shop Dashboard UI And Details T100761
     Open Shop iOS
     Validate Dashboard UI And Details iOS
     Close Shop iOS
-    
-Test Log Out iOS 2
-    Log Out iOS
