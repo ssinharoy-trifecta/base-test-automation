@@ -20,7 +20,11 @@ ${passFailComment}
 Sample Get Request
 	[Documentation]
 	...		Returns the contents of the Purchase A Meal Plan test case 
-	API.GET Request And Fetch Status Code		${baseURL}		${getURL}		@{authData}
+	${returnedResponse}=    API.GET Request And Fetch Status Code		
+	...                     ${baseURL}		
+	...                     ${getURL}		
+	...                     @{authData}
+	Log                     ${returnedResponse}
 
 Sample Post Request
 	[Documentation]
@@ -28,10 +32,12 @@ Sample Post Request
 	${passFailStatus}=      Set Variable          1
 	${passFailComment}=     Set Variable          This is a test from rob ot
 	${dictJSON}=            Create Dictionary     status_id=${passFailStatus}     comment=${passFailComment}
-	API.Send POST Request   ${baseURL}		
+	${returnedResponse}=    API.Send POST Request
+	...                     ${baseURL}		
 	...                     ${dictJSON}
 	...                     ${singleCasePost}
 	...                     @{authData}
+	Log                     ${returnedResponse}
 
 Sample Post Request For Cases
 	[Documentation]
@@ -49,7 +55,9 @@ Sample Post Request For Cases
 	${handWrittenFinal}=    Create Dictionary   results=${handWritten3}
 	Log                     '${handWrittenFinal}'
 	# Post created
-	API.Send POST Request   ${baseURL}		
+	${returnedResponse}=    API.Send POST Request   
+	...                     ${baseURL}		
 	...                     ${handWrittenFinal}
 	...                     ${multiCasePost}
 	...                     @{authData}
+	Log                     ${returnedResponse}

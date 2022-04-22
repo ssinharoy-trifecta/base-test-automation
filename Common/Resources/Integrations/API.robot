@@ -22,19 +22,27 @@ ${apiPostUrl}
 
 *** Keywords ***
 GET Request And Fetch Status Code
-    [Arguments]         ${apiBaseEndpoint}          ${apiGetUrl}           @{apiAuthData}	
+    [Arguments]         
+    ...                 ${apiBaseEndpoint}          
+    ...                 ${apiGetUrl}           
+    ...                 @{apiAuthData}	
     Create Session      Test_Session                ${apiBaseEndpoint}     auth=${apiAuthData}	
     ${response}=        GET On Session              Test_Session           ${apiGetUrl} 
     # Get response code
     ${statusCode}       Convert To String           ${response.status_code}
     Should Be Equal     ${statusCode}               200                      
     Delete All Sessions
+    [Return]            ${response}
 
 Simple GET Request
-    [Arguments]         ${apiBaseEndpoint}          ${apiGetUrl}           @{apiAuthData}	
+    [Arguments]         
+    ...                 ${apiBaseEndpoint}          
+    ...                 ${apiGetUrl}           
+    ...                 @{apiAuthData}	
     Create Session      Test_Session                ${apiBaseEndpoint}     auth=${apiAuthData}	
     ${response}=        GET On Session              Test_Session           ${apiGetUrl} 
     Delete All Sessions
+    [Return]            ${response}
 
 Send POST Request
     [Arguments]         
@@ -52,3 +60,4 @@ Send POST Request
     ...                 json=${dictJSON}
     Log                 ${response} 
     Delete All Sessions
+    [Return]            ${response}
