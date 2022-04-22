@@ -13,14 +13,6 @@ ${BS_NAME_iOS}          iOS_System_Smoke_Test
 ${BS_DEVICE_iOS}        iPhone 13
 ${BS_OS_VERSION_iOS}    15
 
-#ANDROID
-${BS_APP_ANDROID}           bs://a4d0becc184bdf02f991641ed71600aabbb2f8fa
-${BS_PROJECT_ANDROID}       Android System Smoke Test
-${BS_BUILD_ANDROID}         Android
-${BS_NAME_ANDROID}          Android_System_Smoke_Test
-${BS_DEVICE_ANDROID}        Google Pixel 3
-${BS_OS_VERSION_ANDROID}    9.0
-
 *** Keywords ***
 
 #MARK APP AUTOMATE SESSION STATUS PASS/FAIL IN BROWSERSTACK
@@ -32,7 +24,7 @@ Mark App Automate Session Status Browserstack
     Close All Applications
 
 # iOS BROWSERSTACK LAUNCHER
-Launch Application Browserstack iOS
+Launch iOS Application On Browserstack
     Open Application    remote_url=${BS_REMOTE_URL}
     ...                 browserstack.user=${BS_USER} 
     ...                 browserstack.key=${BS_KEY}
@@ -42,17 +34,4 @@ Launch Application Browserstack iOS
     ...                 project=${BS_PROJECT_iOS} 
     ...                 build=${BS_BUILD_iOS}
     ...                 name=${BS_NAME_iOS}
-    ...                 browserstack.idle.Timeout=${BS_IDLE_TIMEOUT}
-
-# ANDROID BROWSERSTACK LAUNCHER
-Launch Application Browserstack Android
-    Open Application    remote_url=${BS_REMOTE_URL}
-    ...                 browserstack.user=${BS_USER} 
-    ...                 browserstack.key=${BS_KEY}
-    ...                 app=${BS_APP_ANDROID}
-    ...                 device=${BS_DEVICE_ANDROID}
-    ...                 os_version=${BS_OS_VERSION_ANDROID}
-    ...                 project=${BS_PROJECT_ANDROID}
-    ...                 build=${BS_BUILD_ANDROID}
-    ...                 name=${BS_NAME_ANDROID}
     ...                 browserstack.idle.Timeout=${BS_IDLE_TIMEOUT}
