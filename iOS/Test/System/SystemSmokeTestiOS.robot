@@ -26,10 +26,11 @@ Suite Teardown    Run Keywords    Log Out iOS
 
 Launch Application T102659
     Launch iOS Application On Browserstack
-    #Launch iOS App On Xcode Emulator
+    #Launch iOS Application On Emulator
 
 Intro Screen UI Review T100431
     Check Data Alert iOS
+    Validate Intro Screen Details iOS
 
 Sign Up - New User T100433
     Sign Up As New User iOS
@@ -38,9 +39,9 @@ Complete User Onboarding T100621
     Complete User Onboarding iOS
 
 Terms Of Use - Agree T101518
-    Agree To Terms Of Use
+    Agree To Terms Of Use iOS
 
-Log Out From the Main Menu T100460
+Log Out From The Main Menu T100460
     Log Out iOS
 
 Sign In - Existing User T100505

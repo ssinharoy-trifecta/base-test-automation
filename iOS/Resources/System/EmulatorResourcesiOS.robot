@@ -5,7 +5,7 @@
 *** Keywords ***
 
 #LAUNCH THE APP ON XCODE EMULATOR
-Launch iOS App On Xcode Emulator
+Launch iOS Application On Emulator
     Open Application    http://localhost:4723/wd/hub
     ...                 platformName=iOS
     ...                 platformVersion=15
