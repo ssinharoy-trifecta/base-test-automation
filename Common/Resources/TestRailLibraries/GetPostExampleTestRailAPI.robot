@@ -7,12 +7,12 @@ Documentation
 ...		This is found in LastPass
 
 *** Variables ***
-${baseURL}					${TESTRAIL_URL}
-${getURL}						index.php?/api/v2/get_case/8696
-${singleCasePost}		index.php?/api/v2/add_result_for_case/326/8696
-${multiCasePost}		index.php?/api/v2/add_results_for_cases/326
-${headers}					Authorization=Basic		Content-Type=application/json	accept=application/json
-@{authData}					${TESTRAIL_USER}			${TESTRAIL_APIKEY}
+${baseURL}          ${TESTRAIL_URL}
+${getURL}           index.php?/api/v2/get_case/8696
+${singleCasePost}   index.php?/api/v2/add_result_for_case/326/8696
+${multiCasePost}    index.php?/api/v2/add_results_for_cases/326
+${headers}          Authorization=Basic		Content-Type=application/json	accept=application/json
+@{authData}         ${TESTRAIL_USER}			${TESTRAIL_APIKEY}
 ${passFailStatus}
 ${passFailComment}
 
