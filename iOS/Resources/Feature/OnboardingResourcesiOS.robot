@@ -6,21 +6,25 @@ Library    DateTime
 
 *** Variables ***
 
+#WELCOME TO TRIFECTA SCREEN
 ${onboardingImgiOS}           xpath=//XCUIElementTypeImage[@name="img_onboarding"]
 ${welcomeToTrifectaTxtiOS}    xpath=//XCUIElementTypeStaticText[@name="Welcome to Trifecta!"]
 ${letsDoItBtniOS}             xpath=//XCUIElementTypeButton[@name="Let’s do it!"]
 
+#GENDER SCREEN
 ${backBtnOnboardingiOS}      xpath=//XCUIElementTypeButton[@name="ic onboarding back"]
 ${selectYourGenderTxtiOS}    xpath=//XCUIElementTypeStaticText[@name="Select your gender:"]
 ${maleBtniOS}                xpath=//XCUIElementTypeButton[@name="Male"]
 ${femaleBtniOS}              xpath=//XCUIElementTypeButton[@name="Female"]
 ${otherBtniOS}               xpath=//XCUIElementTypeButton[@name="Other"]
 
+#NUTRITION GOAL SCREEN
 ${whatsYourNutritionGoalTxtiOS}    id=What’s your nutrition goal?
 ${loseWeightBtniOS}                id=Lose Weight\n\nI want to get leaner and tone
 ${maintainWeightBtniOS}            id=Maintain Weight\n\nI want to stay in my best shape
 ${gainMuscletBtniOS}               id=Gain Muscle\n\nI want to build muscle strength
 
+#ACTIVITY LEVEL SCREEN
 ${whatsYourActivityLevelTxtiOS}    id=What’s your activity level?
 ${sedentaryBtniOS}                 id=Sedentary\n\nLittle or no exercise, work at a desk job
 ${lightlyActiveBtniOS}             id=Lightly Active\n\nLight exercise or sports 1-3 days / week
@@ -28,10 +32,12 @@ ${moderatelyActiveBtniOS}          id=Moderately Active\n\nModerate exercise or 
 ${veryActiveBtniOS}                id=Very Active\n\nHigh intensity training 6-7 times / week
 ${extraActiveBtniOS}               id=Extra Active\n\nHard training x2 / day or / and physical labor
 
+#KETO SCREEN
 ${areYouFollowingAKetoDietTxtiOS}    xpath=//XCUIElementTypeStaticText[@name="Are you following a keto diet?"]
 ${yesKetoBtniOS}                     xpath=//XCUIElementTypeButton[@name="Yes"]
 ${noKetoBtniOS}                      xpath=//XCUIElementTypeButton[@name="No"]
 
+#BIO SCREEN
 ${almostThereTxtiOS}              xpath=//XCUIElementTypeStaticText[@name="Almost there!"]
 ${weightOnboardingPickeriOS}      chain=**/XCUIElementTypeTextField[`value == "0"`]
 ${heightOnboardingPickeriOS}      chain=**/XCUIElementTypeTextField[`value == "0 ft 0 in"`]
@@ -39,9 +45,11 @@ ${heightOnboardingPickerCmiOS}    chain=**/XCUIElementTypeTextField[`value == "0
 ${birthdayOnboardingPickeriOS}    chain=**/XCUIElementTypeTextField[`value == "Dec 31, 1969"`]
 ${doneOnboardingBtniOS}           xpath=//XCUIElementTypeButton[@name="Done"]
 
+#NOTIFICATIONS
 ${allowNotificationsBtniOS}    xpath=//XCUIElementTypeButton[@name="Allow Notifications"]
 ${noTanksNotificationsBtniOS}  xpath=//XCUIElementTypeStaticText[@name="No thanks"]
 
+#TERMS OF USE
 ${termsOfUseCancelBtniOS}    xpath=//XCUIElementTypeStaticText[@name="Cancel"]
 ${termsOfUseAgreeBtniOS}     xpath=//XCUIElementTypeStaticText[@name="Agree"]
 
