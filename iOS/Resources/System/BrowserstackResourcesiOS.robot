@@ -35,3 +35,4 @@ Launch iOS Application On Browserstack
     ...                 build=${BS_BUILD_iOS}
     ...                 name=${BS_NAME_iOS}
     ...                 browserstack.idle.Timeout=${BS_IDLE_TIMEOUT}
+    

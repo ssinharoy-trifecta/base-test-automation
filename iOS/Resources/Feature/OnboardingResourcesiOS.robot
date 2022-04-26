@@ -68,21 +68,23 @@ Check Data Alert iOS
     Run Keyword If    '${alertiOS}' == 'False'    Click Element    ${allowBtniOS}
 
 Validate Intro Screen Details iOS
-    Wait Until Element Is Visible    ${getStartedBtnIntroiOS}    timeout=30 
-    Wait Until Element Is Visible    ${trifectaLogoIntroiOS}    timeout=30
-    Wait Until Element Is Visible    ${trifectaVideoIntroiOS}    timeout=30
+    @{list}=    Create List    ${getStartedBtnIntroiOS}    
+    ...                        ${trifectaLogoIntroiOS}    
+    ...                        ${trifectaVideoIntroiOS} 
+    FOR     ${item}     IN     @{list}
+        Wait Until Element Is Visible  ${item}    timeout=30
+    END
 
 Complete User Onboarding iOS
-    Wait Until Element Is Visible    ${letsDoItBtnOnboardingiOS}  timeout=30
-    Click Element                    ${letsDoItBtnOnboardingiOS}
-    Wait Until Element Is Visible    ${maleBtnOnboardingiOS}  timeout=10
-    Click Element                    ${maleBtnOnboardingiOS}
-    Wait Until Element Is Visible    ${loseWeightBtnOnboardingiOS}    timeout=10
-    Click Element                    ${loseWeightBtnOnboardingiOS}
-    Wait Until Element Is Visible    ${moderatelyActiveBtnOnboardingiOS}  timeout=10
-    Click Element                    ${moderatelyActiveBtnOnboardingiOS}
-    Wait Until Element Is Visible    ${noKetoBtnOnboardingiOS}    timeout=10
-    Click Element                    ${noKetoBtnOnboardingiOS}
+    @{list}=    Create List    ${letsDoItBtnOnboardingiOS}   
+    ...                        ${maleBtnOnboardingiOS}
+    ...                        ${loseWeightBtnOnboardingiOS}
+    ...                        ${moderatelyActiveBtnOnboardingiOS}
+    ...                        ${noKetoBtnOnboardingiOS}
+    FOR     ${item}     IN     @{list}
+        Wait Until Element Is Visible     ${item}    timeout=30
+        Click Element    ${item}
+    END
     Wait Until Element Is Visible    ${weightOnboardingPickerOnboardingiOS}   timeout=10
     Input Value                      ${weightOnboardingPickerOnboardingiOS}   200
     Wait Until Element Is Visible    ${heightOnboardingPickerOnboardingiOS}   timeout=10
@@ -96,12 +98,13 @@ Complete User Onboarding iOS
     Sleep                            1
     Click Text                       Done   exact_match=True
     Sleep                            1
-    Wait Until Element Is Visible    ${doneBtnOnboardingiOS}    timeout=10
-    Click Element                    ${doneBtnOnboardingiOS}
-    Check Notifications Alert iOS
-    Wait Until Element Is Visible    ${allowNotificationsBtniOS}    timeout=30
-    Click Element                    ${allowNotificationsBtniOS}
-    Check Notifications Alert iOS
+    @{list}=    Create List    ${doneBtnOnboardingiOS} 
+    ...                        ${allowNotificationsBtniOS}
+    FOR     ${item}     IN     @{list}
+        Wait Until Element Is Visible     ${item}    timeout=30
+        Click Element    ${item}
+        Check Notifications Alert iOS
+    END
 
 Check Notifications Alert iOS
     Sleep             3
@@ -111,6 +114,4 @@ Check Notifications Alert iOS
 Agree To Terms Of Use iOS
     Wait Until Element Is Visible    ${termsOfUseAgreeBtniOS}    timeout=30
     Click Element                    ${termsOfUseAgreeBtniOS}
-
-
-
+    

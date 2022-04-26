@@ -12,9 +12,11 @@ ${logoutBtnAndroid}      id=com.n_ix.pocket_wod:id/logoutBtn
 *** Keywords ***
 
 Log Out Android
-    Wait Until Element Is Visible    ${mainMenuBtnAndroid}    timeout=5
-    Click Element                    ${mainMenuBtnAndroid}
-    Wait Until Element Is Visible    ${accountBtnAndroid}   timeout=5
-    Click Element                    ${accountBtnAndroid}
-    Wait Until Element Is Visible    ${logoutBtnAndroid}   timeout=5
-    Click Element                    ${logoutBtnAndroid}
+    @{list}=    Create List    ${mainMenuBtnAndroid}   
+    ...                        ${accountBtnAndroid}
+    ...                        ${logoutBtnAndroid}
+    FOR     ${item}     IN     @{list}
+        Wait Until Element Is Visible    ${item}    timeout=30
+        Click Element     ${item}
+    END
+    

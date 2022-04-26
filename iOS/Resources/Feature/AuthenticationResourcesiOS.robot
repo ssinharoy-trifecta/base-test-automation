@@ -21,17 +21,22 @@ ${signUpBtnAuthenticationiOS}           xpath=//XCUIElementTypeButton[@name="Sig
 *** Keywords ***
 
 Sign Up As New User iOS
-    Wait Until Element Is Visible    ${getStartedBtnIntroiOS}    timeout=30
-    Click Element                    ${getStartedBtnIntroiOS}
-    Wait Until Element Is Visible    ${createAccountBtnAuthenticationiOS}    timeout=30
-    Click Element                    ${createAccountBtnAuthenticationiOS}
+    @{list}=    Create List    ${getStartedBtnIntroiOS}    
+    ...                        ${createAccountBtnAuthenticationiOS}
+    FOR     ${item}     IN     @{list}
+        Wait Until Element Is Visible    ${item}    timeout=30
+        Click Element     ${item}
+    END
     Wait Until Element Is Visible    ${emailFieldAuthenticationiOS}   timeout=30
     ${date}                          Get Current Date   result_format=%m-%d-%y-%H.%M.%S
     Input Text                       ${emailFieldAuthenticationiOS}   trifectaqa+${date}@gmail.com
     Input Text                       ${passwordFieldAuthenticationiOS}    ${testUserPassword}
     Click Element                    ${signUpBtnAuthenticationiOS}
-    Wait Until Element Is Visible    ${athleteImgOnboardingiOS}    timeout=30
-    Wait Until Element Is Visible    ${welcomeToTrifectaTxtOnboardingiOS}    timeout=30
+    @{list}=    Create List    ${athleteImgOnboardingiOS}   
+    ...                        ${welcomeToTrifectaTxtOnboardingiOS}
+    FOR     ${item}     IN     @{list}
+        Wait Until Element Is Visible    ${item}    timeout=30
+    END
 
 Sign In As Existing User iOS
     Wait Until Element Is Visible    ${getStartedBtnIntroiOS}    timeout=30
@@ -40,3 +45,4 @@ Sign In As Existing User iOS
     Input Text                       ${emailFieldAuthenticationiOS}   ${testUserEmail}
     Input Text                       ${passwordFieldAuthenticationiOS}    ${testUserPassword}
     Click Element                    ${signInBtnAuthenticationiOS}
+    

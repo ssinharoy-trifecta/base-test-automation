@@ -22,17 +22,22 @@ ${signUpBtnAndroid}           id=com.n_ix.pocket_wod:id/signUpButton
 *** Keywords ***
 
 Sign Up As New User Android
-    Wait Until Element Is Visible    ${getStartedBtnAndroid}    timeout=30
-    Click Element                    ${getStartedBtnAndroid}
-    Wait Until Element Is Visible    ${createAccountBtnAndroid}    timeout=30
-    Click Element                    ${createAccountBtnAndroid}
+    @{list}=    Create List    ${getStartedBtnAndroid}  
+    ...                        ${createAccountBtnAndroid}
+    FOR     ${item}     IN     @{list}
+        Wait Until Element Is Visible    ${item}    timeout=30
+        Click Element     ${item}
+    END
     Wait Until Element Is Visible    ${emailFieldAndroid}   timeout=30
     ${date}                          Get Current Date   result_format=%m-%d-%y-%H.%M.%S
     Input Text                       ${emailFieldAndroid}   trifectaqa+${date}@gmail.com
     Input Text                       ${passwordFieldAndroid}    ${testUserPassword}
     Click Element                    ${signUpBtnAndroid}
-    Wait Until Element Is Visible    ${athleteImgOnboardingAndroid}    timeout=30
-    Wait Until Element Is Visible    ${welcomeToTrifectaTxtOnboardingAndroid}    timeout=30
+    @{list}=    Create List    ${athleteImgOnboardingAndroid} 
+    ...                        ${welcomeToTrifectaTxtOnboardingAndroid}
+    FOR     ${item}     IN     @{list}
+        Wait Until Element Is Visible    ${item}    timeout=30
+    END
 
 Sign In As Existing User Android
     Wait Until Element Is Visible    ${getStartedBtnAndroid}    timeout=30
@@ -41,3 +46,4 @@ Sign In As Existing User Android
     Input Text                       ${emailFieldAndroid}    ${testUserEmail}
     Input Text                       ${passwordFieldAndroid}    ${testUserPassword}
     Click Element                    ${signInBtnAndroid}
+    

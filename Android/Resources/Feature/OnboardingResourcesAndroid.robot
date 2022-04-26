@@ -58,23 +58,24 @@ ${termsOfUseAgreeBtnAndroid}     id=com.n_ix.pocket_wod:id/agreeButton
 *** Keywords ***
 
 Validate Intro Screen Details Android
-    Wait Until Element Is Visible    ${getStartedBtnIntroAndroid}    timeout=30 
-    Wait Until Element Is Visible    ${trifectaLogoIntroAndroid}    timeout=30
-    Wait Until Element Is Visible    ${trifectaVideoIntroAndroid}    timeout=30
+    @{list}=    Create List    ${getStartedBtnIntroAndroid}  
+    ...                        ${trifectaLogoIntroAndroid}
+    ...                        ${trifectaVideoIntroAndroid}
+    FOR     ${item}     IN     @{list}
+        Wait Until Element Is Visible    ${item}    timeout=30
+    END
 
 Complete User Onboarding Android
-    Wait Until Element Is Visible    ${letsDoItBtnOnboardingAndroid}  timeout=30
-    Click Element                    ${letsDoItBtnOnboardingAndroid}
-    Wait Until Element Is Visible    ${maleBtnOnboardingAndroid}  timeout=10
-    Click Element                    ${maleBtnOnboardingAndroid}
-    Wait Until Element Is Visible    ${loseWeightBtnOnboardingAndroid}    timeout=10
-    Click Element                    ${loseWeightBtnOnboardingAndroid}
-    Wait Until Element Is Visible    ${moderatelyActiveBtnOnboardingAndroid}  timeout=10
-    Click Element                    ${moderatelyActiveBtnOnboardingAndroid}
-    Wait Until Element Is Visible    ${noKetoBtnOnboardingAndroid}    timeout=10
-    Click Element                    ${noKetoBtnOnboardingAndroid}
-    Wait Until Element Is Visible    ${weightOnboardingAndroid}   timeout=10
-    Click Element                    ${weightOnboardingAndroid}
+    @{list}=    Create List    ${letsDoItBtnOnboardingAndroid} 
+    ...                        ${maleBtnOnboardingAndroid}
+    ...                        ${loseWeightBtnOnboardingAndroid}
+    ...                        ${moderatelyActiveBtnOnboardingAndroid}
+    ...                        ${noKetoBtnOnboardingAndroid}
+    ...                        ${weightOnboardingAndroid}
+    FOR     ${item}     IN     @{list}
+        Wait Until Element Is Visible    ${item}    timeout=30
+        Click Element     ${item}
+    END
     Wait Until Element Is Visible    ${valueInputOnboardingAndroid}   timeout=10
     Input Value                      ${valueInputOnboardingAndroid}   200
     Wait Until Element Is Visible    ${setValueBtnOnboardingAndroid}   timeout=10
@@ -83,15 +84,16 @@ Complete User Onboarding Android
     Click Element                    ${heightOnboardingAndroid}
     Wait Until Element Is Visible    ${valueInputOnboardingAndroid}   timeout=10
     Input Value                      ${valueInputOnboardingAndroid}   6
-    Wait Until Element Is Visible    ${setValueBtnOnboardingAndroid}   timeout=10
-    Click Element                    ${setValueBtnOnboardingAndroid}
-    Wait Until Element Is Visible    ${birthdayOnboardingAndroid}    timeout=10
-    Click Element                    ${birthdayOnboardingAndroid}
-    Wait Until Element Is Visible    ${okBirthdayBtnOnboardingAndroid}   timeout=10
-    Click Element                    ${okBirthdayBtnOnboardingAndroid}
-    Wait Until Element Is Visible    ${doneOnboardingBtnAndroid}    timeout=10
-    Click Element                    ${doneOnboardingBtnAndroid}
+    @{list}=    Create List    ${setValueBtnOnboardingAndroid}
+    ...                        ${birthdayOnboardingAndroid}
+    ...                        ${okBirthdayBtnOnboardingAndroid}
+    ...                        ${doneOnboardingBtnAndroid}
+    FOR     ${item}     IN     @{list}
+        Wait Until Element Is Visible    ${item}    timeout=30
+        Click Element     ${item}
+    END
 
 Agree To Terms Of Use Android
     Wait Until Element Is Visible    ${termsOfUseAgreeBtnAndroid}    timeout=30
     Click Element                    ${termsOfUseAgreeBtnAndroid}
+    
