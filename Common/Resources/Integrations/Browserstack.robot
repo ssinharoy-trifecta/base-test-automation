@@ -1,6 +1,6 @@
 *** Variables ***
-#COMMON
-${BS_REMOTE_URL}     http://hub-cloud.browserstack.com/wd/hub
+#Common
+${BS_REMOTE_URL}     hub-cloud.browserstack.com/wd/hub
 ${BS_USER}           tylerthomas6    
 ${BS_KEY}            FQtVoY5xMMxVa9bh1c1Z
 ${BS_IDLE_TIMEOUT}   5
@@ -13,7 +13,7 @@ ${BS_NAME_iOS}          iOS_System_Smoke_Test
 ${BS_DEVICE_iOS}        iPhone 13
 ${BS_OS_VERSION_iOS}    15
 
-#ANDROID
+#Android
 ${BS_APP_ANDROID}           bs://a4d0becc184bdf02f991641ed71600aabbb2f8fa
 ${BS_PROJECT_ANDROID}       Android System Smoke Test
 ${BS_BUILD_ANDROID}         Android
@@ -26,6 +26,7 @@ ${BS_OS}                Windows
 ${BS_PC_OS_VERSION}     10
 ${BS_BROWSER}           chrome
 ${BS_BROWSER_VERSION}   98
+${BS_BUILD_WEB}         ${SUITE NAME}
 
 *** Keywords ***
 
@@ -38,8 +39,8 @@ Mark App Automate Session Status Browserstack
     Close All Applications
 
 # iOS BROWSERSTACK LAUNCHER
-Launch iOS Application On Browserstack
-    Open Application    remote_url=${BS_REMOTE_URL}
+Launch Application iOS
+    Open Application    remote_url=http://${BS_REMOTE_URL}
     ...                 browserstack.user=${BS_USER} 
     ...                 browserstack.key=${BS_KEY}
     ...                 app=${BS_APP_iOS}
@@ -51,8 +52,8 @@ Launch iOS Application On Browserstack
     ...                 browserstack.idle.Timeout=${BS_IDLE_TIMEOUT}
 
 # ANDROID BROWSERSTACK LAUNCHER
-Launch Android Application On Browserstack
-    Open Application    remote_url=${BS_REMOTE_URL}
+Launch Application Android
+    Open Application    remote_url=http://${BS_REMOTE_URL}
     ...                 browserstack.user=${BS_USER} 
     ...                 browserstack.key=${BS_KEY}
     ...                 app=${BS_APP_ANDROID}
@@ -62,3 +63,19 @@ Launch Android Application On Browserstack
     ...                 build=${BS_BUILD_ANDROID}
     ...                 name=${BS_NAME_ANDROID}
     ...                 browserstack.idle.Timeout=${BS_IDLE_TIMEOUT}
+
+# WEB BROWSERSTACK LAUNCHER
+Setup Browserstack For WEB
+  [Arguments]                 ${urlForNavigation}
+  ${remoteUrl}                Set Variable          http://${BS_USER}:${BS_KEY}@${BS_REMOTE_URL}
+  &{desiredCapabilities}      Create Dictionary   
+  ...                         os=${BS_OS}     
+  ...                         os_version=${BS_PC_OS_VERSION}     
+  ...                         browser=${BS_BROWSER}   
+  ...                         browser_version=${BS_BROWSER_VERSION}
+  ...                         build=${BS_BUILD_WEB}
+  ...                         name=${TEST NAME}
+  Open Browser                ${urlForNavigation}
+  ...                         remote_url=${remoteUrl}     
+  ...                         desired_capabilities=${desiredCapabilities}
+  Begin Maximize Browser Test

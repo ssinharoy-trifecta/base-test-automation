@@ -6,7 +6,6 @@ ${addToCartBtn}=            id = product-addtocart-button
 
 *** Keywords ***
 Add Product To Cart
-  Wait Until Page Contains  Build your meal plan
+  Sleep                     2s
   Click Button              ${addToCartBtn}
   Log                       Added products to cart...
-  Sleep                     2s

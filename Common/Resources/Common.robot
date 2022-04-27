@@ -18,12 +18,12 @@ ${runLocal}                     no
 
 *** Keywords ***
 Begin Browser Test
-  [Arguments]           ${urlForNavigation}       ${runLocal}
-  Log                   "Browser Test is starting!"
-  IF                    '${runLocal}' == 'no'
-    Setup Browserstack  ${urlForNavigation}
+  [Arguments]                                     ${urlForNavigation}       ${runLocal}
+  Log                                             "Browser Test is starting!"
+  IF                                              '${runLocal}' == 'no'
+    Browserstack.Setup Browserstack For WEB       ${urlForNavigation}
   ELSE       
-    Open Browser        ${urlForNavigation}       ${BROWSER}
+    Open Browser                                  ${urlForNavigation}       ${BROWSER}
   END
 
 End Browser Test
@@ -42,16 +42,3 @@ Scroll To Element
   ${x}=                         Get Horizontal Position   ${locator}
   ${y}=                         Get Vertical Position     ${locator}
   Execute Javascript            window.scrollTo(${x}, ${y})
-
-Setup Browserstack
-  [Arguments]                 ${urlForNavigation}   
-  ${remoteUrl}                Set Variable          http://${BS_USER}:${BS_KEY}@${BS_REMOTE_URL}
-  &{desiredCapabilities}      Create Dictionary   
-  ...                         os=${BS_OS}     
-  ...                         os_version=${BS_PC_OS_VERSION}     
-  ...                         browser=${BS_BROWSER}   
-  ...                         browser_version=${BS_BROWSER_VERSION}
-  Open Browser                ${urlForNavigation}
-  ...                         remote_url=${remoteUrl}     
-  ...                         desired_capabilities=${desiredCapabilities}
-  Begin Maximize Browser Test

@@ -9,26 +9,31 @@ Resource          ECommerce/Catalog/ProductPage.robot
 Resource          ECommerce/Catalog/ProductSelector.robot
 Resource          ECommerce/Catalog/ShopLandingPage.robot
 Resource          ECommerce/Checkout/Cart.robot
-
-*** Variables ***
+Resource          ECommerce/Checkout/Checkout.robot
 
 *** Keywords ***
 Go To Checkout With A Valid Cart
-  Navigate To Product Selector
-  Select Category And Go To Specific Product Page
-  Repeat Keyword                10                Add Product To Cart
-  Go To Checkout
+  [Arguments]                                  ${customerInfo}
+  ProductSelector.Select Category And Go To Specific Product Page
+  Repeat Keyword                               5                 ProductPage.Add Product To Cart
+  Cart.Open Minicart
+  Cart.Go To Checkout
+  CustomerCreate.Create An Account From OverLay
+  CustomerCreate.Complete New Customer Form    ${customerInfo}
+  Checkout.Validate Checkout Page As New Customer
 
 Create A New Account
-  [Arguments]                   ${firstName}      ${lastName}   ${testCaseEmail}   ${password}
-  Navigate To Account Redirects
-  Click Create An Account Button
-  Complete New Customer Form    ${firstName}      ${lastName}   ${testCaseEmail}   ${password}
+  [Arguments]         ${customerInfo}
+  TopNav.Navigate To Account Redirects
+  CustomerLogin.Click Create An Account Button
+  ${customerInfo}=    CustomerCreate.Complete New Customer Form    ${customerInfo}
+  CustomerAccount.Validate My Account Page
+  [Return]            ${customerInfo}
 
 Logout From My Account
-  Click Log Out
+  CustomerAccount.Click Log Out
 
 Login
-  [Arguments]                   ${testCaseEmail}   ${password}
-  Navigate To Account Redirects
-  Login As Registered Customer  ${testCaseEmail}   ${password}
+  [Arguments]                                 ${customerInfo}
+  TopNav.Navigate To Account Redirects
+  CustomerLogin.Login As Registered Customer  ${customerInfo}

@@ -11,13 +11,9 @@ Click Create An Account Button
   Click Link                  Create an Account
 
 Login As Registered Customer
-  [Arguments]                 ${testCaseEmail}    ${password}
+  [Arguments]                 ${customerInfo}
   Wait Until Page Contains    Customer Login
-  Click Element               ${loginEmailField}
-  Input Text                  ${loginEmailField}  ${testCaseEmail}
-  Log                         ${testCaseEmail}
-  Click Element               ${loginPassField} 
-  Input Text                  ${loginPassField}   ${password}
+  Input Text                  ${loginEmailField}  ${customerInfo.email}
+  Input Text                  ${loginPassField}   ${customerInfo.password}
   Click Button                Sign In
   Wait Until Page Contains    Log Out
-  Sleep                       2s 

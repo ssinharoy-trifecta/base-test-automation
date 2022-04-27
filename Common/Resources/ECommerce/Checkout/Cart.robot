@@ -2,14 +2,21 @@
 Library              SeleniumLibrary
 
 *** Variables ***
-${closeMinicartBtn}  id = btn-minicart-close
-${checkoutBtn}       id = top-cart-btn-checkout
+${closeMinicartBtn}   id = btn-minicart-close
+${checkoutBtn}        Proceed to Checkout
+${cartBtn}            xpath=//*[@id="html-body"]/div[2]/header/div[2]/div[1]/a
+${cartTxt}            Cart Subtotal
 
 *** Keywords ***
 Close Cart
-  Sleep              1s
-  Click Button       ${closeMinicartBtn}
+  Wait Until Page Contains  ${closeMinicartBtn}
+  Click Button              ${closeMinicartBtn}
 
 Go To Checkout
-  Click Button       ${checkoutBtn}
-  Log                Continuing to checkout...
+  Wait Until Page Contains  ${checkoutBtn}
+  Click button              ${checkoutBtn}
+  Sleep                     2s
+
+Open Minicart
+  Click Element             ${cartBtn} 
+  Wait Until Page Contains  ${cartTxt}
