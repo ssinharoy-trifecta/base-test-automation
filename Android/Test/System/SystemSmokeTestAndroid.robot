@@ -2,28 +2,48 @@
 
 Library    AppiumLibrary
 Library    BuiltIn
+Library    DateTime
 
-Resource   ../../Resources/AccountMgmtResourcesAndroid.robot
-Resource   ../../Resources/AuthenticationResourcesAndroid.robot
-Resource   ../../Resources/FitnessResourcesAndroid.robot
-Resource   ../../Resources/NutritionResourcesAndroid.robot
-Resource   ../../Resources/OnboardingResourcesAndroid.robot
-Resource   ../../Resources/ShopWooResourcesAndroid.robot
+Resource   ../../Resources/Feature/AccountMgmtResourcesAndroid.robot
+Resource   ../../Resources/Feature/AuthenticationResourcesAndroid.robot
+Resource   ../../Resources/Feature/FitnessResourcesAndroid.robot
+Resource   ../../Resources/Feature/NutritionResourcesAndroid.robot
+Resource   ../../Resources/Feature/OnboardingResourcesAndroid.robot
+Resource   ../../Resources/Feature/ShopWooResourcesAndroid.robot
+Resource   ../../Resources/System/EmulatorLauncherAndroid.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
-Suite Setup       Launch Application Android
-Suite Teardown    Mark App Automate Session Status Browserstack
+Suite Setup    Set Library Search Order    AppiumLibrary    SeleniumLibrary
+
+#BROWSERSTACK
+Suite Teardown    Run Keywords    Log Out Android
+...                               Mark App Automate Session Status Browserstack
 
 *** Test Cases ***
 
-Test Sign In As Existing User Android
+Launch Application
+    Launch Android Application On Browserstack
+    #Launch Android Application On Emulator
+
+Intro Screen UI Review
+    Validate Intro Screen Details Android
+
+Sign Up - New User
+    Sign Up As New User Android
+
+Complete User Onboarding
+    Complete User Onboarding Android
+
+Terms Of Use - Agree
+    Agree To Terms Of Use Android
+
+Log Out From The Main Menu
+    Log Out Android
+
+Sign In - Existing User
     Sign In As Existing User Android
 
-Test Dashboard UI and Details Android
+Shop Dashboard UI And Details
     Open Shop Android
     Validadate Dashboard UI And Details Android
     Close Shop Android
-
-Test Log Out Android
-    Log Out Android
-
