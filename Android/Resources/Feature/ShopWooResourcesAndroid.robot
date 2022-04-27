@@ -27,4 +27,3 @@ Validadate Dashboard UI And Details Android
 Close Shop Android
     Wait Until Element Is Visible        ${shopCloseBtnAndroid}
     Click Element                        ${shopCloseBtnAndroid}
-    
