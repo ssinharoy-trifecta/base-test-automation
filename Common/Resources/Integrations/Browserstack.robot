@@ -39,7 +39,7 @@ Mark App Automate Session Status Browserstack
     Close All Applications
 
 #iOS BROWSERSTACK LAUNCHER
-Launch iOS Application on Browserstack
+Launch iOS Application On Browserstack
     Open Application    remote_url=http://${BS_REMOTE_URL}
     ...                 browserstack.user=${BS_USER} 
     ...                 browserstack.key=${BS_KEY}
@@ -52,7 +52,7 @@ Launch iOS Application on Browserstack
     ...                 browserstack.idle.Timeout=${BS_IDLE_TIMEOUT}
 
 #ANDROID BROWSERSTACK LAUNCHER
-Launch Android Application on Browserstack
+Launch Android Application On Browserstack
     Open Application    remote_url=http://${BS_REMOTE_URL}
     ...                 browserstack.user=${BS_USER} 
     ...                 browserstack.key=${BS_KEY}
