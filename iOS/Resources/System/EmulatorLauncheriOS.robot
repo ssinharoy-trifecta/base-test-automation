@@ -19,4 +19,3 @@ Launch iOS Application On Emulator
     ...                 bundleId=${BUNDLE_ID_IOS} 
     ...                 deviceName=${DEVICE_NAME_IOS}
     ...                 automationName=XCUITest
-    

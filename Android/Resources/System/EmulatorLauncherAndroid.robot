@@ -17,4 +17,3 @@ Launch Android Application on Emulator
     ...                 deviceName=${DEVICE_NAME_ANDROID}
     ...                 appPackage=${APP_PACKAGE_ANDROID} 
     ...                 appActivity=${APP_ACTIVITY_ANDROID}
-    

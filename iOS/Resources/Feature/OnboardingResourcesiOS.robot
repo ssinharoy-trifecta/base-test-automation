@@ -114,4 +114,3 @@ Check Notifications Alert iOS
 Agree To Terms Of Use iOS
     Wait Until Element Is Visible    ${termsOfUseAgreeBtniOS}    timeout=30
     Click Element                    ${termsOfUseAgreeBtniOS}
-    

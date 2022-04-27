@@ -45,4 +45,3 @@ Sign In As Existing User iOS
     Input Text                       ${emailFieldAuthenticationiOS}   ${testUserEmail}
     Input Text                       ${passwordFieldAuthenticationiOS}    ${testUserPassword}
     Click Element                    ${signInBtnAuthenticationiOS}
-    

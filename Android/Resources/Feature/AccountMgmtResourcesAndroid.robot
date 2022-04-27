@@ -19,4 +19,3 @@ Log Out Android
         Wait Until Element Is Visible    ${item}    timeout=30
         Click Element     ${item}
     END
-    

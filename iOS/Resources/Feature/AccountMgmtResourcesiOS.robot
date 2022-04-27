@@ -15,4 +15,3 @@ Log Out iOS
     Click Element                    ${mainMenuBtniOS}
     Scroll Down                      ${logoutBtniOS}
     Click Element                    ${logoutBtniOS}
-    

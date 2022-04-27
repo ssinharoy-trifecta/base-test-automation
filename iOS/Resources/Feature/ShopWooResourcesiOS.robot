@@ -33,4 +33,3 @@ Validate Dashboard UI And Details iOS
 Close Shop iOS
     Wait Until Element Is Visible        ${shopCloseBtniOS}
     Click Element                        ${shopCloseBtniOS}
-    

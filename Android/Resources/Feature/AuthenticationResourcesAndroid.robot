@@ -46,4 +46,3 @@ Sign In As Existing User Android
     Input Text                       ${emailFieldAndroid}    ${testUserEmail}
     Input Text                       ${passwordFieldAndroid}    ${testUserPassword}
     Click Element                    ${signInBtnAndroid}
-    
