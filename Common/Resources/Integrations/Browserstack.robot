@@ -1,3 +1,7 @@
+*** Settings ***
+
+#Resource    ../../../iOS/Resources/System/Trifecta
+
 *** Variables ***
 #COMMON
 ${BS_REMOTE_URL}     hub-cloud.browserstack.com/wd/hub
@@ -6,7 +10,7 @@ ${BS_KEY}            FQtVoY5xMMxVa9bh1c1Z
 ${BS_IDLE_TIMEOUT}   5
 
 #iOS
-${BS_APP_iOS}           bs://ad573e42e2267683263e4c925668c8d5bbb3bb0d
+${BS_APP_iOS}           bs://<app-id>
 ${BS_PROJECT_iOS}       iOS System Smoke Test
 ${BS_BUILD_iOS}         iOS
 ${BS_NAME_iOS}          iOS_System_Smoke_Test
@@ -38,12 +42,15 @@ Mark App Automate Session Status Browserstack
     ...    Execute Script    browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed"}}
     Close All Applications
 
+Upload iOS Application To Browserstack
+
+
 #iOS BROWSERSTACK LAUNCHER
 Launch iOS Application On Browserstack
     Open Application    remote_url=http://${BS_REMOTE_URL}
     ...                 browserstack.user=${BS_USER} 
     ...                 browserstack.key=${BS_KEY}
-    ...                 app=${BS_APP_iOS}
+    ...                 app_url=${BS_APP_iOS}
     ...                 device=${BS_DEVICE_iOS}
     ...                 os_version=${BS_OS_VERSION_iOS}
     ...                 project=${BS_PROJECT_iOS} 
