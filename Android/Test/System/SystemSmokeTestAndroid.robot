@@ -10,7 +10,7 @@ Resource   ../../Resources/Feature/FitnessResourcesAndroid.robot
 Resource   ../../Resources/Feature/NutritionResourcesAndroid.robot
 Resource   ../../Resources/Feature/OnboardingResourcesAndroid.robot
 Resource   ../../Resources/Feature/ShopWooResourcesAndroid.robot
-Resource   ../../Resources/System/EmulatorLauncherAndroid.robot
+Resource   ../../Resources/System/EmulatorLauncherAndroid/EmulatorLauncherAndroid.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
 Suite Setup    Set Library Search Order    AppiumLibrary    SeleniumLibrary
@@ -21,6 +21,9 @@ Suite Teardown    Run Keywords    Log Out Android
 
 *** Test Cases ***
 
+Upload iOS Application To Browserstack
+    Upload iOS Application To Browserstack
+
 Launch Application
     Launch Android Application On Browserstack
     #Launch Android Application On Emulator
@@ -28,22 +31,22 @@ Launch Application
 Intro Screen UI Review
     Validate Intro Screen Details Android
 
-Sign Up - New User
-    Sign Up As New User Android
+# Sign Up - New User
+#     Sign Up As New User Android
 
-Complete User Onboarding
-    Complete User Onboarding Android
+# Complete User Onboarding
+#     Complete User Onboarding Android
 
-Terms Of Use - Agree
-    Agree To Terms Of Use Android
+# Terms Of Use - Agree
+#     Agree To Terms Of Use Android
 
-Log Out From The Main Menu
-    Log Out Android
+# Log Out From The Main Menu
+#     Log Out Android
 
-Sign In - Existing User
-    Sign In As Existing User Android
+# Sign In - Existing User
+#     Sign In As Existing User Android
 
-Shop Dashboard UI And Details
-    Open Shop Android
-    Validadate Dashboard UI And Details Android
-    Close Shop Android
+# Shop Dashboard UI And Details
+#     Open Shop Android
+#     Validadate Dashboard UI And Details Android
+#     Close Shop Android
