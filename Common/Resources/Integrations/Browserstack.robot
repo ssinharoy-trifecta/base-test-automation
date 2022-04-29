@@ -10,7 +10,7 @@ ${BS_KEY}            FQtVoY5xMMxVa9bh1c1Z
 ${BS_IDLE_TIMEOUT}   5
 
 #iOS
-${BS_APP_iOS}           bs://<app-id>
+${BS_APP_iOS}           bs://55aeeb779b120b50c4fec2bf2b334a3f26a5bb56
 ${BS_PROJECT_iOS}       iOS System Smoke Test
 ${BS_BUILD_iOS}         iOS
 ${BS_NAME_iOS}          iOS_System_Smoke_Test
