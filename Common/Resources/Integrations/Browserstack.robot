@@ -16,7 +16,7 @@ ${BS_CUSTOM_ID_iOS}       TrifectaAppiOS
 ${BS_APP_UPLOADER_iOS}    curl -u "${BS_USER}:${BS_KEY}" 
 ...                       -X POST "https://${BS_APP_AUTOMATE_CLOUD_API}/upload" 
 ...                       -F "file=@${APP_FILE_iOS}" 
-...                       -F "custom_id=${BS_CUSTOM_ID_iOS}"
+...                       -F "data={\"custom_id\": \"${BS_CUSTOM_ID_iOS}\"}"
 ${BS_PROJECT_iOS}         iOS System Smoke Test
 ${BS_BUILD_iOS}           iOS
 ${BS_NAME_iOS}            iOS_System_Smoke_Test
@@ -80,7 +80,7 @@ Launch Android Application On Browserstack
     Open Application    remote_url=http://${BS_REMOTE_URL}
     ...                 browserstack.user=${BS_USER} 
     ...                 browserstack.key=${BS_KEY}
-    ...                 app_url=${BS_CUSTOM_ID_iOS}
+    ...                 app_url=${BS_CUSTOM_ID_ANDROID}
     ...                 device=${BS_DEVICE_ANDROID}
     ...                 os_version=${BS_OS_VERSION_ANDROID}
     ...                 project=${BS_PROJECT_ANDROID}
