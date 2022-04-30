@@ -10,36 +10,55 @@ Documentation
 *** Variables ***
 ${baseURL}              ${TESTRAIL_URL}
 ${singleCaseGet}        ${baseURL}/index.php?/api/v2/get_case/
-${multiCaseGet}          ${baseURL}/index.php?/api/v2/get_cases/
-${singleCasePost}        ${baseURL}/index.php?/api/v2/add_result_for_case/
+${multiCaseGet}         ${baseURL}/index.php?/api/v2/get_cases/
+${singleCasePost}       ${baseURL}/index.php?/api/v2/add_result_for_case/
 ${multiCasePost}        ${baseURL}/index.php?/api/v2/add_results_for_cases/
 ${headers}              Authorization=Basic
 ...    Content-Type=application/json
 ...    accept=application/json
-@{authData}              ${TESTRAIL_USER}      ${TESTRAIL_APIKEY}
-${passFailStatus}=       1
+@{authData}             ${TESTRAIL_USER}      ${TESTRAIL_APIKEY}
+${passFailStatus}=      1
 ${testCaseID}
+${testSuiteID}          SkipMe
 
 *** Keywords ***
 Return Test Case From TestRail
-  [Arguments]              ${testCaseID}
+  [Arguments]             ${testCaseID}
   ${returnedResponse}=    API.GET Request And Fetch Status Code    
-  ...                      ${baseURL}
-  ...                      ${singleCaseGet}${testCaseID}
-  ...                      @{authData}
-  Log                      ${returnedResponse}
+  ...                     ${baseURL}
+  ...                     ${singleCaseGet}${testCaseID}
+  ...                     @{authData}
+  Log                     ${returnedResponse}
   [Return]                ${returnedResponse}
 
 Return Test Suite From TestRail
-  [Arguments]              ${testSuiteID}    ${testProjectID}
+  [Arguments]             ${testSuiteID}    ${testProjectID}
   ${returnedResponse}=    API.GET Request And Fetch Status Code    
-  ...                      ${baseURL}    
-  ...                      ${multiCaseGet}${testProjectID}&suite_id=${testSuiteID}
-  ...                      @{authData}
-  Log                      ${returnedResponse}
+  ...                     ${baseURL}    
+  ...                     ${multiCaseGet}${testProjectID}&suite_id=${testSuiteID}
+  ...                     @{authData}
+  Log                     ${returnedResponse}
   [Return]                ${returnedResponse}
 
 Post Test Suite Results to TestRail
+  [Arguments]                     ${testSuiteID}
+  IF                              '${testSuiteID}' != 'SkipMe'
+    ${resultsListLength}=         Get Length    '${SUITE_RESULTS_LIST}'
+    IF                            ${resultsListLength} > 4
+      &{resultsDictionary}=       Create Dictionary   results=${SUITE_RESULTS_LIST}
+      ${returnedResponse}=        API.Send POST Request   
+      ...                         ${baseURL}		
+      ...                         ${resultsDictionary}
+      ...                         ${multiCasePost}/${testSuiteID}
+      ...                         @{authData}
+      Log                         ${returnedResponse}
+    ELSE
+      ${returnedResponse}=        Set Variable    Results Not Available for Posting
+    END
+  ELSE
+    ${returnedResponse}=          Set Variable    Missing TestSuiteID to post to
+  END
+  [Return]                        ${returnedResponse}
 
 Gather Test Results
   [Documentation]
@@ -89,23 +108,23 @@ Parse Test Tags
   ...   2. Loop through all tags to determine if any tag contains `testcaseid=`
   ...   3. Retrieve the Test Case ID and pull it into a variable
   ...   4. Return the Test Case ID to the calling parent keyword
-  ${tagLength}=   Get Length    ${TEST TAGS}
+  ${tagLength}=           Get Length    ${TEST TAGS}
   # Skip this if there are no tags
-  IF    ${tagLength} > 0
-    @{tagList}=     Set Variable If   ${tagLength} > 0    ${TEST TAGS}
-    FOR   ${item}   IN    @{tagList}
+  IF                      ${tagLength} > 0
+    @{tagList}=           Set Variable If   ${tagLength} > 0    ${TEST TAGS}
+    FOR                   ${item}   IN    @{tagList}
       # Convert to lower case
-      ${item}=    Convert To Lower Case   ${item}
-      Log   Tag is: ${item}
+      ${item}=            Convert To Lower Case   ${item}
+      Log                 Tag is: ${item}
       # Skip this if there are no 'testcaseid' tags
-      ${itemEvaluator}=    Evaluate    '${item}'.find('testcaseid=')
-      IF          ${itemEvaluator} > -1
-          ${testCaseID}=    Get Substring   ${item}   11
+      ${itemEvaluator}=   Evaluate    '${item}'.find('testcaseid=')
+      IF                  ${itemEvaluator} > -1
+          ${testCaseID}=  Get Substring   ${item}   11
       ELSE
-          ${testCaseID}=    Set Variable    ${EMPTY}
+          ${testCaseID}=  Set Variable    ${EMPTY}
       END
-      Log         This is the TestCaseID: ${testCaseID}
+      Log                 This is the TestCaseID: ${testCaseID}
     END
   END
   # Return the tag
-  [Return]    ${testCaseID}
+  [Return]                ${testCaseID}

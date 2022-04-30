@@ -27,20 +27,18 @@ Begin Browser Test
   ELSE       
     Open Browser                                  ${urlForNavigation}       ${BROWSER}
   END
-  Log Many    @{SUITE_RESULTS_LIST}
 
 End Browser Test
-  Gather Test Results
+  TestRail.Gather Test Results
   Close All Browsers
 
 Begin Suite Test
-  Set Global Variable     @{SUITE_RESULTS_LIST}
+  Set Global Variable   @{SUITE_RESULTS_LIST}
 
 End Suite Test
-  &{resultsDictionary}=   Create Dictionary   results=${SUITE_RESULTS_LIST}
-  Log                     '${resultsDictionary}'
-  # Retrieve the global variable
-  # Submit using the API.Robot Post request
+  [Arguments]           ${testSuiteID}
+  ${returnedResponse}=  TestRail.Post Test Suite Results to TestRail    ${testSuiteID}
+  Log                   '${returnedResponse}'
 
 Begin Maximize Browser Test
   Log                           Browser Test is starting at maximum size!
