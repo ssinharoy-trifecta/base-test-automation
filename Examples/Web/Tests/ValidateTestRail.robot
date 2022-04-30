@@ -10,8 +10,8 @@ Documentation
 ...   or fail result.  Valid Test Runs can be swapped out between:
 ...   * #321 - https://trifectatest.testrail.com/index.php?/runs/view/321
 ...   * #326 - https://trifectatest.testrail.com/index.php?/runs/view/326
-Resource            ../../Resources/Common.robot
-Resource            ../../Resources/CustomerController.robot
+Resource            ../../../Common/Resources/Common.robot
+Resource            ../../../Common/Resources/CustomerController.robot
 Test Setup          Common.Begin Browser Test  ${MAGENTO_SHOP_HOME}  ${runlocal}
 Test Teardown       Common.End Browser Test
 Suite Setup         Common.Begin Suite Test
