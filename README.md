@@ -98,13 +98,17 @@ Scripts can be launched with the following Command Line Interface parameters:
 Example: 
 `robot -v env:qa3 -v browser:ff -d results Common/Test/Feature/ECommerce/SubscriptionMgmt/SubMgmt.robot`
 
-## Launching iOS Test Run on Browserstack
-Run the following command in order to launch and run iOS Test Run on BrowserStack emulator
+## APPS Test Automation
+- To begin running test automation locally, have an .ipa or an .apk file on hand (download from Firebase App Distribution)
 
-iOS
+## Launching iOS Test Run on Browserstack
+- Drag and drop the app file to  iOS  > Resources > System > AppFileiOS folder
+- Run the following command to launch iOS Test Run on BrowserStack emulator
 `robot -d iOS/Results iOS/Test/System/SystemSmokeTestiOS.robot`
 - results will be outputted in iOS/Results folder
 
-Android
+## Launching Android Test Run on Browserstack
+- Drag and drop the app file to Android  > Resources > System > AppFileAndroid folder
+- Run the following command to launch Android Test Run on BrowserStack emulator
 `robot -d Android/Results Android/Test/System/SystemSmokeTestAndroid.robot`
 - results will be outputted in Android/Results folder
