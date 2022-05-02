@@ -63,7 +63,7 @@ Upload Android Application To Browserstack
    Wait For Process     UploadAndroidApp    timeout=30
 
 #iOS BROWSERSTACK LAUNCHER
-Launch iOS Application On Browserstack
+Launch iOS Application On Browserstack Device
     Open Application    remote_url=http://${BS_REMOTE_URL}
     ...                 browserstack.user=${BS_USER} 
     ...                 browserstack.key=${BS_KEY}
@@ -76,7 +76,7 @@ Launch iOS Application On Browserstack
     ...                 browserstack.idle.Timeout=${BS_IDLE_TIMEOUT}
 
 #ANDROID BROWSERSTACK LAUNCHER
-Launch Android Application On Browserstack
+Launch Android Application On Browserstack Device
     Open Application    remote_url=http://${BS_REMOTE_URL}
     ...                 browserstack.user=${BS_USER} 
     ...                 browserstack.key=${BS_KEY}

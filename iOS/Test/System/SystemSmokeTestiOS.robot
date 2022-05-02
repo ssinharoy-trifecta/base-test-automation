@@ -21,7 +21,7 @@ Suite Teardown    Run Keywords    Log Out iOS
 
 Launch Application
     Set Library Search Order    AppiumLibrary    SeleniumLibrary
-    Launch iOS Application On Browserstack
+    Launch iOS Application On Browserstack Device
     #Launch iOS Application On Emulator
 
 Intro Screen UI Review

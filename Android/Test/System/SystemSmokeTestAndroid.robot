@@ -21,7 +21,7 @@ Suite Teardown    Run Keywords    Log Out Android
 
 Launch Application
     Set Library Search Order    AppiumLibrary    SeleniumLibrary
-    Launch Android Application On Browserstack
+    Launch Android Application On Browserstack Device
     #Launch Android Application On Emulator
 
 Intro Screen UI Review

@@ -99,16 +99,21 @@ Example:
 `robot -v env:qa3 -v browser:ff -d results Common/Test/Feature/ECommerce/SubscriptionMgmt/SubMgmt.robot`
 
 ## APPS Test Automation
-- To begin running test automation locally, have an .ipa or an .apk file on hand (download from Firebase App Distribution)
 
-## Launching iOS Test Run on Browserstack
-- Drag and drop the app file to  iOS  > Resources > System > AppFileiOS folder
-- Run the following command to launch iOS Test Run on BrowserStack emulator
+## Running iOS Test Automation Script on BrowserStack Cloud Real Device
+- Have the Trifecta App .ipa file on hand (download from Firebase App Distribution)
+- Name the .ipa file `TrifectaAppiOS.ipa`
+- Drag and drop the `TrifectaAppiOS.ipa` file to the `iOS/Resources/System/AppFileiOS` folder in this repository
+- Run the command to launch the iOS Test Run on BrowserStack Cloud Real Device:
 `robot -d iOS/Results iOS/Test/System/SystemSmokeTestiOS.robot`
-- results will be outputted in iOS/Results folder
+- The script will automatically upload the `TrifectaAppiOS.ipa` file to BrowserStack Cloud and perform testing against that build
+- Navigate to `https://app-automate.browserstack.com/dashboard/v2/builds` to obtain Test Run results
 
-## Launching Android Test Run on Browserstack
-- Drag and drop the app file to Android  > Resources > System > AppFileAndroid folder
-- Run the following command to launch Android Test Run on BrowserStack emulator
+## Running Android Test Automation Script on BrowserStack Cloud Real Device
+- Have the Trifecta App .apk file on hand (download from Firebase App Distribution)
+- Name the .apk file `TrifectaAppAndroid.apk`
+- Drag and drop the `TrifectaAppAndroid.apk` file to the `Android/Resources/System/AppFileAndroid` folder in this repository
+- Run the following command to launch the Android Test Run on BrowserStack Cloud Real Device:
 `robot -d Android/Results Android/Test/System/SystemSmokeTestAndroid.robot`
-- results will be outputted in Android/Results folder
+- The script will automatically upload the `TrifectaAppAndroid.apk` file to BrowserStack Cloud and perform testing against that build
+- Navigate to `https://app-automate.browserstack.com/dashboard/v2/builds` to obtain Test Run results
