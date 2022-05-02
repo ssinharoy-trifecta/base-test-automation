@@ -14,8 +14,7 @@ Resource   ../../Resources/System/EmulatorLauncheriOS/EmulatorLauncheriOS.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
 Suite Setup       Upload iOS Application To Browserstack
-Suite Teardown    Run Keywords    Log Out iOS
-...                               Mark App Automate Session Status Browserstack
+Suite Teardown    Mark App Automate Session Status Browserstack
 
 *** Test Cases ***
 
@@ -49,3 +48,4 @@ Shop Dashboard UI And Details
     Open Shop iOS
     Validate Dashboard UI And Details iOS
     Close Shop iOS
+    Log Out iOS
