@@ -55,12 +55,12 @@ Mark App Automate Session Status Browserstack
 
 #UPLOAD APPLICATION TO BROWSERSTACK CLOUD API
 Upload iOS Application To Browserstack
-   Run Process     ${BS_APP_UPLOADER_iOS}    shell=True   alias=UploadiOSApp
+   Run Process          ${BS_APP_UPLOADER_iOS}    shell=True   alias=UploadiOSApp
    Wait For Process     UploadiOSApp    timeout=30
 
 Upload Android Application To Browserstack
-   Run Process     ${BS_APP_UPLOADER_ANDROID}    shell=True   alias=UploadAndroidApp
-   Wait For Process     UploadAndroidApp    timeout=30
+   Run Process         ${BS_APP_UPLOADER_ANDROID}    shell=True   alias=UploadAndroidApp
+   Wait For Process    UploadAndroidApp    timeout=30
 
 #iOS BROWSERSTACK LAUNCHER
 Launch iOS Application On Browserstack Device
