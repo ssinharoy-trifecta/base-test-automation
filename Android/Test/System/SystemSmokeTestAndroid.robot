@@ -14,8 +14,7 @@ Resource   ../../Resources/System/EmulatorLauncherAndroid/EmulatorLauncherAndroi
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
 Suite Setup       Upload Android Application To Browserstack
-Suite Teardown    Run Keywords    Log Out Android
-...                               Mark App Automate Session Status Browserstack
+Suite Teardown    Mark App Automate Session Status Browserstack
 
 *** Test Cases ***
 
@@ -36,7 +35,7 @@ Complete User Onboarding
 Terms Of Use - Agree
     Agree To Terms Of Use Android
 
-Log Out From The Main Menu
+Log Out From My Account
     Log Out Android
 
 Sign In - Existing User
@@ -46,3 +45,4 @@ Shop Dashboard UI And Details
     Open Shop Android
     Validadate Dashboard UI And Details Android
     Close Shop Android
+    Log Out Android
