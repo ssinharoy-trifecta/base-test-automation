@@ -9,17 +9,18 @@ Documentation
 
 *** Variables ***
 ${baseURL}              ${TESTRAIL_URL}
-${singleCaseGet}        ${baseURL}/index.php?/api/v2/get_case/
-${multiCaseGet}         ${baseURL}/index.php?/api/v2/get_cases/
-${singleCasePost}       ${baseURL}/index.php?/api/v2/add_result_for_case/
-${multiCasePost}        ${baseURL}/index.php?/api/v2/add_results_for_cases/
+${singleCaseGet}        ${baseURL}index.php?/api/v2/get_case/
+${multiCaseGet}         ${baseURL}index.php?/api/v2/get_cases/
+${singleCasePost}       ${baseURL}index.php?/api/v2/add_result_for_case/
+${multiCasePost}        ${baseURL}index.php?/api/v2/add_results_for_cases/
 ${headers}              Authorization=Basic
 ...    Content-Type=application/json
 ...    accept=application/json
 @{authData}             ${TESTRAIL_USER}      ${TESTRAIL_APIKEY}
 ${passFailStatus}=      1
 ${testCaseID}
-${testSuiteID}          SkipMe
+${testSuiteID}          60
+${testRunID}            SkipMe
 
 *** Keywords ***
 Return Test Case From TestRail
@@ -41,22 +42,22 @@ Return Test Suite From TestRail
   [Return]                ${returnedResponse}
 
 Post Test Suite Results to TestRail
-  [Arguments]                     ${testSuiteID}
-  IF                              '${testSuiteID}' != 'SkipMe'
-    ${resultsListLength}=         Get Length    '${SUITE_RESULTS_LIST}'
+  [Arguments]                     ${testRunID}
+  IF                              '${testRunID}' != 'SkipMe'
+    ${resultsListLength}=         Get Length    '${TESTRUN_RESULTS_LIST}'
     IF                            ${resultsListLength} > 4
-      &{resultsDictionary}=       Create Dictionary   results=${SUITE_RESULTS_LIST}
+      &{resultsDictionary}=       Create Dictionary   results=${TESTRUN_RESULTS_LIST}
       ${returnedResponse}=        API.Send POST Request   
       ...                         ${baseURL}		
       ...                         ${resultsDictionary}
-      ...                         ${multiCasePost}/${testSuiteID}
+      ...                         ${multiCasePost}/${testRunID}
       ...                         @{authData}
       Log                         ${returnedResponse}
     ELSE
       ${returnedResponse}=        Set Variable    Results Not Available for Posting
     END
   ELSE
-    ${returnedResponse}=          Set Variable    Missing TestSuiteID to post to
+    ${returnedResponse}=          Set Variable    Missing TestRunID to post to
   END
   [Return]                        ${returnedResponse}
 
@@ -86,13 +87,13 @@ Gather Test Results
     ${testResultDict}=          Create Dictionary   case_id=${testCaseID}   
     ...   status_id=${testStatusID}
     ...   comment=${TEST MESSAGE}
-    ${resultsListLength}        Get Length    '${SUITE_RESULTS_LIST}'
+    ${resultsListLength}        Get Length    '${TESTRUN_RESULTS_LIST}'
     IF                          ${resultsListLength} > 4 
-        Append To List          ${SUITE_RESULTS_LIST}   ${testResultDict}
-        Set Global Variable     @{SUITE_RESULTS_LIST}
+        Append To List          ${TESTRUN_RESULTS_LIST}   ${testResultDict}
+        Set Global Variable     @{TESTRUN_RESULTS_LIST}
     ELSE
-        @{SUITE_RESULTS_LIST}=  Create List    ${testResultDict}
-        Set Global Variable     @{SUITE_RESULTS_LIST}
+        @{TESTRUN_RESULTS_LIST}=  Create List    ${testResultDict}
+        Set Global Variable     @{TESTRUN_RESULTS_LIST}
     END
   END
 
@@ -111,8 +112,7 @@ Parse Test Tags
   ${tagLength}=           Get Length    ${TEST TAGS}
   # Skip this if there are no tags
   IF                      ${tagLength} > 0
-    @{tagList}=           Set Variable If   ${tagLength} > 0    ${TEST TAGS}
-    FOR                   ${item}   IN    @{tagList}
+    FOR                   ${item}   IN    @{TEST TAGS}
       # Convert to lower case
       ${item}=            Convert To Lower Case   ${item}
       Log                 Tag is: ${item}

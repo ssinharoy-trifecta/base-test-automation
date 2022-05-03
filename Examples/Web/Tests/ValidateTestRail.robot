@@ -4,7 +4,7 @@ Documentation
 ...   The TestRail.robot is called by Common to gather results during Test Teardown.
 ...   These must post to a global variable housed by Common.  Once complete, the
 ...   Suite Teardown posts the contents to TestRail.  
-...   Suite Teardown requires a TestSuiteID be passed in as a parameter or it will
+...   Suite Teardown requires a testRunID be passed in as a parameter or it will
 ...   skip the post to TestRail.
 ...   The tests below can be commented out to or uncommented to provide either a pass
 ...   or fail result.  Valid Test Runs can be swapped out between:
@@ -15,7 +15,7 @@ Resource            ../../../Common/Resources/CustomerController.robot
 Test Setup          Common.Begin Browser Test  ${MAGENTO_SHOP_HOME}  ${runlocal}
 Test Teardown       Common.End Browser Test
 Suite Setup         Common.Begin Suite Test
-Suite Teardown      Common.End Suite Test   ${testSuiteID}
+Suite Teardown      Common.End Suite Test   ${testRunID}
 
 *** Variables ***
 ${testCaseEmail}          selenium+03-15-22.12.47.04.1647373624@trifectanutrition.com
@@ -38,10 +38,10 @@ ${password}               tester123!
 Test 1 - Pass
   # ***The following items give a Pass result***
   [Tags]                              Smoke   Luma    testcaseid=8696
-  IF    '${testSuiteID}' != 'SkipMe'
-    TestRail.Return Test Suite From TestRail  ${testSuiteID}  7
+  IF    '${testRunID}' != 'SkipMe'
+    TestRail.Return Test Suite From TestRail  ${testRunID}  7
   ELSE
-    Log   No TestSuiteID Supplied
+    Log   No TestRunID Supplied
   END
 
 
@@ -51,10 +51,10 @@ Test 2 - Fail, no TestRail post
 
 # Test 2 - Pass, no TestRail post
 #   # ***The following items give a Pass result***
-#   IF    '${testSuiteID}' != 'SkipMe'
-#     TestRail.Return Test Suite From TestRail  ${testSuiteID}  7
+#   IF    '${testRunID}' != 'SkipMe'
+#     TestRail.Return Test Suite From TestRail  ${testRunID}  7
 #   ELSE
-#     Log   No TestSuiteID Supplied
+#     Log   No TestRunID Supplied
 #   END
 
 Test 3 - Fail
@@ -65,18 +65,18 @@ Test 3 - Fail
 # Test 3 - Pass
 #   [Tags]                              Smoke   Luma    testcaseid=8697
 #   # ***The following items give a Pass result***
-#   IF    '${testSuiteID}' != 'SkipMe'
-#     TestRail.Return Test Suite From TestRail  ${testSuiteID}  7
+#   IF    '${testRunID}' != 'SkipMe'
+#     TestRail.Return Test Suite From TestRail  ${testRunID}  7
 #   ELSE
-#     Log   No TestSuiteID Supplied
+#     Log   No TestRunID Supplied
 #   END
 
 Get Single Test Case from TestRail
   TestRail.Return Test Case From TestRail   8697
 
 Get Test Suite from TestRail
-  IF    '${testSuiteID}' != 'SkipMe'
-    TestRail.Return Test Suite From TestRail  ${testSuiteID}  7
+  IF    '${testRunID}' != 'SkipMe'
+    TestRail.Return Test Suite From TestRail  ${testRunID}  7
   ELSE
-    Log   No TestSuiteID Supplied
+    Log   No TestRunID Supplied
   END

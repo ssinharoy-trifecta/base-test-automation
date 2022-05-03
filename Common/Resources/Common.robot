@@ -16,7 +16,7 @@ ${MAGENTO_SHOP_HOME}            https://test-magento-app-trifecta-${ENV}.trifect
 ${urlForNavigation}             about:blank
 # This keyword is to run locally or through Browserstack. Browserstack is default
 ${runLocal}                     no
-@{SUITE_RESULTS_LIST}
+@{TESTRUN_RESULTS_LIST}
 
 *** Keywords ***
 Begin Browser Test
@@ -33,11 +33,11 @@ End Browser Test
   Close All Browsers
 
 Begin Suite Test
-  Set Global Variable   @{SUITE_RESULTS_LIST}
+  Set Global Variable   @{TESTRUN_RESULTS_LIST}
 
 End Suite Test
-  [Arguments]           ${testSuiteID}
-  ${returnedResponse}=  TestRail.Post Test Suite Results to TestRail    ${testSuiteID}
+  [Arguments]           ${testRunID}
+  ${returnedResponse}=  TestRail.Post Test Suite Results to TestRail    ${testRunID}
   Log                   '${returnedResponse}'
 
 Begin Maximize Browser Test
