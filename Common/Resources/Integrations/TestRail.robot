@@ -14,12 +14,12 @@ ${multiCaseGet}         ${baseURL}index.php?/api/v2/get_cases/
 ${singleCasePost}       ${baseURL}index.php?/api/v2/add_result_for_case/
 ${multiCasePost}        ${baseURL}index.php?/api/v2/add_results_for_cases/
 ${headers}              Authorization=Basic
-...    Content-Type=application/json
-...    accept=application/json
+...                     Content-Type=application/json
+...                     accept=application/json
 @{authData}             ${TESTRAIL_USER}      ${TESTRAIL_APIKEY}
 ${testCaseID}
 ${testProjectID}        7       # Test Project: https://trifectatest.testrail.com/index.php?/projects/overview/7
-${testSuiteID}        60      # Test Suite: https://trifectatest.testrail.com/index.php?/suites/view/60
+${testSuiteID}          60      # Test Suite: https://trifectatest.testrail.com/index.php?/suites/view/60
 ${testRunID}            SkipMe
 ${testCasePassStatus}   1       # TestRail API Pass Status Code
 ${testCaseFailStatus}   5       # TestRail API Fail Status Code
