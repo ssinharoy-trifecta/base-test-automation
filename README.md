@@ -103,7 +103,7 @@ Example:
 ## Running iOS Test Automation Script on BrowserStack Cloud Real Device
 - Have the Trifecta App .ipa file on hand (download from Firebase App Distribution)
 - Name the .ipa file `TrifectaAppiOS.ipa`
-- Drag and drop the `TrifectaAppiOS.ipa` file to the `iOS/Resources/System/AppFileiOS` folder in this repository
+- Drag and drop the `TrifectaAppiOS.ipa` file to the `iOS/Resources/System` folder in this repository
 - Run the command to launch the iOS Test Run on BrowserStack Cloud Real Device:
 `robot -d iOS/Results iOS/Test/System/SystemSmokeTestiOS.robot`
 - The script will automatically upload the `TrifectaAppiOS.ipa` file to BrowserStack Cloud and perform testing against that build
@@ -112,7 +112,7 @@ Example:
 ## Running Android Test Automation Script on BrowserStack Cloud Real Device
 - Have the Trifecta App .apk file on hand (download from Firebase App Distribution)
 - Name the .apk file `TrifectaAppAndroid.apk`
-- Drag and drop the `TrifectaAppAndroid.apk` file to the `Android/Resources/System/AppFileAndroid` folder in this repository
+- Drag and drop the `TrifectaAppAndroid.apk` file to the `Android/Resources/System` folder in this repository
 - Run the following command to launch the Android Test Run on BrowserStack Cloud Real Device:
 `robot -d Android/Results Android/Test/System/SystemSmokeTestAndroid.robot`
 - The script will automatically upload the `TrifectaAppAndroid.apk` file to BrowserStack Cloud and perform testing against that build

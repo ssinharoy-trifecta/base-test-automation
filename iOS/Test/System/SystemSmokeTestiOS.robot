@@ -10,7 +10,7 @@ Resource   ../../Resources/Feature/FitnessResourcesiOS.robot
 Resource   ../../Resources/Feature/NutritionResourcesiOS.robot
 Resource   ../../Resources/Feature/OnboardingResourcesiOS.robot
 Resource   ../../Resources/Feature/ShopWooResourcesiOS.robot
-Resource   ../../Resources/System/EmulatorLauncheriOS/EmulatorLauncheriOS.robot
+Resource   ../../Resources/System/EmulatorLauncheriOS.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
 Suite Setup       Upload iOS Application To Browserstack

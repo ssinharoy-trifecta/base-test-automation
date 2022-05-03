@@ -11,7 +11,7 @@ ${BS_KEY}                       FQtVoY5xMMxVa9bh1c1Z
 ${BS_IDLE_TIMEOUT}              5
 
 #iOS
-${APP_FILE_iOS}           iOS/Resources/System/AppFileiOS/TrifectaAppiOS.ipa
+${APP_FILE_iOS}           iOS/Resources/System/TrifectaAppiOS.ipa
 ${BS_CUSTOM_ID_iOS}       TrifectaAppiOS
 ${BS_APP_UPLOADER_iOS}    curl -u "${BS_USER}:${BS_KEY}" 
 ...                       -X POST "https://${BS_APP_AUTOMATE_CLOUD_API}/upload" 
@@ -24,7 +24,7 @@ ${BS_DEVICE_iOS}          iPhone 13
 ${BS_OS_VERSION_iOS}      15
 
 #ANDROID
-${APP_FILE_ANDROID}           Android/Resources/System/AppFileAndroid/TrifectaAppAndroid.apk
+${APP_FILE_ANDROID}           Android/Resources/System/TrifectaAppAndroid.apk
 ${BS_CUSTOM_ID_ANDROID}       TrifectaAppAndroid
 ${BS_APP_UPLOADER_ANDROID}    curl -u "${BS_USER}:${BS_KEY}" 
 ...                           -X POST "https://${BS_APP_AUTOMATE_CLOUD_API}/upload" 
