@@ -29,6 +29,7 @@ ${password}               tester123!
 ...                       email=${testCaseEmail}      
 ...                       password=${password}
 
+
 *** Test Cases ***
 # Test 1 - Fail
 #   ## ***The following item gives a Fail result***
@@ -39,7 +40,7 @@ Test 1 - Pass
   # ***The following items give a Pass result***
   [Tags]                              Smoke   Luma    testcaseid=8696
   IF    '${testRunID}' != 'SkipMe'
-    TestRail.Return Test Suite From TestRail  ${testRunID}  7
+    TestRail.Return Test Suite From TestRail   
   ELSE
     Log   No TestRunID Supplied
   END
@@ -52,7 +53,7 @@ Test 2 - Fail, no TestRail post
 # Test 2 - Pass, no TestRail post
 #   # ***The following items give a Pass result***
 #   IF    '${testRunID}' != 'SkipMe'
-#     TestRail.Return Test Suite From TestRail  ${testRunID}  7
+#     TestRail.Return Test Suite From TestRail 
 #   ELSE
 #     Log   No TestRunID Supplied
 #   END
@@ -66,7 +67,7 @@ Test 3 - Fail
 #   [Tags]                              Smoke   Luma    testcaseid=8697
 #   # ***The following items give a Pass result***
 #   IF    '${testRunID}' != 'SkipMe'
-#     TestRail.Return Test Suite From TestRail  ${testRunID}  7
+#     TestRail.Return Test Suite From TestRail  
 #   ELSE
 #     Log   No TestRunID Supplied
 #   END
@@ -76,7 +77,7 @@ Get Single Test Case from TestRail
 
 Get Test Suite from TestRail
   IF    '${testRunID}' != 'SkipMe'
-    TestRail.Return Test Suite From TestRail  ${testRunID}  7
+    TestRail.Return Test Suite From TestRail  
   ELSE
     Log   No TestRunID Supplied
   END

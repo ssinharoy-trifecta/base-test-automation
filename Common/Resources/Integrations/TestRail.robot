@@ -17,10 +17,14 @@ ${headers}              Authorization=Basic
 ...    Content-Type=application/json
 ...    accept=application/json
 @{authData}             ${TESTRAIL_USER}      ${TESTRAIL_APIKEY}
-${passFailStatus}=      1
 ${testCaseID}
-${testSuiteID}          60
+${testProjectID}        7       # Test Project: https://trifectatest.testrail.com/index.php?/projects/overview/7
+${testSuiteID}        60      # Test Suite: https://trifectatest.testrail.com/index.php?/suites/view/60
 ${testRunID}            SkipMe
+${testCasePassStatus}   1       # TestRail API Pass Status Code
+${testCaseFailStatus}   5       # TestRail API Fail Status Code
+${emptyListSize}        4       # The size of an empty list, `[  ]`, is 4 chars
+${testCaseTagSize}      11      # Accounts for `testcaseid=` which is 11 chars
 
 *** Keywords ***
 Return Test Case From TestRail
@@ -33,7 +37,6 @@ Return Test Case From TestRail
   [Return]                ${returnedResponse}
 
 Return Test Suite From TestRail
-  [Arguments]             ${testSuiteID}    ${testProjectID}
   ${returnedResponse}=    API.GET Request And Fetch Status Code    
   ...                     ${baseURL}    
   ...                     ${multiCaseGet}${testProjectID}&suite_id=${testSuiteID}
@@ -45,7 +48,7 @@ Post Test Suite Results to TestRail
   [Arguments]                     ${testRunID}
   IF                              '${testRunID}' != 'SkipMe'
     ${resultsListLength}=         Get Length    '${TESTRUN_RESULTS_LIST}'
-    IF                            ${resultsListLength} > 4
+    IF                            ${resultsListLength} > ${emptyListSize}
       &{resultsDictionary}=       Create Dictionary   results=${TESTRUN_RESULTS_LIST}
       ${returnedResponse}=        API.Send POST Request   
       ...                         ${baseURL}		
@@ -80,15 +83,15 @@ Gather Test Results
   ${testCaseIdLength}=          Get Length    ${testCaseID}
   IF                            ${testCaseIdLength} > 0
     IF                          '${TEST STATUS}' == 'PASS'
-        ${testStatusID}=        Set Variable    1
+        ${testStatusID}=        Set Variable    ${testCasePassStatus}
     ELSE
-        ${testStatusID}=        Set Variable    5
+        ${testStatusID}=        Set Variable    ${testCaseFailStatus}
     END
     ${testResultDict}=          Create Dictionary   case_id=${testCaseID}   
     ...   status_id=${testStatusID}
     ...   comment=${TEST MESSAGE}
     ${resultsListLength}        Get Length    '${TESTRUN_RESULTS_LIST}'
-    IF                          ${resultsListLength} > 4 
+    IF                          ${resultsListLength} > ${emptyListSize} 
         Append To List          ${TESTRUN_RESULTS_LIST}   ${testResultDict}
         Set Global Variable     @{TESTRUN_RESULTS_LIST}
     ELSE
@@ -119,7 +122,7 @@ Parse Test Tags
       # Skip this if there are no 'testcaseid' tags
       ${itemEvaluator}=   Evaluate    '${item}'.find('testcaseid=')
       IF                  ${itemEvaluator} > -1
-          ${testCaseID}=  Get Substring   ${item}   11
+          ${testCaseID}=  Get Substring   ${item}   ${testCaseTagSize}
       ELSE
           ${testCaseID}=  Set Variable    ${EMPTY}
       END
