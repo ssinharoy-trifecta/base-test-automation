@@ -13,20 +13,17 @@ Resource   ../../Resources/Feature/ShopWooResourcesiOS.robot
 Resource   ../../Resources/System/EmulatorLauncheriOS.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
-Suite Setup       Upload iOS Application To Browserstack
-Suite Teardown    Run Keywords    Log Out iOS
-...                               Mark App Automate Session Status Browserstack
-
 *** Test Cases ***
 
 Launch Application
     Set Library Search Order    AppiumLibrary    SeleniumLibrary
-    Launch iOS Application On Browserstack Device
+    Launch iOS Application On Emulator
 
-Intro Screen UI Review
+Sign In - Existing User
     Check Data Alert iOS
-    Validate Intro Screen Details iOS
-
+    Sign In As Existing User iOS
+    Check Notifications Alert iOS
+    
 Sign Up - New User
     Sign Up As New User iOS
 
@@ -51,3 +48,4 @@ Shop Dashboard UI And Details
     Open Shop iOS
     Validate Dashboard UI And Details iOS
     Close Shop iOS
+    Log Out iOS

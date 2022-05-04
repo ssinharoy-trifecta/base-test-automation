@@ -40,9 +40,10 @@ Log Out From My Account
 
 Sign In - Existing User
     Sign In As Existing User Android
-
-Shop Dashboard UI And Details
-    Open Shop Android
-    Validadate Dashboard UI And Details Android
-    Close Shop Android
     Log Out Android
+
+# Shop Dashboard UI And Details
+#     Open Shop Android
+#     Validadate Dashboard UI And Details Android
+#     Close Shop Android
+#     Log Out Android
