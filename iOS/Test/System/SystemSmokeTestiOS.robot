@@ -19,7 +19,6 @@ Suite Teardown    Mark App Automate Session Status Browserstack
 *** Test Cases ***
 
 Launch Application
-    Set Library Search Order    AppiumLibrary    SeleniumLibrary
     Launch iOS Application On Browserstack Device
     #Launch iOS Application On Emulator
 
