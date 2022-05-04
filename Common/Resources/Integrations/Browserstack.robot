@@ -55,6 +55,7 @@ Mark App Automate Session Status Browserstack
 
 #UPLOAD APPLICATION TO BROWSERSTACK CLOUD API
 Upload iOS Application To Browserstack
+# TODO: Instead of using the Run Process keyword, try API.Send POST Request
    Run Process          ${BS_APP_UPLOADER_iOS}    shell=True   alias=UploadiOSApp
    Wait For Process     UploadiOSApp    timeout=30
 
