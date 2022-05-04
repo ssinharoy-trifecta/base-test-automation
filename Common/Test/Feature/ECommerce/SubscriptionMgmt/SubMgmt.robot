@@ -20,8 +20,10 @@ Documentation
 Resource            ../../../../Resources/Common.robot
 Resource            ../../../../Resources/CustomerController.robot
 Resource            ../../../../Resources/Authentication/CustomerCreate.robot
-Test Setup          Begin Browser Test  ${MAGENTO_SHOP_HOME}  ${runlocal}
-Test Teardown       End Browser Test
+Suite Setup         Common.Begin Suite Test
+Suite Teardown      Common.End Suite Test   ${testRunID}
+Test Setup          Common.Begin Browser Test  ${MAGENTO_SHOP_HOME}  ${runlocal}
+Test Teardown       Common.End Browser Test
 
 *** Variables ***
 ${testCaseEmail}          selenium+03-15-22.12.47.04.1647373624@trifectanutrition.com
@@ -41,7 +43,7 @@ Test 1.2 Non-Logged In User Must Be Able To Create Account From Checkout
   ...   Customer can add items to cart and proceed to checkout. Uses Luma Theme.
   [Tags]                              Smoke   Luma    testcaseid=16784
   #Begin Maximize Browser Test
-  Go To Checkout With A Valid Cart    ${customerInfo}
+  CustomerController.Go To Checkout With A Valid Cart    ${customerInfo}
 
 Test Customer Can Create Account And Logout
   [Documentation]
@@ -49,14 +51,14 @@ Test Customer Can Create Account And Logout
   [Tags]                  Auth    TRI   Smoke
   # Generate a new user and eMail account for the test case it not passed in
   ${customerInfo}=        Create A New Account    ${customerInfo}
-  Logout From My Account
+  CustomerController.Logout From My Account
   # Log back in as the newly created user
-  Login                   ${customerInfo}
-  Logout From My Account
+  CustomerController.Login                   ${customerInfo}
+  CustomerController.Logout From My Account
 
 Test Customer Can Login
   [Documentation]
   ...   Customer can login as a previously created user.  Can be overridden 
   ...   at the CommandLine. Uses TRI Theme.
   [Tags]    Auth    TRI   Smoke
-  Login     ${customerInfo}
+  CustomerController.Login     ${customerInfo}
