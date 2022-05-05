@@ -98,6 +98,9 @@ Scripts can be launched with the following Command Line Interface parameters:
 Example: 
 `robot -v env:qa3 -v browser:ff -d results Common/Test/Feature/ECommerce/SubscriptionMgmt/SubMgmt.robot`
 
+List of variables and tags that can be passed through CLI command:
+https://trifectanutrition.atlassian.net/wiki/spaces/TN/pages/1735196673/Robot+Framework+CLI+Variables+and+Tags
+
 ## APPS Test Automation
 
 ## Running iOS Test Automation Script on BrowserStack Cloud Real Device
