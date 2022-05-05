@@ -26,7 +26,10 @@ GET Request And Fetch Status Code
     ...                 ${apiBaseEndpoint}          
     ...                 ${apiGetUrl}           
     ...                 @{apiAuthData}	
-    Create Session      Test_Session                ${apiBaseEndpoint}     auth=${apiAuthData}	
+    Create Session      Test_Session                
+    ...                 ${apiBaseEndpoint}     
+    ...                 auth=${apiAuthData}    
+    ...                 verify=True	
     ${response}=        GET On Session              Test_Session           ${apiGetUrl} 
     # Get response code
     ${statusCode}       Convert To String           ${response.status_code}
@@ -39,7 +42,10 @@ Simple GET Request
     ...                 ${apiBaseEndpoint}          
     ...                 ${apiGetUrl}           
     ...                 @{apiAuthData}	
-    Create Session      Test_Session                ${apiBaseEndpoint}     auth=${apiAuthData}	
+    Create Session      Test_Session                
+    ...                 ${apiBaseEndpoint}     
+    ...                 auth=${apiAuthData}    
+    ...                 verify=True
     ${response}=        GET On Session              Test_Session           ${apiGetUrl} 
     Delete All Sessions
     [Return]            ${response}
@@ -50,7 +56,10 @@ Send POST Request
     ...                 ${dictJSON}               
     ...                 ${apiPostUrl}          
     ...                 @{apiAuthData}	
-    Create Session      Test_Session            ${apiBaseEndpoint}          auth=${apiAuthData}	
+    Create Session      Test_Session            
+    ...                 ${apiBaseEndpoint}          
+    ...                 auth=${apiAuthData}    
+    ...                 verify=True
     ${postJSON}=        evaluate                json.dumps(${dictJSON})     json
     Log                 ${postJSON}
     # Post results to TestRail using JSON
