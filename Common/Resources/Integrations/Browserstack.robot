@@ -1,25 +1,40 @@
+*** Settings ***
+
+Library    Process
+
 *** Variables ***
 #COMMON
-${BS_REMOTE_URL}     hub-cloud.browserstack.com/wd/hub
-${BS_USER}           tylerthomas6    
-${BS_KEY}            FQtVoY5xMMxVa9bh1c1Z
-${BS_IDLE_TIMEOUT}   5
+${BS_REMOTE_URL}                hub-cloud.browserstack.com/wd/hub
+${BS_APP_AUTOMATE_CLOUD_API}    api-cloud.browserstack.com/app-automate
+${BS_USER}                      tylerthomas6    
+${BS_KEY}                       FQtVoY5xMMxVa9bh1c1Z       
+${BS_IDLE_TIMEOUT}              5
 
 #iOS
-${BS_APP_iOS}           bs://ad573e42e2267683263e4c925668c8d5bbb3bb0d
-${BS_PROJECT_iOS}       iOS System Smoke Test
-${BS_BUILD_iOS}         iOS
-${BS_NAME_iOS}          iOS_System_Smoke_Test
-${BS_DEVICE_iOS}        iPhone 13
-${BS_OS_VERSION_iOS}    15
+${APP_FILE_iOS}           iOS/Resources/System/TrifectaAppiOS.ipa
+${BS_CUSTOM_ID_iOS}       TrifectaAppiOS
+${BS_APP_UPLOADER_iOS}    curl -u "${BS_USER}:${BS_KEY}" 
+...                       -X POST "https://${BS_APP_AUTOMATE_CLOUD_API}/upload" 
+...                       -F "file=@${APP_FILE_iOS}" 
+...                       -F "custom_id=${BS_CUSTOM_ID_iOS}"
+${BS_PROJECT_iOS}         iOS System Smoke Test
+${BS_BUILD_iOS}           iOS
+${BS_NAME_iOS}            iOS_System_Smoke_Test
+${BS_DEVICE_iOS}          iPhone 13
+${BS_OS_VERSION_iOS}      15
 
 #ANDROID
-${BS_APP_ANDROID}           bs://a4d0becc184bdf02f991641ed71600aabbb2f8fa
-${BS_PROJECT_ANDROID}       Android System Smoke Test
-${BS_BUILD_ANDROID}         Android
-${BS_NAME_ANDROID}          Android_System_Smoke_Test
-${BS_DEVICE_ANDROID}        Google Pixel 3
-${BS_OS_VERSION_ANDROID}    9.0
+${APP_FILE_ANDROID}           Android/Resources/System/TrifectaAppAndroid.apk
+${BS_CUSTOM_ID_ANDROID}       TrifectaAppAndroid
+${BS_APP_UPLOADER_ANDROID}    curl -u "${BS_USER}:${BS_KEY}" 
+...                           -X POST "https://${BS_APP_AUTOMATE_CLOUD_API}/upload" 
+...                           -F "file=@${APP_FILE_ANDROID}" 
+...                           -F "custom_id=${BS_CUSTOM_ID_ANDROID}"
+${BS_PROJECT_ANDROID}         Android System Smoke Test
+${BS_BUILD_ANDROID}           Android
+${BS_NAME_ANDROID}            Android_System_Smoke_Test
+${BS_DEVICE_ANDROID}          Google Pixel 6
+${BS_OS_VERSION_ANDROID}      12.0
 
 #WEB
 ${BS_OS}                Windows
@@ -38,12 +53,22 @@ Mark App Automate Session Status Browserstack
     ...    Execute Script    browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed"}}
     Close All Applications
 
+#UPLOAD APPLICATION TO BROWSERSTACK CLOUD API
+Upload iOS Application To Browserstack
+# TODO: Instead of using the Run Process keyword, try API.Send POST Request
+   Run Process          ${BS_APP_UPLOADER_iOS}    shell=True   alias=UploadiOSApp
+   Wait For Process     UploadiOSApp    timeout=30
+
+Upload Android Application To Browserstack
+   Run Process         ${BS_APP_UPLOADER_ANDROID}    shell=True   alias=UploadAndroidApp
+   Wait For Process    UploadAndroidApp    timeout=30
+
 #iOS BROWSERSTACK LAUNCHER
-Launch iOS Application On Browserstack
+Launch iOS Application On Browserstack Device
     Open Application    remote_url=http://${BS_REMOTE_URL}
     ...                 browserstack.user=${BS_USER} 
     ...                 browserstack.key=${BS_KEY}
-    ...                 app=${BS_APP_iOS}
+    ...                 app_url=${BS_CUSTOM_ID_iOS}
     ...                 device=${BS_DEVICE_iOS}
     ...                 os_version=${BS_OS_VERSION_iOS}
     ...                 project=${BS_PROJECT_iOS} 
@@ -52,11 +77,11 @@ Launch iOS Application On Browserstack
     ...                 browserstack.idle.Timeout=${BS_IDLE_TIMEOUT}
 
 #ANDROID BROWSERSTACK LAUNCHER
-Launch Android Application On Browserstack
+Launch Android Application On Browserstack Device
     Open Application    remote_url=http://${BS_REMOTE_URL}
     ...                 browserstack.user=${BS_USER} 
     ...                 browserstack.key=${BS_KEY}
-    ...                 app=${BS_APP_ANDROID}
+    ...                 app_url=${BS_CUSTOM_ID_ANDROID}
     ...                 device=${BS_DEVICE_ANDROID}
     ...                 os_version=${BS_OS_VERSION_ANDROID}
     ...                 project=${BS_PROJECT_ANDROID}

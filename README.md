@@ -98,13 +98,22 @@ Scripts can be launched with the following Command Line Interface parameters:
 Example: 
 `robot -v env:qa3 -v browser:ff -d results Common/Test/Feature/ECommerce/SubscriptionMgmt/SubMgmt.robot`
 
-## Launching iOS Test Run on Browserstack
-Run the following command in order to launch and run iOS Test Run on BrowserStack emulator
+## APPS Test Automation
 
-iOS
+## Running iOS Test Automation Script on BrowserStack Cloud Real Device
+- Have the Trifecta App .ipa file on hand (download from Firebase App Distribution)
+- Name the .ipa file `TrifectaAppiOS.ipa`
+- Drag and drop the `TrifectaAppiOS.ipa` file to the `iOS/Resources/System` folder in this repository
+- Run the command to launch the iOS Test Run on BrowserStack Cloud Real Device:
 `robot -d iOS/Results iOS/Test/System/SystemSmokeTestiOS.robot`
-- results will be outputted in iOS/Results folder
+- The script will automatically upload the `TrifectaAppiOS.ipa` file to BrowserStack Cloud and perform testing against that build
+- Navigate to `https://app-automate.browserstack.com/dashboard/v2/builds` to obtain Test Run results
 
-Android
+## Running Android Test Automation Script on BrowserStack Cloud Real Device
+- Have the Trifecta App .apk file on hand (download from Firebase App Distribution)
+- Name the .apk file `TrifectaAppAndroid.apk`
+- Drag and drop the `TrifectaAppAndroid.apk` file to the `Android/Resources/System` folder in this repository
+- Run the following command to launch the Android Test Run on BrowserStack Cloud Real Device:
 `robot -d Android/Results Android/Test/System/SystemSmokeTestAndroid.robot`
-- results will be outputted in Android/Results folder
+- The script will automatically upload the `TrifectaAppAndroid.apk` file to BrowserStack Cloud and perform testing against that build
+- Navigate to `https://app-automate.browserstack.com/dashboard/v2/builds` to obtain Test Run results

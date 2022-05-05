@@ -2,7 +2,6 @@
 
 Library    AppiumLibrary
 Library    BuiltIn
-Library    SeleniumLibrary
 Library    DateTime
 
 *** Variables ***

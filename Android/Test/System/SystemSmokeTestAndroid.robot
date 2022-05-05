@@ -13,16 +13,13 @@ Resource   ../../Resources/Feature/ShopWooResourcesAndroid.robot
 Resource   ../../Resources/System/EmulatorLauncherAndroid.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
-Suite Setup    Set Library Search Order    AppiumLibrary    SeleniumLibrary
-
-#BROWSERSTACK
-Suite Teardown    Run Keywords    Log Out Android
-...                               Mark App Automate Session Status Browserstack
+Suite Setup       Upload Android Application To Browserstack
+Suite Teardown    Mark App Automate Session Status Browserstack
 
 *** Test Cases ***
 
 Launch Application
-    Launch Android Application On Browserstack
+    Launch Android Application On Browserstack Device
     #Launch Android Application On Emulator
 
 Intro Screen UI Review
@@ -37,13 +34,15 @@ Complete User Onboarding
 Terms Of Use - Agree
     Agree To Terms Of Use Android
 
-Log Out From The Main Menu
+Log Out From My Account
     Log Out Android
 
 Sign In - Existing User
     Sign In As Existing User Android
+    Log Out Android
 
-Shop Dashboard UI And Details
-    Open Shop Android
-    Validadate Dashboard UI And Details Android
-    Close Shop Android
+# Shop Dashboard UI And Details
+#     Open Shop Android
+#     Validadate Dashboard UI And Details Android
+#     Close Shop Android
+#     Log Out Android

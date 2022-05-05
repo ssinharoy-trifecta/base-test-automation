@@ -12,3 +12,7 @@
 
 # Changes to the TestRail Python Environment file
 # **testrail_env.py**
+
+# App Files
+**.ipa
+**.apk
