@@ -13,39 +13,15 @@ Resource   ../../Resources/Feature/ShopWooResourcesiOS.robot
 Resource   ../../Resources/System/EmulatorLauncheriOS.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
+#THIS IS A WORKING SPACE FOR TEST CASES DEVELOPMENT
 *** Test Cases ***
 
 Launch Application
     Set Library Search Order    AppiumLibrary    SeleniumLibrary
     Launch iOS Application On Emulator
 
-Sign In - Existing User
-    Check Data Alert iOS
-    Sign In As Existing User iOS
-    Check Notifications Alert iOS
-    
-Sign Up - New User
-    Sign Up As New User iOS
-
-Complete User Onboarding
-    Complete User Onboarding iOS
-
-Terms Of Use - Agree
-    Agree To Terms Of Use iOS
-
-Log Out From The Main Menu
-    Log Out iOS
-
-Sign In - Existing User
-    Check Data Alert iOS
-    Sign In As Existing User iOS
-    Check Notifications Alert iOS
-
 Add Weight To The Weight Card
-    Add Weight To The Weight Card
+    Add Weight To The Weight Card iOS
 
-Shop Dashboard UI And Details
-    Open Shop iOS
-    Validate Dashboard UI And Details iOS
-    Close Shop iOS
-    Log Out iOS
+Add Water To The Water Card
+    Add Water To The Water Card

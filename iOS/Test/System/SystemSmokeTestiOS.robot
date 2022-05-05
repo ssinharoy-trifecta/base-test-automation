@@ -45,7 +45,7 @@ Sign In - Existing User
     Check Notifications Alert iOS
 
 Add Weight To The Weight Card
-    Add Weight To The Weight Card
+    Add Weight To The Weight Card iOS
 
 Shop Dashboard UI And Details
     Open Shop iOS
