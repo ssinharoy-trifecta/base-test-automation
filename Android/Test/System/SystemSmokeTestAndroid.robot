@@ -19,7 +19,6 @@ Suite Teardown    Mark App Automate Session Status Browserstack
 *** Test Cases ***
 
 Launch Application
-    Set Library Search Order    AppiumLibrary    SeleniumLibrary
     Launch Android Application On Browserstack Device
     #Launch Android Application On Emulator
 

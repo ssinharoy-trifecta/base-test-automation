@@ -20,7 +20,6 @@ Suite Teardown    Run Keywords    Log Out iOS
 *** Test Cases ***
 
 Launch Application
-    Set Library Search Order    AppiumLibrary    SeleniumLibrary
     Launch iOS Application On Browserstack Device
 
 Intro Screen UI Review

@@ -16,7 +16,7 @@ ${BS_CUSTOM_ID_iOS}       TrifectaAppiOS
 ${BS_APP_UPLOADER_iOS}    curl -u "${BS_USER}:${BS_KEY}" 
 ...                       -X POST "https://${BS_APP_AUTOMATE_CLOUD_API}/upload" 
 ...                       -F "file=@${APP_FILE_iOS}" 
-...                       -F "data={\"custom_id\": \"${BS_CUSTOM_ID_iOS}\"}"
+...                       -F "custom_id=${BS_CUSTOM_ID_iOS}"
 ${BS_PROJECT_iOS}         iOS System Smoke Test
 ${BS_BUILD_iOS}           iOS
 ${BS_NAME_iOS}            iOS_System_Smoke_Test
@@ -55,6 +55,7 @@ Mark App Automate Session Status Browserstack
 
 #UPLOAD APPLICATION TO BROWSERSTACK CLOUD API
 Upload iOS Application To Browserstack
+# TODO: Instead of using the Run Process keyword, try API.Send POST Request
    Run Process          ${BS_APP_UPLOADER_iOS}    shell=True   alias=UploadiOSApp
    Wait For Process     UploadiOSApp    timeout=30
 

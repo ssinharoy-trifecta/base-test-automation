@@ -14,5 +14,5 @@
 # **testrail_env.py**
 
 # App Files
-**/TrifectaAppiOS.ipa
-**/TrifectaAppAndroid.apk
+**.ipa
+**.apk
