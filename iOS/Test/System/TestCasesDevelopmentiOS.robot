@@ -20,8 +20,14 @@ Launch Application
     Set Library Search Order    AppiumLibrary    SeleniumLibrary
     Launch iOS Application On Emulator
 
-Add Weight To The Weight Card
-    Add Weight To The Weight Card iOS
+# Add Weight To The Weight Card
+#     Add Weight To The Weight Card iOS
 
-Add Water To The Water Card
-    Add Water To The Water Card
+# Add Water To The Water Card
+#     Add Water To The Water Card
+
+Log Food To Breakfast
+    Log Food To Breakfast
+
+Log Food To Lunch
+    Log Food To Lunch
