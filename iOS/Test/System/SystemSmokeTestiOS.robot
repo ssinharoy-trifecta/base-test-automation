@@ -44,6 +44,15 @@ Add Water To The Water Card
 Log Food To Breakfast
     Log Food To Breakfast
 
+Log Food To Lunch
+    Log Food To Lunch
+
+Log Food To Dinner
+    Log Food To Dinner
+
+Log Food To Snacks
+    Log Food To Snacks
+
 Log Out From The Main Menu
     Log Out iOS
 
