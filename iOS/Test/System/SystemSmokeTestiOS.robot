@@ -35,23 +35,23 @@ Complete User Onboarding
 Terms Of Use - Agree
     Agree To Terms Of Use iOS
 
-Add Weight To The Weight Card iOS
+Add Weight To The Weight Card
     Add Weight To The Weight Card iOS
 
-Add Water To The Water Card
-    Add Water To The Water Card
+Add Water To The Water Card 
+    Add Water To The Water Card iOS
 
 Log Food To Breakfast
-    Log Food To Breakfast
+    Log Food To Breakfast iOS
 
 Log Food To Lunch
-    Log Food To Lunch
+    Log Food To Lunch iOS
 
 Log Food To Dinner
-    Log Food To Dinner
+    Log Food To Dinner iOS
 
 Log Food To Snacks
-    Log Food To Snacks
+    Log Food To Snacks iOS
 
 Log Out From The Main Menu
     Log Out iOS

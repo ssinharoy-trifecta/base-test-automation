@@ -55,7 +55,7 @@ Add Weight To The Weight Card iOS
     Click Element                    ${addWeightCardBtniOS}
     Wait Until Element Is Visible    ${200lbsWeightCardLbliOS}    timeout=20
 
-Add Water To The Water Card
+Add Water To The Water Card iOS
     Wait Until Element Is Visible   ${addWaterNutritionBtniOS}    timeout=20
     @{list}=    Create List         ${addWaterNutritionBtniOS}
     ...                             ${8ozWaterBtniOS}
@@ -66,7 +66,7 @@ Add Water To The Water Card
         Click Element    ${item}
     END
 
-Log Food To Breakfast
+Log Food To Breakfast iOS
     Wait Until Element Is Visible   ${breakfastBtniOS}    timeout=20
     Click Element                   ${breakfastBtniOS}
     Wait Until Element Is Visible   ${foodSearchBariOS}    timeout=20
@@ -80,7 +80,7 @@ Log Food To Breakfast
     END
     Wait Until Element Is Visible    ${foodItemAvocadoiOS}    timeout=20
 
-Log Food To Lunch
+Log Food To Lunch iOS
     Wait Until Element Is Visible    ${lunchBtniOS}    timeout=20
     Click Element                    ${lunchBtniOS}
     Input Value                      ${foodSearchBariOS}    Pasta
@@ -93,7 +93,7 @@ Log Food To Lunch
     END
     Wait Until Element Is Visible    ${foodItemPastaiOS}    timeout=20
 
-Log Food To Dinner
+Log Food To Dinner iOS
     Wait Until Element Is Visible   ${breakfastBtniOS}    timeout=20
     Scroll                          ${lunchBtniOS}     ${breakfastBtniOS}
     Click Element                   ${dinnerBtniOS}
@@ -107,7 +107,7 @@ Log Food To Dinner
     END
     Wait Until Element Is Visible   ${foodItemPizzaiOS}    timeout=20
 
-Log Food To Snacks
+Log Food To Snacks iOS
     Wait Until Element Is Visible    ${breakfastBtniOS}    timeout=20
     Scroll                           ${lunchBtniOS}     ${breakfastBtniOS}
     Scroll                           ${dinnerBtniOS}     ${lunchBtniOS}
