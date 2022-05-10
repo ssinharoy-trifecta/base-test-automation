@@ -78,6 +78,7 @@ Log Food To Breakfast Android
     Wait Until Element Is Visible   ${breakfastBtnAndroid}    timeout=20
     Click Element                   ${breakfastBtnAndroid}
     Input Value                     ${foodSearchBarAndroid}    ${foodItem1Android}
+    Sleep                           2
     Wait Until Page Contains        ${foodItem1Android}    timeout=10
     Wait Until Element Is Visible   ${addFirstFoodItemBtnAndroid}
     Click Element                   ${addFirstFoodItemBtnAndroid}
@@ -89,6 +90,7 @@ Log Food To Lunch Android
     Wait Until Element Is Visible   ${lunchBtnAndroid}    timeout=20
     Click Element                   ${lunchBtnAndroid}
     Input Value                     ${foodSearchBarAndroid}    ${foodItem2Android}
+    Sleep                           2
     Wait Until Page Contains        ${foodItem2Android}    timeout=10
     Wait Until Element Is Visible   ${addFirstFoodItemBtnAndroid}
     Click Element                   ${addFirstFoodItemBtnAndroid}
@@ -100,6 +102,7 @@ Log Food To Dinner Android
     Wait Until Element Is Visible   ${dinnerBtnAndroid}    timeout=20
     Click Element                   ${dinnerBtnAndroid}
     Input Value                     ${foodSearchBarAndroid}    ${foodItem3Android}
+    Sleep                           2
     Wait Until Page Contains        ${foodItem3Android}    timeout=10
     Wait Until Element Is Visible   ${addFirstFoodItemBtnAndroid}
     Click Element                   ${addFirstFoodItemBtnAndroid}
@@ -112,6 +115,7 @@ Log Food To Snacks Android
     Click Element                   ${snacksBtnAndroid}
     Input Value                     ${foodSearchBarAndroid}    ${foodItem4Android}
     Wait Until Page Contains        ${foodItem4Android}    timeout=10
+    Sleep                           2
     Wait Until Element Is Visible   ${addFirstFoodItemBtnAndroid}
     Click Element                   ${addFirstFoodItemBtnAndroid}
     Wait Until Element Is Visible   ${doneAddingFoodBtnAndroid}
