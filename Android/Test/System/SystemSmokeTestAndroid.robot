@@ -20,7 +20,6 @@ Suite Teardown    Mark App Automate Session Status Browserstack
 
 Launch Application
     Launch Android Application On Browserstack Device
-    #Launch Android Application On Emulator
 
 Intro Screen UI Review
     Validate Intro Screen Details Android
@@ -34,15 +33,35 @@ Complete User Onboarding
 Terms Of Use - Agree
     Agree To Terms Of Use Android
 
+Add Weight To The Weight Card
+    Add Weight To The Weight Card Android
+
+Add Water To The Water Card
+    Add Water To The Water Card Android
+
+Log Food To Snacks
+    Log Food To Snacks Android
+
+Log Food To Dinner
+    Log Food To Dinner Android
+
+Log Food To Lunch
+    Log Food To Lunch Android
+
+Log Food To Breakfast
+    Log Food To Breakfast Android
+
+Add Custom Food
+    Add Custom Food Android
+
 Log Out From My Account
     Log Out Android
 
 Sign In - Existing User
     Sign In As Existing User Android
-    Log Out Android
 
-# Shop Dashboard UI And Details
-#     Open Shop Android
-#     Validadate Dashboard UI And Details Android
-#     Close Shop Android
-#     Log Out Android
+Shop Dashboard UI And Details
+    Open Shop Android
+    Validadate Dashboard UI And Details Android
+    Close Shop Android
+    Log Out Android
