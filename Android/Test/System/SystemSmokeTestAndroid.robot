@@ -14,7 +14,8 @@ Resource   ../../Resources/System/EmulatorLauncherAndroid.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
 Suite Setup       Upload Android Application To Browserstack
-Suite Teardown    Mark App Automate Session Status Browserstack
+Suite Teardown    Run Keywords    Log Out Android
+...                               Mark App Automate Session Status Browserstack
 
 *** Test Cases ***
 

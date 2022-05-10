@@ -6,11 +6,15 @@ Library    BuiltIn
 *** Variables ***
 
 #TEXT VARIABLES
-${foodItem1Android}    Avocado
-${foodItem2Android}    Pasta
-${foodItem3Android}    Pizza
-${foodItem4Android}    Apple
-${foodItem5Android}    Test Food Item
+${foodItem1Android}                Avocado
+${foodItem2Android}                Pasta
+${foodItem3Android}                Pizza
+${foodItem4Android}                Apple
+${foodItem5Android}                Test Food Item
+${customFoodBrandAndroid}          Test Brand
+${customFoodCaloriesAndroid}       100
+${customFoodServingSizeAndroid}    1
+${userNewWeightAndroid}            200
 
 #WEIGHT CARD
 ${addWeightNutritionBtnAndroid}    id=com.n_ix.pocket_wod:id/weight_text_view
@@ -58,7 +62,7 @@ Add Weight To The Weight Card Android
     Click Element                    ${weightFieldAndroid}
     Wait Until Element Is Visible    ${addWeightFieldAndroid}
     Clear Text                       ${addWeightFieldAndroid}
-    Input Value                      ${addWeightFieldAndroid}    180
+    Input Value                      ${addWeightFieldAndroid}    ${userNewWeightAndroid}
     Click Element                    ${setWeightBtnAndroid}
     Wait Until Element Is Visible    ${addWeightCardBtnAndroid}    timeout=20
     Click Element                    ${addWeightCardBtnAndroid}
@@ -130,11 +134,11 @@ Add Custom Food Android
     Wait Until Element Is Visible    ${customFoodNameFieldAndroid}    timeout=20
     Input Value                      ${customFoodNameFieldAndroid}    ${foodItem5Android}
     Wait Until Element Is Visible    ${customFoodBrandFieldAndroid}    timeout=20
-    Input Value                      ${customFoodBrandFieldAndroid}    Test Brand
+    Input Value                      ${customFoodBrandFieldAndroid}    ${customFoodBrandAndroid}
     Wait Until Element Is Visible    ${customFoodServingSizeFieldAndroid}    timeout=20
-    Input Value                      ${customFoodServingSizeFieldAndroid}    1
+    Input Value                      ${customFoodServingSizeFieldAndroid}    ${customFoodServingSizeAndroid}
     Wait Until Element Is Visible    ${customFoodCaloriesFieldAndroid}    timeout=20
-    Input Value                      ${customFoodCaloriesFieldAndroid}    100
+    Input Value                      ${customFoodCaloriesFieldAndroid}    ${customFoodCaloriesAndroid}
     Wait Until Element Is Visible    ${addToBreakfastBtnAndroid}    timeout=20
     Click Element                    ${addToBreakfastBtnAndroid}
     Wait Until Page Contains         ${foodItem5Android}    timeout=10

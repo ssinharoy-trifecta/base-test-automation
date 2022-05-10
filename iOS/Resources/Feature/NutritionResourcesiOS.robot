@@ -5,6 +5,17 @@ Library    BuiltIn
 
 *** Variables ***
 
+#TEXT VARIABLES
+${foodItem1iOS}                Avocado
+${foodItem2iOS}                Pasta
+${foodItem3iOS}                Pizza
+${foodItem4iOS}                Apple
+${foodItem5iOS}                Test Food Item
+${customFoodBrandiOS}          Test Brand
+${customFoodCaloriesiOS}       100
+${customFoodServingSizeiOS}    1
+${userNewWeightiOS}            200
+
 #WEIGHT CARD
 ${addWeightNutritionBtniOS}    xpath=//XCUIElementTypeButton[@name="ADD"][1]
 ${keyboardDigit0BtniOS}        xpath=//XCUIElementTypeKey[@name="0"]
@@ -37,10 +48,6 @@ ${addCustomFoodBtniOS}            xpath=//XCUIElementTypeStaticText[@name="Add"]
 ${addFirstFoodItemBtniOS}         xpath=//XCUIElementTypeButton[@name="new add"]
 ${doneAddingFoodBtniOS}           xpath=//XCUIElementTypeStaticText[@name="Done"]
 ${doneBtnNutritionKeyboardiOS}    xpath=//XCUIElementTypeButton[@name="Done"]
-${foodItemAvocadoiOS}             xpath=//XCUIElementTypeStaticText[@name="Avocado"]
-${foodItemPastaiOS}               xpath=//XCUIElementTypeStaticText[@name="Pasta"]
-${foodItemPizzaiOS}               xpath=//XCUIElementTypeStaticText[@name="Pizza"]
-${foodItemAppleiOS}               xpath=//XCUIElementTypeStaticText[@name="Apple"]
 ${editFoodLogBtniOS}              xpath=//XCUIElementTypeButton[@name="Edit"]
 ${selectFoodItemBtniOS}           xpath=//XCUIElementTypeImage[@name="circle"]
 ${addCustomFoodTxtiOS}            xpath=//XCUIElementTypeStaticText[@name="Add Custom Food"]
@@ -49,7 +56,6 @@ ${customFoodBrandFieldiOS}        xpath=//XCUIElementTypeApplication[@name="TriD
 ${customFoodServingSizeFieldiOS}  xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[3]/XCUIElementTypeTextField
 ${customFoodCaloriesFieldiOS}     xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[5]/XCUIElementTypeTextField
 ${addToBreakfastBtniOS}           xpath=//XCUIElementTypeButton[@name="Add to breakfast"]
-${foodItemTestFoodItemiOS}        xpath=//XCUIElementTypeStaticText[@name="Test Food Item"]
 
 *** Keywords ***
 
@@ -59,7 +65,7 @@ Add Weight To The Weight Card iOS
     Wait Until Element Is Visible    ${keyboardDeleteBtniOS}    timeout=20
     Repeat Keyword                   3 times    Click Element    ${keyboardDeleteBtniOS}
     Wait Until Element Is Visible    ${weightFieldCardFieldiOS}    timeout=20
-    Input Value                      ${weightFieldCardFieldiOS}    200
+    Input Value                      ${weightFieldCardFieldiOS}    ${userNewWeightiOS}
     Click Element                    ${addWeightCardBtniOS}
     Wait Until Element Is Visible    ${200lbsWeightCardLbliOS}    timeout=20
 
@@ -78,7 +84,7 @@ Log Food To Breakfast iOS
     Wait Until Element Is Visible   ${breakfastBtniOS}    timeout=20
     Click Element                   ${breakfastBtniOS}
     Wait Until Element Is Visible   ${foodSearchBariOS}    timeout=20
-    Input Value                     ${foodSearchBariOS}    Avocado
+    Input Value                     ${foodSearchBariOS}    ${foodItem1iOS}
     @{list}=    Create List         ${doneBtnNutritionKeyboardiOS}
     ...                             ${addFirstFoodItemBtniOS}
     ...                             ${doneAddingFoodBtniOS}
@@ -86,12 +92,12 @@ Log Food To Breakfast iOS
         Wait Until Element Is Visible    ${item}    timeout=20
         Click Element   ${item}
     END
-    Wait Until Element Is Visible    ${foodItemAvocadoiOS}    timeout=20
+    Wait Until Page Contains        ${foodItem1iOS}    timeout=10
 
 Log Food To Lunch iOS
     Wait Until Element Is Visible    ${lunchBtniOS}    timeout=20
     Click Element                    ${lunchBtniOS}
-    Input Value                      ${foodSearchBariOS}    Pasta
+    Input Value                      ${foodSearchBariOS}    ${foodItem2iOS}
     @{list}=    Create List          ${doneBtnNutritionKeyboardiOS}
     ...                              ${addFirstFoodItemBtniOS}
     ...                              ${doneAddingFoodBtniOS}
@@ -99,12 +105,12 @@ Log Food To Lunch iOS
         Wait Until Element Is Visible    ${item}    timeout=20
         Click Element    ${item}
     END
-    Wait Until Element Is Visible    ${foodItemPastaiOS}    timeout=20
+    Wait Until Page Contains        ${foodItem2iOS}    timeout=10
 
 Log Food To Dinner iOS
     Wait Until Element Is Visible   ${dinnerBtniOS}    timeout=20
     Click Element                   ${dinnerBtniOS}
-    Input Value                     ${foodSearchBariOS}    Pizza
+    Input Value                     ${foodSearchBariOS}    ${foodItem3iOS}
     @{list}=    Create List         ${doneBtnNutritionKeyboardiOS}
     ...                             ${addFirstFoodItemBtniOS}
     ...                             ${doneAddingFoodBtniOS}
@@ -112,12 +118,12 @@ Log Food To Dinner iOS
         Wait Until Element Is Visible    ${item}    timeout=20
         Click Element   ${item}
     END
-    Wait Until Element Is Visible   ${foodItemPizzaiOS}    timeout=20
+    Wait Until Page Contains        ${foodItem3iOS}    timeout=10
 
 Log Food To Snacks iOS
     Wait Until Element Is Visible    ${snacksBtniOS}    timeout=20
     Click Element                    ${snacksBtniOS}
-    Input Value                      ${foodSearchBariOS}    Apple
+    Input Value                      ${foodSearchBariOS}    ${foodItem4iOS}
     @{list}=    Create List          ${doneBtnNutritionKeyboardiOS}
     ...                              ${addFirstFoodItemBtniOS}
     ...                              ${doneAddingFoodBtniOS}
@@ -125,6 +131,7 @@ Log Food To Snacks iOS
         Wait Until Element Is Visible    ${item}    timeout=20
         Click Element   ${item}
     END
+    Wait Until Page Contains        ${foodItem4iOS}    timeout=10
 
 Add Custom Food iOS
     Wait Until Element Is Visible    ${breakfastBtniOS}    timeout=20
@@ -132,14 +139,14 @@ Add Custom Food iOS
     Wait Until Element Is Visible    ${addCustomFoodTxtiOS}    timeout=10
     Click Element                    ${addCustomFoodTxtiOS}
     Wait Until Element Is Visible    ${customFoodNameFieldiOS}    timeout=20
-    Input Value                      ${customFoodNameFieldiOS}    Test Food Item
+    Input Value                      ${customFoodNameFieldiOS}    ${foodItem5iOS}
     Wait Until Element Is Visible    ${customFoodBrandFieldiOS}    timeout=20
-    Input Value                      ${customFoodBrandFieldiOS}    Test Brand
+    Input Value                      ${customFoodBrandFieldiOS}    ${customFoodBrandiOS}
     Wait Until Element Is Visible    ${customFoodServingSizeFieldiOS}    timeout=20
-    Input Value                      ${customFoodServingSizeFieldiOS}    1
+    Input Value                      ${customFoodServingSizeFieldiOS}    ${customFoodServingSizeiOS}
     Wait Until Element Is Visible    ${customFoodCaloriesFieldiOS}    timeout=20
-    Input Value                      ${customFoodCaloriesFieldiOS}    100
+    Input Value                      ${customFoodCaloriesFieldiOS}    ${customFoodCaloriesiOS}
     Click Text                       Done   exact_match=True
     Wait Until Element Is Visible    ${addToBreakfastBtniOS}    timeout=20
     Click Element                    ${addToBreakfastBtniOS}
-    Wait Until Element Is Visible    ${foodItemTestFoodItemiOS}    timeout=20
+    Wait Until Page Contains        ${foodItem5iOS}    timeout=10
