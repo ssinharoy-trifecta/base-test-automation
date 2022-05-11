@@ -107,4 +107,4 @@ Add Custom Food Android
     Input Value                      ${customFoodCaloriesFieldAndroid}    100
     Wait Until Element Is Visible    ${addToBreakfastBtnAndroid}    timeout=20
     Click Element                    ${addToBreakfastBtnAndroid}
-    Wait Until Page Contains         ${foodItem5Android}    timeout=10
+    Wait Until Page Contains         Test Food Item    timeout=10

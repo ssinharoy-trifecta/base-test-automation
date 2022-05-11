@@ -54,7 +54,7 @@ Add Weight To The Weight Card iOS
     Wait Until Element Is Visible    ${keyboardDeleteBtniOS}    timeout=20
     Repeat Keyword                   3 times    Click Element    ${keyboardDeleteBtniOS}
     Wait Until Element Is Visible    ${weightFieldCardFieldiOS}    timeout=20
-    Input Value                      ${weightFieldCardFieldiOS}    ${userNewWeightiOS}
+    Input Value                      ${weightFieldCardFieldiOS}    200
     Click Element                    ${addWeightCardBtniOS}
     Wait Until Element Is Visible    ${200lbsWeightCardLbliOS}    timeout=20
 
