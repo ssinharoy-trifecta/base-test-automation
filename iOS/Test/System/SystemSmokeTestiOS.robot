@@ -42,16 +42,16 @@ Add Water To The Water Card
     Add Water To The Water Card iOS
     
 Log Food To Snacks
-    Log Food To Snacks iOS
+    Log Food iOS    ${snacksBtniOS}    Apple
 
 Log Food To Dinner
-    Log Food To Dinner iOS
+    Log Food iOS    ${dinnerBtniOS}    Pasta
 
 Log Food To Lunch
-    Log Food To Lunch iOS
+    Log Food iOS    ${lunchBtniOS}    Pizza
 
 Log Food To Breakfast
-    Log Food To Breakfast iOS
+    Log Food iOS    ${breakfastBtniOS}    Avocado
 
 Add Custom Food
     Add Custom Food iOS

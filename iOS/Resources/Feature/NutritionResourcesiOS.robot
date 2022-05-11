@@ -84,18 +84,6 @@ Log Food iOS
     END
     Wait Until Page Contains        ${foodItem}    timeout=10
 
-Log Food To Breakfast iOS
-    Log Food iOS    ${breakfastBtniOS}    Avocado
-
-Log Food To Lunch iOS
-    Log Food iOS    ${lunchBtniOS}    Pizza
-
-Log Food To Dinner iOS
-    Log Food iOS    ${dinnerBtniOS}    Pasta
-
-Log Food To Snacks iOS
-    Log Food iOS    ${snacksBtniOS}    Apple
-
 Add Custom Food iOS
     Wait Until Element Is Visible    ${breakfastBtniOS}    timeout=20
     Click Element                    ${breakfastBtniOS}

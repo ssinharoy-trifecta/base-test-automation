@@ -41,16 +41,16 @@ Add Water To The Water Card
     Add Water To The Water Card Android
 
 Log Food To Snacks
-    Log Food To Snacks Android
+    Log Food Android    ${snacksBtnAndroid}    Apple
 
 Log Food To Dinner
-    Log Food To Dinner Android
+    Log Food Android    ${dinnerBtnAndroid}    Pasta
 
 Log Food To Lunch
-    Log Food To Lunch Android
+    Log Food Android    ${lunchBtnAndroid}    Pizza
 
 Log Food To Breakfast
-    Log Food To Breakfast Android
+    Log Food Android    ${breakfastBtnAndroid}    Avocado
 
 Add Custom Food
     Add Custom Food Android
