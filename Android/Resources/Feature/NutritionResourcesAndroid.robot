@@ -5,17 +5,6 @@ Library    BuiltIn
 
 *** Variables ***
 
-#TEXT VARIABLES
-${foodItem1Android}                Avocado
-${foodItem2Android}                Pasta
-${foodItem3Android}                Pizza
-${foodItem4Android}                Apple
-${foodItem5Android}                Test Food Item
-${customFoodBrandAndroid}          Test Brand
-${customFoodCaloriesAndroid}       100
-${customFoodServingSizeAndroid}    1
-${userNewWeightAndroid}            200
-
 #WEIGHT CARD
 ${addWeightNutritionBtnAndroid}    id=com.n_ix.pocket_wod:id/weight_text_view
 ${addWeightCardBtnAndroid}         id=com.n_ix.pocket_wod:id/addBtn
@@ -62,7 +51,7 @@ Add Weight To The Weight Card Android
     Click Element                    ${weightFieldAndroid}
     Wait Until Element Is Visible    ${addWeightFieldAndroid}
     Clear Text                       ${addWeightFieldAndroid}
-    Input Value                      ${addWeightFieldAndroid}    ${userNewWeightAndroid}
+    Input Value                      ${addWeightFieldAndroid}    200
     Click Element                    ${setWeightBtnAndroid}
     Wait Until Element Is Visible    ${addWeightCardBtnAndroid}    timeout=20
     Click Element                    ${addWeightCardBtnAndroid}
@@ -78,53 +67,30 @@ Add Water To The Water Card Android
         Click Element    ${item}
     END
 
-Log Food To Breakfast Android
-    Wait Until Element Is Visible   ${breakfastBtnAndroid}    timeout=20
-    Click Element                   ${breakfastBtnAndroid}
-    Input Value                     ${foodSearchBarAndroid}    ${foodItem1Android}
+Log Food Android
+    [Arguments]    ${mealButton}    ${foodItem}
+    Wait Until Element Is Visible   ${mealButton}    timeout=20
+    Click Element                   ${mealButton}
+    Input Value                     ${foodSearchBarAndroid}    ${foodItem}
     Sleep                           2
-    Wait Until Page Contains        ${foodItem1Android}    timeout=10
+    Wait Until Page Contains        ${foodItem}    timeout=10
     Wait Until Element Is Visible   ${addFirstFoodItemBtnAndroid}
     Click Element                   ${addFirstFoodItemBtnAndroid}
     Wait Until Element Is Visible   ${doneAddingFoodBtnAndroid}
     Click Element                   ${doneAddingFoodBtnAndroid}
-    Wait Until Page Contains        ${foodItem1Android}    timeout=10
+    Wait Until Page Contains        ${foodItem}    timeout=10
+
+Log Food To Breakfast Android
+    Log Food Android    ${breakfastBtnAndroid}    Avocado
 
 Log Food To Lunch Android
-    Wait Until Element Is Visible   ${lunchBtnAndroid}    timeout=20
-    Click Element                   ${lunchBtnAndroid}
-    Input Value                     ${foodSearchBarAndroid}    ${foodItem2Android}
-    Sleep                           2
-    Wait Until Page Contains        ${foodItem2Android}    timeout=10
-    Wait Until Element Is Visible   ${addFirstFoodItemBtnAndroid}
-    Click Element                   ${addFirstFoodItemBtnAndroid}
-    Wait Until Element Is Visible   ${doneAddingFoodBtnAndroid}
-    Click Element                   ${doneAddingFoodBtnAndroid}
-    Wait Until Page Contains        ${foodItem2Android}    timeout=10
+    Log Food Android    ${lunchBtnAndroid}    Pizza
 
 Log Food To Dinner Android
-    Wait Until Element Is Visible   ${dinnerBtnAndroid}    timeout=20
-    Click Element                   ${dinnerBtnAndroid}
-    Input Value                     ${foodSearchBarAndroid}    ${foodItem3Android}
-    Sleep                           2
-    Wait Until Page Contains        ${foodItem3Android}    timeout=10
-    Wait Until Element Is Visible   ${addFirstFoodItemBtnAndroid}
-    Click Element                   ${addFirstFoodItemBtnAndroid}
-    Wait Until Element Is Visible   ${doneAddingFoodBtnAndroid}
-    Click Element                   ${doneAddingFoodBtnAndroid}
-    Wait Until Page Contains        ${foodItem3Android}    timeout=10
+    Log Food Android    ${dinnerBtnAndroid}    Pasta
 
 Log Food To Snacks Android
-    Wait Until Element Is Visible   ${snacksBtnAndroid}    timeout=20
-    Click Element                   ${snacksBtnAndroid}
-    Input Value                     ${foodSearchBarAndroid}    ${foodItem4Android}
-    Wait Until Page Contains        ${foodItem4Android}    timeout=10
-    Sleep                           2
-    Wait Until Element Is Visible   ${addFirstFoodItemBtnAndroid}
-    Click Element                   ${addFirstFoodItemBtnAndroid}
-    Wait Until Element Is Visible   ${doneAddingFoodBtnAndroid}
-    Click Element                   ${doneAddingFoodBtnAndroid}
-    Wait Until Page Contains        ${foodItem4Android}    timeout=10
+    Log Food Android    ${SnacksBtnAndroid}    Apple
 
 Add Custom Food Android
     Wait Until Element Is Visible    ${breakfastBtnAndroid}    timeout=20
@@ -132,13 +98,13 @@ Add Custom Food Android
     Wait Until Element Is Visible    ${addCustomFoodBtnAndroid}    timeout=10
     Click Element                    ${addCustomFoodBtnAndroid}
     Wait Until Element Is Visible    ${customFoodNameFieldAndroid}    timeout=20
-    Input Value                      ${customFoodNameFieldAndroid}    ${foodItem5Android}
+    Input Value                      ${customFoodNameFieldAndroid}    Test Food Item
     Wait Until Element Is Visible    ${customFoodBrandFieldAndroid}    timeout=20
-    Input Value                      ${customFoodBrandFieldAndroid}    ${customFoodBrandAndroid}
+    Input Value                      ${customFoodBrandFieldAndroid}    Test Brand
     Wait Until Element Is Visible    ${customFoodServingSizeFieldAndroid}    timeout=20
-    Input Value                      ${customFoodServingSizeFieldAndroid}    ${customFoodServingSizeAndroid}
+    Input Value                      ${customFoodServingSizeFieldAndroid}    1
     Wait Until Element Is Visible    ${customFoodCaloriesFieldAndroid}    timeout=20
-    Input Value                      ${customFoodCaloriesFieldAndroid}    ${customFoodCaloriesAndroid}
+    Input Value                      ${customFoodCaloriesFieldAndroid}    100
     Wait Until Element Is Visible    ${addToBreakfastBtnAndroid}    timeout=20
     Click Element                    ${addToBreakfastBtnAndroid}
     Wait Until Page Contains         ${foodItem5Android}    timeout=10

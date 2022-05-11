@@ -5,17 +5,6 @@ Library    BuiltIn
 
 *** Variables ***
 
-#TEXT VARIABLES
-${foodItem1iOS}                Avocado
-${foodItem2iOS}                Pasta
-${foodItem3iOS}                Pizza
-${foodItem4iOS}                Apple
-${foodItem5iOS}                Test Food Item
-${customFoodBrandiOS}          Test Brand
-${customFoodCaloriesiOS}       100
-${customFoodServingSizeiOS}    1
-${userNewWeightiOS}            200
-
 #WEIGHT CARD
 ${addWeightNutritionBtniOS}    xpath=//XCUIElementTypeButton[@name="ADD"][1]
 ${keyboardDigit0BtniOS}        xpath=//XCUIElementTypeKey[@name="0"]
@@ -80,11 +69,12 @@ Add Water To The Water Card iOS
         Click Element    ${item}
     END
 
-Log Food To Breakfast iOS
-    Wait Until Element Is Visible   ${breakfastBtniOS}    timeout=20
-    Click Element                   ${breakfastBtniOS}
+Log Food iOS
+    [Arguments]    ${mealButton}    ${foodItem}
+    Wait Until Element Is Visible   ${mealButton}    timeout=20
+    Click Element                   ${mealButton}
     Wait Until Element Is Visible   ${foodSearchBariOS}    timeout=20
-    Input Value                     ${foodSearchBariOS}    ${foodItem1iOS}
+    Input Value                     ${foodSearchBariOS}    ${foodItem}
     @{list}=    Create List         ${doneBtnNutritionKeyboardiOS}
     ...                             ${addFirstFoodItemBtniOS}
     ...                             ${doneAddingFoodBtniOS}
@@ -92,46 +82,19 @@ Log Food To Breakfast iOS
         Wait Until Element Is Visible    ${item}    timeout=20
         Click Element   ${item}
     END
-    Wait Until Page Contains        ${foodItem1iOS}    timeout=10
+    Wait Until Page Contains        ${foodItem}    timeout=10
+
+Log Food To Breakfast iOS
+    Log Food iOS    ${breakfastBtniOS}    Avocado
 
 Log Food To Lunch iOS
-    Wait Until Element Is Visible    ${lunchBtniOS}    timeout=20
-    Click Element                    ${lunchBtniOS}
-    Input Value                      ${foodSearchBariOS}    ${foodItem2iOS}
-    @{list}=    Create List          ${doneBtnNutritionKeyboardiOS}
-    ...                              ${addFirstFoodItemBtniOS}
-    ...                              ${doneAddingFoodBtniOS}
-    FOR    ${item}    IN    @{list}
-        Wait Until Element Is Visible    ${item}    timeout=20
-        Click Element    ${item}
-    END
-    Wait Until Page Contains        ${foodItem2iOS}    timeout=10
+    Log Food iOS    ${lunchBtniOS}    Pizza
 
 Log Food To Dinner iOS
-    Wait Until Element Is Visible   ${dinnerBtniOS}    timeout=20
-    Click Element                   ${dinnerBtniOS}
-    Input Value                     ${foodSearchBariOS}    ${foodItem3iOS}
-    @{list}=    Create List         ${doneBtnNutritionKeyboardiOS}
-    ...                             ${addFirstFoodItemBtniOS}
-    ...                             ${doneAddingFoodBtniOS}
-    FOR    ${item}    IN    @{list}
-        Wait Until Element Is Visible    ${item}    timeout=20
-        Click Element   ${item}
-    END
-    Wait Until Page Contains        ${foodItem3iOS}    timeout=10
+    Log Food iOS    ${dinnerBtniOS}    Pasta
 
 Log Food To Snacks iOS
-    Wait Until Element Is Visible    ${snacksBtniOS}    timeout=20
-    Click Element                    ${snacksBtniOS}
-    Input Value                      ${foodSearchBariOS}    ${foodItem4iOS}
-    @{list}=    Create List          ${doneBtnNutritionKeyboardiOS}
-    ...                              ${addFirstFoodItemBtniOS}
-    ...                              ${doneAddingFoodBtniOS}
-    FOR                              ${item}    IN    @{list}
-        Wait Until Element Is Visible    ${item}    timeout=20
-        Click Element   ${item}
-    END
-    Wait Until Page Contains        ${foodItem4iOS}    timeout=10
+    Log Food iOS    ${snacksBtniOS}    Apple
 
 Add Custom Food iOS
     Wait Until Element Is Visible    ${breakfastBtniOS}    timeout=20
@@ -139,14 +102,14 @@ Add Custom Food iOS
     Wait Until Element Is Visible    ${addCustomFoodTxtiOS}    timeout=10
     Click Element                    ${addCustomFoodTxtiOS}
     Wait Until Element Is Visible    ${customFoodNameFieldiOS}    timeout=20
-    Input Value                      ${customFoodNameFieldiOS}    ${foodItem5iOS}
+    Input Value                      ${customFoodNameFieldiOS}    Test Food Item
     Wait Until Element Is Visible    ${customFoodBrandFieldiOS}    timeout=20
-    Input Value                      ${customFoodBrandFieldiOS}    ${customFoodBrandiOS}
+    Input Value                      ${customFoodBrandFieldiOS}    Test Brand
     Wait Until Element Is Visible    ${customFoodServingSizeFieldiOS}    timeout=20
-    Input Value                      ${customFoodServingSizeFieldiOS}    ${customFoodServingSizeiOS}
+    Input Value                      ${customFoodServingSizeFieldiOS}    1
     Wait Until Element Is Visible    ${customFoodCaloriesFieldiOS}    timeout=20
-    Input Value                      ${customFoodCaloriesFieldiOS}    ${customFoodCaloriesiOS}
+    Input Value                      ${customFoodCaloriesFieldiOS}    100
     Click Text                       Done   exact_match=True
     Wait Until Element Is Visible    ${addToBreakfastBtniOS}    timeout=20
     Click Element                    ${addToBreakfastBtniOS}
-    Wait Until Page Contains        ${foodItem5iOS}    timeout=10
+    Wait Until Page Contains         Test Food Item    timeout=10

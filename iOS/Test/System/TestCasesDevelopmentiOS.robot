@@ -15,8 +15,3 @@ Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
 #THIS IS A WORKING SPACE FOR TEST CASES DEVELOPMENT
 *** Test Cases ***
-
-Launch Application
-    Set Library Search Order    AppiumLibrary    SeleniumLibrary
-    Launch iOS Application On Emulator
-
