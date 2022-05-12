@@ -36,7 +36,7 @@ Terms Of Use - Agree
     Agree To Terms Of Use iOS
 
 Add Weight To The Weight Card
-    Add Weight To The Weight Card iOS
+    Add Weight To The Weight Card iOS    200
 
 Add Water To The Water Card
     Add Water To The Water Card iOS
@@ -54,7 +54,7 @@ Log Food To Breakfast
     Log Food iOS    ${breakfastBtniOS}    Avocado
 
 Add Custom Food
-    Add Custom Food iOS
+    Add Custom Food iOS    Test Food Item    Test Brand    1    100
 
 Log Out From The Main Menu
     Log Out iOS

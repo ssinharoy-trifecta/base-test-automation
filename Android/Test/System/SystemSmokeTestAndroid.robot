@@ -35,7 +35,7 @@ Terms Of Use - Agree
     Agree To Terms Of Use Android
 
 Add Weight To The Weight Card
-    Add Weight To The Weight Card Android
+    Add Weight To The Weight Card Android    200
 
 Add Water To The Water Card
     Add Water To The Water Card Android
@@ -53,7 +53,7 @@ Log Food To Breakfast
     Log Food Android    ${breakfastBtnAndroid}    Avocado
 
 Add Custom Food
-    Add Custom Food Android
+    Add Custom Food Android    Test Food Item    Test Brand    1    100
 
 Log Out From My Account
     Log Out Android

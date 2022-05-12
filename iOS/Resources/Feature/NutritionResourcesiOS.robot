@@ -40,21 +40,28 @@ ${doneBtnNutritionKeyboardiOS}    xpath=//XCUIElementTypeButton[@name="Done"]
 ${editFoodLogBtniOS}              xpath=//XCUIElementTypeButton[@name="Edit"]
 ${selectFoodItemBtniOS}           xpath=//XCUIElementTypeImage[@name="circle"]
 ${addCustomFoodTxtiOS}            xpath=//XCUIElementTypeStaticText[@name="Add Custom Food"]
-${customFoodNameFieldiOS}         xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeTextField
-${customFoodBrandFieldiOS}        xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[2]/XCUIElementTypeTextField
-${customFoodServingSizeFieldiOS}  xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[3]/XCUIElementTypeTextField
-${customFoodCaloriesFieldiOS}     xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTable/XCUIElementTypeCell[5]/XCUIElementTypeTextField
+${customFoodFieldPrefixiOS}       //XCUIElementTypeApplication[@name="TriDebug"]
+...                               /XCUIElementTypeWindow/XCUIElementTypeOther[2]
+...                               /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
+...                               /XCUIElementTypeOther/XCUIElementTypeOther[2]
+...                               /XCUIElementTypeTable/XCUIElementTypeCell[
+${customFoodFieldSuffixiOS}       ]/XCUIElementTypeTextField
+${customFoodNameFieldiOS}         ${customFoodFieldPrefixiOS}1${customFoodFieldSuffixiOS} 
+${customFoodBrandFieldiOS}        ${customFoodFieldPrefixiOS}2${customFoodFieldSuffixiOS} 
+${customFoodServingSizeFieldiOS}  ${customFoodFieldPrefixiOS}3${customFoodFieldSuffixiOS} 
+${customFoodCaloriesFieldiOS}     ${customFoodFieldPrefixiOS}5${customFoodFieldSuffixiOS} 
 ${addToBreakfastBtniOS}           xpath=//XCUIElementTypeButton[@name="Add to breakfast"]
 
 *** Keywords ***
 
 Add Weight To The Weight Card iOS
+    [Arguments]    ${userWeight}
     Wait Until Element Is Visible    ${addWeightNutritionBtniOS}    timeout=20
     Click Element                    ${addWeightNutritionBtniOS}
     Wait Until Element Is Visible    ${keyboardDeleteBtniOS}    timeout=20
     Repeat Keyword                   3 times    Click Element    ${keyboardDeleteBtniOS}
     Wait Until Element Is Visible    ${weightFieldCardFieldiOS}    timeout=20
-    Input Value                      ${weightFieldCardFieldiOS}    200
+    Input Value                      ${weightFieldCardFieldiOS}    ${userWeight}
     Click Element                    ${addWeightCardBtniOS}
     Wait Until Element Is Visible    ${200lbsWeightCardLbliOS}    timeout=20
 
@@ -85,19 +92,20 @@ Log Food iOS
     Wait Until Page Contains        ${foodItem}    timeout=10
 
 Add Custom Food iOS
+    [Arguments]    ${foodName}    ${brandName}    ${servingSize}    ${calories}
     Wait Until Element Is Visible    ${breakfastBtniOS}    timeout=20
     Click Element                    ${breakfastBtniOS}
     Wait Until Element Is Visible    ${addCustomFoodTxtiOS}    timeout=10
     Click Element                    ${addCustomFoodTxtiOS}
     Wait Until Element Is Visible    ${customFoodNameFieldiOS}    timeout=20
-    Input Value                      ${customFoodNameFieldiOS}    Test Food Item
+    Input Value                      ${customFoodNameFieldiOS}    ${foodName}
     Wait Until Element Is Visible    ${customFoodBrandFieldiOS}    timeout=20
-    Input Value                      ${customFoodBrandFieldiOS}    Test Brand
+    Input Value                      ${customFoodBrandFieldiOS}    ${brandName}
     Wait Until Element Is Visible    ${customFoodServingSizeFieldiOS}    timeout=20
-    Input Value                      ${customFoodServingSizeFieldiOS}    1
+    Input Value                      ${customFoodServingSizeFieldiOS}    ${servingSize}
     Wait Until Element Is Visible    ${customFoodCaloriesFieldiOS}    timeout=20
-    Input Value                      ${customFoodCaloriesFieldiOS}    100
+    Input Value                      ${customFoodCaloriesFieldiOS}    ${calories}
     Click Text                       Done   exact_match=True
     Wait Until Element Is Visible    ${addToBreakfastBtniOS}    timeout=20
     Click Element                    ${addToBreakfastBtniOS}
-    Wait Until Page Contains         Test Food Item    timeout=10
+    Wait Until Page Contains         ${foodName}    timeout=10

@@ -22,10 +22,20 @@ ${addWaterCardBtnAndroid}         id=com.n_ix.pocket_wod:id/addBtn
 
 #FOOD LOG
 ${nutritionBtnAndroid}                id=com.n_ix.pocket_wod:id/nutrition
-${breakfastBtnAndroid}                xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[1]/android.widget.FrameLayout
-${lunchBtnAndroid}                    xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[2]/android.widget.FrameLayout
-${dinnerBtnAndroid}                   xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[3]/android.widget.FrameLayout
-${snacksBtnAndroid}                   xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[4]/android.widget.FrameLayout
+${mealBtnPrefixAndroid}               /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout
+...                                   /android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout
+...                                   /androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout
+...                                   /android.view.ViewGroup/androidx.viewpager.widget.ViewPager
+...                                   /androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout
+...                                   /android.widget.FrameLayout/android.widget.LinearLayout
+...                                   /androidx.viewpager.widget.ViewPager/android.widget.FrameLayout
+...                                   /android.widget.LinearLayout/android.widget.FrameLayout[2]
+...                                   /androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[
+${mealBtnSuffixAndroid}               ]/android.widget.FrameLayout
+${breakfastBtnAndroid}                xpath=${mealBtnPrefixAndroid}1${mealBtnSuffixAndroid} 
+${lunchBtnAndroid}                    xpath=${mealBtnPrefixAndroid}2${mealBtnSuffixAndroid} 
+${dinnerBtnAndroid}                   xpath=${mealBtnPrefixAndroid}3${mealBtnSuffixAndroid} 
+${snacksBtnAndroid}                   xpath=${mealBtnPrefixAndroid}4${mealBtnSuffixAndroid} 
 ${foodSearchBarAndroid}               id=com.n_ix.pocket_wod:id/searchFoodView
 ${barCodeScannerBtnAndroid}           id=com.n_ix.pocket_wod:id/runScan
 ${recentFoodBtnAndroid}               xpath=//android.widget.LinearLayout[@content-desc="Recent"]/android.widget.TextView
@@ -45,13 +55,14 @@ ${addToBreakfastBtnAndroid}           id=com.n_ix.pocket_wod:id/add_button
 *** Keywords ***
 
 Add Weight To The Weight Card Android
+    [Arguments]    ${userWeight}
     Wait Until Element Is Visible    ${addWeightNutritionBtnAndroid}    timeout=20
     Click Element                    ${addWeightNutritionBtnAndroid}
     Wait Until Element Is Visible    ${weightFieldAndroid}    timeout=20
     Click Element                    ${weightFieldAndroid}
     Wait Until Element Is Visible    ${addWeightFieldAndroid}
     Clear Text                       ${addWeightFieldAndroid}
-    Input Value                      ${addWeightFieldAndroid}    200
+    Input Value                      ${addWeightFieldAndroid}    ${userWeight}
     Click Element                    ${setWeightBtnAndroid}
     Wait Until Element Is Visible    ${addWeightCardBtnAndroid}    timeout=20
     Click Element                    ${addWeightCardBtnAndroid}
@@ -81,18 +92,19 @@ Log Food Android
     Wait Until Page Contains        ${foodItem}    timeout=10
 
 Add Custom Food Android
+    [Arguments]    ${foodName}    ${brandName}    ${servingSize}    ${calories}
     Wait Until Element Is Visible    ${breakfastBtnAndroid}    timeout=20
     Click Element                    ${breakfastBtnAndroid}
     Wait Until Element Is Visible    ${addCustomFoodBtnAndroid}    timeout=10
     Click Element                    ${addCustomFoodBtnAndroid}
     Wait Until Element Is Visible    ${customFoodNameFieldAndroid}    timeout=20
-    Input Value                      ${customFoodNameFieldAndroid}    Test Food Item
+    Input Value                      ${customFoodNameFieldAndroid}    ${foodName}
     Wait Until Element Is Visible    ${customFoodBrandFieldAndroid}    timeout=20
-    Input Value                      ${customFoodBrandFieldAndroid}    Test Brand
+    Input Value                      ${customFoodBrandFieldAndroid}    ${brandName}
     Wait Until Element Is Visible    ${customFoodServingSizeFieldAndroid}    timeout=20
-    Input Value                      ${customFoodServingSizeFieldAndroid}    1
+    Input Value                      ${customFoodServingSizeFieldAndroid}    ${servingSize}
     Wait Until Element Is Visible    ${customFoodCaloriesFieldAndroid}    timeout=20
-    Input Value                      ${customFoodCaloriesFieldAndroid}    100
+    Input Value                      ${customFoodCaloriesFieldAndroid}    ${calories}
     Wait Until Element Is Visible    ${addToBreakfastBtnAndroid}    timeout=20
     Click Element                    ${addToBreakfastBtnAndroid}
-    Wait Until Page Contains         Test Food Item    timeout=10
+    Wait Until Page Contains         ${foodName}    timeout=10
