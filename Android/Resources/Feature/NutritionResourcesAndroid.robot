@@ -80,18 +80,6 @@ Log Food Android
     Click Element                   ${doneAddingFoodBtnAndroid}
     Wait Until Page Contains        ${foodItem}    timeout=10
 
-Log Food To Breakfast Android
-    Log Food Android    ${breakfastBtnAndroid}    Avocado
-
-Log Food To Lunch Android
-    Log Food Android    ${lunchBtnAndroid}    Pizza
-
-Log Food To Dinner Android
-    Log Food Android    ${dinnerBtnAndroid}    Pasta
-
-Log Food To Snacks Android
-    Log Food Android    ${SnacksBtnAndroid}    Apple
-
 Add Custom Food Android
     Wait Until Element Is Visible    ${breakfastBtnAndroid}    timeout=20
     Click Element                    ${breakfastBtnAndroid}

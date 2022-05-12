@@ -15,3 +15,6 @@ Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
 #THIS IS A WORKING SPACE FOR TEST CASES DEVELOPMENT
 *** Test Cases ***
+
+Launch Aplication On Emulator
+    Launch iOS Application On Emulator
