@@ -2,70 +2,67 @@
 
 Library    AppiumLibrary
 Library    BuiltIn
-Library    DateTime
 
 Resource   ../../Resources/Feature/AccountMgmtResourcesiOS.robot
 Resource   ../../Resources/Feature/AuthenticationResourcesiOS.robot
-Resource   ../../Resources/Feature/FitnessResourcesiOS.robot
 Resource   ../../Resources/Feature/NutritionResourcesiOS.robot
 Resource   ../../Resources/Feature/OnboardingResourcesiOS.robot
 Resource   ../../Resources/Feature/ShopWooResourcesiOS.robot
-Resource   ../../Resources/System/EmulatorLauncheriOS.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
 # TODO: COULD POTENTIALLY COMBINE KEYWORDS INTO ONE
-Suite Setup       Upload iOS Application To Browserstack
-Suite Teardown    Run Keywords    Log Out iOS
-...                               Mark App Automate Session Status Browserstack
+Suite Setup       Browserstack.Upload iOS Application To Browserstack
+Suite Teardown    Run Keywords    AccountMgmtResourcesiOS.Log Out iOS
+...                               Browserstack.Mark App Automate Session Status Browserstack
 
 *** Test Cases ***
 
 Launch Application
-    Launch iOS Application On Browserstack Device
+    Browserstack.Launch iOS Application On Browserstack Device
 
 Intro Screen UI Review
-    Check Data Alert iOS
-    Validate Intro Screen Details iOS
+    OnboardingResourcesiOS.Check Data Alert iOS
+    OnboardingResourcesiOS.Validate Intro Screen Details iOS
 
 Sign Up - New User
-    Sign Up As New User iOS
+    AuthenticationResourcesiOS.Sign Up As New User iOS
 
 Complete User Onboarding
-    Complete User Onboarding iOS
+    OnboardingResourcesiOS.Complete User Onboarding iOS
 
 Terms Of Use - Agree
-    Agree To Terms Of Use iOS
+    OnboardingResourcesiOS.Agree To Terms Of Use iOS
 
 Add Weight To The Weight Card
-    Add Weight To The Weight Card iOS    200
+    NutritionResourcesiOS.Add Weight To The Weight Card iOS    200
 
 Add Water To The Water Card
-    Add Water To The Water Card iOS
+    NutritionResourcesiOS.Add Water To The Water Card iOS
     
 Log Food To Snacks
-    Log Food iOS    ${snacksBtniOS}    Apple
+    NutritionResourcesiOS.Log Food iOS    ${snacksBtniOS}    Apple
 
 Log Food To Dinner
-    Log Food iOS    ${dinnerBtniOS}    Pasta
+    NutritionResourcesiOS.Log Food iOS    ${dinnerBtniOS}    Pasta
 
 Log Food To Lunch
-    Log Food iOS    ${lunchBtniOS}    Pizza
+    NutritionResourcesiOS.Log Food iOS    ${lunchBtniOS}    Pizza
 
 Log Food To Breakfast
-    Log Food iOS    ${breakfastBtniOS}    Avocado
+    NutritionResourcesiOS.Log Food iOS    ${breakfastBtniOS}    Avocado
 
 Add Custom Food
-    Add Custom Food iOS    Test Food Item    Test Brand    1    100
+    NutritionResourcesiOS.Add Custom Food iOS    Test Food Item    Test Brand    1    100
 
 Log Out From The Main Menu
-    Log Out iOS
+    AccountMgmtResourcesiOS.Log Out iOS
 
 Sign In - Existing User
-    Check Data Alert iOS
-    Sign In As Existing User iOS
-    Check Notifications Alert iOS
+    OnboardingResourcesiOS.Check Data Alert iOS
+    AuthenticationResourcesiOS.Sign In As Existing User iOS
+    OnboardingResourcesiOS.Check Notifications Alert iOS
 
 Shop Dashboard UI And Details
-    Open Shop iOS
-    Validate Dashboard UI And Details iOS
-    Close Shop iOS
+    ShopWooResourcesiOS.Open Shop iOS
+    ShopWooResourcesiOS.Validate Dashboard UI And Details iOS
+    ShopWooResourcesiOS.Close Shop iOS
