@@ -22,7 +22,7 @@ ${addWaterCardBtnAndroid}         id=com.n_ix.pocket_wod:id/addBtn
 
 #FOOD LOG
 ${nutritionBtnAndroid}                id=com.n_ix.pocket_wod:id/nutrition
-${mealBtnPrefixAndroid}               /hierarchy/android.widget.FrameLayout/android.widget.LinearLayout
+${mealBtnPrefixAndroid}               xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout
 ...                                   /android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout
 ...                                   /androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout
 ...                                   /android.view.ViewGroup/androidx.viewpager.widget.ViewPager
@@ -32,10 +32,10 @@ ${mealBtnPrefixAndroid}               /hierarchy/android.widget.FrameLayout/andr
 ...                                   /android.widget.LinearLayout/android.widget.FrameLayout[2]
 ...                                   /androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[
 ${mealBtnSuffixAndroid}               ]/android.widget.FrameLayout
-${breakfastBtnAndroid}                xpath=${mealBtnPrefixAndroid}1${mealBtnSuffixAndroid} 
-${lunchBtnAndroid}                    xpath=${mealBtnPrefixAndroid}2${mealBtnSuffixAndroid} 
-${dinnerBtnAndroid}                   xpath=${mealBtnPrefixAndroid}3${mealBtnSuffixAndroid} 
-${snacksBtnAndroid}                   xpath=${mealBtnPrefixAndroid}4${mealBtnSuffixAndroid} 
+${breakfastBtnAndroid}                ${mealBtnPrefixAndroid}1${mealBtnSuffixAndroid} 
+${lunchBtnAndroid}                    ${mealBtnPrefixAndroid}2${mealBtnSuffixAndroid} 
+${dinnerBtnAndroid}                   ${mealBtnPrefixAndroid}3${mealBtnSuffixAndroid} 
+${snacksBtnAndroid}                   ${mealBtnPrefixAndroid}4${mealBtnSuffixAndroid} 
 ${foodSearchBarAndroid}               id=com.n_ix.pocket_wod:id/searchFoodView
 ${barCodeScannerBtnAndroid}           id=com.n_ix.pocket_wod:id/runScan
 ${recentFoodBtnAndroid}               xpath=//android.widget.LinearLayout[@content-desc="Recent"]/android.widget.TextView

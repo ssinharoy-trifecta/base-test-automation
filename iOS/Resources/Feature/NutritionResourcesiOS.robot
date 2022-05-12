@@ -40,7 +40,7 @@ ${doneBtnNutritionKeyboardiOS}    xpath=//XCUIElementTypeButton[@name="Done"]
 ${editFoodLogBtniOS}              xpath=//XCUIElementTypeButton[@name="Edit"]
 ${selectFoodItemBtniOS}           xpath=//XCUIElementTypeImage[@name="circle"]
 ${addCustomFoodTxtiOS}            xpath=//XCUIElementTypeStaticText[@name="Add Custom Food"]
-${customFoodFieldPrefixiOS}       //XCUIElementTypeApplication[@name="TriDebug"]
+${customFoodFieldPrefixiOS}       xpath=//XCUIElementTypeApplication[@name="TriDebug"]
 ...                               /XCUIElementTypeWindow/XCUIElementTypeOther[2]
 ...                               /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
 ...                               /XCUIElementTypeOther/XCUIElementTypeOther[2]
