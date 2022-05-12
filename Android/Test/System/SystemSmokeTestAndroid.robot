@@ -13,6 +13,7 @@ Resource   ../../Resources/Feature/ShopWooResourcesAndroid.robot
 Resource   ../../Resources/System/EmulatorLauncherAndroid.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
+# TODO: COULD POTENTIALLY COMBINE KEYWORDS INTO ONE
 Suite Setup       Upload Android Application To Browserstack
 Suite Teardown    Run Keywords    Log Out Android
 ...                               Mark App Automate Session Status Browserstack

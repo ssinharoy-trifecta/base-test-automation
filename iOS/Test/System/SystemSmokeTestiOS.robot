@@ -13,6 +13,7 @@ Resource   ../../Resources/Feature/ShopWooResourcesiOS.robot
 Resource   ../../Resources/System/EmulatorLauncheriOS.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
+# TODO: COULD POTENTIALLY COMBINE KEYWORDS INTO ONE
 Suite Setup       Upload iOS Application To Browserstack
 Suite Teardown    Run Keywords    Log Out iOS
 ...                               Mark App Automate Session Status Browserstack
