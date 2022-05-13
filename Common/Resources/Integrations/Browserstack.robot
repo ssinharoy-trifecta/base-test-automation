@@ -55,6 +55,11 @@ ${BS_BUILD_WEB}         ${SUITE NAME}
   ...                         os_version=Catalina    
   ...                         browser=safari   
   ...                         browser_version=13.1
+&{macMontereySafariDict}            
+  ...                         os=OS X     
+  ...                         os_version=Monterey  
+  ...                         browser=safari   
+  ...                         browser_version=15.3
   
 *** Keywords ***
 
@@ -118,6 +123,8 @@ Set Desired Capabilities
   [Arguments]        ${configBS}
   IF                 '${configBS}' == 'macCatalinaSafari'
     ${returnValue}=  Set Variable     ${macCatalinaSafariDict}
+  ELSE IF            '${configBS}' == 'macMontereySafari'
+    ${returnValue}=  Set Variable     ${macMontereySafariDict}
   ELSE IF            '${configBS}' == 'win11Chrome'
     ${returnValue}=  Set Variable     ${win11ChromeDict}
   ELSE

@@ -16,7 +16,7 @@ ${MAGENTO_SHOP_HOME}            https://test-magento-app-trifecta-${ENV}.trifect
 ${urlForNavigation}             about:blank
 # This keyword is to run locally or through Browserstack. Browserstack is default
 ${runLocal}                     no
-${configBS}                     windows10chrome
+${configBS}                     wind10chrome
 @{TESTRUN_RESULTS_LIST}
 
 *** Keywords ***
