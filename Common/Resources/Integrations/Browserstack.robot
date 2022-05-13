@@ -37,12 +37,25 @@ ${BS_DEVICE_ANDROID}          Google Pixel 6
 ${BS_OS_VERSION_ANDROID}      12.0
 
 #WEB
-${BS_OS}                Windows
-${BS_PC_OS_VERSION}     10
-${BS_BROWSER}           chrome
-${BS_BROWSER_VERSION}   98
 ${BS_BUILD_WEB}         ${SUITE NAME}
 
+#CONFIG BROWSERSTACK WEB DICTIONARIES
+&{win10ChromeDict}               
+  ...                         os=Windows     
+  ...                         os_version=10    
+  ...                         browser=chrome   
+  ...                         browser_version=98
+&{win11ChromeDict}              
+  ...                         os=Windows     
+  ...                         os_version=11    
+  ...                         browser=edge   
+  ...                         browser_version=98
+&{macCatalinaSafariDict}            
+  ...                         os=OS X     
+  ...                         os_version=Catalina    
+  ...                         browser=safari   
+  ...                         browser_version=13.1
+  
 *** Keywords ***
 
 #MARK APP AUTOMATE SESSION STATUS PASS/FAIL IN BROWSERSTACK
@@ -91,16 +104,23 @@ Launch Android Application On Browserstack Device
 
 # WEB BROWSERSTACK LAUNCHER
 Setup Browserstack For WEB
-  [Arguments]                 ${urlForNavigation}
-  ${remoteUrl}                Set Variable          http://${BS_USER}:${BS_KEY}@${BS_REMOTE_URL}
-  &{desiredCapabilities}      Create Dictionary   
-  ...                         os=${BS_OS}     
-  ...                         os_version=${BS_PC_OS_VERSION}     
-  ...                         browser=${BS_BROWSER}   
-  ...                         browser_version=${BS_BROWSER_VERSION}
-  ...                         build=${BS_BUILD_WEB}
-  ...                         name=${TEST NAME}
-  Open Browser                ${urlForNavigation}
-  ...                         remote_url=${remoteUrl}     
-  ...                         desired_capabilities=${desiredCapabilities}
+  [Arguments]                    ${urlForNavigation}         ${configBS}
+  ${remoteUrl}                   Set Variable                http://${BS_USER}:${BS_KEY}@${BS_REMOTE_URL}
+  &{desiredCapabilities}=        Set Desired Capabilities    ${configBS}
+  ${desiredCapabilities.build}=  Set Variable                ${BS_BUILD_WEB}
+  ${desiredCapabilities.name}=   Set Variable                ${TEST NAME}
+  Open Browser                   ${urlForNavigation}
+  ...                            remote_url=${remoteUrl}     
+  ...                            desired_capabilities=${desiredCapabilities}
   Begin Maximize Browser Test
+
+Set Desired Capabilities
+  [Arguments]        ${configBS}
+  IF                 '${configBS}' == 'macCatalinaSafari'
+    ${returnValue}=  Set Variable     ${macCatalinaSafariDict}
+  ELSE IF            '${configBS}' == 'win11Chrome'
+    ${returnValue}=  Set Variable     ${win11ChromeDict}
+  ELSE
+    ${returnValue}=  Set Variable     ${win10ChromeDict}
+  END
+  [Return]           ${returnValue}

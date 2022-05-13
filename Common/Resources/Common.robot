@@ -16,14 +16,17 @@ ${MAGENTO_SHOP_HOME}            https://test-magento-app-trifecta-${ENV}.trifect
 ${urlForNavigation}             about:blank
 # This keyword is to run locally or through Browserstack. Browserstack is default
 ${runLocal}                     no
+${configBS}                     windows10chrome
 @{TESTRUN_RESULTS_LIST}
 
 *** Keywords ***
 Begin Browser Test
-  [Arguments]                                     ${urlForNavigation}       ${runLocal}
+  [Arguments]                                     ${urlForNavigation}       
+  ...                                             ${runLocal}
+  ...                                             ${configBS}
   Log                                             Browser Test is starting!
   IF                                              '${runLocal}' == 'no'
-    Browserstack.Setup Browserstack For WEB       ${urlForNavigation}
+    Browserstack.Setup Browserstack For WEB       ${urlForNavigation}       ${configBS}
   ELSE       
     Open Browser                                  ${urlForNavigation}       ${BROWSER}
   END

@@ -22,7 +22,10 @@ Resource            ../../../../Resources/CustomerController.robot
 Resource            ../../../../Resources/Authentication/CustomerCreate.robot
 Suite Setup         Common.Begin Suite Test
 Suite Teardown      Common.End Suite Test   ${testRunID}
-Test Setup          Common.Begin Browser Test  ${MAGENTO_SHOP_HOME}  ${runlocal}
+Test Setup          Common.Begin Browser Test  
+...                 ${MAGENTO_SHOP_HOME}  
+...                 ${runlocal}
+...                 ${configBS}
 Test Teardown       Common.End Browser Test
 
 *** Variables ***
