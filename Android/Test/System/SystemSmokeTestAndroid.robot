@@ -13,13 +13,17 @@ Resource   ../../Resources/Feature/ShopWooResourcesAndroid.robot
 Resource   ../../Resources/System/EmulatorLauncherAndroid.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
+
 Suite Setup       Upload Android Application To Browserstack
 Suite Teardown    Mark App Automate Session Status Browserstack
+
+*** Variables ***
+${configBS}                     win10Chrome
 
 *** Test Cases ***
 
 Launch Application
-    Launch Android Application On Browserstack Device
+    Launch Android Application On Browserstack Device  ${configBS}
     #Launch Android Application On Emulator
 
 Intro Screen UI Review

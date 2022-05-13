@@ -16,10 +16,13 @@ Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 Suite Setup       Upload iOS Application To Browserstack
 Suite Teardown    Mark App Automate Session Status Browserstack
 
+*** Variables ***
+${configBS}  win10Chrome
+
 *** Test Cases ***
 
 Launch Application
-    Launch iOS Application On Browserstack Device
+    Launch iOS Application On Browserstack Device  ${configBS}
     #Launch iOS Application On Emulator
 
 Intro Screen UI Review

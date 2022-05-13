@@ -40,29 +40,103 @@ ${BS_OS_VERSION_ANDROID}      12.0
 ${BS_BUILD_WEB}         ${SUITE NAME}
 
 #CONFIG BROWSERSTACK WEB DICTIONARIES
-&{win10ChromeDict}               
+&{win10ChromeDict}            
+  ...                         dictTitle=win10Chrome
   ...                         os=Windows     
   ...                         os_version=10    
   ...                         browser=chrome   
   ...                         browser_version=98
 &{win11ChromeDict}              
+  ...                         dictTitle=win11Chrome
   ...                         os=Windows     
   ...                         os_version=11    
   ...                         browser=edge   
   ...                         browser_version=98
-&{macCatalinaSafariDict}            
+&{macCatalinaSafariDict}      
+  ...                         dictTitle=macCatalinaSafari
   ...                         os=OS X     
   ...                         os_version=Catalina    
   ...                         browser=safari   
   ...                         browser_version=13.1
 &{macMontereySafariDict}            
+  ...                         dictTitle=macMontereySafari
   ...                         os=OS X     
   ...                         os_version=Monterey  
   ...                         browser=safari   
   ...                         browser_version=15.3
-  
-*** Keywords ***
 
+#TODO: Mobile configs are throwing errors from browserstack:   
+#Setup failed:
+#WebDriverException: Message: Command not supported.
+&{googlePixel6ProChromeDict} 
+  ...                         dictTitle=googlePixel6ProChrome
+  ...                         browserName=android
+  ...                         device=Google Pixel 6 Pro 
+  ...                         os_version=12.0 
+  ...                         realMobile=true
+&{googlePixel4XLChromeDict}      
+  ...                         dictTitle=googlePixel4XLChrome
+  ...                         browserName=android
+  ...                         device=Google Pixel 4 XL 
+  ...                         os_version=10.0 
+  ...                         realMobile=true
+&{SamsungS20UltraChromeDict}    
+  ...                         dictTitle=SamsungS20UltraChrome
+  ...                         browserName=android
+  ...                         device=Samsung Galaxy S20 Ultra 
+  ...                         os_version=10.0 
+  ...                         realMobile=true
+&{iPhone13ProSafariDict}         
+  ...                         dictTitle=iPhone13ProSafari
+  ...                         browserName=iphone
+  ...                         device=iPhone 13 Pro   
+  ...                         os_version=15 
+  ...                         realMobile=true
+  ...                         browser=safari
+&{iPhone12ProMaxSafariDict}  
+  ...                         dictTitle=iPhone12ProMaxSafari
+  ...                         browserName=iphone
+  ...                         device=iPhone 12 Pro Max 
+  ...                         os_version=14 
+  ...                         realMobile=true
+  ...                         browser=safari
+&{iPhone11ProSafariDict}          
+  ...                         dictTitle=iPhone11ProSafari
+  ...                         browserName=iphone
+  ...                         device=iPhone 11 Pro 
+  ...                         os_version=15 
+  ...                         realMobile=true
+  ...                         browser=safari
+&{iPhone8SafariDict}            
+  ...                         dictTitle=iPhone8Safari
+  ...                         browserName=iphone
+  ...                         device=iPhone 8 
+  ...                         os_version=13 
+  ...                         realMobile=true
+  ...                         browser=safari
+&{iPhone13MiniSafariDict}
+  ...                         dictTitle=iPhone13MiniSafari
+  ...                         browserName=iphone
+  ...                         device=iPhone 13 Mini 
+  ...                         os_version=15 
+  ...                         realMobile=true
+  ...                         browser=safari
+
+@{BS_DICT_LIST}
+  ...                         ${win10ChromeDict}
+  ...                         ${win11ChromeDict}
+  ...                         ${macCatalinaSafariDict}
+  ...                         ${macMontereySafariDict}
+  ...                         ${googlePixel6ProChromeDict}
+  ...                         ${googlePixel4XLChromeDict}
+  ...                         ${SamsungS20UltraChromeDict}
+  ...                         ${iPhone13ProSafariDict}
+  ...                         ${iPhone12ProMaxSafariDict}
+  ...                         ${iPhone11ProSafariDict}
+  ...                         ${iPhone8SafariDict}
+  ...                         ${iPhone13MiniSafariDict}
+
+*** Keywords ***
 #MARK APP AUTOMATE SESSION STATUS PASS/FAIL IN BROWSERSTACK
 Mark App Automate Session Status Browserstack
     Run Keyword If All Tests Passed
@@ -83,12 +157,17 @@ Upload Android Application To Browserstack
 
 #iOS BROWSERSTACK LAUNCHER
 Launch iOS Application On Browserstack Device
+    [Arguments]              ${configBS}
+    &{desiredCapabilities}=  Check Default Apps Desired Capabilities  
+    ...                      ${configBS}
+    ...                      ${BS_DEVICE_iOS}
+    ...                      ${BS_OS_VERSION_iOS}
     Open Application    remote_url=http://${BS_REMOTE_URL}
     ...                 browserstack.user=${BS_USER} 
     ...                 browserstack.key=${BS_KEY}
     ...                 app_url=${BS_CUSTOM_ID_iOS}
-    ...                 device=${BS_DEVICE_iOS}
-    ...                 os_version=${BS_OS_VERSION_iOS}
+    ...                 device=${desiredCapabilities.device}
+    ...                 os_version=${desiredCapabilities.os_version}
     ...                 project=${BS_PROJECT_iOS} 
     ...                 build=${BS_BUILD_iOS}
     ...                 name=${BS_NAME_iOS}
@@ -96,12 +175,17 @@ Launch iOS Application On Browserstack Device
 
 #ANDROID BROWSERSTACK LAUNCHER
 Launch Android Application On Browserstack Device
+    [Arguments]              ${configBS}
+    &{desiredCapabilities}=  Check Default Apps Desired Capabilities  
+    ...                      ${configBS}
+    ...                      ${BS_DEVICE_ANDROID}
+    ...                      ${BS_OS_VERSION_ANDROID}
     Open Application    remote_url=http://${BS_REMOTE_URL}
     ...                 browserstack.user=${BS_USER} 
     ...                 browserstack.key=${BS_KEY}
     ...                 app_url=${BS_CUSTOM_ID_ANDROID}
-    ...                 device=${BS_DEVICE_ANDROID}
-    ...                 os_version=${BS_OS_VERSION_ANDROID}
+    ...                 device=${desiredCapabilities.device}
+    ...                 os_version=${desiredCapabilities.os_version}
     ...                 project=${BS_PROJECT_ANDROID}
     ...                 build=${BS_BUILD_ANDROID}
     ...                 name=${BS_NAME_ANDROID}
@@ -120,14 +204,21 @@ Setup Browserstack For WEB
   Begin Maximize Browser Test
 
 Set Desired Capabilities
-  [Arguments]        ${configBS}
-  IF                 '${configBS}' == 'macCatalinaSafari'
-    ${returnValue}=  Set Variable     ${macCatalinaSafariDict}
-  ELSE IF            '${configBS}' == 'macMontereySafari'
-    ${returnValue}=  Set Variable     ${macMontereySafariDict}
-  ELSE IF            '${configBS}' == 'win11Chrome'
-    ${returnValue}=  Set Variable     ${win11ChromeDict}
-  ELSE
-    ${returnValue}=  Set Variable     ${win10ChromeDict}
-  END
+  [Arguments]          ${configBS}
+  FOR                  ${item}    IN    @{BS_DICT_LIST}
+    IF                 '${configBS}' == '${item.dictTitle}'
+      ${returnValue}=  Set Variable     ${item}
+      Log              ${returnValue}
+    END
+  END  
   [Return]           ${returnValue}
+
+Check Default Apps Desired Capabilities
+  [Arguments]                  ${configBS}               ${configDevice}         ${configOS}
+    IF                         '${configBS}' != 'win10Chrome'  
+      &{desiredCapabilities}=  Set Desired Capabilities  ${configBS}
+    ELSE 
+      &{desiredCapabilities}=  Create Dictionary         device=${configDevice}  os_version=${configOS}            
+    END
+    [Return]                   ${desiredCapabilities}
+
