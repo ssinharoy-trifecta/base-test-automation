@@ -2,18 +2,20 @@
 
 Library    AppiumLibrary
 Library    BuiltIn
+Library    DateTime
 
 Resource   ../../Resources/Feature/AccountMgmtResourcesAndroid.robot
 Resource   ../../Resources/Feature/AuthenticationResourcesAndroid.robot
+Resource   ../../Resources/Feature/FitnessResourcesAndroid.robot
 Resource   ../../Resources/Feature/NutritionResourcesAndroid.robot
 Resource   ../../Resources/Feature/OnboardingResourcesAndroid.robot
 Resource   ../../Resources/Feature/ShopWooResourcesAndroid.robot
+Resource   ../../Resources/System/EmulatorLauncherAndroid.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 
-# TODO: COULD POTENTIALLY COMBINE KEYWORDS INTO ONE
-Suite Setup       Browserstack.Upload Android Application To Browserstack
-Suite Teardown    Run Keywords    AccountMgmtResourcesAndroid.Log Out Android
-...                               Browserstack.Mark App Automate Session Status Browserstack
+
+Suite Setup       Upload Android Application To Browserstack
+Suite Teardown    Mark App Automate Session Status Browserstack
 
 *** Variables ***
 ${configBS}                     win10Chrome
@@ -21,50 +23,30 @@ ${configBS}                     win10Chrome
 *** Test Cases ***
 
 Launch Application
+    Launch Android Application On Browserstack Device  ${configBS}
     #Launch Android Application On Emulator
-    Browserstack.Launch Android Application On Browserstack Device  ${configBS}
 
 Intro Screen UI Review
-    OnboardingResourcesAndroid.Validate Intro Screen Details Android
+    Validate Intro Screen Details Android
 
 Sign Up - New User
-    AuthenticationResourcesAndroid.Sign Up As New User Android
+    Sign Up As New User Android
 
 Complete User Onboarding
-    OnboardingResourcesAndroid.Complete User Onboarding Android
+    Complete User Onboarding Android
 
 Terms Of Use - Agree
-    OnboardingResourcesAndroid.Agree To Terms Of Use Android
-
-Add Weight To The Weight Card
-    NutritionResourcesAndroid.Add Weight To The Weight Card Android    200
-
-Add Water To The Water Card
-    NutritionResourcesAndroid.Add Water To The Water Card Android
-
-Log Food To Snacks
-    NutritionResourcesAndroid.Log Food Android    ${snacksBtnAndroid}    Apple
-
-Log Food To Dinner
-    NutritionResourcesAndroid.Log Food Android    ${dinnerBtnAndroid}    Pasta
-
-Log Food To Lunch
-    NutritionResourcesAndroid.Log Food Android    ${lunchBtnAndroid}    Pizza
-
-Log Food To Breakfast
-    NutritionResourcesAndroid.Log Food Android    ${breakfastBtnAndroid}    Avocado
-
-Add Custom Food
-    NutritionResourcesAndroid.Add Custom Food Android    Test Food Item    Test Brand    1    100
+    Agree To Terms Of Use Android
 
 Log Out From My Account
-    AccountMgmtResourcesAndroid.Log Out Android
+    Log Out Android
 
 Sign In - Existing User
-    AuthenticationResourcesAndroid.Sign In As Existing User Android
+    Sign In As Existing User Android
+    Log Out Android
 
 # Shop Dashboard UI And Details
-#     ShopWooResourcesAndroid.Open Shop Android
-#     ShopWooResourcesAndroid.Validadate Dashboard UI And Details Android
-#     ShopWooResourcesAndroid.Close Shop Android
-
+#     Open Shop Android
+#     Validadate Dashboard UI And Details Android
+#     Close Shop Android
+#     Log Out Android

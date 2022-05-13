@@ -1,3 +1,5 @@
+*** Settings ***
+
 *** Variables ***
 
 ${LOCAL_HOST_IOS}          http://localhost:4723/wd/hub
