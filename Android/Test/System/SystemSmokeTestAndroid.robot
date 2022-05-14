@@ -15,9 +15,6 @@ Suite Setup       Browserstack.Upload Android Application To Browserstack
 Suite Teardown    Run Keywords    AccountMgmtResourcesAndroid.Log Out Android
 ...                               Browserstack.Mark App Automate Session Status Browserstack
 
-*** Variables ***
-${configBS}                     win10Chrome
-
 *** Test Cases ***
 
 Launch Application
