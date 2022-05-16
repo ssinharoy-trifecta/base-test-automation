@@ -15,9 +15,6 @@ Suite Setup       Browserstack.Upload iOS Application To Browserstack
 Suite Teardown    Run Keywords    AccountMgmtResourcesiOS.Log Out iOS
 ...                               Browserstack.Mark App Automate Session Status Browserstack
 
-*** Variables ***
-${configBS}  win10Chrome
-
 *** Test Cases ***
 
 Launch Application
