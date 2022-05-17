@@ -16,3 +16,9 @@ Resource   ../../Resources/System/EmulatorLauncheriOS.robot
 
 Launch Aplication On Emulator
     Launch iOS Application On Emulator
+
+# Review Main Menu UI
+#     Review Main Menu UI iOS
+
+Review User Account UI
+    Review User Account UI iOS
