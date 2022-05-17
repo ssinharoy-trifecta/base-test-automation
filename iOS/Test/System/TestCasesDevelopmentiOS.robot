@@ -20,5 +20,26 @@ Launch Aplication On Emulator
 # Review Main Menu UI
 #     Review Main Menu UI iOS
 
-Review User Account UI
-    Review User Account UI iOS
+# Review User Account UI
+#     Review User Account UI iOS
+
+# Reset User Password
+#     Reset User Password iOS
+
+# Update User Name
+#     Update User Name iOS
+
+# Review Privacy Policy
+#     Review Privacy Policy iOS
+
+Review Terms Of Service
+    Review Terms Of Service iOS
+
+Review Premium Subscription Information
+    Review Premium Subscription Information iOS
+
+Review Your California Privacy Rights
+    Review Your California Privacy Rights iOS
+
+Review Do Not Sell My Information
+    Review Do Not Sell My Information iOS

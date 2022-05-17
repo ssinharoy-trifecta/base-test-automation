@@ -58,7 +58,13 @@ Log Food To Breakfast
 Add Custom Food
     NutritionResourcesiOS.Add Custom Food iOS    Test Food Item    Test Brand    1    100
 
-Log Out From The Main Menu
+Review Main Menu UI
+    Review Main Menu UI iOS
+
+Review User Account UI
+    Review User Account UI iOS
+
+Log Out
     AccountMgmtResourcesiOS.Log Out iOS
 
 Sign In - Existing User
