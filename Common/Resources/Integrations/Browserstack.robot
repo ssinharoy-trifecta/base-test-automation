@@ -9,6 +9,7 @@ ${BS_APP_AUTOMATE_CLOUD_API}    api-cloud.browserstack.com/app-automate
 ${BS_USER}                      tylerthomas6    
 ${BS_KEY}                       FQtVoY5xMMxVa9bh1c1Z       
 ${BS_IDLE_TIMEOUT}              5
+${configBS}                     win10Chrome
 
 #iOS
 ${APP_FILE_iOS}           iOS/Resources/System/TrifectaAppiOS.ipa
