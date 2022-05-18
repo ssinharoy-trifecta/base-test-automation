@@ -29,17 +29,17 @@ Launch Aplication On Emulator
 # Update User Name
 #     Update User Name iOS
 
-# Review Privacy Policy
-#     Review Privacy Policy iOS
+Review Privacy Policy
+    Review Privacy Policy iOS
 
-Review Terms Of Service
-    Review Terms Of Service iOS
+# Review Terms Of Service
+#     Review Terms Of Service iOS
 
-Review Premium Subscription Information
-    Review Premium Subscription Information iOS
+# Review Premium Subscription Information
+#     Review Premium Subscription Information iOS
 
-Review Your California Privacy Rights
-    Review Your California Privacy Rights iOS
+# Review Your California Privacy Rights
+#     Review Your California Privacy Rights iOS
 
-Review Do Not Sell My Information
-    Review Do Not Sell My Information iOS
+# Review Do Not Sell My Information
+#     Review Do Not Sell My Information iOS
