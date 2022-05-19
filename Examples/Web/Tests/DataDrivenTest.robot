@@ -23,29 +23,26 @@ Test Teardown       Common.End Browser Test
 
 *** Test Cases ***
 Login Using Templating - Robot
-  [Template]  CustomerController.Login
-  ${dangaCustData}
-  ${mickeyCustData}
-  ${dragonCustData}
+  [Template]  Template Login Test
+  ${loginUrlRob}  ${dangaCustData}
+  ${loginUrlRob}  ${mickeyCustData}
+  ${loginUrlRob}  ${dragonCustData}
 
 Login As Users From Robot Datafile
-  FOR                                           ${item}  IN  @{CUSTLISTROB}               
-    Go To                                       ${loginUrlRob}
-    Log                                         ${item}
-    CustomerLogin.Login As Registered Customer  ${item}
-  END
+  Modified Login Test                           ${loginUrlRob}  ${CUSTLISTROB}
 
 Login As Users From JSON Datafile
   [Tags]    json
-  ${CUSTLISTJSON}=              Get JSON in Robot   Examples/Web/Resources/DataFile.json
-  FOR                           ${item}  IN  @{CUSTLISTJSON} 
-    Log                         ${item}
-    Go To                       ${loginUrlRob}
-    Wait Until Page Contains    Customer Login
-    Input Text                  ${loginEmailField}  ${item}[2]
-    Input Text                  ${loginPassField}   ${item}[3]
-    Click Button                Sign In
-    Wait Until Page Contains    Log Out
+  ${CUSTLISTJSON}=            Get JSON in Robot   Examples/Web/Resources/DataFile.json
+  Go To                       ${loginUrlRob} 
+  Wait Until Page Contains    Customer Login
+  FOR                         ${item}  IN  @{CUSTLISTJSON} 
+    Log                       ${item}
+    Input Text                ${loginEmailField}  ${item}[2]
+    Input Text                ${loginPassField}   ${item}[3]
+    Click Button              Sign In
+    Sleep                     2s
+    Go To                     ${loginUrlRob} 
   END
 
 Login As Users From CSV Datafile
@@ -59,7 +56,7 @@ Get JSON in Robot
     [Arguments]            ${file_path}
     ${data_as_string} =    Get File                    ${file_path}
     Log                    ${data_as_string}
-    ${data_as_json} =      json.loads                  ${data_as_string}
+    &{data_as_json} =      json.loads                  ${data_as_string}
     Log                    ${data_as_json}
     ${data_as_json}=       Convert To String           ${data_as_json}
     Log                    ${data_as_json}
@@ -106,6 +103,27 @@ Splitting Lists Into Lists
   Log                    ${split_keyvalue}[1]
   Log                    ${split_keyvalue}[2]
   Log                    ${split_keyvalue}[3]
-  
-  
   [Return]               ${jsonReturnList}
+
+Modified Login Test
+  [Arguments]                 ${loginURL}         ${custDict}
+  Go To                       ${loginURL} 
+  Wait Until Page Contains    Customer Login
+  FOR                         ${item}  IN  @{custDict} 
+    Log                       ${item}
+    Input Text                ${loginEmailField}  ${item.email}
+    Input Text                ${loginPassField}   ${item.password}
+    Sleep                     2s
+    Click Button              Sign In
+    Sleep                     2s
+    Go To                     ${loginUrlRob} 
+  END
+
+Template Login Test
+  [Arguments]                 ${loginURL}         ${custDict}
+  Go To                       ${loginURL} 
+  Wait Until Page Contains    Customer Login
+  Input Text                  ${loginEmailField}  ${custDict.email}
+  Input Text                  ${loginPassField}   ${custDict.password}
+  Sleep                     2s
+  Click Button              Sign In
