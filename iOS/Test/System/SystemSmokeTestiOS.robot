@@ -18,7 +18,6 @@ Suite Teardown    Run Keywords    AccountMgmtResourcesiOS.Log Out iOS
 *** Test Cases ***
 
 Launch Application
-    #Launch iOS Application On Emulator
     Browserstack.Launch iOS Application On Browserstack Device  ${configBS}
 
 Intro Screen UI Review

@@ -124,7 +124,7 @@ Reset User Password iOS
     Open User Account iOS
     Scroll Down                      ${resetPasswordBtniOS}
     Click Element                    ${resetPasswordBtniOS}
-    Wait Until Element Is Visible    ${okLinkSentiOS}
+    Wait Until Element Is Visible    ${okLinkSentBtniOS}
     Click Element                    ${okLinkSentBtniOS}
     Close User Account iOS
     Close Main Menu iOS
@@ -179,6 +179,3 @@ Review Do Not Sell My Information iOS
     Click Element                    ${doNotSellMyPersonalInformationBtniOS}
     Wait Until Element Is Visible    ${doNotSellMyInformationBodyTxtiOS}     timeout=10
     Click Element                    ${closeWebViewBtniOS}
-
-
-    
