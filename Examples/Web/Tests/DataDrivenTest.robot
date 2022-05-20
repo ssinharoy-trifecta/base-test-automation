@@ -5,10 +5,12 @@ Library            OperatingSystem
 Library            BuiltIn
 Library            String
 Library            Collections
+Library            ../Libraries/Csv.py
 Resource           ../../Common/Resources/Common.robot
 Resource           ../../Common/Resources/CustomerController.robot
 Resource           ../../Common/Resources/Authentication/CustomerLogin.robot
 Resource           ../Resources/DataFile.robot
+
 
 Suite Setup         Common.Begin Suite Test
 Suite Teardown      Common.End Suite Test   ${testRunID}
@@ -32,7 +34,7 @@ Login As Users From Robot Datafile
   Modified Login Test                           ${loginUrlRob}  ${CUSTLISTROB}
 
 Login As Users From JSON Datafile
-  [Tags]    json
+  [Tags]                      json
   ${CUSTLISTJSON}=            Get JSON in Robot   Examples/Web/Resources/DataFile.json
   Go To                       ${loginUrlRob} 
   Wait Until Page Contains    Customer Login
@@ -46,9 +48,17 @@ Login As Users From JSON Datafile
   END
 
 Login As Users From CSV Datafile
-  FOR                                           ${item}  IN  @{CUSTLISTCSV}               
-    Go To                                       ${loginUrlCSV}
-    CustomerLogin.Login As Registered Customer  ${CUSTLISTCSV}
+  [Tags]                      csv
+  ${loginScenarios}           Get CSV Data         Examples/Web/Resources/DataFile.csv
+  Log                         ${loginScenarios}
+  FOR                         ${item}  IN  @{loginScenarios}
+    Go To                     ${loginUrlRob}
+    Wait Until Page Contains  Customer Login
+    Log                       ${item}
+    Input Text                ${loginEmailField}  ${item}[0]
+    Input Text                ${loginPassField}   ${item}[1]
+    Click Button              Sign In
+    Sleep                     2s 
   END
 
 *** Keywords ***    
@@ -127,3 +137,8 @@ Template Login Test
   Input Text                  ${loginPassField}   ${custDict.password}
   Sleep                     2s
   Click Button              Sign In
+
+Get CSV Data
+    [Arguments]  ${FilePath}
+    ${Data} =  read csv file  ${FilePath}
+    [Return]  ${Data}
