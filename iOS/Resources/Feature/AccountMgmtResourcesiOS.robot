@@ -23,7 +23,7 @@ ${doNotSellMyPersonalInformationBtniOS}    xpath=//XCUIElementTypeStaticText[@na
 ${logoutBtniOS}                            xpath=//XCUIElementTypeButton[@name="Logout"]
 ${subscribeToPremiumBtniOS}                xpath=//XCUIElementTypeButton[@name="Subscribe to Premium"]
 ${closeWebViewBtniOS}                      xpath=//XCUIElementTypeButton[@name="exitViewButton"]
-${privacyBodyTxtiOS}                       xpath=//XCUIElementTypeOther[@name="Vertical scroll bar, 33 pages"]
+${privacyBodyTxtiOS}                       xpath=//XCUIElementTypeButton[@name="Refresh"]
 ${termsOfServiceBodyTxtiOS}                xpath=//XCUIElementTypeStaticText[@name="TERMS OF SERVICE"]
 ${premiumSubscriptionBodyTxtiOS}           xpath=//XCUIElementTypeStaticText[@name="Premium Subscription Information"]
 ${californiaPrivacyRightsBodyTxtiOS}       xpath=//XCUIElementTypeStaticText[@name="IMPORTANT PRIVACY NOTICE FOR CALIFORNIA CONSUMERS"]
@@ -53,15 +53,15 @@ ${nameFieldAccountiOS}    xpath=//XCUIElementTypeApplication[@name="TriDebug"]/X
 *** Keywords ***
 
 Open Main Menu iOS
-    Wait Until Element Is Visible    ${mainMenuBtniOS}    timeout=10
+    Wait Until Element Is Visible    ${mainMenuBtniOS}    timeout=20
     Click Element                    ${mainMenuBtniOS}
 
 Close Main Menu iOS
-    Wait Until Element Is Visible    ${closeMainMenuBtniOS}    timeout=10
+    Wait Until Element Is Visible    ${closeMainMenuBtniOS}    timeout=20
     Click Element                    ${closeMainMenuBtniOS}
 
 Open User Account iOS
-    Wait Until Element Is Visible    ${accountBtniOS}    timeout=10
+    Wait Until Element Is Visible    ${accountBtniOS}    timeout=20
     Click Element                    ${accountBtniOS}
 
 Close User Account iOS
@@ -71,7 +71,7 @@ Close User Account iOS
 Log Out iOS
     Open Main Menu iOS
     Open User Account iOS
-    Wait Until Element Is Visible    ${logOutAccountBtniOS}    timeout=10
+    Wait Until Element Is Visible    ${logOutAccountBtniOS}    timeout=20
     Click Element                    ${logOutAccountBtniOS}
 
 Review Main Menu UI iOS
@@ -84,7 +84,7 @@ Review Main Menu UI iOS
     ...                        ${workoutLogBtniOS}
     ...                        ${movementLogBtniOS}
     FOR    ${item}    IN    @{list}
-        Element Should Be Visible   ${item}    timeout=10
+        Element Should Be Visible   ${item}    timeout=20
     END
     Scroll Down                   ${logoutBtniOS}
     @{list}=    Create List       ${privacyPolicyBtniOS}
@@ -95,7 +95,7 @@ Review Main Menu UI iOS
     ...                           ${logoutBtniOS}
     ...                           ${subscribeToPremiumBtniOS}
     FOR    ${item}    IN    @{list}
-        Element Should Be Visible   ${item}    timeout=10
+        Element Should Be Visible   ${item}    timeout=20
     END
     Close Main Menu iOS
 
@@ -114,7 +114,7 @@ Review User Account UI iOS
     ...                        ${nutritionGoalTxtiOS}
     ...                        ${activityLevelTxtiOS}
     FOR    ${item}    IN    @{list}
-        Element Should Be Visible   ${item}    timeout=10
+        Element Should Be Visible   ${item}    timeout=20
     END
     Click Element    ${backBtnAccountiOS}
     Close Main Menu iOS
@@ -149,33 +149,33 @@ Review Privacy Policy iOS
     Open Main Menu iOS
     Scroll Down                      ${privacyPolicyBtniOS}
     Click Element                    ${privacyPolicyBtniOS}
-    Wait Until Element Is Visible    ${privacyBodyTxtiOS}     timeout=10
+    Wait Until Element Is Visible    ${privacyBodyTxtiOS}     timeout=20
     Click Element                    ${closeWebViewBtniOS}
 
 Review Terms Of Service iOS
     Open Main Menu iOS
     Scroll Down                      ${termsOfServiceBtniOS}
     Click Element                    ${termsOfServiceBtniOS}
-    Wait Until Element Is Visible    ${termsOfServiceBodyTxtiOS}    timeout=10
+    Wait Until Element Is Visible    ${termsOfServiceBodyTxtiOS}    timeout=20
     Click Element                    ${closeWebViewBtniOS}
 
 Review Premium Subscription Information iOS
     Open Main Menu iOS
     Scroll Down                      ${premiumSubscriptionInformationBtniOS} 
     Click Element                    ${premiumSubscriptionInformationBtniOS} 
-    Wait Until Element Is Visible    ${premiumSubscriptionBodyTxtiOS}     timeout=10
+    Wait Until Element Is Visible    ${premiumSubscriptionBodyTxtiOS}     timeout=20
     Click Element                    ${closeWebViewBtniOS}
 
 Review Your California Privacy Rights iOS
     Open Main Menu iOS
     Scroll Down                      ${yourCaliforniaPrivacyRightsBtniOS} 
     Click Element                    ${yourCaliforniaPrivacyRightsBtniOS} 
-    Wait Until Element Is Visible    ${californiaPrivacyRightsBodyTxtiOS}     timeout=10
+    Wait Until Element Is Visible    ${californiaPrivacyRightsBodyTxtiOS}     timeout=20
     Click Element                    ${closeWebViewBtniOS}
 
 Review Do Not Sell My Information iOS
     Open Main Menu iOS
     Scroll Down                      ${doNotSellMyPersonalInformationBtniOS}
     Click Element                    ${doNotSellMyPersonalInformationBtniOS}
-    Wait Until Element Is Visible    ${doNotSellMyInformationBodyTxtiOS}     timeout=10
+    Wait Until Element Is Visible    ${doNotSellMyInformationBodyTxtiOS}     timeout=20
     Click Element                    ${closeWebViewBtniOS}

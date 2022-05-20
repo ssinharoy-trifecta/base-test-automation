@@ -55,31 +55,31 @@ Add Custom Food
     NutritionResourcesiOS.Add Custom Food iOS    Test Food Item    Test Brand    1    100
 
 Review Main Menu UI
-    Review Main Menu UI iOS
+    AccountMgmtResourcesiOS.Review Main Menu UI iOS
 
 Review User Account UI
-    Review User Account UI iOS
+    AccountMgmtResourcesiOS.Review User Account UI iOS
 
 Reset User Password
-    Reset User Password iOS
+    AccountMgmtResourcesiOS.Reset User Password iOS
 
 Update User Name
-    Update User Name iOS    Trifecta Tester
+    AccountMgmtResourcesiOS.Update User Name iOS    Trifecta Tester
 
 Review Privacy Policy
-    Review Privacy Policy iOS
+    AccountMgmtResourcesiOS.Review Privacy Policy iOS
 
 Review Terms Of Service
-    Review Terms Of Service iOS
+    AccountMgmtResourcesiOS.Review Terms Of Service iOS
 
 Review Premium Subscription Information
-    Review Premium Subscription Information iOS
+    AccountMgmtResourcesiOS.Review Premium Subscription Information iOS
 
 Review Your California Privacy Rights
-    Review Your California Privacy Rights iOS
+    AccountMgmtResourcesiOS.Review Your California Privacy Rights iOS
 
 Review Do Not Sell My Information
-    Review Do Not Sell My Information iOS
+    AccountMgmtResourcesiOS.Review Do Not Sell My Information iOS
 
 Log Out
     AccountMgmtResourcesiOS.Log Out iOS

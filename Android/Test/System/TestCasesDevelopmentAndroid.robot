@@ -16,5 +16,34 @@ Resource   ../../Resources/System/EmulatorLauncherAndroid.robot
 *** Test Cases ***
 
 Launch Application
-    Set Library Search Order    AppiumLibrary    SeleniumLibrary
     Launch Android Application On Emulator
+
+Sign In
+    Sign In As Existing User Android
+
+# Review Main Menu UI
+#     Review Main Menu UI Android
+
+Review User Account UI
+    Review User Account UI Android
+
+# Reset User Password
+#     Reset User Password Android
+
+# Update User Name
+#     Update User Name Android
+
+# Review Privacy Policy
+#     Review Privacy Policy Android
+
+# Review Terms Of Service
+#     Review Terms Of Service Android
+
+# Review Premium Subscription Information
+#     Review Premium Subscription Information Android
+
+# Review Your California Privacy Rights
+#     Review Your California Privacy Rights Android
+
+# Review Do Not Sell My Information
+#     Review Do Not Sell My Information Android
