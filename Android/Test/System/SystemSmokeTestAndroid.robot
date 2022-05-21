@@ -18,7 +18,6 @@ Suite Teardown    Run Keywords    AccountMgmtResourcesAndroid.Log Out Android
 *** Test Cases ***
 
 Launch Application
-    #Launch Android Application On Emulator
     Browserstack.Launch Android Application On Browserstack Device  ${configBS}
 
 Intro Screen UI Review
@@ -54,8 +53,32 @@ Log Food To Breakfast
 Add Custom Food
     NutritionResourcesAndroid.Add Custom Food Android    Test Food Item    Test Brand    1    100
 
+Review Main Menu UI
+    AuthenticationResourcesAndroid.Review Main Menu UI Android
+
+Review User Account UI
+    AuthenticationResourcesAndroid.Review User Account UI Android
+
+Reset User Password
+    AuthenticationResourcesAndroid.Reset User Password Android
+
+Review Privacy Policy
+    AuthenticationResourcesAndroid.Review Privacy Policy Android
+
+Review Terms Of Service
+    AuthenticationResourcesAndroid.Review Terms Of Service Android
+
+Review Premium Subscription Information
+    AuthenticationResourcesAndroid.Review Premium Subscription Information Android
+
+Review Your California Privacy Rights
+    AuthenticationResourcesAndroid.Review Your California Privacy Rights Android
+
+Review Do Not Sell My Information
+    AuthenticationResourcesAndroid.Review Do Not Sell My Information Android
+
 Log Out From My Account
-    AccountMgmtResourcesAndroid.Log Out Android
+    AuthenticationResourcesAndroid.AccountMgmtResourcesAndroid.Log Out Android
 
 Sign In - Existing User
     AuthenticationResourcesAndroid.Sign In As Existing User Android
@@ -64,4 +87,3 @@ Sign In - Existing User
 #     ShopWooResourcesAndroid.Open Shop Android
 #     ShopWooResourcesAndroid.Validadate Dashboard UI And Details Android
 #     ShopWooResourcesAndroid.Close Shop Android
-

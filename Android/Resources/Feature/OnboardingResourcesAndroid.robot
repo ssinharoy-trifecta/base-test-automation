@@ -96,3 +96,5 @@ Complete User Onboarding Android
 Agree To Terms Of Use Android
     Wait Until Element Is Visible    ${termsOfUseAgreeBtnAndroid}    timeout=30
     Click Element                    ${termsOfUseAgreeBtnAndroid}
+    Open Main Menu First Time After Login Android
+    Close Main Menu Android
