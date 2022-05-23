@@ -70,6 +70,12 @@ Login As Users From CSV Datafile
     Sleep                     2s 
   END
 
+Show Parse of JSON Using Python
+  [Tags]                       json
+  ${CUSTLISTJSON}=             Get JSON in Robot   Examples/Web/Resources/DataFile.json
+  Go To                        ${loginUrlRob} 
+  Wait Until Page Contains     Customer Login
+  Parse JSON File With Python  Examples/Web/Resources/DataFile.json
 *** Keywords ***    
 Get JSON in Robot 
     [Arguments]            ${file_path}
@@ -154,3 +160,31 @@ Get CSV Data
     [Arguments]  ${FilePath}
     ${Data} =  read csv file  ${FilePath}
     [Return]  ${Data}
+
+#This is a better way to read and parse json files. Using Python, we do not need to convert
+#or split into lists, we can already use it as a dictionary since that is the way we accept
+#it from the json datafile.
+Parse JSON File With Python
+    [Arguments]            ${file_path}
+    ${data_as_string} =    Get File                    ${file_path}
+    Log                    ${data_as_string}
+    ${data_as_json}        evaluate                    json.loads('''${data_as_string}''')   json
+    Log                    ${data_as_json}
+    &{data_as_json_dict}   convert to dictionary       ${data_as_json}
+    log many               &{data_as_json_dict}
+    @{dictPop} =           Pop From Dictionary         ${data_as_json_dict}                  Customers
+    FOR                    ${customer}                 IN                                    @{dictPop}
+      log many             ${customer}
+      FOR                  ${entry}                    IN                                    ${customer}
+        ${custNumber}=     Pop From Dictionary         ${entry}                              testCust
+        ${custFName}=      Pop From Dictionary         ${entry}                              firstName
+        ${custLName}=      Pop From Dictionary         ${entry}                              lastName
+        ${custEMail}=      Pop From Dictionary         ${entry}                              email
+        ${custPWord}=      Pop From Dictionary         ${entry}                              password
+        log                ${custNumber}
+        log                ${custFName}
+        log                ${custLName}
+        log                ${custEMail}
+        log                ${custPWord}
+      END
+    END
