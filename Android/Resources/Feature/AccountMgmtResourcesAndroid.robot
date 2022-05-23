@@ -6,9 +6,9 @@ Library    BuiltIn
 *** Variables ***
 
 #MAIN MENU
-${mainMenuBtnAndroid}                          //android.widget.ImageButton[@content-desc="Navigate up"]
+${mainMenuBtnOnAppLoadAndroid}                 //android.widget.ImageButton[@content-desc="Navigate up"]
 #Main Menu button locator changes when opened once
-${mainMenuBtn2Android}                         //android.widget.ImageButton[@content-desc="Open navigation drawer"]
+${mainMenuBtnAndroid}                          //android.widget.ImageButton[@content-desc="Open navigation drawer"]
 ${closeMainMenuBtnAndroid}                     //android.widget.ImageButton[@content-desc="Close navigation drawer"]
 ${menuItemPrefixAndroid}                       //android.widget.FrameLayout/android.widget.LinearLayout
 ...                                            /android.widget.FrameLayout/android.widget.LinearLayout
@@ -60,82 +60,63 @@ ${okLinkSentBtnAccountAndroid}         id=com.n_ix.pocket_wod:id/okButton
 
 *** Keywords ***
 
-Open Main Menu First Time After Login Android
-    Wait Until Element Is Visible    ${mainMenuBtnAndroid}    timeout=20
-    Click Element                    ${mainMenuBtnAndroid}
-
-Open Main Menu Android
-    Wait Until Element Is Visible    ${mainMenuBtn2Android}    timeout=20
-    Click Element                    ${mainMenuBtn2Android}
-
-Close Main Menu Android
-    Wait Until Element Is Visible    ${closeMainMenuBtnAndroid}    timeout=20
-    Click Element                    ${closeMainMenuBtnAndroid}
-
 Open User Account Android
-    Wait Until Element Is Visible    ${accountBtnAndroid}    timeout=20
-    Click Element                    ${accountBtnAndroid}
-
-Close User Account Android
-    Wait Until Element Is Visible    ${backBtnAccountAndroid}
-    Click Element                    ${backBtnAccountAndroid}
+    Wait Until Visible And Click Element Apps    ${mainMenuBtnAndroid}
+    Wait Until Visible And Click Element Apps    ${accountBtnAndroid}
 
 Log Out Android
-    Open Main Menu Android
     Open User Account Android
-    Wait Until Element Is Visible    ${logOutBtnAccountAndroid}    timeout=10
-    Click Element                    ${logOutBtnAccountAndroid}
+    Wait Until Visible And Click Element Apps    ${logOutBtnAccountAndroid}
 
 Review Main Menu UI Android
-    Open Main Menu Android
-    @{list}=    Create List    ${accountBtnAndroid}
-    ...                        ${myFeedsBtnAndroid}
-    ...                        ${savedBtnAndroid}
-    ...                        ${helpBtnAndroid}
-    ...                        ${fitnessTimersBtnAndroid}
-    ...                        ${workoutLogBtnAndroid}
-    ...                        ${movementLogBtnAndroid}
-    ...                        ${privacyPolicyBtnAndroid}
-    ...                        ${termsOfServiceBtnAndroid}
-    ...                        ${premiumSubscriptionInformationBtnAndroid}
-    ...                        ${yourCaliforniaPrivacyRightsBtnAndroid}
-    ...                        ${doNotSellMyPersonalInformationBtnAndroid}
-    FOR    ${item}    IN    @{list}
-        Wait Until Page Contains Element   ${item}    timeout=20
+    Wait Until Visible And Click Element Apps    ${mainMenuBtnAndroid}
+    @{list}=    Create List                      ${accountBtnAndroid}
+    ...                                          ${myFeedsBtnAndroid}
+    ...                                          ${savedBtnAndroid}
+    ...                                          ${helpBtnAndroid}
+    ...                                          ${fitnessTimersBtnAndroid}
+    ...                                          ${workoutLogBtnAndroid}
+    ...                                          ${movementLogBtnAndroid}
+    ...                                          ${privacyPolicyBtnAndroid}
+    ...                                          ${termsOfServiceBtnAndroid}
+    ...                                          ${premiumSubscriptionInformationBtnAndroid}
+    ...                                          ${yourCaliforniaPrivacyRightsBtnAndroid}
+    ...                                          ${doNotSellMyPersonalInformationBtnAndroid}
+    FOR                                          ${item}    IN    @{list}
+        Wait Until Page Contains Element         ${item}
     END
-    Close Main Menu Android
+    Wait Until Visible And Click Element Apps    ${closeMainMenuBtnAndroid}
 
 Review User Account UI Android
-    Open Main Menu Android
     Open User Account Android
-    @{list}=    Create List    ${cameraBtnAccountAndroid}
-    ...                        ${accountTxtAccountAndroid}
-    ...                        ${nameFieldAccountAndroid}
-    ...                        ${emailFieldAccountAndroid}
-    ...                        ${genderFieldAccountAndroid}
-    ...                        ${birthDateFieldAccountAndroid}
-    ...                        ${weightFieldAccountAndroid}
-    ...                        ${heightFieldAccountAndroid}
-    ...                        ${ketoDietFieldAccountAndroid}
-    ...                        ${nutritionGoalFieldAccountAndroid}
-    ...                        ${activityLevelTxtAccountAndroid}
-    FOR    ${item}    IN    @{list}
-        Wait Until Element Is Visible   ${item}    timeout=20
+    @{list}=    Create List                      ${cameraBtnAccountAndroid}
+    ...                                          ${accountTxtAccountAndroid}
+    ...                                          ${nameFieldAccountAndroid}
+    ...                                          ${emailFieldAccountAndroid}
+    ...                                          ${genderFieldAccountAndroid}
+    ...                                          ${birthDateFieldAccountAndroid}
+    ...                                          ${weightFieldAccountAndroid}
+    ...                                          ${heightFieldAccountAndroid}
+    ...                                          ${ketoDietFieldAccountAndroid}
+    ...                                          ${nutritionGoalFieldAccountAndroid}
+    ...                                          ${activityLevelTxtAccountAndroid}
+    FOR                                          ${item}    IN    @{list}
+        Wait Until Element Is Visible            ${item}
     END
-    Close User Account Android
+    Wait Until Visible And Click Element Apps    ${backBtnAccountAndroid}
 
 Reset User Password Android
-    Open Main Menu Android
     Open User Account Android
-    Wait Until Element Is Visible    ${resetPasswordBtnAccountAndroid}
-    Click Element                    ${resetPasswordBtnAccountAndroid}
-    Wait Until Element Is Visible    ${okLinkSentBtnAccountAndroid}
-    Click Element                    ${okLinkSentBtnAccountAndroid}
-    Close User Account Android
+    @{list}=    Create List                         ${resetPasswordBtnAccountAndroid}
+    ...                                             ${okLinkSentBtnAccountAndroid}
+    ...                                             ${backBtnAccountAndroid}
+    FOR                                             ${item}    IN    @{list}
+        Wait Until Visible And Click Element Apps   ${item}
+    END
 
 Review Info WebView Android
-    [Arguments]                      ${typeInfoBtnName}
-    Open Main Menu Android
-    Click Text                       ${typeInfoBtnName}    exact_match=True
-    Wait Until Element Is Visible    ${webViewTextElementAndroid}    timeout=20
-    Click Element                    ${closeWebViewBtnAndroid}
+    [Arguments]                                  ${typeInfoBtnName}
+    Wait Until Visible And Click Element Apps    ${mainMenuBtnAndroid}
+    Click Text                                   ${typeInfoBtnName}    exact_match=True
+    Wait Until Element Is Visible                ${webViewTextElementAndroid}
+    Click Element                                ${closeWebViewBtnAndroid}

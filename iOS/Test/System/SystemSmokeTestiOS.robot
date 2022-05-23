@@ -9,6 +9,7 @@ Resource   ../../Resources/Feature/NutritionResourcesiOS.robot
 Resource   ../../Resources/Feature/OnboardingResourcesiOS.robot
 Resource   ../../Resources/Feature/ShopWooResourcesiOS.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
+Resource   ../../../Common/Resources/CommonApps.robot
 
 # TODO: COULD POTENTIALLY COMBINE KEYWORDS INTO ONE
 Suite Setup       Browserstack.Upload iOS Application To Browserstack

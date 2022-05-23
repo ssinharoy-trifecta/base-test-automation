@@ -52,110 +52,86 @@ ${nameFieldAccountiOS}    xpath=//XCUIElementTypeApplication[@name="TriDebug"]/X
 
 *** Keywords ***
 
-Open Main Menu iOS
-    Wait Until Element Is Visible    ${mainMenuBtniOS}    timeout=20
-    Click Element                    ${mainMenuBtniOS}
-
-Close Main Menu iOS
-    Wait Until Element Is Visible    ${closeMainMenuBtniOS}    timeout=20
-    Click Element                    ${closeMainMenuBtniOS}
-
+#Two keywords below look identical but I would like to keep them separately
 Open User Account iOS
-    Wait Until Element Is Visible    ${accountBtniOS}    timeout=20
-    Click Element                    ${accountBtniOS}
+    Wait Until Visible And Click Element Apps    ${mainMenuBtniOS}
+    Wait Until Visible And Click Element Apps    ${accountBtniOS}
 
 Close User Account iOS
-    Wait Until Element Is Visible    ${backBtnAccountiOS}
-    Click Element                    ${backBtnAccountiOS}
+    Wait Until Visible And Click Element Apps    ${backBtnAccountiOS}
+    Wait Until Visible And Click Element Apps    ${closeMainMenuBtniOS}
 
 Log Out iOS
-    Open Main Menu iOS
     Open User Account iOS
-    Wait Until Element Is Visible    ${logOutAccountBtniOS}    timeout=20
-    Click Element                    ${logOutAccountBtniOS}
+    Wait Until Visible And Click Element Apps    ${logOutAccountBtniOS}
 
 Review Main Menu UI iOS
-    Open Main Menu iOS
-    @{list}=    Create List    ${accountBtniOS}
-    ...                        ${myFeedsBtniOS}
-    ...                        ${savedBtniOS}
-    ...                        ${helpBtniOS}
-    ...                        ${fitnessTimersBtniOS}
-    ...                        ${workoutLogBtniOS}
-    ...                        ${movementLogBtniOS}
-    FOR    ${item}    IN    @{list}
-        Element Should Be Visible   ${item}    timeout=20
+    Wait Until Visible And Click Element Apps    ${mainMenuBtniOS}
+    @{list}=    Create List                      ${accountBtniOS}
+    ...                                          ${myFeedsBtniOS}
+    ...                                          ${savedBtniOS}
+    ...                                          ${helpBtniOS}
+    ...                                          ${fitnessTimersBtniOS}
+    ...                                          ${workoutLogBtniOS}
+    ...                                          ${movementLogBtniOS}
+    FOR                                          ${item}    IN    @{list}
+        Element Should Be Visible                ${item}
     END
-    Scroll Down                   ${logoutBtniOS}
-    @{list}=    Create List       ${privacyPolicyBtniOS}
-    ...                           ${termsOfServiceBtniOS}
-    ...                           ${premiumSubscriptionInformationBtniOS}
-    ...                           ${yourCaliforniaPrivacyRightsBtniOS}
-    ...                           ${doNotSellMyPersonalInformationBtniOS}
-    ...                           ${logoutBtniOS}
-    ...                           ${subscribeToPremiumBtniOS}
-    FOR    ${item}    IN    @{list}
-        Element Should Be Visible   ${item}    timeout=20
+    Scroll Down                                  ${logoutBtniOS}
+    @{list}=    Create List                      ${privacyPolicyBtniOS}
+    ...                                          ${termsOfServiceBtniOS}
+    ...                                          ${premiumSubscriptionInformationBtniOS}
+    ...                                          ${yourCaliforniaPrivacyRightsBtniOS}
+    ...                                          ${doNotSellMyPersonalInformationBtniOS}
+    ...                                          ${logoutBtniOS}
+    ...                                          ${subscribeToPremiumBtniOS}
+    FOR                                          ${item}    IN    @{list}
+        Element Should Be Visible                ${item}
     END
-    Close Main Menu iOS
+    Wait Until Visible And Click Element Apps    ${closeMainMenuBtniOS}
 
 Review User Account UI iOS
-    Open Main Menu iOS
     Open User Account iOS
-    @{list}=    Create List    ${cameraBtniOS}
-    ...                        ${accountTxtiOS}
-    ...                        ${nameTxtiOS}
-    ...                        ${emailTxtiOS}
-    ...                        ${genderTxtiOS}
-    ...                        ${birthDateTxtiOS}
-    ...                        ${weightTxtiOS}
-    ...                        ${heightTxtiOS}
-    ...                        ${ketoDietTxtiOS}
-    ...                        ${nutritionGoalTxtiOS}
-    ...                        ${activityLevelTxtiOS}
-    FOR    ${item}    IN    @{list}
-        Element Should Be Visible   ${item}    timeout=20
+    @{list}=    Create List                      ${cameraBtniOS}
+    ...                                          ${accountTxtiOS}
+    ...                                          ${nameTxtiOS}
+    ...                                          ${emailTxtiOS}
+    ...                                          ${genderTxtiOS}
+    ...                                          ${birthDateTxtiOS}
+    ...                                          ${weightTxtiOS}
+    ...                                          ${heightTxtiOS}
+    ...                                          ${ketoDietTxtiOS}
+    ...                                          ${nutritionGoalTxtiOS}
+    ...                                          ${activityLevelTxtiOS}
+    FOR                                          ${item}    IN    @{list}
+        Element Should Be Visible                ${item}
     END
-    Click Element    ${backBtnAccountiOS}
-    Close Main Menu iOS
+    Click Element                                ${backBtnAccountiOS}
+    Wait Until Visible And Click Element Apps    ${closeMainMenuBtniOS}
 
 Reset User Password iOS
-    Open Main Menu iOS
     Open User Account iOS
-    Scroll Down                      ${resetPasswordBtniOS}
-    Click Element                    ${resetPasswordBtniOS}
-    Wait Until Element Is Visible    ${okLinkSentBtniOS}
-    Click Element                    ${okLinkSentBtniOS}
+    Scroll Down                                  ${resetPasswordBtniOS}
+    Click Element                                ${resetPasswordBtniOS}
+    Wait Until Visible And Click Element Apps    ${okLinkSentBtniOS}
     Close User Account iOS
-    Close Main Menu iOS
 
 Update User Name iOS
     [Arguments]                      ${userName}
-    Open Main Menu iOS
     Open User Account iOS
     Wait Until Element Is Visible    ${nameFieldAccountiOS}
     Clear Text                       ${nameFieldAccountiOS}
     Input Text                       ${nameFieldAccountiOS}    ${userName}
     Close User Account iOS
-    Close Main Menu iOS
-    Open Main Menu iOS
     Open User Account iOS
-    Wait Until Element Is Visible     ${nameFieldAccountiOS}
-    Element Should Contain Text       ${nameFieldAccountiOS}    ${userName}
+    Wait Until Element Is Visible    ${nameFieldAccountiOS}
+    Element Should Contain Text      ${nameFieldAccountiOS}    ${userName}
     Close User Account iOS
-    Close Main Menu iOS
-
-Review Privacy Policy iOS
-    Open Main Menu iOS
-    Scroll Down                      ${privacyPolicyBtniOS}
-    Click Element                    ${privacyPolicyBtniOS}
-    Wait Until Element Is Visible    ${privacyBodyTxtiOS}     timeout=20
-    Click Element                    ${closeWebViewBtniOS}
 
 Review Info WebView iOS
-    [Arguments]                      ${infoElementBtniOS}    ${infoElementBodyTxtiOS}
-    Open Main Menu iOS
-    Scroll Down                      ${infoElementBtniOS}
-    Click Element                    ${infoElementBtniOS}
-    Wait Until Element Is Visible    ${infoElementBodyTxtiOS}    timeout=20
-    Click Element                    ${closeWebViewBtniOS}
+    [Arguments]                                  ${infoElementBtniOS}    ${infoElementBodyTxtiOS}
+    Wait Until Visible And Click Element Apps    ${mainMenuBtniOS}
+    Scroll Down                                  ${infoElementBtniOS}
+    Click Element                                ${infoElementBtniOS}
+    Wait Until Element Is Visible                ${infoElementBodyTxtiOS}
+    Click Element                                ${closeWebViewBtniOS}

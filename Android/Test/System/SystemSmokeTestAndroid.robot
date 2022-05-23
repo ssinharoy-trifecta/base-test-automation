@@ -9,6 +9,7 @@ Resource   ../../Resources/Feature/NutritionResourcesAndroid.robot
 Resource   ../../Resources/Feature/OnboardingResourcesAndroid.robot
 Resource   ../../Resources/Feature/ShopWooResourcesAndroid.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
+Resource   ../../../Common/Resources/CommonApps.robot
 
 # TODO: COULD POTENTIALLY COMBINE KEYWORDS INTO ONE
 Suite Setup       Browserstack.Upload Android Application To Browserstack
@@ -35,23 +36,23 @@ Terms Of Use - Agree
 Add Weight To The Weight Card
     NutritionResourcesAndroid.Add Weight To The Weight Card Android    200
 
-Add Water To The Water Card
-    NutritionResourcesAndroid.Add Water To The Water Card Android
+# Add Water To The Water Card
+#     NutritionResourcesAndroid.Add Water To The Water Card Android
 
-Log Food To Snacks
-    NutritionResourcesAndroid.Log Food Android    ${snacksBtnAndroid}    Apple
+# Log Food To Snacks
+#     NutritionResourcesAndroid.Log Food Android    ${snacksBtnAndroid}    Apple
 
-Log Food To Dinner
-    NutritionResourcesAndroid.Log Food Android    ${dinnerBtnAndroid}    Pasta
+# Log Food To Dinner
+#     NutritionResourcesAndroid.Log Food Android    ${dinnerBtnAndroid}    Pasta
 
-Log Food To Lunch
-    NutritionResourcesAndroid.Log Food Android    ${lunchBtnAndroid}    Pizza
+# Log Food To Lunch
+#     NutritionResourcesAndroid.Log Food Android    ${lunchBtnAndroid}    Pizza
 
-Log Food To Breakfast
-    NutritionResourcesAndroid.Log Food Android    ${breakfastBtnAndroid}    Avocado
+# Log Food To Breakfast
+#     NutritionResourcesAndroid.Log Food Android    ${breakfastBtnAndroid}    Avocado
 
-Add Custom Food
-    NutritionResourcesAndroid.Add Custom Food Android    Test Food Item    Test Brand    1    100
+# Add Custom Food
+#     NutritionResourcesAndroid.Add Custom Food Android    Test Food Item    Test Brand    1    100
 
 Review Main Menu UI
     AccountMgmtResourcesAndroid.Review Main Menu UI Android

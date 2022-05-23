@@ -28,29 +28,28 @@ ${signUpBtnAndroid}                      id=com.n_ix.pocket_wod:id/signUpButton
 *** Keywords ***
 
 Sign Up As New User Android
-    @{list}=    Create List    ${getStartedBtnAndroid}  
-    ...                        ${createAccountBtnAndroid}
-    FOR     ${item}     IN     @{list}
+    @{list}=    Create List              ${getStartedBtnAndroid}  
+    ...                                  ${createAccountBtnAndroid}
+    FOR                                  ${item}     IN     @{list}
         Wait Until Element Is Visible    ${item}    timeout=30
-        Click Element     ${item}
+        Click Element                    ${item}
     END
-    Wait Until Element Is Visible    ${emailFieldAuthenticationAndroid}   timeout=30
-    ${date}                          Get Current Date   result_format=%m-%d-%y-%H.%M.%S
-    Input Text                       ${emailFieldAuthenticationAndroid}   trifectaqa+${date}@gmail.com
-    Input Text                       ${passwordFieldAuthenticationAndroid}    ${testUserPassword}
-    Click Element                    ${signUpBtnAndroid}
-    @{list}=    Create List    ${athleteImgOnboardingAndroid} 
-    ...                        ${welcomeToTrifectaTxtOnboardingAndroid}
-    FOR     ${item}     IN     @{list}
+    Wait Until Element Is Visible        ${emailFieldAuthenticationAndroid}   timeout=30
+    ${date}    Get Current Date          result_format=%m-%d-%y-%H.%M.%S
+    Input Text                           ${emailFieldAuthenticationAndroid}   trifectaqa+${date}@gmail.com
+    Input Text                           ${passwordFieldAuthenticationAndroid}    ${testUserPassword}
+    Click Element                        ${signUpBtnAndroid}
+    @{list}=    Create List              ${athleteImgOnboardingAndroid} 
+    ...                                  ${welcomeToTrifectaTxtOnboardingAndroid}
+    FOR                                  ${item}     IN     @{list}
         Wait Until Element Is Visible    ${item}    timeout=30
     END
 
 Sign In As Existing User Android
-    Wait Until Element Is Visible    ${getStartedBtnAndroid}    timeout=20
-    Click Element                    ${getStartedBtnAndroid}
-    Wait Until Element Is Visible    ${emailFieldAuthenticationAndroid}    timeout=20
-    Input Text                       ${emailFieldAuthenticationAndroid}    ${testUserEmail}
-    Input Text                       ${passwordFieldAuthenticationAndroid}    ${testUserPassword}
-    Click Element                    ${signInBtnAndroid}
-    Open Main Menu First Time After Login Android
-    Close Main Menu Android
+    Wait Until Visible And Click Element Apps    ${getStartedBtnAndroid}
+    Wait Until Element Is Visible                ${emailFieldAuthenticationAndroid}    timeout=20
+    Input Text                                   ${emailFieldAuthenticationAndroid}    ${testUserEmail}
+    Input Text                                   ${passwordFieldAuthenticationAndroid}    ${testUserPassword}
+    Click Element                                ${signInBtnAndroid}
+    Wait Until Visible And Click Element Apps    ${mainMenuBtnOnAppLoadAndroid}
+    Wait Until Visible And Click Element Apps    ${closeMainMenuBtnAndroid}
