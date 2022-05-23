@@ -36,14 +36,14 @@ Login Using Templating - Robot
 #Easiest form of using data from a file within Robot framework. Variables can be treated
 #the same as if they were in this file.
 Login As Users From Robot Datafile
-  Modified Login Test                           ${loginUrlRob}  ${CUSTLISTROB}
+  Modified Login Test                   ${loginUrlRob}  ${CUSTLISTROB}
 
 #Use data from a JSON datafile. This test case uses string manipulation and lists to accomplish
 #the parsing of the json file, but there are better ways to do this.
 Login As Users From JSON Datafile
   [Tags]                      json
   ${CUSTLISTJSON}=            Get JSON in Robot   Examples/Web/Resources/DataFile.json
-  Go To                       ${loginUrlRob} 
+  Go To                       ${loginUrlRob}
   Wait Until Page Contains    Customer Login
   FOR                         ${item}  IN  @{CUSTLISTJSON} 
     Log                       ${item}
@@ -76,6 +76,7 @@ Show Parse of JSON Using Python
   Go To                        ${loginUrlRob} 
   Wait Until Page Contains     Customer Login
   Parse JSON File With Python  Examples/Web/Resources/DataFile.json
+
 *** Keywords ***    
 Get JSON in Robot 
     [Arguments]            ${file_path}
@@ -133,10 +134,10 @@ Splitting Lists Into Lists
   [Return]               ${jsonReturnList}
 
 Modified Login Test
-  [Arguments]                 ${loginURL}         ${custDict}
+  [Arguments]                 ${loginURL}         ${cust}
   Go To                       ${loginURL} 
   Wait Until Page Contains    Customer Login
-  FOR                         ${item}  IN  @{custDict} 
+  FOR                         ${item}  IN  @{cust} 
     Log                       ${item}
     Input Text                ${loginEmailField}  ${item.email}
     Input Text                ${loginPassField}   ${item.password}
@@ -163,7 +164,7 @@ Get CSV Data
 
 #This is a better way to read and parse json files. Using Python, we do not need to convert
 #or split into lists, we can already use it as a dictionary since that is the way we accept
-#it from the json datafile.
+#it from the json datafile. Output can be seen in results file.
 Parse JSON File With Python
     [Arguments]            ${file_path}
     ${data_as_string} =    Get File                    ${file_path}
