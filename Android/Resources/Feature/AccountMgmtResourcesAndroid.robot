@@ -68,6 +68,7 @@ Log Out Android
     Open User Account Android
     Wait Until Visible And Click Element Apps    ${logOutBtnAccountAndroid}
 
+#TODO: Improve this test case by adding more UI validation points
 Review Main Menu UI Android
     Wait Until Visible And Click Element Apps    ${mainMenuBtnAndroid}
     @{list}=    Create List                      ${accountBtnAndroid}
