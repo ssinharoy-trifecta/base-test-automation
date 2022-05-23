@@ -1,5 +1,6 @@
 *** Settings ***
 Library            SeleniumLibrary
+# json library handles json data files
 Library            json
 Library            OperatingSystem
 Library            BuiltIn
@@ -24,15 +25,21 @@ Test Teardown       Common.End Browser Test
 @{CUSTLISTJSON}
 
 *** Test Cases ***
+#Template will run the same keyword multiple times, with the paremeters passed through.
+#Could potentially be used in lieu of batch files.
 Login Using Templating - Robot
   [Template]  Template Login Test
   ${loginUrlRob}  ${dangaCustData}
   ${loginUrlRob}  ${mickeyCustData}
   ${loginUrlRob}  ${dragonCustData}
 
+#Easiest form of using data from a file within Robot framework. Variables can be treated
+#the same as if they were in this file.
 Login As Users From Robot Datafile
   Modified Login Test                           ${loginUrlRob}  ${CUSTLISTROB}
 
+#Use data from a JSON datafile. This test case uses string manipulation and lists to accomplish
+#the parsing of the json file, but there are better ways to do this.
 Login As Users From JSON Datafile
   [Tags]                      json
   ${CUSTLISTJSON}=            Get JSON in Robot   Examples/Web/Resources/DataFile.json
@@ -47,6 +54,8 @@ Login As Users From JSON Datafile
     Go To                     ${loginUrlRob} 
   END
 
+#CSV is fairly easy to get data from. We created a Csv.py library to achieve the data importing
+#from the CSV.
 Login As Users From CSV Datafile
   [Tags]                      csv
   ${loginScenarios}           Get CSV Data         Examples/Web/Resources/DataFile.csv
@@ -70,6 +79,7 @@ Get JSON in Robot
     Log                    ${data_as_json}
     ${data_as_json}=       Convert To String           ${data_as_json}
     Log                    ${data_as_json}
+    #This keyword privides an example on how to parse complex strings and lists
     ${data_as_json}=       Remove String               ${data_as_json}  }  '  [  ]  ${SPACE}
     ${data_as_json}=       Replace String              ${data_as_json}  :  =
     Log                    ${data_as_json}
@@ -84,6 +94,7 @@ Get JSON in Robot
     @{CUSTLISTJSON}=       Create List  ${jsonCust1}  ${jsonCust2}  ${jsonCust1}
     [Return]               ${CUSTLISTJSON}
 
+#This keyword further shows how to split lists into smallers lists
 Splitting Lists Into Lists 
   [Arguments]            ${listStringToParse}   
   @{split_keyvalue}=     split string   ${listStringToParse}  , 
@@ -138,6 +149,7 @@ Template Login Test
   Sleep                     2s
   Click Button              Sign In
 
+#This keyword uses Csv.py library. This is a good example on how to create our own python libraries
 Get CSV Data
     [Arguments]  ${FilePath}
     ${Data} =  read csv file  ${FilePath}
