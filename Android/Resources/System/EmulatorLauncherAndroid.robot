@@ -18,6 +18,6 @@ Launch Android Application on Emulator
     ...                 deviceName=${DEVICE_NAME_ANDROID}
     ...                 appPackage=${APP_PACKAGE_ANDROID} 
     ...                 appActivity=${APP_ACTIVITY_MAIN_ANDROID}
-    ...                 appActivity=$${APP_ACTIVITY_AUTH_ANDROID}
+    ...                 appActivity=${APP_ACTIVITY_AUTH_ANDROID}
     ...                 automationName=Uiautomator2
     ...                 autoGrantPermissions=true
