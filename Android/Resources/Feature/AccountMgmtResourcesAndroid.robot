@@ -7,6 +7,7 @@ Library    BuiltIn
 
 #MAIN MENU
 ${mainMenuBtnAndroid}                          //android.widget.ImageButton[@content-desc="Navigate up"]
+#Main Menu button locator changes when opened once
 ${mainMenuBtn2Android}                         //android.widget.ImageButton[@content-desc="Open navigation drawer"]
 ${closeMainMenuBtnAndroid}                     //android.widget.ImageButton[@content-desc="Close navigation drawer"]
 ${menuItemPrefixAndroid}                       //android.widget.FrameLayout/android.widget.LinearLayout
@@ -46,6 +47,7 @@ ${logOutBtnAccountAndroid}             id=com.n_ix.pocket_wod:id/logoutBtn
 ${cameraBtnAccountAndroid}             id=com.n_ix.pocket_wod:id/profileImageView
 ${accountTxtAccountAndroid}            id=com.n_ix.pocket_wod:id/myAccountLabel
 ${nameFieldAccountAndroid}             id=com.n_ix.pocket_wod:id/usernameLabelView
+${emailFieldAccountAndroid}            id=com.n_ix.pocket_wod:id/activity_account_email
 ${genderFieldAccountAndroid}           id=com.n_ix.pocket_wod:id/gender_spinner
 ${birthDateFieldAccountAndroid}        id=com.n_ix.pocket_wod:id/birthday_text_view
 ${weightFieldAccountAndroid}           id=com.n_ix.pocket_wod:id/weight_text_view
@@ -131,32 +133,9 @@ Reset User Password Android
     Click Element                    ${okLinkSentBtnAccountAndroid}
     Close User Account Android
 
-Review Privacy Policy Android
+Review Info WebView Android
+    [Arguments]                      ${typeInfoBtnName}
     Open Main Menu Android
-    Click Text                       Privacy policy    exact_match=True
-    Wait Until Element Is Visible    ${webViewTextElementAndroid}    timeout=20
-    Click Element                    ${closeWebViewBtnAndroid}
-
-Review Terms Of Service Android
-    Open Main Menu Android
-    Click Text                       Terms of service    exact_match=True
-    Wait Until Element Is Visible    ${webViewTextElementAndroid}    timeout=20
-    Click Element                    ${closeWebViewBtnAndroid}
-
-Review Premium Subscription Information Android
-    Open Main Menu Android
-    Click Text                       Premium subscription information    exact_match=True
-    Wait Until Element Is Visible    ${webViewTextElementAndroid}    timeout=20
-    Click Element                    ${closeWebViewBtnAndroid}
-
-Review Your California Privacy Rights Android
-    Open Main Menu Android
-    Click Text                       Your California privacy rights    exact_match=True
-    Wait Until Element Is Visible    ${webViewTextElementAndroid}    timeout=20
-    Click Element                    ${closeWebViewBtnAndroid}
-
-Review Do Not Sell My Information Android
-    Open Main Menu Android
-    Click Text                       Do not sell my personal information    exact_match=True
+    Click Text                       ${typeInfoBtnName}    exact_match=True
     Wait Until Element Is Visible    ${webViewTextElementAndroid}    timeout=20
     Click Element                    ${closeWebViewBtnAndroid}

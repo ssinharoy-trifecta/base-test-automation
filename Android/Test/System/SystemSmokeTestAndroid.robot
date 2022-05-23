@@ -54,31 +54,31 @@ Add Custom Food
     NutritionResourcesAndroid.Add Custom Food Android    Test Food Item    Test Brand    1    100
 
 Review Main Menu UI
-    AuthenticationResourcesAndroid.Review Main Menu UI Android
+    AccountMgmtResourcesAndroid.Review Main Menu UI Android
 
 Review User Account UI
-    AuthenticationResourcesAndroid.Review User Account UI Android
+    AccountMgmtResourcesAndroid.Review User Account UI Android
 
 Reset User Password
-    AuthenticationResourcesAndroid.Reset User Password Android
+    AccountMgmtResourcesAndroid.Reset User Password Android
 
 Review Privacy Policy
-    AuthenticationResourcesAndroid.Review Privacy Policy Android
+    AccountMgmtResourcesAndroid.Review Info WebView Android    Privacy policy
 
 Review Terms Of Service
-    AuthenticationResourcesAndroid.Review Terms Of Service Android
+    AccountMgmtResourcesAndroid.Review Info WebView Android    Terms of service
 
 Review Premium Subscription Information
-    AuthenticationResourcesAndroid.Review Premium Subscription Information Android
+    AccountMgmtResourcesAndroid.Review Info WebView Android    Premium subscription information
 
 Review Your California Privacy Rights
-    AuthenticationResourcesAndroid.Review Your California Privacy Rights Android
+    AccountMgmtResourcesAndroid.Review Info WebView Android    Your California privacy rights
 
 Review Do Not Sell My Information
-    AuthenticationResourcesAndroid.Review Do Not Sell My Information Android
+    AccountMgmtResourcesAndroid.Review Info WebView Android    Do not sell my personal information
 
 Log Out From My Account
-    AuthenticationResourcesAndroid.AccountMgmtResourcesAndroid.Log Out Android
+    AccountMgmtResourcesAndroid.Log Out Android
 
 Sign In - Existing User
     AuthenticationResourcesAndroid.Sign In As Existing User Android

@@ -152,30 +152,10 @@ Review Privacy Policy iOS
     Wait Until Element Is Visible    ${privacyBodyTxtiOS}     timeout=20
     Click Element                    ${closeWebViewBtniOS}
 
-Review Terms Of Service iOS
+Review Info WebView iOS
+    [Arguments]                      ${infoElementBtniOS}    ${infoElementBodyTxtiOS}
     Open Main Menu iOS
-    Scroll Down                      ${termsOfServiceBtniOS}
-    Click Element                    ${termsOfServiceBtniOS}
-    Wait Until Element Is Visible    ${termsOfServiceBodyTxtiOS}    timeout=20
-    Click Element                    ${closeWebViewBtniOS}
-
-Review Premium Subscription Information iOS
-    Open Main Menu iOS
-    Scroll Down                      ${premiumSubscriptionInformationBtniOS} 
-    Click Element                    ${premiumSubscriptionInformationBtniOS} 
-    Wait Until Element Is Visible    ${premiumSubscriptionBodyTxtiOS}     timeout=20
-    Click Element                    ${closeWebViewBtniOS}
-
-Review Your California Privacy Rights iOS
-    Open Main Menu iOS
-    Scroll Down                      ${yourCaliforniaPrivacyRightsBtniOS} 
-    Click Element                    ${yourCaliforniaPrivacyRightsBtniOS} 
-    Wait Until Element Is Visible    ${californiaPrivacyRightsBodyTxtiOS}     timeout=20
-    Click Element                    ${closeWebViewBtniOS}
-
-Review Do Not Sell My Information iOS
-    Open Main Menu iOS
-    Scroll Down                      ${doNotSellMyPersonalInformationBtniOS}
-    Click Element                    ${doNotSellMyPersonalInformationBtniOS}
-    Wait Until Element Is Visible    ${doNotSellMyInformationBodyTxtiOS}     timeout=20
+    Scroll Down                      ${infoElementBtniOS}
+    Click Element                    ${infoElementBtniOS}
+    Wait Until Element Is Visible    ${infoElementBodyTxtiOS}    timeout=20
     Click Element                    ${closeWebViewBtniOS}

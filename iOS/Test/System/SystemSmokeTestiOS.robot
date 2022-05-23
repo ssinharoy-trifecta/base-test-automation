@@ -67,19 +67,19 @@ Update User Name
     AccountMgmtResourcesiOS.Update User Name iOS    Trifecta Tester
 
 Review Privacy Policy
-    AccountMgmtResourcesiOS.Review Privacy Policy iOS
+    AccountMgmtResourcesiOS.Review Info WebView iOS    ${privacyPolicyBtniOS}   ${privacyBodyTxtiOS}
 
 Review Terms Of Service
-    AccountMgmtResourcesiOS.Review Terms Of Service iOS
+    AccountMgmtResourcesiOS.Review Info WebView iOS    ${termsOfServiceBtniOS}    ${termsOfServiceBodyTxtiOS}
 
 Review Premium Subscription Information
-    AccountMgmtResourcesiOS.Review Premium Subscription Information iOS
+    AccountMgmtResourcesiOS.Review Info WebView iOS    ${premiumSubscriptionInformationBtniOS}    ${premiumSubscriptionBodyTxtiOS}
 
 Review Your California Privacy Rights
-    AccountMgmtResourcesiOS.Review Your California Privacy Rights iOS
+    AccountMgmtResourcesiOS.Review Info WebView iOS    ${yourCaliforniaPrivacyRightsBtniOS}    ${californiaPrivacyRightsBodyTxtiOS}
 
 Review Do Not Sell My Information
-    AccountMgmtResourcesiOS.Review Do Not Sell My Information iOS
+    AccountMgmtResourcesiOS.Review Info WebView iOS    ${doNotSellMyPersonalInformationBtniOS}    ${doNotSellMyInformationBodyTxtiOS}
 
 Log Out
     AccountMgmtResourcesiOS.Log Out iOS
