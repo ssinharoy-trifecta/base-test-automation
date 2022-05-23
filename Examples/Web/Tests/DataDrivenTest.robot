@@ -77,6 +77,7 @@ Login As Users From CSV Datafile
     Sleep                     2s 
   END
 
+#Better way to extract data from json datafile.
 Show Parse of JSON Using Python
   [Tags]                       json
   ${CUSTLISTJSON}=             Get JSON in Robot   Examples/Web/Resources/DataFile.json
@@ -108,7 +109,8 @@ Get JSON in Robot
     @{CUSTLISTJSON}=       Create List  ${jsonCust1}  ${jsonCust2}  ${jsonCust1}
     [Return]               ${CUSTLISTJSON}
 
-#This keyword further shows how to split lists into smallers lists
+#This keyword further shows how to split lists into smallers lists. This is an ugly way to
+#do it and can be better worked into loops.
 Splitting Lists Into Lists 
   [Arguments]            ${listStringToParse}   
   @{split_keyvalue}=     split string   ${listStringToParse}  , 
