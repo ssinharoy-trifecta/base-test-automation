@@ -35,6 +35,7 @@ Sign Up As New User Android
         Click Element                    ${item}
     END
     Wait Until Element Is Visible        ${emailFieldAuthenticationAndroid}   timeout=30
+    #TODO:This should use probably the CreateCustomer.robot's Generate New eMail Address function
     ${date}    Get Current Date          result_format=%m-%d-%y-%H.%M.%S
     Input Text                           ${emailFieldAuthenticationAndroid}   trifectaqa+${date}@gmail.com
     Input Text                           ${passwordFieldAuthenticationAndroid}    ${testUserPassword}
