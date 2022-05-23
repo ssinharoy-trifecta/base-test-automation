@@ -1,4 +1,11 @@
 *** Settings ***
+Documentation
+...  This file provides examples on how to use datafiles to pass data into your tests(.robot,.json,.csv).
+...  This file demonstrates how to include custom created python libraries and include them (Csv.py)
+...  This file demonstrates how to parse strings and lists and extract relevant data.
+...  example cli command: robot -v runLocal:yes -i json -d results Examples/Web/Tests/DataDrivenTest.robot
+
+*** Settings ***
 Library            SeleniumLibrary
 # json library handles json data files
 Library            json
