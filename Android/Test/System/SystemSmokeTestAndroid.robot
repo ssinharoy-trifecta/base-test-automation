@@ -9,6 +9,7 @@ Resource   ../../Resources/Feature/NutritionResourcesAndroid.robot
 Resource   ../../Resources/Feature/OnboardingResourcesAndroid.robot
 Resource   ../../Resources/Feature/ShopWooResourcesAndroid.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
+Resource   ../../../Common/Resources/CommonApps.robot
 
 # TODO: COULD POTENTIALLY COMBINE KEYWORDS INTO ONE
 Suite Setup       Browserstack.Upload Android Application To Browserstack
@@ -18,7 +19,6 @@ Suite Teardown    Run Keywords    AccountMgmtResourcesAndroid.Log Out Android
 *** Test Cases ***
 
 Launch Application
-    #Launch Android Application On Emulator
     Browserstack.Launch Android Application On Browserstack Device  ${configBS}
 
 Intro Screen UI Review
@@ -54,6 +54,30 @@ Log Food To Breakfast
 Add Custom Food
     NutritionResourcesAndroid.Add Custom Food Android    Test Food Item    Test Brand    1    100
 
+Review Main Menu UI
+    AccountMgmtResourcesAndroid.Review Main Menu UI Android
+
+Review User Account UI
+    AccountMgmtResourcesAndroid.Review User Account UI Android
+
+Reset User Password
+    AccountMgmtResourcesAndroid.Reset User Password Android
+
+Review Privacy Policy
+    AccountMgmtResourcesAndroid.Review Info WebView Android    Privacy policy
+
+Review Terms Of Service
+    AccountMgmtResourcesAndroid.Review Info WebView Android    Terms of service
+
+Review Premium Subscription Information
+    AccountMgmtResourcesAndroid.Review Info WebView Android    Premium subscription information
+
+Review Your California Privacy Rights
+    AccountMgmtResourcesAndroid.Review Info WebView Android    Your California privacy rights
+
+Review Do Not Sell My Information
+    AccountMgmtResourcesAndroid.Review Info WebView Android    Do not sell my personal information
+
 Log Out From My Account
     AccountMgmtResourcesAndroid.Log Out Android
 
@@ -64,4 +88,3 @@ Sign In - Existing User
 #     ShopWooResourcesAndroid.Open Shop Android
 #     ShopWooResourcesAndroid.Validadate Dashboard UI And Details Android
 #     ShopWooResourcesAndroid.Close Shop Android
-

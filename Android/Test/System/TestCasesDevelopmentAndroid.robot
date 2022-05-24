@@ -16,5 +16,4 @@ Resource   ../../Resources/System/EmulatorLauncherAndroid.robot
 *** Test Cases ***
 
 Launch Application
-    Set Library Search Order    AppiumLibrary    SeleniumLibrary
     Launch Android Application On Emulator
