@@ -90,7 +90,7 @@ Sign In - Existing User
     AuthenticationResourcesiOS.Sign In As Existing User iOS
     OnboardingResourcesiOS.Check Notifications Alert iOS
 
-Shop Dashboard UI And Details
-    ShopWooResourcesiOS.Open Shop iOS
-    ShopWooResourcesiOS.Validate Dashboard UI And Details iOS
-    ShopWooResourcesiOS.Close Shop iOS
+# Shop Dashboard UI And Details
+#     ShopWooResourcesiOS.Open Shop iOS
+#     ShopWooResourcesiOS.Validate Dashboard UI And Details iOS
+#     ShopWooResourcesiOS.Close Shop iOS
