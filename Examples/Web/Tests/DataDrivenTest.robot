@@ -28,9 +28,6 @@ Test Setup          Common.Begin Browser Test
 ...                 ${configBS}
 Test Teardown       Common.End Browser Test
 
-*** Variables ***
-#@{CUSTLISTJSON}
-
 *** Test Cases ***
 #Template will run the same keyword multiple times, with the paremeters passed through.
 #Could potentially be used in lieu of batch files.
