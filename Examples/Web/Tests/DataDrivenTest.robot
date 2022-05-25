@@ -29,7 +29,7 @@ Test Setup          Common.Begin Browser Test
 Test Teardown       Common.End Browser Test
 
 *** Variables ***
-@{CUSTLISTJSON}
+#@{CUSTLISTJSON}
 
 *** Test Cases ***
 #Template will run the same keyword multiple times, with the paremeters passed through.
@@ -43,13 +43,13 @@ Login Using Templating - Robot
 #Easiest form of using data from a file within Robot framework. Variables can be treated
 #the same as if they were in this file.
 Login As Users From Robot Datafile
-  Modified Login Test                   ${loginUrlRob}  ${CUSTLISTROB}
+  Modified Login Test  ${loginUrlRob}  ${CUSTLISTROB}
 
 #Use data from a JSON datafile. This test case uses string manipulation and lists to accomplish
 #the parsing of the json file, but there are better ways to do this.
 Login As Users From JSON Datafile
   [Tags]                      json
-  ${CUSTLISTJSON}=            Get JSON in Robot   Examples/Web/Resources/DataFile.json
+  @{CUSTLISTJSON}=            Get JSON in Robot   Examples/Web/Resources/DataFile.json
   Go To                       ${loginUrlRob}
   Wait Until Page Contains    Customer Login
   FOR                         ${item}  IN  @{CUSTLISTJSON} 
@@ -162,14 +162,14 @@ Template Login Test
   Wait Until Page Contains    Customer Login
   Input Text                  ${loginEmailField}  ${custDict.email}
   Input Text                  ${loginPassField}   ${custDict.password}
-  Sleep                     2s
-  Click Button              Sign In
+  Sleep                       2s
+  Click Button                Sign In
 
 #This keyword uses Csv.py library. This is a good example on how to create our own python libraries
 Get CSV Data
-    [Arguments]  ${FilePath}
-    ${Data} =  read csv file  ${FilePath}
-    [Return]  ${Data}
+  [Arguments]  ${FilePath}
+  ${Data}=     read csv file  ${FilePath}
+  [Return]     ${Data}
 
 #This is a better way to read and parse json files. Using Python, we do not need to convert
 #or split into lists, we can already use it as a dictionary since that is the way we accept
