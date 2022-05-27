@@ -46,7 +46,7 @@ Login As Users From Robot Datafile
 #the parsing of the json file, but there are better ways to do this.
 Login As Users From JSON Datafile
   [Tags]                      json
-  @{CUSTLISTJSON}=            Get JSON in Robot   Examples/Web/Resources/DataFile.json
+  @{CUSTLISTJSON}=            Get JSON in Robot Using String Manipulation   Examples/Web/Resources/DataFile.json
   Go To                       ${loginUrlRob}
   Wait Until Page Contains    Customer Login
   FOR                         ${item}  IN  @{CUSTLISTJSON} 
@@ -75,15 +75,15 @@ Login As Users From CSV Datafile
   END
 
 #Better way to extract data from json datafile.
-Show Parse of JSON Using Python
+Show Parse of JSON Using Robot Collections Library to Results File
   [Tags]                       json
-  ${CUSTLISTJSON}=             Get JSON in Robot   Examples/Web/Resources/DataFile.json
+  ${CUSTLISTJSON}=             Get JSON in Robot Using String Manipulation   Examples/Web/Resources/DataFile.json
   Go To                        ${loginUrlRob} 
   Wait Until Page Contains     Customer Login
-  Parse JSON File With Python  Examples/Web/Resources/DataFile.json
+  Parse JSON File With Robot  Examples/Web/Resources/DataFile.json
 
 *** Keywords ***    
-Get JSON in Robot 
+Get JSON in Robot Using String Manipulation 
     [Arguments]            ${file_path}
     ${data_as_string} =    Get File                    ${file_path}
     Log                    ${data_as_string}
@@ -171,13 +171,13 @@ Get CSV Data
 #This is a better way to read and parse json files. Using Python, we do not need to convert
 #or split into lists, we can already use it as a dictionary since that is the way we accept
 #it from the json datafile. Output can be seen in results file.
-Parse JSON File With Python
+Parse JSON File With Robot
     [Arguments]            ${file_path}
     ${data_as_string} =    Get File                    ${file_path}
     Log                    ${data_as_string}
-    ${data_as_json}        evaluate                    json.loads('''${data_as_string}''')   json
+    ${data_as_json}        Evaluate                    json.loads('''${data_as_string}''')   json
     Log                    ${data_as_json}
-    &{data_as_json_dict}   convert to dictionary       ${data_as_json}
+    &{data_as_json_dict}   Convert To Dictionary       ${data_as_json}
     log many               &{data_as_json_dict}
     @{dictPop} =           Pop From Dictionary         ${data_as_json_dict}                  Customers
     FOR                    ${customer}                 IN                                    @{dictPop}
