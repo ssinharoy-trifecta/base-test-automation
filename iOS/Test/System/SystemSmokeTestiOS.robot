@@ -5,6 +5,7 @@ Library    BuiltIn
 
 Resource   ../../Resources/Feature/AccountMgmtResourcesiOS.robot
 Resource   ../../Resources/Feature/AuthenticationResourcesiOS.robot
+Resource   ../../Resources/Feature/FitnessResourcesiOS.robot
 Resource   ../../Resources/Feature/NutritionResourcesiOS.robot
 Resource   ../../Resources/Feature/OnboardingResourcesiOS.robot
 Resource   ../../Resources/Feature/ShopWooResourcesiOS.robot
@@ -89,6 +90,12 @@ Sign In - Existing User
     OnboardingResourcesiOS.Check Data Alert iOS
     AuthenticationResourcesiOS.Sign In As Existing User iOS
     OnboardingResourcesiOS.Check Notifications Alert iOS
+
+# Review Workout Library UI
+#     Review Workout Library UI iOS
+
+# Review Movements Library UI
+#     Review Movements Library UI iOS
 
 # Shop Dashboard UI And Details
 #     ShopWooResourcesiOS.Open Shop iOS

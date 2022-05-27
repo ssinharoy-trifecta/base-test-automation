@@ -18,8 +18,20 @@ Resource   ../../../Common/Resources/CommonApps.robot
 Launch Aplication On Emulator
     Launch iOS Application On Emulator
 
-Review Workout Library UI
-    Review Workout Library UI iOS
+# Review Workout Library UI
+#     Review Workout Library UI iOS
 
-Review Movements Library UI
-    Review Movements Library UI iOS
+# Review Movements Library UI
+#     Review Movements Library UI iOS
+
+# Review Workout Details
+#     Review Workout Details iOS
+
+# Save to Workout Library
+#     Save to Workout Library iOS
+
+# Review Fitness Tools UI
+#     Review Fitness Tools UI iOS
+
+Add New Workout For Time
+    Add New Workout For Time iOS
