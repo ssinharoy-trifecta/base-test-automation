@@ -47,21 +47,4 @@ Test 1.2 Non-Logged In User Must Be Able To Create Account From Checkout
   [Tags]                              Smoke   Luma    testcaseid=16784
   #Begin Maximize Browser Test
   CustomerController.Go To Checkout With A Valid Cart    ${customerInfo}
-
-Test Customer Can Create Account And Logout
-  [Documentation]
-  ...   Customer can create a new account successfully. Uses TRI Theme.
-  [Tags]                  Auth    TRI   Smoke
-  # Generate a new user and eMail account for the test case it not passed in
-  ${customerInfo}=        Create A New Account    ${customerInfo}
-  CustomerController.Logout From My Account
-  # Log back in as the newly created user
-  CustomerController.Login                   ${customerInfo}
-  CustomerController.Logout From My Account
-
-Test Customer Can Login
-  [Documentation]
-  ...   Customer can login as a previously created user.  Can be overridden 
-  ...   at the CommandLine. Uses TRI Theme.
-  [Tags]    Auth    TRI   Smoke
-  CustomerController.Login     ${customerInfo}
+  
