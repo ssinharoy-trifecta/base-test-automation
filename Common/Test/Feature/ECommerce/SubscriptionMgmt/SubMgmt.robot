@@ -41,9 +41,10 @@ ${password}               tester123!
 ...                       password=${password}
 
 *** Test Cases ***
-Test 1.2 Non-Logged In User Must Be Able To Create Account From Checkout
+Test 1.2 Non-Logged In User Can Create Account From Checkout
   [Documentation]
+  ...   TestRail case name: "1.2 Non-Logged In User Must Be Able To Create Account
+  ...       From Checkout"
   ...   Customer can add items to cart and proceed to checkout. Uses Luma Theme.
-  [Tags]                              Smoke   Luma    testcaseid=16784
-  #Begin Maximize Browser Test
+  [Tags]    Smoke   Luma  testcaseid=16784  1.2
   CustomerController.Go To Checkout With A Valid Cart    ${customerInfo}

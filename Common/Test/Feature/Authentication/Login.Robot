@@ -23,21 +23,25 @@ ${password}               tester123!
 ...                       password=${password}
 
 *** Test Cases ***
-1.1 - Non logged in customers must be able to register and create a new account from the My Account link in the header
+Test 1.1 - User can register for a new account from the My Account link 
   [Documentation]
+  ...   TestRail case name: "1.1 - Non logged in customers must be able to register  
+  ...       and create a newaccount from the My Account link in the header"
   ...   Customer can create a new account successfully. Uses TRI Theme.
   ...   This will generate a new eMail if it's not passed in at the command line
-  [Tags]                  Auth    TRI   Smoke   testcaseid=16873
-  ${customerInfo}=        CustomerController.Create A New Account    ${customerInfo}
+  [Tags]                      Auth  TRI   Smoke   testcaseid=16873  1.1
+  ${customerInfo}=            CustomerController.Create A New Account    ${customerInfo}
   CustomerController.Logout From My Account
-  CustomerController.Login                   ${customerInfo}
+  CustomerController.Login    ${customerInfo}
   CustomerController.Logout From My Account
 
-1.12 - Customers must be able to login to their account with email and password credentials
+Test 1.12 - Customers can login to their account with email and password 
   [Documentation]
+  ...   TestRail Case Name: "1.12 - Customers must be able to login to their account 
+  ...       with email and password credentials"
   ...   Customer can login as a previously created user.  Can be overridden 
   ...   at the CommandLine. Uses TRI Theme.
-  [Tags]    Auth    TRI   Smoke   testcaseid=16794
+  [Tags]                       Auth   TRI  Smoke  testcaseid=16794  1.12
   CustomerController.Login     ${customerInfo}
   CustomerController.Logout From My Account
 
