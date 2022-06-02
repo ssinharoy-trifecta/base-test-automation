@@ -69,6 +69,7 @@ ${legsBtnMoveFitnessiOS}           xpath=//XCUIElementTypeButton[@name="Legs"]
 ${allBtnMoveFitnessiOS}            xpath=//XCUIElementTypeButton[@name="All"]
 ${airAssaultBikeMoveFitnessiOS}    xpath=//XCUIElementTypeStaticText[@name="Air Assault Bike"]
 ${airSquatMoveFitnessiOS}          xpath=//XCUIElementTypeStaticText[@name="Air Squat"]
+${exitMoveVideoBtnFitnessiOS}      xpath=//XCUIElementTypeButton[@name="videoExitButton"]
 
 #TIMERS
 ${timersTxtFitnessiOS}        xpath=//XCUIElementTypeStaticText[@name="TIMERS"]
@@ -107,24 +108,6 @@ Review Workout Library UI iOS
     FOR                                          ${item}     IN     @{list}
         Wait Until Element Is Visible            ${item}
     END
-    Capture Page Screenshot
-    Close Fitness Tab iOS
-
-Review Movements Library UI iOS
-    Open Fitness Tab iOS
-    Wait Until Visible And Click Element Apps    ${movementsTabFitnessiOS}
-    @{list}=    Create List                      ${armsMoveBtnFitnessiOS} 
-    ...                                          ${backMoveBtnFitnessiOS}
-    ...                                          ${chestMoveBtnFitnessiOS}
-    ...                                          ${coreBtnMoveFitnessiOS}
-    ...                                          ${legsBtnMoveFitnessiOS}
-    ...                                          ${allBtnMoveFitnessiOS} 
-    FOR                                          ${item}     IN     @{list}
-        Wait Until Element Is Visible            ${item}    timeout=30
-    END
-    Click Element                                ${allBtnMoveFitnessiOS}
-    Wait Until Element Is Visible                ${airAssaultBikeMoveFitnessiOS}
-    Wait Until Element Is Visible                ${airSquatMoveFitnessiOS}
     Capture Page Screenshot
     Close Fitness Tab iOS
 
@@ -175,4 +158,35 @@ Launch And Validate Timer iOS
     Sleep                                            3
     Capture Page Screenshot
     Wait Until Visible And Click Element Apps        ${exitTimerBtnFitnessiOS}
+    Close Fitness Tab iOS
+
+Review Movements Library UI iOS
+    Open Fitness Tab iOS
+    Wait Until Visible And Click Element Apps    ${movementsTabFitnessiOS}
+    @{list}=    Create List                      ${armsMoveBtnFitnessiOS} 
+    ...                                          ${backMoveBtnFitnessiOS}
+    ...                                          ${chestMoveBtnFitnessiOS}
+    ...                                          ${coreBtnMoveFitnessiOS}
+    ...                                          ${legsBtnMoveFitnessiOS}
+    ...                                          ${allBtnMoveFitnessiOS} 
+    FOR                                          ${item}     IN     @{list}
+        Wait Until Element Is Visible            ${item}
+    END
+    Click Element                                ${allBtnMoveFitnessiOS}
+    Wait Until Element Is Visible                ${airAssaultBikeMoveFitnessiOS}
+    Wait Until Element Is Visible                ${airSquatMoveFitnessiOS}
+    Capture Page Screenshot
+    Close Fitness Tab iOS
+
+Validate Movement Video Content iOS
+    Open Fitness Tab iOS
+    @{list}=    Create List                         ${movementsTabFitnessiOS} 
+    ...                                             ${allBtnMoveFitnessiOS}
+    ...                                             ${airAssaultBikeMoveFitnessiOS}
+    FOR                                             ${item}     IN     @{list}
+        Wait Until Visible And Click Element Apps   ${item}
+    END
+    Sleep                                           3
+    Capture Page Screenshot
+    Wait Until Visible And Click Element Apps       ${exitMoveVideoBtnFitnessiOS}
     Close Fitness Tab iOS

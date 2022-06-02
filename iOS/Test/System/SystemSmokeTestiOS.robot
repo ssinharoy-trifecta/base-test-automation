@@ -118,6 +118,9 @@ Add New Workout For Time
 Review Movements Library UI
     FitnessResourcesiOS.Review Movements Library UI iOS
 
+Validate Movement Video Content
+    FitnessResourcesiOS.Validate Movement Video Content iOS
+
 # Shop Dashboard UI And Details
 #     ShopWooResourcesiOS.Open Shop iOS
 #     ShopWooResourcesiOS.Validate Dashboard UI And Details iOS
