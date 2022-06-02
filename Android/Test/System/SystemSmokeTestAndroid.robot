@@ -106,14 +106,14 @@ Log Out From My Account
 Sign In - Existing User
     AuthenticationResourcesAndroid.Sign In As Existing User Android
 
-# Add New Workout For Time
-#     FitnessResourcesAndroid.Add New Workout For Time Android
+Add New Workout For Time
+    FitnessResourcesAndroid.Add New Workout For Time Android
 
 Review Movements Library UI
     FitnessResourcesAndroid.Review Movements Library UI Android
 
-# Validate Movement Video Content
-#     FitnessResourcesAndroid.Validate Movement Video Content Android
+Validate Movement Video Content
+    FitnessResourcesAndroid.Validate Movement Video Content Android
 
 # Shop Dashboard UI And Details
 #     ShopWooResourcesAndroid.Open Shop Android
