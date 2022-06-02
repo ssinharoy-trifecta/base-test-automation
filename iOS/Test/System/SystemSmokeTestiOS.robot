@@ -83,6 +83,27 @@ Review Your California Privacy Rights
 Review Do Not Sell My Information
     AccountMgmtResourcesiOS.Review Info WebView iOS    ${doNotSellMyPersonalInformationBtniOS}    ${doNotSellMyInformationBodyTxtiOS}
 
+Review Workout Details
+    FitnessResourcesiOS.Review Workout Details iOS
+
+Save to Workout Library
+    FitnessResourcesiOS.Save to Workout Library iOS
+
+Review Workout Library UI
+    FitnessResourcesiOS.Review Workout Library UI iOS
+
+Review Stopwatch UI
+    FitnessResourcesiOS.Launch And Validate Timer iOS    ${stopwatchBtnFitnessiOS}
+
+Review Countdown UI
+    FitnessResourcesiOS.Launch And Validate Timer iOS    ${countdownBtnFitnessiOS}
+
+Review Interval UI
+    FitnessResourcesiOS.Launch And Validate Timer iOS    ${intervalBtnFitnessiOS}
+
+Review Tabata UI
+    FitnessResourcesiOS.Launch And Validate Timer iOS    ${tabataBtnFitnessiOS}
+
 Log Out
     AccountMgmtResourcesiOS.Log Out iOS
 
@@ -91,11 +112,11 @@ Sign In - Existing User
     AuthenticationResourcesiOS.Sign In As Existing User iOS
     OnboardingResourcesiOS.Check Notifications Alert iOS
 
-# Review Workout Library UI
-#     Review Workout Library UI iOS
+Add New Workout For Time
+    FitnessResourcesiOS.Add New Workout For Time iOS
 
-# Review Movements Library UI
-#     Review Movements Library UI iOS
+Review Movements Library UI
+    FitnessResourcesiOS.Review Movements Library UI iOS
 
 # Shop Dashboard UI And Details
 #     ShopWooResourcesiOS.Open Shop iOS

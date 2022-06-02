@@ -60,7 +60,6 @@ ${wodResultFieldFitnessiOS}    xpath=//XCUIElementTypeApplication[@name="TriDebu
 ${saveWodBtnFitnessiOS}        xpath=//XCUIElementTypeButton[@name="saveButton"]
 ${closeWodLogFitnessiOS}       xpath=//XCUIElementTypeNavigationBar[@name="WodLogFrontView"]/XCUIElementTypeButton[1]
 
-
 #MOVEMENTS
 ${armsMoveBtnFitnessiOS}           xpath=//XCUIElementTypeButton[@name="Arms"]
 ${backMoveBtnFitnessiOS}           xpath=//XCUIElementTypeButton[@name="Back"]
@@ -70,6 +69,17 @@ ${legsBtnMoveFitnessiOS}           xpath=//XCUIElementTypeButton[@name="Legs"]
 ${allBtnMoveFitnessiOS}            xpath=//XCUIElementTypeButton[@name="All"]
 ${airAssaultBikeMoveFitnessiOS}    xpath=//XCUIElementTypeStaticText[@name="Air Assault Bike"]
 ${airSquatMoveFitnessiOS}          xpath=//XCUIElementTypeStaticText[@name="Air Squat"]
+
+#TIMERS
+${timersTxtFitnessiOS}        xpath=//XCUIElementTypeStaticText[@name="TIMERS"]
+${stopwatchBtnFitnessiOS}     xpath=//XCUIElementTypeStaticText[@name="STOPWATCH / FOR TIME"]
+${countdownBtnFitnessiOS}     xpath=//XCUIElementTypeStaticText[@name="COUNTDOWN / AMRAP"]
+${intervalBtnFitnessiOS}      xpath=//XCUIElementTypeStaticText[@name="INTERVAL / EMOM"]
+${tabataBtnFitnessiOS}        xpath=//XCUIElementTypeStaticText[@name="TABATA"]
+${cancelTimersFitnessiOS}     xpath=//XCUIElementTypeStaticText[@name="Cancel"]
+${startBtnFitnessiOS}         xpath=//XCUIElementTypeStaticText[@name="START"]
+${startTimerBtnFitnessiOS}    xpath=//XCUIElementTypeButton[@name="startTimerButton"]
+${exitTimerBtnFitnessiOS}     xpath=//XCUIElementTypeButton[@name="exitViewButton"]
 
 *** Keywords ***
 
@@ -92,15 +102,12 @@ Review Workout Library UI iOS
     ...                                          ${viewWorkoutBtnFitnessiOS}
     ...                                          ${toolsTxtFitnessiOS}
     ...                                          ${fitnessTimersBtnFitnessiOS}
+    ...                                          ${workoutLogBtnFitnessiOS}
     ...                                          ${recentWorkoutsTxtFitnessiOS} 
     FOR                                          ${item}     IN     @{list}
         Wait Until Element Is Visible            ${item}
     END
-    Scroll                                       ${recentWorkoutsTxtFitnessiOS}    ${todaysWorkoutTxtFitnessiOS}
-    Scroll                                       ${topRecentWorkoutFitnessiOS}    ${followingRecentWorkoutFitnessiOS}
-    Scroll                                       ${topRecentWorkoutFitnessiOS}    ${followingRecentWorkoutFitnessiOS}
-    Wait Until Visible And Click Element Apps    ${viewMoreBtnFitnessiOS}
-    Wait Until Element Is Visible                ${followingRecentWorkoutFitnessiOS}
+    Capture Page Screenshot
     Close Fitness Tab iOS
 
 Review Movements Library UI iOS
@@ -118,17 +125,15 @@ Review Movements Library UI iOS
     Click Element                                ${allBtnMoveFitnessiOS}
     Wait Until Element Is Visible                ${airAssaultBikeMoveFitnessiOS}
     Wait Until Element Is Visible                ${airSquatMoveFitnessiOS}
+    Capture Page Screenshot
     Close Fitness Tab iOS
 
 Review Workout Details iOS
     Open Fitness Tab iOS
     Wait Until Visible And Click Element Apps    ${viewWorkoutBtnFitnessiOS}
-    @{list}=    Create List                      ${workoutMenuFitnessiOS}
-    ...                                          ${warmUpTxtFitnessiOS}
-    ...                                          ${strengthTxtFitnessiOS}
-    FOR                                          ${item}     IN     @{list}
-        Wait Until Element Is Visible            ${item}    timeout=30
-    END
+    Wait Until Element Is Visible                ${workoutMenuFitnessiOS}
+    Wait Until Element Is Visible                ${warmUpTxtFitnessiOS}
+    Capture Page Screenshot
     Wait Until Visible And Click Element Apps    ${backButtonWorkoutsFitnessiOS}
     Close Fitness Tab iOS
 
@@ -151,6 +156,23 @@ Add New Workout For Time iOS
     Input Text                                   ${wodNameFieldFitnessiOS}    Plank
     Wait Until Element Is Visible                ${wodResultFieldFitnessiOS}
     Input Text                                   ${wodResultFieldFitnessiOS}    03:00
+    Capture Page Screenshot
     Wait Until Visible And Click Element Apps    ${saveWodBtnFitnessiOS}
     Wait Until Visible And Click Element Apps    ${closeWodLogFitnessiOS}
+    Capture Page Screenshot
+    Close Fitness Tab iOS
+
+Launch And Validate Timer iOS
+    [Arguments]                                      ${timerType}
+    Open Fitness Tab iOS
+    @{list}=    Create List                          ${fitnessTimersBtnFitnessiOS}
+    ...                                              ${timerType}
+    ...                                              ${startBtnFitnessiOS}
+    ...                                              ${startTimerBtnFitnessiOS}
+    FOR                                              ${item}     IN     @{list}
+        Wait Until Visible And Click Element Apps    ${item}
+    END
+    Sleep                                            3
+    Capture Page Screenshot
+    Wait Until Visible And Click Element Apps        ${exitTimerBtnFitnessiOS}
     Close Fitness Tab iOS
