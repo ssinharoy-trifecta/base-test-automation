@@ -29,7 +29,7 @@ ${warmUpTxtFitnessAndroid}             id=com.n_ix.pocket_wod:id/titleView
 ${addWodBtnFitnessAndroid}         id=com.n_ix.pocket_wod:id/fab
 ${wodNameFieldFitnessAndroid}      id=com.n_ix.pocket_wod:id/nameInput
 ${wodTypeFieldFitnessAndroid}      id=com.n_ix.pocket_wod:id/typeInput
-${dobeWodTypeBtnFitnessAndroid}    id=com.n_ix.pocket_wod:id/startButton
+${doneWodTypeBtnFitnessAndroid}    id=com.n_ix.pocket_wod:id/startButton
 ${wodResultFieldFitnessAndroid}    id=com.n_ix.pocket_wod:id/resultInput
 ${saveWodBtnFitnessAndroid}        id=com.n_ix.pocket_wod:id/toolbar_back_frame
 
@@ -96,7 +96,7 @@ Add New Workout For Time Android
     Wait Until Element Is Visible                ${wodNameFieldFitnessAndroid}
     Input Text                                   ${wodNameFieldFitnessAndroid}    Plank
     Wait Until Visible And Click Element Apps    ${wodTypeFieldFitnessAndroid}
-    Wait Until Visible And Click Element Apps    ${dobeWodTypeBtnFitnessAndroid}
+    Wait Until Visible And Click Element Apps    ${doneWodTypeBtnFitnessAndroid}
     Wait Until Element Is Visible                ${wodResultFieldFitnessAndroid}
     Input Text                                   ${wodResultFieldFitnessAndroid}    03:00
     Capture Page Screenshot
