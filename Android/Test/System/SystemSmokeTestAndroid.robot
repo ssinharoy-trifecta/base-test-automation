@@ -5,6 +5,7 @@ Library    BuiltIn
 
 Resource   ../../Resources/Feature/AccountMgmtResourcesAndroid.robot
 Resource   ../../Resources/Feature/AuthenticationResourcesAndroid.robot
+Resource   ../../Resources/Feature/FitnessResourcesAndroid.robot
 Resource   ../../Resources/Feature/NutritionResourcesAndroid.robot
 Resource   ../../Resources/Feature/OnboardingResourcesAndroid.robot
 Resource   ../../Resources/Feature/ShopWooResourcesAndroid.robot
@@ -78,11 +79,41 @@ Review Your California Privacy Rights
 Review Do Not Sell My Information
     AccountMgmtResourcesAndroid.Review Info WebView Android    Do not sell my personal information
 
+Review Workout Details
+    FitnessResourcesAndroid.Review Workout Details Android
+
+Save to Workout Library
+    FitnessResourcesAndroid.Save to Workout Library Android
+
+Review Workout Library UI
+    FitnessResourcesAndroid.Review Workout Library UI Android
+
+Review Stopwatch UI
+    FitnessResourcesAndroid.Launch And Validate Timer Android    STOPWATCH
+
+Review Countdown UI
+    FitnessResourcesAndroid.Launch And Validate Timer Android    COUNTDOWN
+
+Review Interval UI
+   FitnessResourcesAndroid.Launch And Validate Timer Android    INTERVAL
+
+Review Tabata UI
+    FitnessResourcesAndroid.Launch And Validate Timer Android    TABATA
+
 Log Out From My Account
     AccountMgmtResourcesAndroid.Log Out Android
 
 Sign In - Existing User
     AuthenticationResourcesAndroid.Sign In As Existing User Android
+
+# Add New Workout For Time
+#     FitnessResourcesAndroid.Add New Workout For Time Android
+
+Review Movements Library UI
+    FitnessResourcesAndroid.Review Movements Library UI Android
+
+# Validate Movement Video Content
+#     FitnessResourcesAndroid.Validate Movement Video Content Android
 
 # Shop Dashboard UI And Details
 #     ShopWooResourcesAndroid.Open Shop Android

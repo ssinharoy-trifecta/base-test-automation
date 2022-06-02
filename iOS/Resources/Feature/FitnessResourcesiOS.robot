@@ -8,7 +8,6 @@ Library    BuiltIn
 #MAIN FITNESS SCREEN
 ${fitnessBtniOS}                         xpath=//XCUIElementTypeButton[@name="Fitness"]
 ${yourFitnessNavigationBarFitnessiOS}    xpath=//XCUIElementTypeNavigationBar[@name="Your fitness"]
-${mainMenuBtnFitnessiOS}                 xpath=//XCUIElementTypeButton[@name="ic side menu"]
 ${favouritesBtnFitnessiOS}               xpath=//XCUIElementTypeButton[@name="ic favourite filled"]
 ${searchBarFitnessiOS}                   xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow
 ...                                      /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
@@ -23,19 +22,6 @@ ${fitnessTimersBtnFitnessiOS}            xpath=//XCUIElementTypeStaticText[@name
 ${workoutLogBtnFitnessiOS}               xpath=//XCUIElementTypeStaticText[@name="Workout log"]
 ${movementLogBtnFitnessiOS}              xpath=//XCUIElementTypeStaticText[@name="Movement log"]
 ${recentWorkoutsTxtFitnessiOS}           xpath=//XCUIElementTypeStaticText[@name="Recent workouts"]
-${topRecentWorkoutFitnessiOS}            xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow
-...                                      /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
-...                                      /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
-...                                      /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]
-...                                      /XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[2]
-...                                      /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
-${followingRecentWorkoutFitnessiOS}      xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow
-...                                      /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
-...                                      /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
-...                                      /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]
-...                                      /XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]
-...                                      /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
-${viewMoreBtnFitnessiOS}                 //XCUIElementTypeButton[@name="View more"]
 
 #WORKOUTS
 ${backButtonWorkoutsFitnessiOS}    xpath=//XCUIElementTypeNavigationBar/XCUIElementTypeButton[1]
@@ -94,7 +80,6 @@ Review Workout Library UI iOS
     Open Fitness Tab iOS
     @{list}=    Create List                      ${mainMenuBtnFitnessiOS}   
     ...                                          ${yourFitnessNavigationBarFitnessiOS}
-    ...                                          ${mainMenuBtnFitnessiOS}
     ...                                          ${favouritesBtnFitnessiOS}
     ...                                          ${searchBarFitnessiOS}
     ...                                          ${workoutsTabFitnessiOS}
@@ -146,10 +131,10 @@ Add New Workout For Time iOS
     Close Fitness Tab iOS
 
 Launch And Validate Timer iOS
-    [Arguments]                                      ${timerType}
+    [Arguments]                                      ${timerVariable}
     Open Fitness Tab iOS
     @{list}=    Create List                          ${fitnessTimersBtnFitnessiOS}
-    ...                                              ${timerType}
+    ...                                              ${timerVariable}
     ...                                              ${startBtnFitnessiOS}
     ...                                              ${startTimerBtnFitnessiOS}
     FOR                                              ${item}     IN     @{list}
