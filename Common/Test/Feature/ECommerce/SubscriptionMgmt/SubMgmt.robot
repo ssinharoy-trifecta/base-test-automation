@@ -47,4 +47,3 @@ Test 1.2 Non-Logged In User Must Be Able To Create Account From Checkout
   [Tags]                              Smoke   Luma    testcaseid=16784
   #Begin Maximize Browser Test
   CustomerController.Go To Checkout With A Valid Cart    ${customerInfo}
-  
