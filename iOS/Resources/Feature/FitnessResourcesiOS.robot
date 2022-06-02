@@ -78,8 +78,7 @@ Close Fitness Tab iOS
 
 Review Workout Library UI iOS
     Open Fitness Tab iOS
-    @{list}=    Create List                      ${mainMenuBtnFitnessiOS}   
-    ...                                          ${yourFitnessNavigationBarFitnessiOS}
+    @{list}=    Create List                      ${yourFitnessNavigationBarFitnessiOS}
     ...                                          ${favouritesBtnFitnessiOS}
     ...                                          ${searchBarFitnessiOS}
     ...                                          ${workoutsTabFitnessiOS}
