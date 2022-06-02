@@ -1,5 +1,5 @@
 *** Settings ***
-Library                     SeleniumLibrary
+Library             SeleniumLibrary
 Resource            ../../../Resources/Common.robot
 Resource            ../../../Resources/CustomerController.robot
 Suite Setup         Common.Begin Suite Test
@@ -11,7 +11,7 @@ Test Setup          Common.Begin Browser Test
 Test Teardown       Common.End Browser Test
 
 *** Variables ***
-${testCaseEmail}          selenium+03-15-22.12.47.04.1647373624@trifectanutrition.com
+${testCaseEmail}          selenium+default@trifectanutrition.com
 ${firstName}              Elden
 ${lastName}               Ring
 ${password}               tester123!
