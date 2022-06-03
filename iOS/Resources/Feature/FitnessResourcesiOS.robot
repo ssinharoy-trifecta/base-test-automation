@@ -30,6 +30,12 @@ ${warmUpTxtFitnessiOS}             xpath=//XCUIElementTypeStaticText[@name="WARM
 ${strengthTxtFitnessiOS}           xpath=//XCUIElementTypeStaticText[@name="STRENGTH"]
 ${saveWorkoutFitnessiOS}           xpath=//XCUIElementTypeStaticText[@name="Save to my workout library"]
 ${closeWorkoutMenuiOS}             xpath=//XCUIElementTypeButton[@name="ic workoutsMenu close"][2]
+${starredWorkoutFitnessiOS}        xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow
+...                                /XCUIElementTypeOther/XCUIElementTypeOther
+...                                /XCUIElementTypeOther/XCUIElementTypeOther
+...                                /XCUIElementTypeOther/XCUIElementTypeOther
+...                                /XCUIElementTypeCollectionView/XCUIElementTypeCell[1]
+...                                /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
 
 #WORKOUT LOG
 ${addWodBtnFitnessiOS}         xpath=//XCUIElementTypeButton[@name="wodLogAddButton"]
@@ -78,19 +84,19 @@ Close Fitness Tab iOS
 
 Review Workout Library UI iOS
     Open Fitness Tab iOS
+    Wait Until Element Is Visible                ${viewWorkoutBtnFitnessiOS}
     @{list}=    Create List                      ${yourFitnessNavigationBarFitnessiOS}
     ...                                          ${favouritesBtnFitnessiOS}
     ...                                          ${searchBarFitnessiOS}
     ...                                          ${workoutsTabFitnessiOS}
     ...                                          ${movementsTabFitnessiOS}
     ...                                          ${todaysWorkoutTxtFitnessiOS}
-    ...                                          ${viewWorkoutBtnFitnessiOS}
     ...                                          ${toolsTxtFitnessiOS}
     ...                                          ${fitnessTimersBtnFitnessiOS}
     ...                                          ${workoutLogBtnFitnessiOS}
     ...                                          ${recentWorkoutsTxtFitnessiOS} 
     FOR                                          ${item}     IN     @{list}
-        Wait Until Element Is Visible            ${item}
+        Element Should Be Visible                ${item}
     END
     Capture Page Screenshot
     Close Fitness Tab iOS
@@ -109,9 +115,15 @@ Save to Workout Library iOS
     @{list}=    Create List                          ${viewWorkoutBtnFitnessiOS}
     ...                                              ${workoutMenuFitnessiOS}
     ...                                              ${saveWorkoutFitnessiOS}
+    ...                                              ${backButtonWorkoutsFitnessiOS}
+    ...                                              ${favouritesBtnFitnessiOS}
+    ...                                              ${starredWorkoutFitnessiOS}
     FOR                                              ${item}     IN     @{list}
         Wait Until Visible And Click Element Apps    ${item}
     END
+    Wait Until Element Is Visible                    ${workoutMenuFitnessiOS}
+    Wait Until Element Is Visible                    ${warmUpTxtFitnessiOS}
+    Wait Until Visible And Click Element Apps        ${backButtonWorkoutsFitnessiOS}
     Wait Until Visible And Click Element Apps        ${backButtonWorkoutsFitnessiOS}
     Close Fitness Tab iOS
 

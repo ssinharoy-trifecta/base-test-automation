@@ -18,3 +18,6 @@ Resource   ../../../Common/Resources/CommonApps.robot
 
 Launch Application
     Launch Android Application On Emulator
+
+Sign In As Existing User
+    Sign In As Existing User Android

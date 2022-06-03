@@ -24,7 +24,13 @@ ${recentWorkoutsTxtFitnessAndroid}           id=com.n_ix.pocket_wod:id/recentWor
 ${backButtonWorkoutsFitnessAndroid}    //android.widget.ImageButton[@content-desc="Navigate up"]
 ${saveWorkoutFitnessAndroid}           id=com.n_ix.pocket_wod:id/savedWorkoutsButton
 ${warmUpTxtFitnessAndroid}             id=com.n_ix.pocket_wod:id/titleView
-
+${starredWorkoutFitnessAndroid}        xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout
+...                                    /android.widget.FrameLayout/android.widget.LinearLayout
+...                                    /android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout
+...                                    /android.widget.FrameLayout/android.view.ViewGroup
+...                                    /android.widget.FrameLayout[1]/android.widget.LinearLayout
+...                                    /androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[1]
+...                                    /android.view.ViewGroup/android.widget.ImageView
 #WORKOUT LOG
 ${addWodBtnFitnessAndroid}         id=com.n_ix.pocket_wod:id/fab
 ${wodNameFieldFitnessAndroid}      id=com.n_ix.pocket_wod:id/nameInput
@@ -54,19 +60,19 @@ Close Fitness Tab Android
 
 Review Workout Library UI Android
     Open Fitness Tab Android
+    Wait Until Element Is Visible                ${viewWorkoutBtnFitnessAndroid}
     @{list}=    Create List                      ${yourFitnessNavigationBarFitnessAndroid}
     ...                                          ${favouritesBtnFitnessAndroid}
     ...                                          ${searchBarFitnessAndroid}
     ...                                          ${workoutsTabFitnessAndroid}
     ...                                          ${movementsTabFitnessAndroid}
     ...                                          ${todaysWorkoutTxtFitnessAndroid}
-    ...                                          ${viewWorkoutBtnFitnessAndroid}
     ...                                          ${toolsTxtFitnessAndroid}
     ...                                          ${fitnessTimersBtnFitnessAndroid}
     ...                                          ${workoutLogBtnFitnessAndroid}
     ...                                          ${recentWorkoutsTxtFitnessAndroid} 
     FOR                                          ${item}     IN     @{list}
-        Wait Until Element Is Visible            ${item}
+        Element Should Be Visible                ${item}
     END
     Capture Page Screenshot
     Close Fitness Tab Android
