@@ -17,7 +17,3 @@ Resource   ../../../Common/Resources/CommonApps.robot
 
 Launch Aplication On Emulator
     Launch iOS Application On Emulator
-
-Review Workout Library UI
-    Review Workout Library UI iOS
-    
