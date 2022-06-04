@@ -117,5 +117,5 @@ Validate Movement Video Content
 
 # Shop Dashboard UI And Details
 #     ShopWooResourcesAndroid.Open Shop Android
-#     ShopWooResourcesAndroid.Validadate Dashboard UI And Details Android
+#     ShopWooResourcesAndroid.Validate Dashboard UI And Details Android
 #     ShopWooResourcesAndroid.Close Shop Android

@@ -55,56 +55,47 @@ ${addToBreakfastBtnAndroid}           id=com.n_ix.pocket_wod:id/add_button
 *** Keywords ***
 
 Add Weight To The Weight Card Android
-    [Arguments]    ${userWeight}
-    Wait Until Element Is Visible    ${addWeightNutritionBtnAndroid}    timeout=20
-    Click Element                    ${addWeightNutritionBtnAndroid}
-    Wait Until Element Is Visible    ${weightFieldAndroid}    timeout=20
-    Click Element                    ${weightFieldAndroid}
-    Wait Until Element Is Visible    ${addWeightFieldAndroid}
-    Clear Text                       ${addWeightFieldAndroid}
-    Input Value                      ${addWeightFieldAndroid}    ${userWeight}
-    Click Element                    ${setWeightBtnAndroid}
-    Wait Until Element Is Visible    ${addWeightCardBtnAndroid}    timeout=20
-    Click Element                    ${addWeightCardBtnAndroid}
+    [Arguments]                                  ${userWeight}
+    Wait Until Visible And Click Element Apps    ${addWeightNutritionBtnAndroid}
+    Wait Until Visible And Click Element Apps    ${weightFieldAndroid}
+    Wait Until Element Is Visible                ${addWeightFieldAndroid}
+    Clear Text                                   ${addWeightFieldAndroid}
+    Input Value                                  ${addWeightFieldAndroid}    ${userWeight}
+    Click Element                                ${setWeightBtnAndroid}
+    Wait Until Visible And Click Element Apps    ${addWeightCardBtnAndroid}
 
 Add Water To The Water Card Android
-    Wait Until Element Is Visible   ${addWaterNutritionBtnAndroid}    timeout=20
+    Wait Until Element Is Visible   ${addWaterNutritionBtnAndroid}
     @{list}=    Create List         ${addWaterNutritionBtnAndroid}
     ...                             ${8ozWaterBtnAndroid}
     ...                             ${12ozWaterBtnAndroid}
     ...                             ${16ozWaterBtnAndroid}
     ...                             ${addWaterCardBtnAndroid}
-    FOR    ${item}    IN    @{list}
-        Click Element    ${item}
+    FOR                             ${item}    IN    @{list}
+        Click Element               ${item}
     END
 
 Log Food Android
-    [Arguments]    ${mealButton}    ${foodItem}
-    Wait Until Element Is Visible   ${mealButton}    timeout=20
-    Click Element                   ${mealButton}
-    Input Value                     ${foodSearchBarAndroid}    ${foodItem}
-    Sleep                           2
-    Wait Until Page Contains        ${foodItem}    timeout=10
-    Wait Until Element Is Visible   ${addFirstFoodItemBtnAndroid}
-    Click Element                   ${addFirstFoodItemBtnAndroid}
-    Wait Until Element Is Visible   ${doneAddingFoodBtnAndroid}
-    Click Element                   ${doneAddingFoodBtnAndroid}
-    Wait Until Page Contains        ${foodItem}    timeout=10
+    [Arguments]                                 ${mealButton}    ${foodItem}
+    Wait Until Visible And Click Element Apps   ${mealButton}
+    Input Value                                 ${foodSearchBarAndroid}    ${foodItem}
+    Sleep                                       2
+    Wait Until Page Contains                    ${foodItem}    timeout=10
+    Wait Until Visible And Click Element Apps   ${addFirstFoodItemBtnAndroid}
+    Wait Until Visible And Click Element Apps   ${doneAddingFoodBtnAndroid}
+    Wait Until Page Contains                    ${foodItem}    timeout=10
 
 Add Custom Food Android
-    [Arguments]    ${foodName}    ${brandName}    ${servingSize}    ${calories}
-    Wait Until Element Is Visible    ${breakfastBtnAndroid}    timeout=20
-    Click Element                    ${breakfastBtnAndroid}
-    Wait Until Element Is Visible    ${addCustomFoodBtnAndroid}    timeout=10
-    Click Element                    ${addCustomFoodBtnAndroid}
-    Wait Until Element Is Visible    ${customFoodNameFieldAndroid}    timeout=20
-    Input Value                      ${customFoodNameFieldAndroid}    ${foodName}
-    Wait Until Element Is Visible    ${customFoodBrandFieldAndroid}    timeout=20
-    Input Value                      ${customFoodBrandFieldAndroid}    ${brandName}
-    Wait Until Element Is Visible    ${customFoodServingSizeFieldAndroid}    timeout=20
-    Input Value                      ${customFoodServingSizeFieldAndroid}    ${servingSize}
-    Wait Until Element Is Visible    ${customFoodCaloriesFieldAndroid}    timeout=20
-    Input Value                      ${customFoodCaloriesFieldAndroid}    ${calories}
-    Wait Until Element Is Visible    ${addToBreakfastBtnAndroid}    timeout=20
-    Click Element                    ${addToBreakfastBtnAndroid}
-    Wait Until Page Contains         ${foodName}    timeout=10
+    [Arguments]                                  ${foodName}    ${brandName}    ${servingSize}    ${calories}
+    Wait Until Visible And Click Element Apps    ${breakfastBtnAndroid}
+    Wait Until Visible And Click Element Apps    ${addCustomFoodBtnAndroid}
+    Wait Until Element Is Visible                ${customFoodNameFieldAndroid}
+    Input Value                                  ${customFoodNameFieldAndroid}    ${foodName}
+    Wait Until Element Is Visible                ${customFoodBrandFieldAndroid}
+    Input Value                                  ${customFoodBrandFieldAndroid}    ${brandName}
+    Wait Until Element Is Visible                ${customFoodServingSizeFieldAndroid}
+    Input Value                                  ${customFoodServingSizeFieldAndroid}    ${servingSize}
+    Wait Until Element Is Visible                ${customFoodCaloriesFieldAndroid}
+    Input Value                                  ${customFoodCaloriesFieldAndroid}    ${calories}
+    Wait Until Visible And Click Element Apps    ${addToBreakfastBtnAndroid}
+    Wait Until Page Contains                     ${foodName}    timeout=10

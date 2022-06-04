@@ -76,7 +76,7 @@ Complete User Onboarding Android
         Wait Until Visible And Click Element Apps    ${item}
     END
     Wait Until Element Is Visible                    ${valueInputOnboardingAndroid}
-    Input Value                                      ${valueInputOnboardingAndroid}   200
+    Input Value                                      ${valueInputOnboardingAndroid}   180
     Wait Until Visible And Click Element Apps        ${setValueBtnOnboardingAndroid}
     Wait Until Visible And Click Element Apps        ${heightOnboardingAndroid}
     Wait Until Element Is Visible                    ${valueInputOnboardingAndroid}

@@ -22,14 +22,13 @@ Open Shop iOS
     Click Element                        ${shopBtniOS}
 
 Validate Dashboard UI And Details iOS
-    @{list}=    Create List    ${currentSubscriptionTxtiOS}  
-    ...                        ${nextDeliveryTxtiOS}
-    ...                        ${faqTxtiOS}
-    ...                        ${subscriptionDetailsTxtiOS} 
-    FOR     ${item}     IN     @{list}
+    @{list}=    Create List                 ${currentSubscriptionTxtiOS}  
+    ...                                     ${nextDeliveryTxtiOS}
+    ...                                     ${faqTxtiOS}
+    ...                                     ${subscriptionDetailsTxtiOS} 
+    FOR                                     ${item}     IN     @{list}
         Wait Until Page Contains Element    ${item}    timeout=30
     END
 
 Close Shop iOS
-    Wait Until Element Is Visible        ${shopCloseBtniOS}
-    Click Element                        ${shopCloseBtniOS}
+    Wait Until Visible And Click Element Apps    ${shopCloseBtniOS}

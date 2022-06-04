@@ -17,13 +17,12 @@ Open Shop Android
     Wait Until Element Is Visible        ${shopBtnAndroid}    timeout=30
     Click Element                        ${shopBtnAndroid}
 
-Validadate Dashboard UI And Details Android
-    @{list}=    Create List    ${dashboardBtnAndroid}
-    ...                        ${modifyBtnAndroid}
-    FOR     ${item}     IN     @{list}
+Validate Dashboard UI And Details Android
+    @{list}=    Create List              ${dashboardBtnAndroid}
+    ...                                  ${modifyBtnAndroid}
+    FOR                                  ${item}     IN     @{list}
         Wait Until Element Is Visible    ${item}    timeout=30
     END
 
 Close Shop Android
-    Wait Until Element Is Visible        ${shopCloseBtnAndroid}
-    Click Element                        ${shopCloseBtnAndroid}
+    Wait Until Visible And Click Element Apps    ${shopCloseBtnAndroid}

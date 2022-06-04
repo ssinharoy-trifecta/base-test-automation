@@ -55,57 +55,51 @@ ${addToBreakfastBtniOS}           xpath=//XCUIElementTypeButton[@name="Add to br
 *** Keywords ***
 
 Add Weight To The Weight Card iOS
-    [Arguments]    ${userWeight}
-    Wait Until Element Is Visible    ${addWeightNutritionBtniOS}    timeout=20
-    Click Element                    ${addWeightNutritionBtniOS}
-    Wait Until Element Is Visible    ${keyboardDeleteBtniOS}    timeout=20
-    Repeat Keyword                   3 times    Click Element    ${keyboardDeleteBtniOS}
-    Wait Until Element Is Visible    ${weightFieldCardFieldiOS}    timeout=20
-    Input Value                      ${weightFieldCardFieldiOS}    ${userWeight}
-    Click Element                    ${addWeightCardBtniOS}
-    Wait Until Element Is Visible    ${200lbsWeightCardLbliOS}    timeout=20
+    [Arguments]                                  ${userWeight}
+    Wait Until Visible And Click Element Apps    ${addWeightNutritionBtniOS}
+    Wait Until Element Is Visible                ${keyboardDeleteBtniOS}
+    Repeat Keyword                               3 times    Click Element    ${keyboardDeleteBtniOS}
+    Wait Until Element Is Visible                ${weightFieldCardFieldiOS}
+    Input Value                                  ${weightFieldCardFieldiOS}    ${userWeight}
+    Click Element                                ${addWeightCardBtniOS}
+    Wait Until Element Is Visible                ${200lbsWeightCardLbliOS}
 
 Add Water To The Water Card iOS
-    Wait Until Element Is Visible   ${addWaterNutritionBtniOS}    timeout=20
+    Wait Until Element Is Visible   ${addWaterNutritionBtniOS}
     @{list}=    Create List         ${addWaterNutritionBtniOS}
     ...                             ${8ozWaterBtniOS}
     ...                             ${12ozWaterBtniOS}
     ...                             ${16ozWaterBtniOS}
     ...                             ${addWaterCardiOS}
-    FOR    ${item}    IN    @{list}
-        Click Element    ${item}
+    FOR                             ${item}    IN    @{list}
+        Click Element               ${item}
     END
 
 Log Food iOS
-    [Arguments]    ${mealButton}    ${foodItem}
-    Wait Until Element Is Visible   ${mealButton}    timeout=20
-    Click Element                   ${mealButton}
-    Wait Until Element Is Visible   ${foodSearchBariOS}    timeout=20
-    Input Value                     ${foodSearchBariOS}    ${foodItem}
-    @{list}=    Create List         ${doneBtnNutritionKeyboardiOS}
-    ...                             ${addFirstFoodItemBtniOS}
-    ...                             ${doneAddingFoodBtniOS}
-    FOR    ${item}    IN    @{list}
-        Wait Until Element Is Visible    ${item}    timeout=20
-        Click Element   ${item}
+    [Arguments]                                     ${mealButton}    ${foodItem}
+    Wait Until Visible And Click Element Apps       ${mealButton}
+    Wait Until Element Is Visible                   ${foodSearchBariOS}
+    Input Value                                     ${foodSearchBariOS}    ${foodItem}
+    @{list}=    Create List                         ${doneBtnNutritionKeyboardiOS}
+    ...                                             ${addFirstFoodItemBtniOS}
+    ...                                             ${doneAddingFoodBtniOS}
+    FOR                                             ${item}    IN    @{list}
+        Wait Until Visible And Click Element Apps   ${item}
     END
-    Wait Until Page Contains        ${foodItem}    timeout=10
+    Wait Until Page Contains                        ${foodItem}
 
 Add Custom Food iOS
-    [Arguments]    ${foodName}    ${brandName}    ${servingSize}    ${calories}
-    Wait Until Element Is Visible    ${breakfastBtniOS}    timeout=20
-    Click Element                    ${breakfastBtniOS}
-    Wait Until Element Is Visible    ${addCustomFoodTxtiOS}    timeout=10
-    Click Element                    ${addCustomFoodTxtiOS}
-    Wait Until Element Is Visible    ${customFoodNameFieldiOS}    timeout=20
-    Input Value                      ${customFoodNameFieldiOS}    ${foodName}
-    Wait Until Element Is Visible    ${customFoodBrandFieldiOS}    timeout=20
-    Input Value                      ${customFoodBrandFieldiOS}    ${brandName}
-    Wait Until Element Is Visible    ${customFoodServingSizeFieldiOS}    timeout=20
-    Input Value                      ${customFoodServingSizeFieldiOS}    ${servingSize}
-    Wait Until Element Is Visible    ${customFoodCaloriesFieldiOS}    timeout=20
-    Input Value                      ${customFoodCaloriesFieldiOS}    ${calories}
-    Click Text                       Done   exact_match=True
-    Wait Until Element Is Visible    ${addToBreakfastBtniOS}    timeout=20
-    Click Element                    ${addToBreakfastBtniOS}
-    Wait Until Page Contains         ${foodName}    timeout=10
+    [Arguments]                                  ${foodName}    ${brandName}    ${servingSize}    ${calories}
+    Wait Until Visible And Click Element Apps    ${breakfastBtniOS}
+    Wait Until Visible And Click Element Apps    ${addCustomFoodTxtiOS}
+    Wait Until Element Is Visible                ${customFoodNameFieldiOS}
+    Input Value                                  ${customFoodNameFieldiOS}    ${foodName}
+    Wait Until Element Is Visible                ${customFoodBrandFieldiOS}
+    Input Value                                  ${customFoodBrandFieldiOS}    ${brandName}
+    Wait Until Element Is Visible                ${customFoodServingSizeFieldiOS}
+    Input Value                                  ${customFoodServingSizeFieldiOS}    ${servingSize}
+    Wait Until Element Is Visible                ${customFoodCaloriesFieldiOS}
+    Input Value                                  ${customFoodCaloriesFieldiOS}    ${calories}
+    Click Text                                   Done   exact_match=True
+    Wait Until Visible And Click Element Apps    ${addToBreakfastBtniOS}
+    Wait Until Page Contains                     ${foodName}
