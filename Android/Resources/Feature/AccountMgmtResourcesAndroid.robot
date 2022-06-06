@@ -61,63 +61,63 @@ ${okLinkSentBtnAccountAndroid}         id=com.n_ix.pocket_wod:id/okButton
 *** Keywords ***
 
 Open User Account Android
-    Wait Until Visible And Click Element Apps    ${mainMenuBtnAndroid}
-    Wait Until Visible And Click Element Apps    ${accountBtnAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${mainMenuBtnAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${accountBtnAndroid}
 
 Log Out Android
     Open User Account Android
-    Wait Until Visible And Click Element Apps    ${logOutBtnAccountAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${logOutBtnAccountAndroid}
 
 #TODO: Improve this test case by adding more UI validation points
 Review Main Menu UI Android
-    Wait Until Visible And Click Element Apps    ${mainMenuBtnAndroid}
-    @{list}=    Create List                      ${accountBtnAndroid}
-    ...                                          ${myFeedsBtnAndroid}
-    ...                                          ${savedBtnAndroid}
-    ...                                          ${helpBtnAndroid}
-    ...                                          ${fitnessTimersBtnAndroid}
-    ...                                          ${workoutLogBtnAndroid}
-    ...                                          ${movementLogBtnAndroid}
-    ...                                          ${privacyPolicyBtnAndroid}
-    ...                                          ${termsOfServiceBtnAndroid}
-    ...                                          ${premiumSubscriptionInformationBtnAndroid}
-    ...                                          ${yourCaliforniaPrivacyRightsBtnAndroid}
-    ...                                          ${doNotSellMyPersonalInformationBtnAndroid}
-    FOR                                          ${item}    IN    @{list}
-        Wait Until Page Contains Element         ${item}
+    CommonApps.Wait Until Visible And Click Element Apps    ${mainMenuBtnAndroid}
+    @{list}=    Create List                                 ${accountBtnAndroid}
+    ...                                                     ${myFeedsBtnAndroid}
+    ...                                                     ${savedBtnAndroid}
+    ...                                                     ${helpBtnAndroid}
+    ...                                                     ${fitnessTimersBtnAndroid}
+    ...                                                     ${workoutLogBtnAndroid}
+    ...                                                     ${movementLogBtnAndroid}
+    ...                                                     ${privacyPolicyBtnAndroid}
+    ...                                                     ${termsOfServiceBtnAndroid}
+    ...                                                     ${premiumSubscriptionInformationBtnAndroid}
+    ...                                                     ${yourCaliforniaPrivacyRightsBtnAndroid}
+    ...                                                     ${doNotSellMyPersonalInformationBtnAndroid}
+    FOR                                                     ${item}    IN    @{list}
+        Wait Until Page Contains Element                    ${item}
     END
-    Wait Until Visible And Click Element Apps    ${closeMainMenuBtnAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${closeMainMenuBtnAndroid}
 
 Review User Account UI Android
     Open User Account Android
-    @{list}=    Create List                      ${cameraBtnAccountAndroid}
-    ...                                          ${accountTxtAccountAndroid}
-    ...                                          ${nameFieldAccountAndroid}
-    ...                                          ${emailFieldAccountAndroid}
-    ...                                          ${genderFieldAccountAndroid}
-    ...                                          ${birthDateFieldAccountAndroid}
-    ...                                          ${weightFieldAccountAndroid}
-    ...                                          ${heightFieldAccountAndroid}
-    ...                                          ${ketoDietFieldAccountAndroid}
-    ...                                          ${nutritionGoalFieldAccountAndroid}
-    ...                                          ${activityLevelTxtAccountAndroid}
-    FOR                                          ${item}    IN    @{list}
-        Wait Until Element Is Visible            ${item}
+    @{list}=    Create List                                 ${cameraBtnAccountAndroid}
+    ...                                                     ${accountTxtAccountAndroid}
+    ...                                                     ${nameFieldAccountAndroid}
+    ...                                                     ${emailFieldAccountAndroid}
+    ...                                                     ${genderFieldAccountAndroid}
+    ...                                                     ${birthDateFieldAccountAndroid}
+    ...                                                     ${weightFieldAccountAndroid}
+    ...                                                     ${heightFieldAccountAndroid}
+    ...                                                     ${ketoDietFieldAccountAndroid}
+    ...                                                     ${nutritionGoalFieldAccountAndroid}
+    ...                                                     ${activityLevelTxtAccountAndroid}
+    FOR                                                     ${item}    IN    @{list}
+        Wait Until Element Is Visible                       ${item}
     END
-    Wait Until Visible And Click Element Apps    ${backBtnAccountAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${backBtnAccountAndroid}
 
 Reset User Password Android
     Open User Account Android
-    @{list}=    Create List                         ${resetPasswordBtnAccountAndroid}
-    ...                                             ${okLinkSentBtnAccountAndroid}
-    ...                                             ${backBtnAccountAndroid}
-    FOR                                             ${item}    IN    @{list}
-        Wait Until Visible And Click Element Apps   ${item}
+    @{list}=    Create List                                    ${resetPasswordBtnAccountAndroid}
+    ...                                                        ${okLinkSentBtnAccountAndroid}
+    ...                                                        ${backBtnAccountAndroid}
+    FOR                                                        ${item}    IN    @{list}
+        CommonApps.Wait Until Visible And Click Element Apps   ${item}
     END
 
 Review Info WebView Android
-    [Arguments]                                  ${typeInfoBtnName}
-    Wait Until Visible And Click Element Apps    ${mainMenuBtnAndroid}
-    Click Text                                   ${typeInfoBtnName}    exact_match=True
-    Wait Until Element Is Visible                ${webViewTextElementAndroid}
-    Click Element                                ${closeWebViewBtnAndroid}
+    [Arguments]                                             ${typeInfoBtnName}
+    CommonApps.Wait Until Visible And Click Element Apps    ${mainMenuBtnAndroid}
+    Click Text                                              ${typeInfoBtnName}    exact_match=True
+    Wait Until Element Is Visible                           ${webViewTextElementAndroid}
+    Click Element                                           ${closeWebViewBtnAndroid}

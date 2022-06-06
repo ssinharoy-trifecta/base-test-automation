@@ -66,33 +66,33 @@ Validate Intro Screen Details Android
     END
 
 Complete User Onboarding Android
-    @{list}=    Create List                          ${letsDoItBtnOnboardingAndroid} 
-    ...                                              ${maleBtnOnboardingAndroid}
-    ...                                              ${loseWeightBtnOnboardingAndroid}
-    ...                                              ${moderatelyActiveBtnOnboardingAndroid}
-    ...                                              ${noKetoBtnOnboardingAndroid}
-    ...                                              ${weightOnboardingAndroid}
-    FOR                                              ${item}     IN     @{list}
-        Wait Until Visible And Click Element Apps    ${item}
+    @{list}=    Create List                                     ${letsDoItBtnOnboardingAndroid} 
+    ...                                                         ${maleBtnOnboardingAndroid}
+    ...                                                         ${loseWeightBtnOnboardingAndroid}
+    ...                                                         ${moderatelyActiveBtnOnboardingAndroid}
+    ...                                                         ${noKetoBtnOnboardingAndroid}
+    ...                                                         ${weightOnboardingAndroid}
+    FOR                                                         ${item}     IN     @{list}
+        CommonApps.Wait Until Visible And Click Element Apps    ${item}
     END
-    Wait Until Element Is Visible                    ${valueInputOnboardingAndroid}
-    Input Value                                      ${valueInputOnboardingAndroid}   180
-    Wait Until Visible And Click Element Apps        ${setValueBtnOnboardingAndroid}
-    Wait Until Visible And Click Element Apps        ${heightOnboardingAndroid}
-    Wait Until Element Is Visible                    ${valueInputOnboardingAndroid}
-    Input Value                                      ${valueInputOnboardingAndroid}   6
-    @{list}=    Create List                          ${setValueBtnOnboardingAndroid}
-    ...                                              ${birthdayOnboardingAndroid}
-    ...                                              ${okBirthdayBtnOnboardingAndroid}
-    ...                                              ${doneOnboardingBtnAndroid}
-    FOR                                              ${item}     IN     @{list}
-        Wait Until Visible And Click Element Apps    ${item}
+    Wait Until Element Is Visible                               ${valueInputOnboardingAndroid}
+    Input Value                                                 ${valueInputOnboardingAndroid}   180
+    CommonApps.Wait Until Visible And Click Element Apps        ${setValueBtnOnboardingAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps        ${heightOnboardingAndroid}
+    Wait Until Element Is Visible                               ${valueInputOnboardingAndroid}
+    Input Value                                                 ${valueInputOnboardingAndroid}   6
+    @{list}=    Create List                                     ${setValueBtnOnboardingAndroid}
+    ...                                                         ${birthdayOnboardingAndroid}
+    ...                                                         ${okBirthdayBtnOnboardingAndroid}
+    ...                                                         ${doneOnboardingBtnAndroid}
+    FOR                                                         ${item}     IN     @{list}
+        CommonApps.Wait Until Visible And Click Element Apps    ${item}
     END
 
 Agree To Terms Of Use Android
-    @{list}=    Create List                          ${termsOfUseAgreeBtnAndroid}
-    ...                                              ${mainMenuBtnOnAppLoadAndroid}
-    ...                                              ${closeMainMenuBtnAndroid}
-    FOR                                              ${item}     IN     @{list}
-        Wait Until Visible And Click Element Apps    ${item}
+    @{list}=    Create List                                     ${termsOfUseAgreeBtnAndroid}
+    ...                                                         ${mainMenuBtnOnAppLoadAndroid}
+    ...                                                         ${closeMainMenuBtnAndroid}
+    FOR                                                         ${item}     IN     @{list}
+        CommonApps.Wait Until Visible And Click Element Apps    ${item}
     END

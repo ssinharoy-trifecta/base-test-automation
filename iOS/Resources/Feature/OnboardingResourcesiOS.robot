@@ -76,29 +76,29 @@ Validate Intro Screen Details iOS
     END
 
 Complete User Onboarding iOS
-    @{list}=    Create List                           ${letsDoItBtnOnboardingiOS}   
-    ...                                               ${maleBtnOnboardingiOS}
-    ...                                               ${loseWeightBtnOnboardingiOS}
-    ...                                               ${moderatelyActiveBtnOnboardingiOS}
-    ...                                               ${noKetoBtnOnboardingiOS}
-    FOR                                               ${item}     IN     @{list}
-        Wait Until Visible And Click Element Apps     ${item}
+    @{list}=    Create List                                      ${letsDoItBtnOnboardingiOS}   
+    ...                                                          ${maleBtnOnboardingiOS}
+    ...                                                          ${loseWeightBtnOnboardingiOS}
+    ...                                                          ${moderatelyActiveBtnOnboardingiOS}
+    ...                                                          ${noKetoBtnOnboardingiOS}
+    FOR                                                          ${item}     IN     @{list}
+        CommonApps.Wait Until Visible And Click Element Apps     ${item}
     END
-    Wait Until Element Is Visible                     ${weightOnboardingPickerOnboardingiOS}
-    Input Value                                       ${weightOnboardingPickerOnboardingiOS}   180
-    Wait Until Visible And Click Element Apps         ${heightOnboardingPickerOnboardingiOS}
-    Click Text                                        cm    exact_match=True
-    Wait Until Element Is Visible                     ${heightOnboardingPickerCmOnboardingiOS}
-    Input Value                                       ${heightOnboardingPickerCmOnboardingiOS}    180
-    Click Text                                        Done    exact_match=True
-    Wait Until Visible And Click Element Apps         ${birthdayOnboardingPickerOnboardingiOS}
-    Sleep                                             1
-    Click Text                                        Done   exact_match=True
-    Sleep                                             1
-    @{list}=    Create List                           ${doneBtnOnboardingiOS} 
-    ...                                               ${allowNotificationsBtniOS}
-    FOR                                               ${item}     IN     @{list}
-        Wait Until Visible And Click Element Apps     ${item}
+    Wait Until Element Is Visible                                ${weightOnboardingPickerOnboardingiOS}
+    Input Value                                                  ${weightOnboardingPickerOnboardingiOS}   180
+    CommonApps.Wait Until Visible And Click Element Apps         ${heightOnboardingPickerOnboardingiOS}
+    Click Text                                                   cm    exact_match=True
+    Wait Until Element Is Visible                                ${heightOnboardingPickerCmOnboardingiOS}
+    Input Value                                                  ${heightOnboardingPickerCmOnboardingiOS}    180
+    Click Text                                                   Done    exact_match=True
+    CommonApps.Wait Until Visible And Click Element Apps         ${birthdayOnboardingPickerOnboardingiOS}
+    Sleep                                                        1
+    Click Text                                                   Done   exact_match=True
+    Sleep                                                        1
+    @{list}=    Create List                                      ${doneBtnOnboardingiOS} 
+    ...                                                          ${allowNotificationsBtniOS}
+    FOR                                                          ${item}     IN     @{list}
+        CommonApps.Wait Until Visible And Click Element Apps     ${item}
         Check Notifications Alert iOS
     END
 

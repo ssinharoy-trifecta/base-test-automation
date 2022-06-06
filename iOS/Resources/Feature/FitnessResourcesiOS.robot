@@ -77,10 +77,10 @@ ${exitTimerBtnFitnessiOS}     xpath=//XCUIElementTypeButton[@name="exitViewButto
 *** Keywords ***
 
 Open Fitness Tab iOS
-    Wait Until Visible And Click Element Apps    ${fitnessBtniOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${fitnessBtniOS}
 
 Close Fitness Tab iOS
-    Wait Until Visible And Click Element Apps    ${nutritionBtniOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${nutritionBtniOS}
 
 Review Workout Library UI iOS
     Open Fitness Tab iOS
@@ -103,86 +103,86 @@ Review Workout Library UI iOS
 
 Review Workout Details iOS
     Open Fitness Tab iOS
-    Wait Until Visible And Click Element Apps    ${viewWorkoutBtnFitnessiOS}
-    Wait Until Element Is Visible                ${workoutMenuFitnessiOS}
-    Wait Until Element Is Visible                ${warmUpTxtFitnessiOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${viewWorkoutBtnFitnessiOS}
+    Wait Until Element Is Visible                           ${workoutMenuFitnessiOS}
+    Wait Until Element Is Visible                           ${warmUpTxtFitnessiOS}
     Capture Page Screenshot
-    Wait Until Visible And Click Element Apps    ${backButtonWorkoutsFitnessiOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${backButtonWorkoutsFitnessiOS}
     Close Fitness Tab iOS
 
 Save to Workout Library iOS
     Open Fitness Tab iOS
-    @{list}=    Create List                          ${viewWorkoutBtnFitnessiOS}
-    ...                                              ${workoutMenuFitnessiOS}
-    ...                                              ${saveWorkoutFitnessiOS}
-    ...                                              ${backButtonWorkoutsFitnessiOS}
-    ...                                              ${favouritesBtnFitnessiOS}
-    ...                                              ${starredWorkoutFitnessiOS}
-    FOR                                              ${item}     IN     @{list}
-        Wait Until Visible And Click Element Apps    ${item}
+    @{list}=    Create List                                     ${viewWorkoutBtnFitnessiOS}
+    ...                                                         ${workoutMenuFitnessiOS}
+    ...                                                         ${saveWorkoutFitnessiOS}
+    ...                                                         ${backButtonWorkoutsFitnessiOS}
+    ...                                                         ${favouritesBtnFitnessiOS}
+    ...                                                         ${starredWorkoutFitnessiOS}
+    FOR                                                         ${item}     IN     @{list}
+        CommonApps.Wait Until Visible And Click Element Apps    ${item}
     END
-    Wait Until Element Is Visible                    ${workoutMenuFitnessiOS}
-    Wait Until Element Is Visible                    ${warmUpTxtFitnessiOS}
-    Wait Until Visible And Click Element Apps        ${backButtonWorkoutsFitnessiOS}
-    Wait Until Visible And Click Element Apps        ${backButtonWorkoutsFitnessiOS}
+    Wait Until Element Is Visible                               ${workoutMenuFitnessiOS}
+    Wait Until Element Is Visible                               ${warmUpTxtFitnessiOS}
+    CommonApps.Wait Until Visible And Click Element Apps        ${backButtonWorkoutsFitnessiOS}
+    CommonApps.Wait Until Visible And Click Element Apps        ${backButtonWorkoutsFitnessiOS}
     Close Fitness Tab iOS
 
 Add New Workout For Time iOS
     Open Fitness Tab iOS
-    Wait Until Visible And Click Element Apps    ${workoutLogBtnFitnessiOS}
-    Wait Until Visible And Click Element Apps    ${addWodBtnFitnessiOS}
-    Wait Until Element Is Visible                ${wodNameFieldFitnessiOS}
-    Input Text                                   ${wodNameFieldFitnessiOS}    Plank
-    Wait Until Element Is Visible                ${wodResultFieldFitnessiOS}
-    Input Text                                   ${wodResultFieldFitnessiOS}    03:00
+    CommonApps.Wait Until Visible And Click Element Apps    ${workoutLogBtnFitnessiOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${addWodBtnFitnessiOS}
+    Wait Until Element Is Visible                           ${wodNameFieldFitnessiOS}
+    Input Text                                              ${wodNameFieldFitnessiOS}    Plank
+    Wait Until Element Is Visible                           ${wodResultFieldFitnessiOS}
+    Input Text                                              ${wodResultFieldFitnessiOS}    03:00
     Capture Page Screenshot
-    Wait Until Visible And Click Element Apps    ${saveWodBtnFitnessiOS}
-    Wait Until Visible And Click Element Apps    ${closeWodLogFitnessiOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${saveWodBtnFitnessiOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${closeWodLogFitnessiOS}
     Capture Page Screenshot
     Close Fitness Tab iOS
 
 Launch And Validate Timer iOS
-    [Arguments]                                      ${timerVariable}
+    [Arguments]                                                 ${timerVariable}
     Open Fitness Tab iOS
-    @{list}=    Create List                          ${fitnessTimersBtnFitnessiOS}
-    ...                                              ${timerVariable}
-    ...                                              ${startBtnFitnessiOS}
-    ...                                              ${startTimerBtnFitnessiOS}
-    FOR                                              ${item}     IN     @{list}
-        Wait Until Visible And Click Element Apps    ${item}
+    @{list}=    Create List                                     ${fitnessTimersBtnFitnessiOS}
+    ...                                                         ${timerVariable}
+    ...                                                         ${startBtnFitnessiOS}
+    ...                                                         ${startTimerBtnFitnessiOS}
+    FOR                                                         ${item}     IN     @{list}
+        CommonApps.Wait Until Visible And Click Element Apps    ${item}
     END
-    Sleep                                            3
+    Sleep                                                       3
     Capture Page Screenshot
-    Wait Until Visible And Click Element Apps        ${exitTimerBtnFitnessiOS}
+    CommonApps.Wait Until Visible And Click Element Apps        ${exitTimerBtnFitnessiOS}
     Close Fitness Tab iOS
 
 Review Movements Library UI iOS
     Open Fitness Tab iOS
-    Wait Until Visible And Click Element Apps    ${movementsTabFitnessiOS}
-    @{list}=    Create List                      ${armsMoveBtnFitnessiOS} 
-    ...                                          ${backMoveBtnFitnessiOS}
-    ...                                          ${chestMoveBtnFitnessiOS}
-    ...                                          ${coreBtnMoveFitnessiOS}
-    ...                                          ${legsBtnMoveFitnessiOS}
-    ...                                          ${allBtnMoveFitnessiOS} 
-    FOR                                          ${item}     IN     @{list}
-        Wait Until Element Is Visible            ${item}
+    CommonApps.Wait Until Visible And Click Element Apps    ${movementsTabFitnessiOS}
+    @{list}=    Create List                                 ${armsMoveBtnFitnessiOS} 
+    ...                                                     ${backMoveBtnFitnessiOS}
+    ...                                                     ${chestMoveBtnFitnessiOS}
+    ...                                                     ${coreBtnMoveFitnessiOS}
+    ...                                                     ${legsBtnMoveFitnessiOS}
+    ...                                                     ${allBtnMoveFitnessiOS} 
+    FOR                                                     ${item}     IN     @{list}
+        Wait Until Element Is Visible                       ${item}
     END
-    Click Element                                ${allBtnMoveFitnessiOS}
-    Wait Until Element Is Visible                ${airAssaultBikeMoveFitnessiOS}
-    Wait Until Element Is Visible                ${airSquatMoveFitnessiOS}
+    Click Element                                           ${allBtnMoveFitnessiOS}
+    Wait Until Element Is Visible                           ${airAssaultBikeMoveFitnessiOS}
+    Wait Until Element Is Visible                           ${airSquatMoveFitnessiOS}
     Capture Page Screenshot
     Close Fitness Tab iOS
 
 Validate Movement Video Content iOS
     Open Fitness Tab iOS
-    @{list}=    Create List                         ${movementsTabFitnessiOS} 
-    ...                                             ${allBtnMoveFitnessiOS}
-    ...                                             ${airAssaultBikeMoveFitnessiOS}
-    FOR                                             ${item}     IN     @{list}
-        Wait Until Visible And Click Element Apps   ${item}
+    @{list}=    Create List                                    ${movementsTabFitnessiOS} 
+    ...                                                        ${allBtnMoveFitnessiOS}
+    ...                                                        ${airAssaultBikeMoveFitnessiOS}
+    FOR                                                        ${item}     IN     @{list}
+        CommonApps.Wait Until Visible And Click Element Apps   ${item}
     END
-    Sleep                                           3
+    Sleep                                                      3
     Capture Page Screenshot
-    Wait Until Visible And Click Element Apps       ${exitMoveVideoBtnFitnessiOS}
+    CommonApps.Wait Until Visible And Click Element Apps       ${exitMoveVideoBtnFitnessiOS}
     Close Fitness Tab iOS

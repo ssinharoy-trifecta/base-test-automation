@@ -55,14 +55,14 @@ ${addToBreakfastBtnAndroid}           id=com.n_ix.pocket_wod:id/add_button
 *** Keywords ***
 
 Add Weight To The Weight Card Android
-    [Arguments]                                  ${userWeight}
-    Wait Until Visible And Click Element Apps    ${addWeightNutritionBtnAndroid}
-    Wait Until Visible And Click Element Apps    ${weightFieldAndroid}
-    Wait Until Element Is Visible                ${addWeightFieldAndroid}
-    Clear Text                                   ${addWeightFieldAndroid}
-    Input Value                                  ${addWeightFieldAndroid}    ${userWeight}
-    Click Element                                ${setWeightBtnAndroid}
-    Wait Until Visible And Click Element Apps    ${addWeightCardBtnAndroid}
+    [Arguments]                                             ${userWeight}
+    CommonApps.Wait Until Visible And Click Element Apps    ${addWeightNutritionBtnAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${weightFieldAndroid}
+    Wait Until Element Is Visible                           ${addWeightFieldAndroid}
+    Clear Text                                              ${addWeightFieldAndroid}
+    Input Value                                             ${addWeightFieldAndroid}    ${userWeight}
+    Click Element                                           ${setWeightBtnAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${addWeightCardBtnAndroid}
 
 Add Water To The Water Card Android
     Wait Until Element Is Visible   ${addWaterNutritionBtnAndroid}
@@ -76,26 +76,26 @@ Add Water To The Water Card Android
     END
 
 Log Food Android
-    [Arguments]                                 ${mealButton}    ${foodItem}
-    Wait Until Visible And Click Element Apps   ${mealButton}
-    Input Value                                 ${foodSearchBarAndroid}    ${foodItem}
-    Sleep                                       2
-    Wait Until Page Contains                    ${foodItem}    timeout=10
-    Wait Until Visible And Click Element Apps   ${addFirstFoodItemBtnAndroid}
-    Wait Until Visible And Click Element Apps   ${doneAddingFoodBtnAndroid}
-    Wait Until Page Contains                    ${foodItem}    timeout=10
+    [Arguments]                                            ${mealButton}    ${foodItem}
+    CommonApps.Wait Until Visible And Click Element Apps   ${mealButton}
+    Input Value                                            ${foodSearchBarAndroid}    ${foodItem}
+    Sleep                                                  2
+    Wait Until Page Contains                               ${foodItem}    timeout=10
+    CommonApps.Wait Until Visible And Click Element Apps   ${addFirstFoodItemBtnAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps   ${doneAddingFoodBtnAndroid}
+    Wait Until Page Contains                               ${foodItem}    timeout=10
 
 Add Custom Food Android
-    [Arguments]                                  ${foodName}    ${brandName}    ${servingSize}    ${calories}
-    Wait Until Visible And Click Element Apps    ${breakfastBtnAndroid}
-    Wait Until Visible And Click Element Apps    ${addCustomFoodBtnAndroid}
-    Wait Until Element Is Visible                ${customFoodNameFieldAndroid}
-    Input Value                                  ${customFoodNameFieldAndroid}    ${foodName}
-    Wait Until Element Is Visible                ${customFoodBrandFieldAndroid}
-    Input Value                                  ${customFoodBrandFieldAndroid}    ${brandName}
-    Wait Until Element Is Visible                ${customFoodServingSizeFieldAndroid}
-    Input Value                                  ${customFoodServingSizeFieldAndroid}    ${servingSize}
-    Wait Until Element Is Visible                ${customFoodCaloriesFieldAndroid}
-    Input Value                                  ${customFoodCaloriesFieldAndroid}    ${calories}
-    Wait Until Visible And Click Element Apps    ${addToBreakfastBtnAndroid}
-    Wait Until Page Contains                     ${foodName}    timeout=10
+    [Arguments]                                             ${foodName}    ${brandName}    ${servingSize}    ${calories}
+    CommonApps.Wait Until Visible And Click Element Apps    ${breakfastBtnAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${addCustomFoodBtnAndroid}
+    Wait Until Element Is Visible                           ${customFoodNameFieldAndroid}
+    Input Value                                             ${customFoodNameFieldAndroid}    ${foodName}
+    Wait Until Element Is Visible                           ${customFoodBrandFieldAndroid}
+    Input Value                                             ${customFoodBrandFieldAndroid}    ${brandName}
+    Wait Until Element Is Visible                           ${customFoodServingSizeFieldAndroid}
+    Input Value                                             ${customFoodServingSizeFieldAndroid}    ${servingSize}
+    Wait Until Element Is Visible                           ${customFoodCaloriesFieldAndroid}
+    Input Value                                             ${customFoodCaloriesFieldAndroid}    ${calories}
+    CommonApps.Wait Until Visible And Click Element Apps    ${addToBreakfastBtnAndroid}
+    Wait Until Page Contains                                ${foodName}    timeout=10

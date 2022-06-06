@@ -47,10 +47,10 @@ Sign Up As New User Android
     END
 
 Sign In As Existing User Android
-    Wait Until Visible And Click Element Apps    ${getStartedBtnAndroid}
-    Wait Until Element Is Visible                ${emailFieldAuthenticationAndroid}    timeout=20
-    Input Text                                   ${emailFieldAuthenticationAndroid}    ${testUserEmail}
-    Input Text                                   ${passwordFieldAuthenticationAndroid}    ${testUserPassword}
-    Click Element                                ${signInBtnAndroid}
-    Wait Until Visible And Click Element Apps    ${mainMenuBtnOnAppLoadAndroid}
-    Wait Until Visible And Click Element Apps    ${closeMainMenuBtnAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${getStartedBtnAndroid}
+    Wait Until Element Is Visible                           ${emailFieldAuthenticationAndroid}    timeout=20
+    Input Text                                              ${emailFieldAuthenticationAndroid}    ${testUserEmail}
+    Input Text                                              ${passwordFieldAuthenticationAndroid}    ${testUserPassword}
+    Click Element                                           ${signInBtnAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${mainMenuBtnOnAppLoadAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${closeMainMenuBtnAndroid}

@@ -54,66 +54,66 @@ ${nameFieldAccountiOS}    xpath=//XCUIElementTypeApplication[@name="TriDebug"]/X
 
 #Two keywords below look identical but I would like to keep them separately
 Open User Account iOS
-    Wait Until Visible And Click Element Apps    ${mainMenuBtniOS}
-    Wait Until Visible And Click Element Apps    ${accountBtniOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${mainMenuBtniOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${accountBtniOS}
 
 Close User Account iOS
-    Wait Until Visible And Click Element Apps    ${backBtnAccountiOS}
-    Wait Until Visible And Click Element Apps    ${closeMainMenuBtniOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${backBtnAccountiOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${closeMainMenuBtniOS}
 
 Log Out iOS
     Open User Account iOS
-    Wait Until Visible And Click Element Apps    ${logOutAccountBtniOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${logOutAccountBtniOS}
 
 Review Main Menu UI iOS
-    Wait Until Visible And Click Element Apps    ${mainMenuBtniOS}
-    @{list}=    Create List                      ${accountBtniOS}
-    ...                                          ${myFeedsBtniOS}
-    ...                                          ${savedBtniOS}
-    ...                                          ${helpBtniOS}
-    ...                                          ${fitnessTimersBtniOS}
-    ...                                          ${workoutLogBtniOS}
-    ...                                          ${movementLogBtniOS}
-    FOR                                          ${item}    IN    @{list}
-        Element Should Be Visible                ${item}
+    CommonApps.Wait Until Visible And Click Element Apps    ${mainMenuBtniOS}
+    @{list}=    Create List                                 ${accountBtniOS}
+    ...                                                     ${myFeedsBtniOS}
+    ...                                                     ${savedBtniOS}
+    ...                                                     ${helpBtniOS}
+    ...                                                     ${fitnessTimersBtniOS}
+    ...                                                     ${workoutLogBtniOS}
+    ...                                                     ${movementLogBtniOS}
+    FOR                                                     ${item}    IN    @{list}
+        Element Should Be Visible                           ${item}
     END
-    Scroll Down                                  ${logoutBtniOS}
-    @{list}=    Create List                      ${privacyPolicyBtniOS}
-    ...                                          ${termsOfServiceBtniOS}
-    ...                                          ${premiumSubscriptionInformationBtniOS}
-    ...                                          ${yourCaliforniaPrivacyRightsBtniOS}
-    ...                                          ${doNotSellMyPersonalInformationBtniOS}
-    ...                                          ${logoutBtniOS}
-    ...                                          ${subscribeToPremiumBtniOS}
-    FOR                                          ${item}    IN    @{list}
-        Element Should Be Visible                ${item}
+    Scroll Down                                             ${logoutBtniOS}
+    @{list}=    Create List                                 ${privacyPolicyBtniOS}
+    ...                                                     ${termsOfServiceBtniOS}
+    ...                                                     ${premiumSubscriptionInformationBtniOS}
+    ...                                                     ${yourCaliforniaPrivacyRightsBtniOS}
+    ...                                                     ${doNotSellMyPersonalInformationBtniOS}
+    ...                                                     ${logoutBtniOS}
+    ...                                                     ${subscribeToPremiumBtniOS}
+    FOR                                                     ${item}    IN    @{list}
+        Element Should Be Visible                           ${item}
     END
-    Wait Until Visible And Click Element Apps    ${closeMainMenuBtniOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${closeMainMenuBtniOS}
 
 Review User Account UI iOS
     Open User Account iOS
-    @{list}=    Create List                      ${cameraBtniOS}
-    ...                                          ${accountTxtiOS}
-    ...                                          ${nameTxtiOS}
-    ...                                          ${emailTxtiOS}
-    ...                                          ${genderTxtiOS}
-    ...                                          ${birthDateTxtiOS}
-    ...                                          ${weightTxtiOS}
-    ...                                          ${heightTxtiOS}
-    ...                                          ${ketoDietTxtiOS}
-    ...                                          ${nutritionGoalTxtiOS}
-    ...                                          ${activityLevelTxtiOS}
-    FOR                                          ${item}    IN    @{list}
-        Element Should Be Visible                ${item}
+    @{list}=    Create List                                 ${cameraBtniOS}
+    ...                                                     ${accountTxtiOS}
+    ...                                                     ${nameTxtiOS}
+    ...                                                     ${emailTxtiOS}
+    ...                                                     ${genderTxtiOS}
+    ...                                                     ${birthDateTxtiOS}
+    ...                                                     ${weightTxtiOS}
+    ...                                                     ${heightTxtiOS}
+    ...                                                     ${ketoDietTxtiOS}
+    ...                                                     ${nutritionGoalTxtiOS}
+    ...                                                     ${activityLevelTxtiOS}
+    FOR                                                     ${item}    IN    @{list}
+        Element Should Be Visible                           ${item}
     END
-    Click Element                                ${backBtnAccountiOS}
-    Wait Until Visible And Click Element Apps    ${closeMainMenuBtniOS}
+    Click Element                                           ${backBtnAccountiOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${closeMainMenuBtniOS}
 
 Reset User Password iOS
     Open User Account iOS
-    Scroll Down                                  ${resetPasswordBtniOS}
-    Click Element                                ${resetPasswordBtniOS}
-    Wait Until Visible And Click Element Apps    ${okLinkSentBtniOS}
+    Scroll Down                                             ${resetPasswordBtniOS}
+    Click Element                                           ${resetPasswordBtniOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${okLinkSentBtniOS}
     Close User Account iOS
 
 Update User Name iOS
@@ -129,9 +129,9 @@ Update User Name iOS
     Close User Account iOS
 
 Review Info WebView iOS
-    [Arguments]                                  ${infoElementBtniOS}    ${infoElementBodyTxtiOS}
-    Wait Until Visible And Click Element Apps    ${mainMenuBtniOS}
-    Scroll Down                                  ${infoElementBtniOS}
-    Click Element                                ${infoElementBtniOS}
-    Wait Until Element Is Visible                ${infoElementBodyTxtiOS}
-    Click Element                                ${closeWebViewBtniOS}
+    [Arguments]                                             ${infoElementBtniOS}    ${infoElementBodyTxtiOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${mainMenuBtniOS}
+    Scroll Down                                             ${infoElementBtniOS}
+    Click Element                                           ${infoElementBtniOS}
+    Wait Until Element Is Visible                           ${infoElementBodyTxtiOS}
+    Click Element                                           ${closeWebViewBtniOS}

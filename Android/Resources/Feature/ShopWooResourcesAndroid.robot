@@ -5,11 +5,11 @@ Library    BuiltIn
 
 *** Variables ***
 
-${shopBtnAndroid}                  id=com.n_ix.pocket_wod:id/shop
-${shopCloseBtnAndroid}             id=com.n_ix.pocket_wod:id/closeButton
-${shopBackBtnAndroid}              id=com.n_ix.pocket_wod:id/backButton
-${dashboardBtnAndroid}             xpath=//android.view.View[@content-desc=\"Dashboard\"]/android.widget.TextView
-${modifyBtnAndroid}                xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.widget.Button
+${shopBtnAndroid}         id=com.n_ix.pocket_wod:id/shop
+${shopCloseBtnAndroid}    id=com.n_ix.pocket_wod:id/closeButton
+${shopBackBtnAndroid}     id=com.n_ix.pocket_wod:id/backButton
+${dashboardBtnAndroid}    xpath=//android.view.View[@content-desc=\"Dashboard\"]/android.widget.TextView
+${modifyBtnAndroid}       xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.widget.Button
 
 *** Keywords ***
 
@@ -25,4 +25,4 @@ Validate Dashboard UI And Details Android
     END
 
 Close Shop Android
-    Wait Until Visible And Click Element Apps    ${shopCloseBtnAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${shopCloseBtnAndroid}

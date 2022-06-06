@@ -53,10 +53,10 @@ ${exitTimerViewFitnessAndroid}    id=com.n_ix.pocket_wod:id/toolbar_close
 *** Keywords ***
 
 Open Fitness Tab Android
-    Wait Until Visible And Click Element Apps    ${fitnessBtnAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${fitnessBtnAndroid}
 
 Close Fitness Tab Android
-    Wait Until Visible And Click Element Apps    ${nutritionBtnAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${nutritionBtnAndroid}
 
 Review Workout Library UI Android
     Open Fitness Tab Android
@@ -79,67 +79,67 @@ Review Workout Library UI Android
 
 Review Workout Details Android
     Open Fitness Tab Android
-    Wait Until Visible And Click Element Apps    ${viewWorkoutBtnFitnessAndroid}
-    Wait Until Element Is Visible                ${warmUpTxtFitnessAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${viewWorkoutBtnFitnessAndroid}
+    Wait Until Element Is Visible                           ${warmUpTxtFitnessAndroid}
     Capture Page Screenshot
-    Wait Until Visible And Click Element Apps    ${backButtonWorkoutsFitnessAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${backButtonWorkoutsFitnessAndroid}
     Close Fitness Tab Android
 
 Save to Workout Library Android
     Open Fitness Tab Android
-    @{list}=    Create List                          ${viewWorkoutBtnFitnessAndroid}
-    ...                                              ${saveWorkoutFitnessAndroid}
-    ...                                              ${backButtonWorkoutsFitnessAndroid}
-    FOR                                              ${item}     IN     @{list}
-        Wait Until Visible And Click Element Apps    ${item}
+    @{list}=    Create List                                     ${viewWorkoutBtnFitnessAndroid}
+    ...                                                         ${saveWorkoutFitnessAndroid}
+    ...                                                         ${backButtonWorkoutsFitnessAndroid}
+    FOR                                                         ${item}     IN     @{list}
+        CommonApps.Wait Until Visible And Click Element Apps    ${item}
     END
     Close Fitness Tab Android
 
 Add New Workout For Time Android
     Open Fitness Tab Android
-    Wait Until Visible And Click Element Apps    ${workoutLogBtnFitnessAndroid}
-    Wait Until Visible And Click Element Apps    ${addWodBtnFitnessAndroid}
-    Wait Until Element Is Visible                ${wodNameFieldFitnessAndroid}
-    Input Text                                   ${wodNameFieldFitnessAndroid}    Plank
-    Wait Until Visible And Click Element Apps    ${wodTypeFieldFitnessAndroid}
-    Wait Until Visible And Click Element Apps    ${doneWodTypeBtnFitnessAndroid}
-    Wait Until Element Is Visible                ${wodResultFieldFitnessAndroid}
-    Input Text                                   ${wodResultFieldFitnessAndroid}    03:00
+    CommonApps.Wait Until Visible And Click Element Apps    ${workoutLogBtnFitnessAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${addWodBtnFitnessAndroid}
+    Wait Until Element Is Visible                           ${wodNameFieldFitnessAndroid}
+    Input Text                                              ${wodNameFieldFitnessAndroid}    Plank
+    CommonApps.Wait Until Visible And Click Element Apps    ${wodTypeFieldFitnessAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${doneWodTypeBtnFitnessAndroid}
+    Wait Until Element Is Visible                           ${wodResultFieldFitnessAndroid}
+    Input Text                                              ${wodResultFieldFitnessAndroid}    03:00
     Capture Page Screenshot
-    Wait Until Visible And Click Element Apps    ${saveWodBtnFitnessAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${saveWodBtnFitnessAndroid}
     Capture Page Screenshot
     Close Fitness Tab Android
 
 Launch And Validate Timer Android
-    [Arguments]                                  ${timerName}
+    [Arguments]                                             ${timerName}
     Open Fitness Tab Android
-    Wait Until Visible And Click Element Apps    ${fitnessTimersBtnFitnessAndroid}
-    Wait Until Element Is Visible                ${timersTxtFitnessAndroid}    
-    Click Text                                   ${timerName}
-    Wait Until Visible And Click Element Apps    ${startBtnFitnessAndroid}
-    Wait Until Visible And Click Element Apps    ${startTimerBtnFitnessAndroid}
-    Sleep                                        3
+    CommonApps.Wait Until Visible And Click Element Apps    ${fitnessTimersBtnFitnessAndroid}
+    Wait Until Element Is Visible                           ${timersTxtFitnessAndroid}    
+    Click Text                                              ${timerName}
+    CommonApps.Wait Until Visible And Click Element Apps    ${startBtnFitnessAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${startTimerBtnFitnessAndroid}
+    Sleep                                                   3
     Capture Page Screenshot
-    Wait Until Visible And Click Element Apps    ${exitTimerBtnFitnessAndroid}
-    Wait Until Visible And Click Element Apps    ${exitTimerViewFitnessAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${exitTimerBtnFitnessAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${exitTimerViewFitnessAndroid}
     Close Fitness Tab Android
 
 Review Movements Library UI Android
     Open Fitness Tab Android
-    Wait Until Visible And Click Element Apps    ${movementsTabFitnessAndroid}
-    Wait Until Element Is Visible                ${moveCategoryBtnGridFitnessAndroid}
-    Click Text                                   All
-    Wait Until Page Contains                     Air Assault Bike
-    Wait Until Page Contains                     Air Squat
+    CommonApps.Wait Until Visible And Click Element Apps    ${movementsTabFitnessAndroid}
+    Wait Until Element Is Visible                           ${moveCategoryBtnGridFitnessAndroid}
+    Click Text                                              All
+    Wait Until Page Contains                                Air Assault Bike
+    Wait Until Page Contains                                Air Squat
     Capture Page Screenshot
     Close Fitness Tab Android
 
 Validate Movement Video Content Android
     Open Fitness Tab Android
-    Wait Until Visible And Click Element Apps    ${movementsTabFitnessAndroid} 
-    Click Text                                   All
-    Click Text                                   Air Assault Bike
-    Sleep                                        3
+    CommonApps.Wait Until Visible And Click Element Apps    ${movementsTabFitnessAndroid} 
+    Click Text                                              All
+    Click Text                                              Air Assault Bike
+    Sleep                                                   3
     Capture Page Screenshot
-    Wait Until Visible And Click Element Apps    ${exitMoveVideoBtnFitnessAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${exitMoveVideoBtnFitnessAndroid}
     Close Fitness Tab Android
