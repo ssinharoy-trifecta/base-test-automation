@@ -74,6 +74,7 @@ Validate Intro Screen Details iOS
     FOR                                  ${item}     IN     @{list}
         Wait Until Element Is Visible    ${item}    timeout=30
     END
+    Capture Page Screenshot
 
 Complete User Onboarding iOS
     @{list}=    Create List                                      ${letsDoItBtnOnboardingiOS}   
@@ -84,6 +85,7 @@ Complete User Onboarding iOS
     FOR                                                          ${item}     IN     @{list}
         CommonApps.Wait Until Visible And Click Element Apps     ${item}
     END
+    Capture Page Screenshot
     Wait Until Element Is Visible                                ${weightOnboardingPickerOnboardingiOS}
     Input Value                                                  ${weightOnboardingPickerOnboardingiOS}   180
     CommonApps.Wait Until Visible And Click Element Apps         ${heightOnboardingPickerOnboardingiOS}
@@ -95,12 +97,14 @@ Complete User Onboarding iOS
     Sleep                                                        1
     Click Text                                                   Done   exact_match=True
     Sleep                                                        1
+    Capture Page Screenshot
     @{list}=    Create List                                      ${doneBtnOnboardingiOS} 
     ...                                                          ${allowNotificationsBtniOS}
     FOR                                                          ${item}     IN     @{list}
         CommonApps.Wait Until Visible And Click Element Apps     ${item}
         Check Notifications Alert iOS
     END
+    Capture Page Screenshot
 
 Check Notifications Alert iOS
     Sleep             3

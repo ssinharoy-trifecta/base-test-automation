@@ -62,6 +62,7 @@ Add Weight To The Weight Card Android
     Clear Text                                              ${addWeightFieldAndroid}
     Input Value                                             ${addWeightFieldAndroid}    ${userWeight}
     Click Element                                           ${setWeightBtnAndroid}
+    Capture Page Screenshot
     CommonApps.Wait Until Visible And Click Element Apps    ${addWeightCardBtnAndroid}
 
 Add Water To The Water Card Android
@@ -70,20 +71,24 @@ Add Water To The Water Card Android
     ...                             ${8ozWaterBtnAndroid}
     ...                             ${12ozWaterBtnAndroid}
     ...                             ${16ozWaterBtnAndroid}
-    ...                             ${addWaterCardBtnAndroid}
     FOR                             ${item}    IN    @{list}
         Click Element               ${item}
     END
+    Capture Page Screenshot
+    Click Element                   ${addWaterCardBtnAndroid}
+   
 
 Log Food Android
     [Arguments]                                            ${mealButton}    ${foodItem}
     CommonApps.Wait Until Visible And Click Element Apps   ${mealButton}
     Input Value                                            ${foodSearchBarAndroid}    ${foodItem}
     Sleep                                                  2
+    Capture Page Screenshot
     Wait Until Page Contains                               ${foodItem}    timeout=10
     CommonApps.Wait Until Visible And Click Element Apps   ${addFirstFoodItemBtnAndroid}
     CommonApps.Wait Until Visible And Click Element Apps   ${doneAddingFoodBtnAndroid}
-    Wait Until Page Contains                               ${foodItem}    timeout=10
+    Wait Until Page Contains                               ${foodItem}
+    Capture Page Screenshot
 
 Add Custom Food Android
     [Arguments]                                             ${foodName}    ${brandName}    ${servingSize}    ${calories}
@@ -97,5 +102,7 @@ Add Custom Food Android
     Input Value                                             ${customFoodServingSizeFieldAndroid}    ${servingSize}
     Wait Until Element Is Visible                           ${customFoodCaloriesFieldAndroid}
     Input Value                                             ${customFoodCaloriesFieldAndroid}    ${calories}
+    Capture Page Screenshot
     CommonApps.Wait Until Visible And Click Element Apps    ${addToBreakfastBtnAndroid}
-    Wait Until Page Contains                                ${foodName}    timeout=10
+    Wait Until Page Contains                                ${foodName}
+    Capture Page Screenshot

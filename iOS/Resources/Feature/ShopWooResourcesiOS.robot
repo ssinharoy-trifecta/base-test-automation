@@ -29,6 +29,7 @@ Validate Dashboard UI And Details iOS
     FOR                                     ${item}     IN     @{list}
         Wait Until Page Contains Element    ${item}    timeout=30
     END
+    Capture Page Screenshot
 
 Close Shop iOS
     CommonApps.Wait Until Visible And Click Element Apps    ${shopCloseBtniOS}

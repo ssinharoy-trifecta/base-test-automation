@@ -86,6 +86,7 @@ Review Main Menu UI Android
     FOR                                                     ${item}    IN    @{list}
         Wait Until Page Contains Element                    ${item}
     END
+    Capture Page Screenshot
     CommonApps.Wait Until Visible And Click Element Apps    ${closeMainMenuBtnAndroid}
 
 Review User Account UI Android
@@ -104,6 +105,7 @@ Review User Account UI Android
     FOR                                                     ${item}    IN    @{list}
         Wait Until Element Is Visible                       ${item}
     END
+    Capture Page Screenshot
     CommonApps.Wait Until Visible And Click Element Apps    ${backBtnAccountAndroid}
 
 Reset User Password Android
@@ -120,4 +122,5 @@ Review Info WebView Android
     CommonApps.Wait Until Visible And Click Element Apps    ${mainMenuBtnAndroid}
     Click Text                                              ${typeInfoBtnName}    exact_match=True
     Wait Until Element Is Visible                           ${webViewTextElementAndroid}
+    Capture Page Screenshot
     Click Element                                           ${closeWebViewBtnAndroid}

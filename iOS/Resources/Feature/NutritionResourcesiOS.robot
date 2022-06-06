@@ -61,6 +61,7 @@ Add Weight To The Weight Card iOS
     Repeat Keyword                                          3 times    Click Element    ${keyboardDeleteBtniOS}
     Wait Until Element Is Visible                           ${weightFieldCardFieldiOS}
     Input Value                                             ${weightFieldCardFieldiOS}    ${userWeight}
+    Capture Page Screenshot
     Click Element                                           ${addWeightCardBtniOS}
     Wait Until Element Is Visible                           ${200lbsWeightCardLbliOS}
 
@@ -70,16 +71,18 @@ Add Water To The Water Card iOS
     ...                             ${8ozWaterBtniOS}
     ...                             ${12ozWaterBtniOS}
     ...                             ${16ozWaterBtniOS}
-    ...                             ${addWaterCardiOS}
     FOR                             ${item}    IN    @{list}
         Click Element               ${item}
     END
+    Capture Page Screenshot
+    Click Element                   ${addWaterCardiOS}
 
 Log Food iOS
     [Arguments]                                                ${mealButton}    ${foodItem}
     CommonApps.Wait Until Visible And Click Element Apps       ${mealButton}
     Wait Until Element Is Visible                              ${foodSearchBariOS}
     Input Value                                                ${foodSearchBariOS}    ${foodItem}
+    Capture Page Screenshot
     @{list}=    Create List                                    ${doneBtnNutritionKeyboardiOS}
     ...                                                        ${addFirstFoodItemBtniOS}
     ...                                                        ${doneAddingFoodBtniOS}
@@ -87,6 +90,7 @@ Log Food iOS
         CommonApps.Wait Until Visible And Click Element Apps   ${item}
     END
     Wait Until Page Contains                                   ${foodItem}
+    Capture Page Screenshot
 
 Add Custom Food iOS
     [Arguments]                                             ${foodName}    ${brandName}    ${servingSize}    ${calories}
@@ -100,6 +104,8 @@ Add Custom Food iOS
     Input Value                                             ${customFoodServingSizeFieldiOS}    ${servingSize}
     Wait Until Element Is Visible                           ${customFoodCaloriesFieldiOS}
     Input Value                                             ${customFoodCaloriesFieldiOS}    ${calories}
+    Capture Page Screenshot
     Click Text                                              Done   exact_match=True
     CommonApps.Wait Until Visible And Click Element Apps    ${addToBreakfastBtniOS}
     Wait Until Page Contains                                ${foodName}
+    Capture Page Screenshot

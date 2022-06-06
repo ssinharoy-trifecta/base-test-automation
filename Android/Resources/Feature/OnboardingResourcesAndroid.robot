@@ -64,6 +64,7 @@ Validate Intro Screen Details Android
     FOR                                  ${item}     IN     @{list}
         Wait Until Element Is Visible    ${item}
     END
+    Capture Page Screenshot
 
 Complete User Onboarding Android
     @{list}=    Create List                                     ${letsDoItBtnOnboardingAndroid} 
@@ -77,6 +78,7 @@ Complete User Onboarding Android
     END
     Wait Until Element Is Visible                               ${valueInputOnboardingAndroid}
     Input Value                                                 ${valueInputOnboardingAndroid}   180
+    Capture Page Screenshot
     CommonApps.Wait Until Visible And Click Element Apps        ${setValueBtnOnboardingAndroid}
     CommonApps.Wait Until Visible And Click Element Apps        ${heightOnboardingAndroid}
     Wait Until Element Is Visible                               ${valueInputOnboardingAndroid}
@@ -88,6 +90,7 @@ Complete User Onboarding Android
     FOR                                                         ${item}     IN     @{list}
         CommonApps.Wait Until Visible And Click Element Apps    ${item}
     END
+    Capture Page Screenshot
 
 Agree To Terms Of Use Android
     @{list}=    Create List                                     ${termsOfUseAgreeBtnAndroid}
@@ -96,3 +99,5 @@ Agree To Terms Of Use Android
     FOR                                                         ${item}     IN     @{list}
         CommonApps.Wait Until Visible And Click Element Apps    ${item}
     END
+    Capture Page Screenshot
+

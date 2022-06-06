@@ -77,6 +77,7 @@ Review Main Menu UI iOS
     FOR                                                     ${item}    IN    @{list}
         Element Should Be Visible                           ${item}
     END
+    Capture Page Screenshot
     Scroll Down                                             ${logoutBtniOS}
     @{list}=    Create List                                 ${privacyPolicyBtniOS}
     ...                                                     ${termsOfServiceBtniOS}
@@ -88,6 +89,7 @@ Review Main Menu UI iOS
     FOR                                                     ${item}    IN    @{list}
         Element Should Be Visible                           ${item}
     END
+    Capture Page Screenshot
     CommonApps.Wait Until Visible And Click Element Apps    ${closeMainMenuBtniOS}
 
 Review User Account UI iOS
@@ -106,6 +108,7 @@ Review User Account UI iOS
     FOR                                                     ${item}    IN    @{list}
         Element Should Be Visible                           ${item}
     END
+    Capture Page Screenshot
     Click Element                                           ${backBtnAccountiOS}
     CommonApps.Wait Until Visible And Click Element Apps    ${closeMainMenuBtniOS}
 
@@ -113,6 +116,7 @@ Reset User Password iOS
     Open User Account iOS
     Scroll Down                                             ${resetPasswordBtniOS}
     Click Element                                           ${resetPasswordBtniOS}
+    Capture Page Screenshot
     CommonApps.Wait Until Visible And Click Element Apps    ${okLinkSentBtniOS}
     Close User Account iOS
 
@@ -122,6 +126,7 @@ Update User Name iOS
     Wait Until Element Is Visible    ${nameFieldAccountiOS}
     Clear Text                       ${nameFieldAccountiOS}
     Input Text                       ${nameFieldAccountiOS}    ${userName}
+    Capture Page Screenshot
     Close User Account iOS
     Open User Account iOS
     Wait Until Element Is Visible    ${nameFieldAccountiOS}
@@ -134,4 +139,5 @@ Review Info WebView iOS
     Scroll Down                                             ${infoElementBtniOS}
     Click Element                                           ${infoElementBtniOS}
     Wait Until Element Is Visible                           ${infoElementBodyTxtiOS}
+    Capture Page Screenshot
     Click Element                                           ${closeWebViewBtniOS}

@@ -26,16 +26,19 @@ Sign Up As New User iOS
         CommonApps.Wait Until Visible And Click Element Apps    ${item}
     END
     Wait Until Element Is Visible                               ${emailFieldAuthenticationiOS}   timeout=30
+    Capture Page Screenshot
     ${date}    Get Current Date                                 result_format=%m-%d-%y-%H.%M.%S
     Input Text                                                  ${emailFieldAuthenticationiOS}   trifectaqa+${date}@gmail.com
     Input Text                                                  ${passwordFieldAuthenticationiOS}    ${testUserPassword}
     Click Element                                               ${signUpBtnAuthenticationiOS}
     Wait Until Element Is Visible                               ${athleteImgOnboardingiOS}   
-    Wait Until Element Is Visible                               ${welcomeToTrifectaTxtOnboardingiOS}
+    Element Should Be Visible                                   ${welcomeToTrifectaTxtOnboardingiOS}
+    Capture Page Screenshot
 
 Sign In As Existing User iOS
     CommonApps.Wait Until Visible And Click Element Apps    ${getStartedBtnIntroiOS}
     Wait Until Element Is Visible                           ${emailFieldAuthenticationiOS}
+    Capture Page Screenshot
     Input Text                                              ${emailFieldAuthenticationiOS}   ${testUserEmail}
     Input Text                                              ${passwordFieldAuthenticationiOS}    ${testUserPassword}
     Click Element                                           ${signInBtnAuthenticationiOS}

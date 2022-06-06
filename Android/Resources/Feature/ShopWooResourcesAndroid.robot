@@ -23,6 +23,7 @@ Validate Dashboard UI And Details Android
     FOR                                  ${item}     IN     @{list}
         Wait Until Element Is Visible    ${item}    timeout=30
     END
+    Capture Page Screenshot
 
 Close Shop Android
     CommonApps.Wait Until Visible And Click Element Apps    ${shopCloseBtnAndroid}
