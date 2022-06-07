@@ -146,7 +146,7 @@ Mark App Automate Session Status Passed
 Mark App Automate Session Status Failed
     Execute Script    browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed"}}
     Close Application
-    #This is the only available keyword to completely terminate further test suit execution
+    #This is the only available keyword to completely terminate further test suite execution
     BuiltIn.Fatal Error
   
 #UPLOAD APPLICATION TO BROWSERSTACK CLOUD API
