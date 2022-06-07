@@ -139,13 +139,16 @@ ${BS_BUILD_WEB}         ${SUITE NAME}
 
 *** Keywords ***
 #MARK APP AUTOMATE SESSION STATUS PASS/FAIL IN BROWSERSTACK
-Mark App Automate Session Status Browserstack
-    Run Keyword If All Tests Passed
-    ...    Execute Script    browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed"}}
-    Run Keyword If Any Tests Failed
-    ...    Execute Script    browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed"}}
-    Close All Applications
+Mark App Automate Session Status Passed
+    Execute Script    browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed"}}
+    Close Application
 
+Mark App Automate Session Status Failed
+    Execute Script    browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed"}}
+    Close Application
+    #This is the only available keyword to completely terminate further test suite execution
+    BuiltIn.Fatal Error
+  
 #UPLOAD APPLICATION TO BROWSERSTACK CLOUD API
 Upload iOS Application To Browserstack
 # TODO: Instead of using the Run Process keyword, try API.Send POST Request
@@ -163,16 +166,16 @@ Launch iOS Application On Browserstack Device
     ...                      ${configBS}
     ...                      ${BS_DEVICE_iOS}
     ...                      ${BS_OS_VERSION_iOS}
-    Open Application    remote_url=http://${BS_REMOTE_URL}
-    ...                 browserstack.user=${BS_USER} 
-    ...                 browserstack.key=${BS_KEY}
-    ...                 app_url=${BS_CUSTOM_ID_iOS}
-    ...                 device=${desiredCapabilities.device}
-    ...                 os_version=${desiredCapabilities.os_version}
-    ...                 project=${BS_PROJECT_iOS} 
-    ...                 build=${BS_BUILD_iOS}
-    ...                 name=${BS_NAME_iOS}
-    ...                 browserstack.idle.Timeout=${BS_IDLE_TIMEOUT}
+    Open Application         remote_url=http://${BS_REMOTE_URL}
+    ...                      browserstack.user=${BS_USER} 
+    ...                      browserstack.key=${BS_KEY}
+    ...                      app_url=${BS_CUSTOM_ID_iOS}
+    ...                      device=${desiredCapabilities.device}
+    ...                      os_version=${desiredCapabilities.os_version}
+    ...                      project=${BS_PROJECT_iOS} 
+    ...                      build=${BS_BUILD_iOS}
+    ...                      name=${BS_NAME_iOS}
+    ...                      browserstack.idle.Timeout=${BS_IDLE_TIMEOUT}
 
 #ANDROID BROWSERSTACK LAUNCHER
 Launch Android Application On Browserstack Device
@@ -181,16 +184,16 @@ Launch Android Application On Browserstack Device
     ...                      ${configBS}
     ...                      ${BS_DEVICE_ANDROID}
     ...                      ${BS_OS_VERSION_ANDROID}
-    Open Application    remote_url=http://${BS_REMOTE_URL}
-    ...                 browserstack.user=${BS_USER} 
-    ...                 browserstack.key=${BS_KEY}
-    ...                 app_url=${BS_CUSTOM_ID_ANDROID}
-    ...                 device=${desiredCapabilities.device}
-    ...                 os_version=${desiredCapabilities.os_version}
-    ...                 project=${BS_PROJECT_ANDROID}
-    ...                 build=${BS_BUILD_ANDROID}
-    ...                 name=${BS_NAME_ANDROID}
-    ...                 browserstack.idle.Timeout=${BS_IDLE_TIMEOUT}
+    Open Application         remote_url=http://${BS_REMOTE_URL}
+    ...                      browserstack.user=${BS_USER} 
+    ...                      browserstack.key=${BS_KEY}
+    ...                      app_url=${BS_CUSTOM_ID_ANDROID}
+    ...                      device=${desiredCapabilities.device}
+    ...                      os_version=${desiredCapabilities.os_version}
+    ...                      project=${BS_PROJECT_ANDROID}
+    ...                      build=${BS_BUILD_ANDROID}
+    ...                      name=${BS_NAME_ANDROID}
+    ...                      browserstack.idle.Timeout=${BS_IDLE_TIMEOUT}
 
 # WEB BROWSERSTACK LAUNCHER
 Setup Browserstack For WEB

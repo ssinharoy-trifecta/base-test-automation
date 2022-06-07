@@ -72,7 +72,7 @@ Validate Intro Screen Details iOS
     ...                                  ${trifectaLogoIntroiOS}    
     ...                                  ${trifectaVideoIntroiOS} 
     FOR                                  ${item}     IN     @{list}
-        Wait Until Element Is Visible    ${item}    timeout=30
+        Wait Until Element Is Visible    ${item}    timeout=10
     END
     Capture Page Screenshot
 

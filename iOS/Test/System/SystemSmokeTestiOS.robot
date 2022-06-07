@@ -12,10 +12,10 @@ Resource   ../../Resources/Feature/ShopWooResourcesiOS.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 Resource   ../../../Common/Resources/CommonApps.robot
 
-# TODO: COULD POTENTIALLY COMBINE KEYWORDS INTO ONE
 Suite Setup       Browserstack.Upload iOS Application To Browserstack
-Suite Teardown    Run Keywords    AccountMgmtResourcesiOS.Log Out iOS
-...                               Browserstack.Mark App Automate Session Status Browserstack
+Suite Teardown    Run Keyword If All Tests Passed    Browserstack.Mark App Automate Session Status Passed
+
+Test Teardown     Run Keyword If Test Failed    Browserstack.Mark App Automate Session Status Failed
 
 *** Test Cases ***
 
