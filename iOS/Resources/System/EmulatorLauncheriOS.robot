@@ -2,9 +2,9 @@
 
 ${LOCAL_HOST_IOS}          http://localhost:4723/wd/hub
 ${PLATFORM_VERSION_IOS}    15
-${UDID_IOS}                7DDC7B2F-C731-4B3F-8D90-F698CECBAE2D
+${UDID_IOS}                26C2F6DE-2080-4066-A8B9-52181FC0E76A
 ${BUNDLE_ID_IOS}           com.dmw.iCrossFit
-${DEVICE_NAME_IOS}         iPhone 13 mini
+${DEVICE_NAME_IOS}         iPhone 13 Pro
 
 *** Keywords ***
 

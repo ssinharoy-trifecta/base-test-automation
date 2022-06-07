@@ -68,43 +68,43 @@ Check Data Alert iOS
     Run Keyword If    '${alertiOS}' == 'False'    Click Element    ${allowBtniOS}
 
 Validate Intro Screen Details iOS
-    @{list}=    Create List    ${getStartedBtnIntroiOS}    
-    ...                        ${trifectaLogoIntroiOS}    
-    ...                        ${trifectaVideoIntroiOS} 
-    FOR     ${item}     IN     @{list}
-        Wait Until Element Is Visible  ${item}    timeout=30
+    @{list}=    Create List              ${getStartedBtnIntroiOS}    
+    ...                                  ${trifectaLogoIntroiOS}    
+    ...                                  ${trifectaVideoIntroiOS} 
+    FOR                                  ${item}     IN     @{list}
+        Wait Until Element Is Visible    ${item}    timeout=30
     END
+    Capture Page Screenshot
 
 Complete User Onboarding iOS
-    @{list}=    Create List    ${letsDoItBtnOnboardingiOS}   
-    ...                        ${maleBtnOnboardingiOS}
-    ...                        ${loseWeightBtnOnboardingiOS}
-    ...                        ${moderatelyActiveBtnOnboardingiOS}
-    ...                        ${noKetoBtnOnboardingiOS}
-    FOR     ${item}     IN     @{list}
-        Wait Until Element Is Visible     ${item}    timeout=30
-        Click Element    ${item}
+    @{list}=    Create List                                      ${letsDoItBtnOnboardingiOS}   
+    ...                                                          ${maleBtnOnboardingiOS}
+    ...                                                          ${loseWeightBtnOnboardingiOS}
+    ...                                                          ${moderatelyActiveBtnOnboardingiOS}
+    ...                                                          ${noKetoBtnOnboardingiOS}
+    FOR                                                          ${item}     IN     @{list}
+        CommonApps.Wait Until Visible And Click Element Apps     ${item}
     END
-    Wait Until Element Is Visible    ${weightOnboardingPickerOnboardingiOS}   timeout=10
-    Input Value                      ${weightOnboardingPickerOnboardingiOS}   200
-    Wait Until Element Is Visible    ${heightOnboardingPickerOnboardingiOS}   timeout=10
-    Click Element                    ${heightOnboardingPickerOnboardingiOS}
-    Click Text                       cm    exact_match=True
-    Wait Until Element Is Visible    ${heightOnboardingPickerCmOnboardingiOS}    timeout=10
-    Input Value                      ${heightOnboardingPickerCmOnboardingiOS}    180
-    Click Text                       Done    exact_match=True
-    Wait Until Element Is Visible    ${birthdayOnboardingPickerOnboardingiOS}    timeout=10
-    Click Element                    ${birthdayOnboardingPickerOnboardingiOS}
-    Sleep                            1
-    Click Text                       Done   exact_match=True
-    Sleep                            1
-    @{list}=    Create List    ${doneBtnOnboardingiOS} 
-    ...                        ${allowNotificationsBtniOS}
-    FOR     ${item}     IN     @{list}
-        Wait Until Element Is Visible     ${item}    timeout=30
-        Click Element    ${item}
+    Capture Page Screenshot
+    Wait Until Element Is Visible                                ${weightOnboardingPickerOnboardingiOS}
+    Input Value                                                  ${weightOnboardingPickerOnboardingiOS}   180
+    CommonApps.Wait Until Visible And Click Element Apps         ${heightOnboardingPickerOnboardingiOS}
+    Click Text                                                   cm    exact_match=True
+    Wait Until Element Is Visible                                ${heightOnboardingPickerCmOnboardingiOS}
+    Input Value                                                  ${heightOnboardingPickerCmOnboardingiOS}    180
+    Click Text                                                   Done    exact_match=True
+    CommonApps.Wait Until Visible And Click Element Apps         ${birthdayOnboardingPickerOnboardingiOS}
+    Sleep                                                        1
+    Click Text                                                   Done   exact_match=True
+    Sleep                                                        1
+    Capture Page Screenshot
+    @{list}=    Create List                                      ${doneBtnOnboardingiOS} 
+    ...                                                          ${allowNotificationsBtniOS}
+    FOR                                                          ${item}     IN     @{list}
+        CommonApps.Wait Until Visible And Click Element Apps     ${item}
         Check Notifications Alert iOS
     END
+    Capture Page Screenshot
 
 Check Notifications Alert iOS
     Sleep             3

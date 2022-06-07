@@ -21,7 +21,7 @@ ${BS_APP_UPLOADER_iOS}    curl -u "${BS_USER}:${BS_KEY}"
 ${BS_PROJECT_iOS}         iOS System Smoke Test
 ${BS_BUILD_iOS}           iOS
 ${BS_NAME_iOS}            iOS_System_Smoke_Test
-${BS_DEVICE_iOS}          iPhone 13
+${BS_DEVICE_iOS}          iPhone 13 Pro
 ${BS_OS_VERSION_iOS}      15
 
 #ANDROID

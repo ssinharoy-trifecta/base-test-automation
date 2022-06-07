@@ -28,29 +28,23 @@ ${signUpBtnAndroid}                      id=com.n_ix.pocket_wod:id/signUpButton
 *** Keywords ***
 
 Sign Up As New User Android
-    @{list}=    Create List              ${getStartedBtnAndroid}  
-    ...                                  ${createAccountBtnAndroid}
-    FOR                                  ${item}     IN     @{list}
-        Wait Until Element Is Visible    ${item}    timeout=30
-        Click Element                    ${item}
-    END
-    Wait Until Element Is Visible        ${emailFieldAuthenticationAndroid}   timeout=30
-    #TODO:This should use probably the CreateCustomer.robot's Generate New eMail Address function
-    ${date}    Get Current Date          result_format=%m-%d-%y-%H.%M.%S
-    Input Text                           ${emailFieldAuthenticationAndroid}   trifectaqa+${date}@gmail.com
-    Input Text                           ${passwordFieldAuthenticationAndroid}    ${testUserPassword}
-    Click Element                        ${signUpBtnAndroid}
-    @{list}=    Create List              ${athleteImgOnboardingAndroid} 
-    ...                                  ${welcomeToTrifectaTxtOnboardingAndroid}
-    FOR                                  ${item}     IN     @{list}
-        Wait Until Element Is Visible    ${item}    timeout=30
-    END
+    CommonApps.Wait Until Visible And Click Element Apps    ${getStartedBtnAndroid}  
+    CommonApps.Wait Until Visible And Click Element Apps    ${createAccountBtnAndroid}
+    Wait Until Element Is Visible                           ${emailFieldAuthenticationAndroid}
+    Capture Page Screenshot
+    ${date}    Get Current Date                             result_format=%m-%d-%y-%H.%M.%S
+    Input Text                                              ${emailFieldAuthenticationAndroid}   trifectaqa+${date}@gmail.com
+    Input Text                                              ${passwordFieldAuthenticationAndroid}    ${testUserPassword}
+    Click Element                                           ${signUpBtnAndroid}
+    Wait Until Element Is Visible                           ${athleteImgOnboardingAndroid}    timeout=30
+    Element Should Be Visible                               ${welcomeToTrifectaTxtOnboardingAndroid}
+    Capture Page Screenshot
 
 Sign In As Existing User Android
-    Wait Until Visible And Click Element Apps    ${getStartedBtnAndroid}
-    Wait Until Element Is Visible                ${emailFieldAuthenticationAndroid}    timeout=20
-    Input Text                                   ${emailFieldAuthenticationAndroid}    ${testUserEmail}
-    Input Text                                   ${passwordFieldAuthenticationAndroid}    ${testUserPassword}
-    Click Element                                ${signInBtnAndroid}
-    Wait Until Visible And Click Element Apps    ${mainMenuBtnOnAppLoadAndroid}
-    Wait Until Visible And Click Element Apps    ${closeMainMenuBtnAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${getStartedBtnAndroid}
+    Wait Until Element Is Visible                           ${emailFieldAuthenticationAndroid}    timeout=20
+    Input Text                                              ${emailFieldAuthenticationAndroid}    ${testUserEmail}
+    Input Text                                              ${passwordFieldAuthenticationAndroid}    ${testUserPassword}
+    Click Element                                           ${signInBtnAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${mainMenuBtnOnAppLoadAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${closeMainMenuBtnAndroid}

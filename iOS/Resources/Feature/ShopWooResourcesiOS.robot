@@ -18,18 +18,18 @@ ${modifyBtniOS}                xpath=//XCUIElementTypeButton[@name="Modify"]
 *** Keywords ***
 
 Open Shop iOS
-    Wait Until Element Is Visible        ${shopBtniOS}    timeout=30
-    Click Element                        ${shopBtniOS}
+    Wait Until Element Is Visible    ${shopBtniOS}    timeout=30
+    Click Element                    ${shopBtniOS}
 
 Validate Dashboard UI And Details iOS
-    @{list}=    Create List    ${currentSubscriptionTxtiOS}  
-    ...                        ${nextDeliveryTxtiOS}
-    ...                        ${faqTxtiOS}
-    ...                        ${subscriptionDetailsTxtiOS} 
-    FOR     ${item}     IN     @{list}
+    @{list}=    Create List                 ${currentSubscriptionTxtiOS}  
+    ...                                     ${nextDeliveryTxtiOS}
+    ...                                     ${faqTxtiOS}
+    ...                                     ${subscriptionDetailsTxtiOS} 
+    FOR                                     ${item}     IN     @{list}
         Wait Until Page Contains Element    ${item}    timeout=30
     END
+    Capture Page Screenshot
 
 Close Shop iOS
-    Wait Until Element Is Visible        ${shopCloseBtniOS}
-    Click Element                        ${shopCloseBtniOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${shopCloseBtniOS}
