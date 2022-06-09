@@ -53,7 +53,6 @@ ${customFoodCaloriesFieldiOS}     ${customFoodFieldPrefixiOS}5${customFoodFieldS
 ${addToBreakfastBtniOS}           xpath=//XCUIElementTypeButton[@name="Add to breakfast"]
 
 #NUTRITION ANALYTICS
-${macrosFieldNutritioniOS}    xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
 ${nutritionAnalyticsTopBtniOS}              xpath=//XCUIElementTypeButton[@name="ic analytics navigation bar"]
 ${backBtnAnalyticsiOS}                      xpath=//XCUIElementTypeNavigationBar[@name="Nutrition Analytics"]/XCUIElementTypeButton
 ${myDayBtnAnalyticsiOS}                     xpath=//XCUIElementTypeButton[@name="My Day"]
@@ -71,7 +70,11 @@ ${macrosSummaryTxtAnalyticsiOS}             xpath=//XCUIElementTypeStaticText[@n
 ${dailyPickerAnalyticsiOS}                  xpath=//XCUIElementTypeButton[@name="Daily"]
 ${datePickerAnalyticsiOS}                   xpath=//XCUIElementTypeButton[@name="Today"]
 ${weeklyBtnAnalyticsiOS}                    xpath=//XCUIElementTypeButton[@name="Weekly"]
-${barChartAnalyticsCaloriesAnalyticsiOS}    xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]
+${barChartAnalyticsCaloriesAnalyticsiOS}    xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow
+...                                         /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
+...                                         /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
+...                                         /XCUIElementTypeOther[2]/XCUIElementTypeScrollView/XCUIElementTypeOther
+...                                         /XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]
 ${dailyAverageTxtAnalyticsiOS}              xpath=//XCUIElementTypeStaticText[@name="Daily Average"]
 ${averageDailyCaloriesTxtiOS}               xpath=//XCUIElementTypeStaticText[@name="Average daily calories"]
 ${highestInCaloriesTxtAnalyticsiOS}         xpath=//XCUIElementTypeStaticText[@name="Highest In Calories:"]
@@ -84,7 +87,10 @@ ${nutrientDailyAverageTxtAnalyticsiOS}      xpath=//XCUIElementTypeStaticText[@n
 ${weightRangePickerAnalyticsiOS}            xpath=//XCUIElementTypeButton[@name="1 Week"]
 ${weightGraphAnalyticsiOS}                  xpath=//XCUIElementTypeOther[@name="Line Chart. 1 dataset. DataSet 1"]
 ${weightLogTxtAnalyticsiOS}                 xpath=//XCUIElementTypeStaticText[@name="Weight Log"]
-${addWeightBtnAnalyticsiOS}                 xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton
+${addWeightBtnAnalyticsiOS}                 xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow
+...                                         /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
+...                                         /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
+...                                         /XCUIElementTypeOther[2]/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton
 ${loggedWeightTxtAnalyticsiOS}              xpath=//XCUIElementTypeStaticText[@name="180 lb"]
 
 #NUTRITION GOALS
