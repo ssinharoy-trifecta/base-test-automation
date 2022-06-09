@@ -52,6 +52,59 @@ ${customFoodServingSizeFieldiOS}  ${customFoodFieldPrefixiOS}3${customFoodFieldS
 ${customFoodCaloriesFieldiOS}     ${customFoodFieldPrefixiOS}5${customFoodFieldSuffixiOS} 
 ${addToBreakfastBtniOS}           xpath=//XCUIElementTypeButton[@name="Add to breakfast"]
 
+#NUTRITION ANALYTICS
+${macrosFieldNutritioniOS}    xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
+${nutritionAnalyticsTopBtniOS}              xpath=//XCUIElementTypeButton[@name="ic analytics navigation bar"]
+${backBtnAnalyticsiOS}                      xpath=//XCUIElementTypeNavigationBar[@name="Nutrition Analytics"]/XCUIElementTypeButton
+${myDayBtnAnalyticsiOS}                     xpath=//XCUIElementTypeButton[@name="My Day"]
+${caloriesBtnAnalyticsiOS}                  xpath=//XCUIElementTypeButton[@name="Calories"]
+${nutrientsBtnAnalyticsiOS}                 xpath=//XCUIElementTypeButton[@name="Nutrients"]
+${weightBtnAnalyticsiOS}                    xpath=//XCUIElementTypeButton[@name="Weight"]
+${pieChartFourEvementsAnalyticsiOS}         xpath=//XCUIElementTypeOther[@name="Calories. 4 Elements"]
+${breakfastLabelAnalyticsiOS}               xpath=//XCUIElementTypeStaticText[@name="BREAKFAST"]
+${lunchLabelAnalyticsiOS}                   xpath=//XCUIElementTypeStaticText[@name="LUNCH"]
+${dinnerLabelAnalyticsiOS}                  xpath=//XCUIElementTypeStaticText[@name="DINNER"]
+${snaksLabelAnalyticsiOS}                   xpath=//XCUIElementTypeStaticText[@name="SNACKS"]
+${dailyCalorieGoalTxtAnalyticsiOS}          xpath=//XCUIElementTypeStaticText[@name="Daily Calorie Goal"]
+${consumedCaloriesTxtAnalyticsiOS}          xpath=//XCUIElementTypeStaticText[@name="Consumed Calories"]
+${macrosSummaryTxtAnalyticsiOS}             xpath=//XCUIElementTypeStaticText[@name="Macros Summary"]
+${dailyPickerAnalyticsiOS}                  xpath=//XCUIElementTypeButton[@name="Daily"]
+${datePickerAnalyticsiOS}                   xpath=//XCUIElementTypeButton[@name="Today"]
+${weeklyBtnAnalyticsiOS}                    xpath=//XCUIElementTypeButton[@name="Weekly"]
+${barChartAnalyticsCaloriesAnalyticsiOS}    xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]
+${dailyAverageTxtAnalyticsiOS}              xpath=//XCUIElementTypeStaticText[@name="Daily Average"]
+${averageDailyCaloriesTxtiOS}               xpath=//XCUIElementTypeStaticText[@name="Average daily calories"]
+${highestInCaloriesTxtAnalyticsiOS}         xpath=//XCUIElementTypeStaticText[@name="Highest In Calories:"]
+${lowestInCaloriesTxtAnalyticsiOS}          xpath=//XCUIElementTypeStaticText[@name="Lowest In Calories:"]
+${nutrientSummaryAnalyticsiOS}              xpath=//XCUIElementTypeStaticText[@name="Nutrient Summary"]
+${proteinLabelAnalytics}                    xpath=//XCUIElementTypeStaticText[@name="PROTEIN"]
+${fatLabelAnalytics}                        xpath=//XCUIElementTypeStaticText[@name="FAT"]
+${carbsLabelAnalytics}                      xpath=//XCUIElementTypeStaticText[@name="CARBS"]
+${nutrientDailyAverageTxtAnalyticsiOS}      xpath=//XCUIElementTypeStaticText[@name="Nutrient Daily Average"]
+${weightRangePickerAnalyticsiOS}            xpath=//XCUIElementTypeButton[@name="1 Week"]
+${weightGraphAnalyticsiOS}                  xpath=//XCUIElementTypeOther[@name="Line Chart. 1 dataset. DataSet 1"]
+${weightLogTxtAnalyticsiOS}                 xpath=//XCUIElementTypeStaticText[@name="Weight Log"]
+${addWeightBtnAnalyticsiOS}                 xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton
+${loggedWeightTxtAnalyticsiOS}              xpath=//XCUIElementTypeStaticText[@name="180 lb"]
+
+#NUTRITION GOALS
+${nutritionGoalsBtniOS}                     xpath=//XCUIElementTypeButton[@name="macro override"]
+${nutritionGoalsTxtiOS}                     xpath=//XCUIElementTypeStaticText[@name="Nutrition Goals"]
+${closeNutritionGoalsiOS}                   xpath=//XCUIElementTypeButton[@name="Close"]
+${proteinTxtNutritionGoalsiOS}              xpath=//XCUIElementTypeStaticText[@name="Protein (g)"]
+${fatTxtNutritionGoalsiOS}                  xpath=//XCUIElementTypeStaticText[@name="Fat (g)"]
+${carbsTxtNutritionGoalsiOS}                xpath=//XCUIElementTypeStaticText[@name="Carbs (g)"]
+${caloriesTxtNutritionGoalsiOS}             xpath=//XCUIElementTypeStaticText[@name="Calories"]
+${useRecommendedValBtnNutritionGoalsiOS}    xpath=//XCUIElementTypeButton[@name="Use recommended values"]
+${updateNutritionGoalsBtniOS}               xpath=//XCUIElementTypeButton[@name="Update"]
+${caloriesFieldNutritionGoalsiOS}           xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeTextField
+${twoBtnKeyboardiOS}                        xpath=//XCUIElementTypeKey[@name="2"]
+${zeroBtnKeyboardiOS}                       xpath=//XCUIElementTypeKey[@name="0"]
+${deleteBtnKeyboardiOS}                     xpath=//XCUIElementTypeKey[@name="Delete"]
+
+
+
+
 *** Keywords ***
 
 Add Weight To The Weight Card iOS
@@ -76,6 +129,8 @@ Add Water To The Water Card iOS
     END
     Capture Page Screenshot
     Click Element                   ${addWaterCardiOS}
+
+#FOOD LOG
 
 Log Food iOS
     [Arguments]                                                ${mealButton}    ${foodItem}
@@ -109,3 +164,157 @@ Add Custom Food iOS
     CommonApps.Wait Until Visible And Click Element Apps    ${addToBreakfastBtniOS}
     Wait Until Page Contains                                ${foodName}
     Capture Page Screenshot
+
+#NUTRITION ANALYTICS
+
+Open Nutrition Analytics
+    CommonApps.Wait Until Visible And Click Element Apps    ${nutritionAnalyticsTopBtniOS}
+
+Close Nutrition Analytics
+    CommonApps.Wait Until Visible And Click Element Apps    ${backBtnAnalyticsiOS}
+
+Review My Day UI - Food Logged iOS
+    Open Nutrition Analytics
+    Wait Until Element Is Visible    ${pieChartFourEvementsAnalyticsiOS}
+    @{list}=    Create List          ${breakfastLabelAnalyticsiOS}
+    ...                              ${lunchLabelAnalyticsiOS}
+    ...                              ${dinnerLabelAnalyticsiOS}
+    ...                              ${snaksLabelAnalyticsiOS}
+    ...                              ${dailyCalorieGoalTxtAnalyticsiOS}
+    ...                              ${consumedCaloriesTxtAnalyticsiOS}
+    ...                              ${macrosSummaryTxtAnalyticsiOS}
+    FOR                              ${item}    IN    @{list}
+        Element Should Be Visible    ${item}
+    END
+    Capture Page Screenshot
+    Close Nutrition Analytics
+
+Review Calories Daily UI - Food Logged iOS
+    Open Nutrition Analytics
+    CommonApps.Wait Until Visible And Click Element Apps    ${caloriesBtnAnalyticsiOS}
+    Wait Until Element Is Visible                           ${pieChartFourEvementsAnalyticsiOS}
+    @{list}=    Create List                                 ${breakfastLabelAnalyticsiOS}
+    ...                                                     ${lunchLabelAnalyticsiOS}
+    ...                                                     ${dinnerLabelAnalyticsiOS}
+    ...                                                     ${snaksLabelAnalyticsiOS}
+    ...                                                     ${dailyCalorieGoalTxtAnalyticsiOS}
+    ...                                                     ${consumedCaloriesTxtAnalyticsiOS}
+    ...                                                     ${highestInCaloriesTxtAnalyticsiOS}
+    ...                                                     ${lowestInCaloriesTxtAnalyticsiOS}
+    FOR                                                     ${item}    IN    @{list}
+        Element Should Be Visible                           ${item}
+    END
+    Capture Page Screenshot
+    Close Nutrition Analytics
+
+Review Calories Weekly UI - Food Logged iOS
+    Open Nutrition Analytics
+    @{list}=    Create List                                     ${caloriesBtnAnalyticsiOS}
+    ...                                                         ${dailyPickerAnalyticsiOS}
+    ...                                                         ${weeklyBtnAnalyticsiOS}
+    FOR                                                         ${item}    IN    @{list}
+        CommonApps.Wait Until Visible And Click Element Apps    ${item}
+    END
+    Wait Until Element Is Visible                               ${barChartAnalyticsCaloriesAnalyticsiOS}
+    @{list}=    Create List                                     ${breakfastLabelAnalyticsiOS}
+    ...                                                         ${lunchLabelAnalyticsiOS}
+    ...                                                         ${dinnerLabelAnalyticsiOS}
+    ...                                                         ${snaksLabelAnalyticsiOS}
+    ...                                                         ${dailyAverageTxtAnalyticsiOS}
+    ...                                                         ${averageDailyCaloriesTxtiOS}
+    ...                                                         ${highestInCaloriesTxtAnalyticsiOS}
+    ...                                                         ${lowestInCaloriesTxtAnalyticsiOS}
+    FOR                                                         ${item}    IN    @{list}
+        Element Should Be Visible                               ${item}
+    END
+    Capture Page Screenshot
+    Close Nutrition Analytics
+
+Review Nutrients Daily UI - Food Logged iOS
+    Open Nutrition Analytics
+    CommonApps.Wait Until Visible And Click Element Apps    ${nutrientsBtnAnalyticsiOS}
+    Wait Until Element Is Visible                           ${macrosSummaryTxtAnalyticsiOS}
+    @{list}=    Create List                                 ${proteinLabelAnalytics}
+    ...                                                     ${carbsLabelAnalytics}
+    ...                                                     ${fatLabelAnalytics}
+    ...                                                     ${nutrientSummaryAnalyticsiOS}
+    FOR                                                     ${item}    IN    @{list}
+        Element Should Be Visible                           ${item}
+    END
+    Capture Page Screenshot
+    Close Nutrition Analytics
+
+Review Nutrients Weekly UI - Food Logged iOS
+    Open Nutrition Analytics
+    @{list}=    Create List                                     ${nutrientsBtnAnalyticsiOS}
+    ...                                                         ${dailyPickerAnalyticsiOS}
+    ...                                                         ${weeklyBtnAnalyticsiOS}
+    FOR                                                         ${item}    IN    @{list}
+        CommonApps.Wait Until Visible And Click Element Apps    ${item}
+    END
+    Wait Until Element Is Visible                               ${barChartAnalyticsCaloriesAnalyticsiOS}
+    @{list}=    Create List                                     ${proteinLabelAnalytics}
+    ...                                                         ${carbsLabelAnalytics}
+    ...                                                         ${fatLabelAnalytics}
+    ...                                                         ${nutrientDailyAverageTxtAnalyticsiOS}
+    FOR                                                         ${item}    IN    @{list}
+        Element Should Be Visible                               ${item}
+    END
+    Capture Page Screenshot
+    Close Nutrition Analytics
+
+Review Weight UI - Weight Logged iOS
+    Open Nutrition Analytics
+    CommonApps.Wait Until Visible And Click Element Apps    ${weightBtnAnalyticsiOS}
+    Wait Until Element Is Visible                           ${weightGraphAnalyticsiOS}
+    @{list}=    Create List                                 ${weightRangePickerAnalyticsiOS}
+    ...                                                     ${weightLogTxtAnalyticsiOS}
+    ...                                                     ${addWeightBtnAnalyticsiOS}
+    FOR                                                     ${item}    IN    @{list}
+        Element Should Be Visible                           ${item}
+    END
+    Capture Page Screenshot
+    Close Nutrition Analytics
+
+Add New Weight To The Weight Log iOS
+    [Arguments]                                             ${userWeight}
+    Open Nutrition Analytics
+    CommonApps.Wait Until Visible And Click Element Apps    ${weightBtnAnalyticsiOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${addWeightBtnAnalyticsiOS}
+    Wait Until Element Is Visible                           ${weightFieldCardFieldiOS}
+    Input Value                                             ${weightFieldCardFieldiOS}    ${userWeight}
+    Capture Page Screenshot
+    Click Element                                           ${addWeightCardBtniOS}
+    Wait Until Element Is Visible                           ${loggedWeightTxtAnalyticsiOS}    timeout=10
+    Capture Page Screenshot
+    Close Nutrition Analytics
+
+Review Nutrition Goals UI iOS
+    CommonApps.Wait Until Visible And Click Element Apps    ${nutritionGoalsBtniOS}
+    Wait Until Element Is Visible                           ${nutritionGoalsTxtiOS}
+    @{list}=    Create List                                 ${closeNutritionGoalsiOS}
+    ...                                                     ${proteinTxtNutritionGoalsiOS}
+    ...                                                     ${fatTxtNutritionGoalsiOS}
+    ...                                                     ${carbsTxtNutritionGoalsiOS}
+    ...                                                     ${caloriesTxtNutritionGoalsiOS}
+    ...                                                     ${useRecommendedValBtnNutritionGoalsiOS}
+    ...                                                     ${updateNutritionGoalsBtniOS}
+    FOR                                                     ${item}    IN    @{list}
+        Element Should Be Visible                           ${item}
+    END
+    Capture Page Screenshot
+    Click Element                                            ${closeNutritionGoalsiOS}
+
+Update Nutrition Goals For Non-Premium Users iOS
+    CommonApps.Wait Until Visible And Click Element Apps    ${nutritionGoalsBtniOS}
+    Wait Until Element Is Visible                           ${nutritionGoalsTxtiOS}
+    Clear Text                                              ${caloriesFieldNutritionGoalsiOS}
+    Input Value                                             ${caloriesFieldNutritionGoalsiOS}   2000
+    Capture Page Screenshot
+    Click Element                                           ${updateNutritionGoalsBtniOS}
+    Page Should Contain Text                                2,000
+
+Use Recommended Values For Non-Premium Users iOS
+    CommonApps.Wait Until Visible And Click Element Apps    ${nutritionGoalsBtniOS}
+    CommonApps.Wait Until Visible And Click Element Apps    ${useRecommendedValBtnNutritionGoalsiOS}
+    Page Should Contain Text                                2,132

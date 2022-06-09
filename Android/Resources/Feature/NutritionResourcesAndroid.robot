@@ -52,6 +52,9 @@ ${customFoodServingSizeFieldAndroid}  id=com.n_ix.pocket_wod:id/serving_size_inp
 ${customFoodCaloriesFieldAndroid}     id=com.n_ix.pocket_wod:id/calories_input
 ${addToBreakfastBtnAndroid}           id=com.n_ix.pocket_wod:id/add_button
 
+#NUTRITION ANALYTICS
+
+
 *** Keywords ***
 
 Add Weight To The Weight Card Android
