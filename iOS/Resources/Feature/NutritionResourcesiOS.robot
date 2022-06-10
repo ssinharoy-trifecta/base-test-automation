@@ -91,7 +91,6 @@ ${addWeightBtnAnalyticsiOS}                 xpath=//XCUIElementTypeApplication[@
 ...                                         /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
 ...                                         /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
 ...                                         /XCUIElementTypeOther[2]/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton
-${loggedWeightTxtAnalyticsiOS}              xpath=//XCUIElementTypeStaticText[@name="180 lb"]
 
 #NUTRITION GOALS
 ${nutritionGoalsBtniOS}                     xpath=//XCUIElementTypeButton[@name="macro override"]
@@ -221,12 +220,12 @@ Review Calories Weekly UI - Food Logged iOS
     FOR                                                         ${item}    IN    @{list}
         CommonApps.Wait Until Visible And Click Element Apps    ${item}
     END
-    Wait Until Element Is Visible                               ${barChartAnalyticsCaloriesAnalyticsiOS}
+    Wait Until Element Is Visible                               ${dailyAverageTxtAnalyticsiOS}
     @{list}=    Create List                                     ${breakfastLabelAnalyticsiOS}
+    ...                                                         ${barChartAnalyticsCaloriesAnalyticsiOS}
     ...                                                         ${lunchLabelAnalyticsiOS}
     ...                                                         ${dinnerLabelAnalyticsiOS}
     ...                                                         ${snaksLabelAnalyticsiOS}
-    ...                                                         ${dailyAverageTxtAnalyticsiOS}
     ...                                                         ${averageDailyCaloriesTxtiOS}
     ...                                                         ${highestInCaloriesTxtAnalyticsiOS}
     ...                                                         ${lowestInCaloriesTxtAnalyticsiOS}
@@ -277,7 +276,7 @@ Review Weight UI - Weight Logged iOS
     ...                                                     ${weightLogTxtAnalyticsiOS}
     ...                                                     ${addWeightBtnAnalyticsiOS}
     FOR                                                     ${item}    IN    @{list}
-        Element Should Be Visible                           ${item}
+        Element Should Be Visible                           ${item}    timeout=10
     END
     Capture Page Screenshot
     Close Nutrition Analytics
@@ -291,7 +290,7 @@ Add New Weight To The Weight Log iOS
     Input Value                                             ${weightFieldCardFieldiOS}    ${userWeight}
     Capture Page Screenshot
     Click Element                                           ${addWeightCardBtniOS}
-    Wait Until Element Is Visible                           ${loggedWeightTxtAnalyticsiOS}    timeout=10
+    Page Should Contain Text                                180
     Capture Page Screenshot
     Close Nutrition Analytics
 
