@@ -127,7 +127,6 @@ Add Water To The Water Card Android
     Click Element                   ${addWaterCardBtnAndroid}
    
 #FOOD LOG
-
 Log Food Android
     [Arguments]                                            ${mealButton}    ${foodItem}
     CommonApps.Wait Until Visible And Click Element Apps   ${mealButton}
@@ -158,7 +157,6 @@ Add Custom Food Android
     Capture Page Screenshot
 
 #NUTRITION ANALYTICS
-
 Open Nutrition Analytics Android
     CommonApps.Wait Until Visible And Click Element Apps    ${nutritionAnalyticsTopBtnAndroid}
 
@@ -282,7 +280,6 @@ Add New Weight To The Weight Log Android
     Close Nutrition Analytics Android
 
 #NUTRITION GOALS
-
 Review Nutrition Goals UI Android
     CommonApps.Wait Until Visible And Click Element Apps    ${nutritionGoalsBtnAndroid}
     Wait Until Element Is Visible                           ${updateNutritionGoalsTxtAndroid}

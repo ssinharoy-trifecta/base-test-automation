@@ -23,33 +23,3 @@ Launch Application
 
 Sign In As Existing User
     Sign In As Existing User Android
-
-# Review My Day UI - Food Logged
-#     NutritionResourcesAndroid.Review My Day UI - Food Logged Android
-
-# Review Calories Weekly UI - Food Logged
-#     NutritionResourcesAndroid.Review Calories Weekly UI - Food Logged Android
-
-# Review Nutrients Weekly UI - Food Logged
-#     NutritionResourcesAndroid.Review Nutrients Weekly UI - Food Logged Android
-
-# Review Calories Daily UI - Food Logged
-#     NutritionResourcesAndroid.Review Calories Daily UI - Food Logged Android
-
-# Review Nutrients Daily UI - Food Logged
-#     NutritionResourcesAndroid.Review Nutrients Daily UI - Food Logged Android
-
-# Review Weight UI - Weight Logged
-#     NutritionResourcesAndroid.Review Weight UI - Weight Logged Android
-
-# Add New Weight To The Weight Log
-#     NutritionResourcesAndroid.Add New Weight To The Weight Log Android    180 lbs
-
-Review Nutrition Goals UI
-    NutritionResourcesAndroid.Review Nutrition Goals UI Android
-
-Update Nutrition Goals For Non-Premium Users
-    NutritionResourcesAndroid.Update Nutrition Goals For Non-Premium Users Android
-
-Use Recommended Values For Non-Premium Users
-    NutritionResourcesAndroid.Use Recommended Values For Non-Premium Users Android

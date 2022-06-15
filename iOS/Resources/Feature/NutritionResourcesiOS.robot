@@ -133,7 +133,6 @@ Add Water To The Water Card iOS
     Click Element                   ${addWaterCardiOS}
 
 #FOOD LOG
-
 Log Food iOS
     [Arguments]                                                ${mealButton}    ${foodItem}
     CommonApps.Wait Until Visible And Click Element Apps       ${mealButton}
@@ -168,7 +167,6 @@ Add Custom Food iOS
     Capture Page Screenshot
 
 #NUTRITION ANALYTICS
-
 Open Nutrition Analytics iOS
     CommonApps.Wait Until Visible And Click Element Apps    ${nutritionAnalyticsTopBtniOS}
 
@@ -292,7 +290,6 @@ Add New Weight To The Weight Log iOS
     Close Nutrition Analytics iOS
 
 #NUTRITION GOALS
-
 Review Nutrition Goals UI iOS
     CommonApps.Wait Until Visible And Click Element Apps    ${nutritionGoalsBtniOS}
     Wait Until Element Is Visible                           ${nutritionGoalsTxtiOS}
