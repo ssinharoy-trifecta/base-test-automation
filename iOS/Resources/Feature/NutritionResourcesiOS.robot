@@ -107,9 +107,6 @@ ${twoBtnKeyboardiOS}                        xpath=//XCUIElementTypeKey[@name="2"
 ${zeroBtnKeyboardiOS}                       xpath=//XCUIElementTypeKey[@name="0"]
 ${deleteBtnKeyboardiOS}                     xpath=//XCUIElementTypeKey[@name="Delete"]
 
-
-
-
 *** Keywords ***
 
 Add Weight To The Weight Card iOS
@@ -172,14 +169,14 @@ Add Custom Food iOS
 
 #NUTRITION ANALYTICS
 
-Open Nutrition Analytics
+Open Nutrition Analytics iOS
     CommonApps.Wait Until Visible And Click Element Apps    ${nutritionAnalyticsTopBtniOS}
 
-Close Nutrition Analytics
+Close Nutrition Analytics iOS
     CommonApps.Wait Until Visible And Click Element Apps    ${backBtnAnalyticsiOS}
 
 Review My Day UI - Food Logged iOS
-    Open Nutrition Analytics
+    Open Nutrition Analytics iOS
     Wait Until Element Is Visible    ${pieChartFourEvementsAnalyticsiOS}
     @{list}=    Create List          ${breakfastLabelAnalyticsiOS}
     ...                              ${lunchLabelAnalyticsiOS}
@@ -192,10 +189,10 @@ Review My Day UI - Food Logged iOS
         Element Should Be Visible    ${item}
     END
     Capture Page Screenshot
-    Close Nutrition Analytics
+    Close Nutrition Analytics iOS
 
 Review Calories Daily UI - Food Logged iOS
-    Open Nutrition Analytics
+    Open Nutrition Analytics iOS
     CommonApps.Wait Until Visible And Click Element Apps    ${caloriesBtnAnalyticsiOS}
     Wait Until Element Is Visible                           ${pieChartFourEvementsAnalyticsiOS}
     @{list}=    Create List                                 ${breakfastLabelAnalyticsiOS}
@@ -210,10 +207,10 @@ Review Calories Daily UI - Food Logged iOS
         Element Should Be Visible                           ${item}
     END
     Capture Page Screenshot
-    Close Nutrition Analytics
+    Close Nutrition Analytics iOS
 
 Review Calories Weekly UI - Food Logged iOS
-    Open Nutrition Analytics
+    Open Nutrition Analytics iOS
     @{list}=    Create List                                     ${caloriesBtnAnalyticsiOS}
     ...                                                         ${dailyPickerAnalyticsiOS}
     ...                                                         ${weeklyBtnAnalyticsiOS}
@@ -233,10 +230,10 @@ Review Calories Weekly UI - Food Logged iOS
         Element Should Be Visible                               ${item}
     END
     Capture Page Screenshot
-    Close Nutrition Analytics
+    Close Nutrition Analytics iOS
 
 Review Nutrients Daily UI - Food Logged iOS
-    Open Nutrition Analytics
+    Open Nutrition Analytics iOS
     CommonApps.Wait Until Visible And Click Element Apps    ${nutrientsBtnAnalyticsiOS}
     Wait Until Element Is Visible                           ${macrosSummaryTxtAnalyticsiOS}
     @{list}=    Create List                                 ${proteinLabelAnalytics}
@@ -247,10 +244,10 @@ Review Nutrients Daily UI - Food Logged iOS
         Element Should Be Visible                           ${item}
     END
     Capture Page Screenshot
-    Close Nutrition Analytics
+    Close Nutrition Analytics iOS
 
 Review Nutrients Weekly UI - Food Logged iOS
-    Open Nutrition Analytics
+    Open Nutrition Analytics iOS
     @{list}=    Create List                                     ${nutrientsBtnAnalyticsiOS}
     ...                                                         ${dailyPickerAnalyticsiOS}
     ...                                                         ${weeklyBtnAnalyticsiOS}
@@ -266,10 +263,10 @@ Review Nutrients Weekly UI - Food Logged iOS
         Element Should Be Visible                               ${item}
     END
     Capture Page Screenshot
-    Close Nutrition Analytics
+    Close Nutrition Analytics iOS
 
 Review Weight UI - Weight Logged iOS
-    Open Nutrition Analytics
+    Open Nutrition Analytics iOS
     CommonApps.Wait Until Visible And Click Element Apps    ${weightBtnAnalyticsiOS}
     Wait Until Element Is Visible                           ${weightGraphAnalyticsiOS}
     @{list}=    Create List                                 ${weightRangePickerAnalyticsiOS}
@@ -279,11 +276,11 @@ Review Weight UI - Weight Logged iOS
         Element Should Be Visible                           ${item}    timeout=10
     END
     Capture Page Screenshot
-    Close Nutrition Analytics
+    Close Nutrition Analytics iOS
 
 Add New Weight To The Weight Log iOS
     [Arguments]                                             ${userWeight}
-    Open Nutrition Analytics
+    Open Nutrition Analytics iOS
     CommonApps.Wait Until Visible And Click Element Apps    ${weightBtnAnalyticsiOS}
     CommonApps.Wait Until Visible And Click Element Apps    ${addWeightBtnAnalyticsiOS}
     Wait Until Element Is Visible                           ${weightFieldCardFieldiOS}
@@ -292,7 +289,9 @@ Add New Weight To The Weight Log iOS
     Click Element                                           ${addWeightCardBtniOS}
     Page Should Contain Text                                180
     Capture Page Screenshot
-    Close Nutrition Analytics
+    Close Nutrition Analytics iOS
+
+#NUTRITION GOALS
 
 Review Nutrition Goals UI iOS
     CommonApps.Wait Until Visible And Click Element Apps    ${nutritionGoalsBtniOS}

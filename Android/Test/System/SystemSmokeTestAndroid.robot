@@ -40,6 +40,15 @@ Add Weight To The Weight Card
 Add Water To The Water Card
     NutritionResourcesAndroid.Add Water To The Water Card Android
 
+Review Nutrition Goals UI
+    NutritionResourcesAndroid.Review Nutrition Goals UI Android
+
+Update Nutrition Goals For Non-Premium Users
+    NutritionResourcesAndroid.Update Nutrition Goals For Non-Premium Users Android
+
+Use Recommended Values For Non-Premium Users
+    NutritionResourcesAndroid.Use Recommended Values For Non-Premium Users Android
+
 Log Food To Snacks
     NutritionResourcesAndroid.Log Food Android    ${snacksBtnAndroid}    Apple
 
@@ -54,6 +63,27 @@ Log Food To Breakfast
 
 Add Custom Food
     NutritionResourcesAndroid.Add Custom Food Android    Test Food Item    Test Brand    1    100
+
+Review My Day UI - Food Logged
+    NutritionResourcesAndroid.Review My Day UI - Food Logged Android
+
+Review Calories Weekly UI - Food Logged
+    NutritionResourcesAndroid.Review Calories Weekly UI - Food Logged Android
+
+Review Nutrients Weekly UI - Food Logged
+    NutritionResourcesAndroid.Review Nutrients Weekly UI - Food Logged Android
+
+Review Calories Daily UI - Food Logged
+    NutritionResourcesAndroid.Review Calories Daily UI - Food Logged Android
+
+Review Nutrients Daily UI - Food Logged
+    NutritionResourcesAndroid.Review Nutrients Daily UI - Food Logged Android
+
+Review Weight UI - Weight Logged
+    NutritionResourcesAndroid.Review Weight UI - Weight Logged Android
+
+Add New Weight To The Weight Log
+    NutritionResourcesAndroid.Add New Weight To The Weight Log Android    180 lbs
 
 Review Main Menu UI
     AccountMgmtResourcesAndroid.Review Main Menu UI Android
