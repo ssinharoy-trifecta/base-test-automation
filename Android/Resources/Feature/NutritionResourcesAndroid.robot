@@ -104,12 +104,12 @@ ${updateNutritionGoalsBtnAndroid}               id=com.n_ix.pocket_wod:id/update
 *** Keywords ***
 
 Add Weight To The Weight Card Android
-    [Arguments]                                             ${userWeightTyepeIntSpaceLbs}
+    [Arguments]                                             ${userWeightTypeIntSpaceLbs}
     CommonApps.Wait Until Visible And Click Element Apps    ${addWeightNutritionBtnAndroid}
     CommonApps.Wait Until Visible And Click Element Apps    ${weightFieldCardAndroid}
     Wait Until Element Is Visible                           ${addWeightFieldAndroid}
     Clear Text                                              ${addWeightFieldAndroid}
-    Input Value                                             ${addWeightFieldAndroid}    ${userWeightTyepeIntSpaceLbs}
+    Input Value                                             ${addWeightFieldAndroid}    ${userWeightTypeIntSpaceLbs}
     Click Element                                           ${setWeightBtnAndroid}
     Capture Page Screenshot
     CommonApps.Wait Until Visible And Click Element Apps    ${addWeightCardBtnAndroid}
@@ -266,13 +266,13 @@ Review Weight UI - Weight Logged Android
     Close Nutrition Analytics Android
 
 Add New Weight To The Weight Log Android
-    [Arguments]                                             ${userWeightTyepeIntSpaceLbs}
+    [Arguments]                                             ${userWeightTypeIntSpaceLbs}
     Open Nutrition Analytics Android
     CommonApps.Wait Until Visible And Click Element Apps    ${weightBtnAnalyticsAndroid}
     CommonApps.Wait Until Visible And Click Element Apps    ${addWeightBtnAnalyticsAndroid}
     Wait Until Element Is Visible                           ${inputWeightFieldAnalyticsAndroid}
     Clear Text                                              ${inputWeightFieldAnalyticsAndroid}
-    Input Value                                             ${inputWeightFieldAnalyticsAndroid}    ${userWeightTyepeIntSpaceLbs}
+    Input Value                                             ${inputWeightFieldAnalyticsAndroid}    ${userWeightTypeIntSpaceLbs}
     Click Element                                           ${addWeightBtnCardAnalyticsAndroid}
     Capture Page Screenshot
     Page Should Contain Text                                180
