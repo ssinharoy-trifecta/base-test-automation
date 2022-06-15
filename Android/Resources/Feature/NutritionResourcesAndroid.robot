@@ -104,12 +104,12 @@ ${updateNutritionGoalsBtnAndroid}               id=com.n_ix.pocket_wod:id/update
 *** Keywords ***
 
 Add Weight To The Weight Card Android
-    [Arguments]                                             ${userWeightTypeIntSpaceLbs}
+    [Arguments]                                             ${userWeightTypeIntSpaceLbs }
     CommonApps.Wait Until Visible And Click Element Apps    ${addWeightNutritionBtnAndroid}
     CommonApps.Wait Until Visible And Click Element Apps    ${weightFieldCardAndroid}
     Wait Until Element Is Visible                           ${addWeightFieldAndroid}
     Clear Text                                              ${addWeightFieldAndroid}
-    Input Value                                             ${addWeightFieldAndroid}    ${userWeightTypeIntSpaceLbs}
+    Input Value                                             ${addWeightFieldAndroid}    ${userWeightTypeIntSpaceLbs }
     Click Element                                           ${setWeightBtnAndroid}
     Capture Page Screenshot
     CommonApps.Wait Until Visible And Click Element Apps    ${addWeightCardBtnAndroid}
@@ -266,13 +266,13 @@ Review Weight UI - Weight Logged Android
     Close Nutrition Analytics Android
 
 Add New Weight To The Weight Log Android
-    [Arguments]                                             ${userWeightTypeIntSpaceLbs}
+    [Arguments]                                             ${userWeightTypeIntSpaceLbs }
     Open Nutrition Analytics Android
     CommonApps.Wait Until Visible And Click Element Apps    ${weightBtnAnalyticsAndroid}
     CommonApps.Wait Until Visible And Click Element Apps    ${addWeightBtnAnalyticsAndroid}
     Wait Until Element Is Visible                           ${inputWeightFieldAnalyticsAndroid}
     Clear Text                                              ${inputWeightFieldAnalyticsAndroid}
-    Input Value                                             ${inputWeightFieldAnalyticsAndroid}    ${userWeightTypeIntSpaceLbs}
+    Input Value                                             ${inputWeightFieldAnalyticsAndroid}    ${userWeightTypeIntSpaceLbs }
     Click Element                                           ${addWeightBtnCardAnalyticsAndroid}
     Capture Page Screenshot
     Page Should Contain Text                                180
@@ -303,7 +303,10 @@ Update Nutrition Goals For Non-Premium Users Android
     Text Should Be Visible                                  2,000
 
 Use Recommended Values For Non-Premium Users Android
-    CommonApps.Wait Until Visible And Click Element Apps    ${nutritionGoalsBtnAndroid}
-    CommonApps.Wait Until Visible And Click Element Apps    ${useRecommendedValBtnNutritionGoalsAndroid}
-    CommonApps.Wait Until Visible And Click Element Apps    ${updateNutritionGoalsBtnAndroid}
-    Text Should Be Visible                                  2,150
+    @{list}=    Create List                                     ${nutritionGoalsBtnAndroid}
+    ...                                                         ${useRecommendedValBtnNutritionGoalsAndroid}
+    ...                                                         ${updateNutritionGoalsBtnAndroid}
+    FOR                                                         ${item}    IN    @{list}
+        CommonApps.Wait Until Visible And Click Element Apps    ${item}
+    END
+    Text Should Be Visible                                      2,150
