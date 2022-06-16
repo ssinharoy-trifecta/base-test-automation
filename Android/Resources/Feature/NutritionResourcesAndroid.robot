@@ -63,13 +63,19 @@ ${pieChartFourEvementsAnalyticsAndroid}         id=com.n_ix.pocket_wod:id/pieCha
 ${breakfastLabelAnalyticsAndroid}               id=com.n_ix.pocket_wod:id/breakfastCalories
 ${lunchLabelAnalyticsAndroid}                   id=com.n_ix.pocket_wod:id/lunchCalories
 ${dinnerLabelAnalyticsAndroid}                  id=com.n_ix.pocket_wod:id/dinnerCalories
-${snaksLabelAnalyticsAndroid}                   id=com.n_ix.pocket_wod:id/snacksCalories
+${snacksLabelAnalyticsAndroid}                   id=com.n_ix.pocket_wod:id/snacksCalories
 ${dailyCalorieGoalTxtAnalyticsAndroid}          id=com.n_ix.pocket_wod:id/dailyGoalCaloriesContainer
 ${consumedCaloriesTxtAnalyticsAndroid}          id=com.n_ix.pocket_wod:id/consumedCaloriesContainer
 ${macrosSummaryTxtAnalyticsAndroid}             id=com.n_ix.pocket_wod:id/titleTextView
 ${weeklyPickerAnalyticsAndroid}                 id=com.n_ix.pocket_wod:id/modeButton
 ${datePickerAnalyticsAndroid}                   id=com.n_ix.pocket_wod:id/date
-${weeklySelectorAnalyticsAndroid}               xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.FrameLayout[4]/android.view.View[2]
+${weeklySelectorAnalyticsAndroid}               xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout
+...                                             /android.widget.FrameLayout/android.widget.LinearLayout
+...                                             /android.widget.FrameLayout/android.widget.FrameLayout
+...                                             /android.widget.LinearLayout/androidx.viewpager.widget.ViewPager
+...                                             /android.widget.FrameLayout/android.widget.RelativeLayout
+...                                             /android.widget.RelativeLayout/android.widget.LinearLayout[2]
+...                                             /android.widget.FrameLayout[4]/android.view.View[2]
 ${saveDailyBtnAndroid}                          id=com.n_ix.pocket_wod:id/saveButton
 ${barChartAnalyticsCaloriesAnalyticsAndroid}    id=com.n_ix.pocket_wod:id/chart
 ${dailyAverageTxtAnalyticsAndroid}              id=com.n_ix.pocket_wod:id/dailyAverageLabel
@@ -163,13 +169,20 @@ Open Nutrition Analytics Android
 Close Nutrition Analytics Android
     CommonApps.Wait Until Visible And Click Element Apps    ${backBtnAnalyticsAndroid}
 
+Open Daily View Analytics Android
+    CommonApps.Wait Until Visible And Click Element Apps    ${weeklyPickerAnalyticsAndroid}
+    Wait Until Element Is Visible                           ${modePickerAnalyticsAndroid}
+    Swipe By Percent                                        start_x=0    start_y=90
+    ...                                                     end_x=0    end_y=95
+    Click Element                                           ${saveDailyBtnAndroid}
+
 Review My Day UI - Food Logged Android
     Open Nutrition Analytics Android
     Wait Until Element Is Visible    ${pieChartFourEvementsAnalyticsAndroid}
     @{list}=    Create List          ${breakfastLabelAnalyticsAndroid}
     ...                              ${lunchLabelAnalyticsAndroid}
     ...                              ${dinnerLabelAnalyticsAndroid}
-    ...                              ${snaksLabelAnalyticsAndroid}
+    ...                              ${snacksLabelAnalyticsAndroid}
     ...                              ${dailyCalorieGoalTxtAnalyticsAndroid}
     ...                              ${consumedCaloriesTxtAnalyticsAndroid}
     ...                              ${macrosSummaryTxtAnalyticsAndroid}
@@ -182,16 +195,12 @@ Review My Day UI - Food Logged Android
 Review Calories Daily UI - Food Logged Android
     Open Nutrition Analytics Android
     CommonApps.Wait Until Visible And Click Element Apps    ${caloriesBtnAnalyticsAndroid}
-    CommonApps.Wait Until Visible And Click Element Apps    ${weeklyPickerAnalyticsAndroid}
-    Wait Until Element Is Visible                           ${modePickerAnalyticsAndroid}
-    Swipe By Percent                                        start_x=0    start_y=90
-    ...                                                     end_x=0    end_y=95
-    Click Element                                           ${saveDailyBtnAndroid}
+    Open Daily View Analytics Android
     Wait Until Element Is Visible                           ${pieChartFourEvementsAnalyticsAndroid}
     @{list}=    Create List                                 ${breakfastLabelAnalyticsAndroid}
     ...                                                     ${lunchLabelAnalyticsAndroid}
     ...                                                     ${dinnerLabelAnalyticsAndroid}
-    ...                                                     ${snaksLabelAnalyticsAndroid}
+    ...                                                     ${snacksLabelAnalyticsAndroid}
     ...                                                     ${dailyCalorieGoalTxtAnalyticsAndroid}
     ...                                                     ${consumedCaloriesTxtAnalyticsAndroid}
     ...                                                     ${highestCaloriesViewAnalyticsAndroid}
@@ -210,7 +219,7 @@ Review Calories Weekly UI - Food Logged Android
     ...                                                     ${breakfastLabelAnalyticsAndroid}
     ...                                                     ${lunchLabelAnalyticsAndroid}
     ...                                                     ${dinnerLabelAnalyticsAndroid}
-    ...                                                     ${snaksLabelAnalyticsAndroid}
+    ...                                                     ${snacksLabelAnalyticsAndroid}
     ...                                                     ${dailyAverageTxtAnalyticsAndroid}
     ...                                                     ${highestCaloriesViewAnalyticsAndroid}
     ...                                                     ${lowestCaloriesViewAnalyticsAndroid}
@@ -223,11 +232,7 @@ Review Calories Weekly UI - Food Logged Android
 Review Nutrients Daily UI - Food Logged Android
     Open Nutrition Analytics Android
     CommonApps.Wait Until Visible And Click Element Apps    ${nutrientsBtnAnalyticsAndroid}
-    CommonApps.Wait Until Visible And Click Element Apps    ${weeklyPickerAnalyticsAndroid}
-    Wait Until Element Is Visible                           ${modePickerAnalyticsAndroid}
-    Swipe By Percent                                        start_x=0    start_y=90
-    ...                                                     end_x=0    end_y=95
-    Click Element                                           ${saveDailyBtnAndroid}
+    Open Daily View Analytics Android
     Wait Until Element Is Visible                           ${macrosSummaryTxtAnalyticsAndroid}
     @{list}=    Create List                                 ${proteinProgressBarAnalyticsAndroid}
     ...                                                     ${fatProgressBarAnalyticsAndroid}
@@ -309,4 +314,5 @@ Use Recommended Values For Non-Premium Users Android
     FOR                                                         ${item}    IN    @{list}
         CommonApps.Wait Until Visible And Click Element Apps    ${item}
     END
+    Capture Page Screenshot
     Text Should Be Visible                                      2,150

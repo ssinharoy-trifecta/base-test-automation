@@ -63,7 +63,7 @@ ${pieChartFourEvementsAnalyticsiOS}         xpath=//XCUIElementTypeOther[@name="
 ${breakfastLabelAnalyticsiOS}               xpath=//XCUIElementTypeStaticText[@name="BREAKFAST"]
 ${lunchLabelAnalyticsiOS}                   xpath=//XCUIElementTypeStaticText[@name="LUNCH"]
 ${dinnerLabelAnalyticsiOS}                  xpath=//XCUIElementTypeStaticText[@name="DINNER"]
-${snaksLabelAnalyticsiOS}                   xpath=//XCUIElementTypeStaticText[@name="SNACKS"]
+${snacksLabelAnalyticsiOS}                   xpath=//XCUIElementTypeStaticText[@name="SNACKS"]
 ${dailyCalorieGoalTxtAnalyticsiOS}          xpath=//XCUIElementTypeStaticText[@name="Daily Calorie Goal"]
 ${consumedCaloriesTxtAnalyticsiOS}          xpath=//XCUIElementTypeStaticText[@name="Consumed Calories"]
 ${macrosSummaryTxtAnalyticsiOS}             xpath=//XCUIElementTypeStaticText[@name="Macros Summary"]
@@ -90,7 +90,8 @@ ${weightLogTxtAnalyticsiOS}                 xpath=//XCUIElementTypeStaticText[@n
 ${addWeightBtnAnalyticsiOS}                 xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow
 ...                                         /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
 ...                                         /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther
-...                                         /XCUIElementTypeOther[2]/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton
+...                                         /XCUIElementTypeOther[2]/XCUIElementTypeScrollView/XCUIElementTypeOther
+...                                         /XCUIElementTypeOther/XCUIElementTypeButton
 
 #NUTRITION GOALS
 ${nutritionGoalsBtniOS}                     xpath=//XCUIElementTypeButton[@name="macro override"]
@@ -102,7 +103,11 @@ ${carbsTxtNutritionGoalsiOS}                xpath=//XCUIElementTypeStaticText[@n
 ${caloriesTxtNutritionGoalsiOS}             xpath=//XCUIElementTypeStaticText[@name="Calories"]
 ${useRecommendedValBtnNutritionGoalsiOS}    xpath=//XCUIElementTypeButton[@name="Use recommended values"]
 ${updateNutritionGoalsBtniOS}               xpath=//XCUIElementTypeButton[@name="Update"]
-${caloriesFieldNutritionGoalsiOS}           xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeTextField
+${caloriesFieldNutritionGoalsiOS}           xpath=//XCUIElementTypeApplication[@name="TriDebug"]/XCUIElementTypeWindow[1]
+...                                         /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]
+...                                         /XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther
+...                                         /XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]
+...                                         /XCUIElementTypeTextField
 ${twoBtnKeyboardiOS}                        xpath=//XCUIElementTypeKey[@name="2"]
 ${zeroBtnKeyboardiOS}                       xpath=//XCUIElementTypeKey[@name="0"]
 ${deleteBtnKeyboardiOS}                     xpath=//XCUIElementTypeKey[@name="Delete"]
@@ -179,7 +184,7 @@ Review My Day UI - Food Logged iOS
     @{list}=    Create List          ${breakfastLabelAnalyticsiOS}
     ...                              ${lunchLabelAnalyticsiOS}
     ...                              ${dinnerLabelAnalyticsiOS}
-    ...                              ${snaksLabelAnalyticsiOS}
+    ...                              ${snacksLabelAnalyticsiOS}
     ...                              ${dailyCalorieGoalTxtAnalyticsiOS}
     ...                              ${consumedCaloriesTxtAnalyticsiOS}
     ...                              ${macrosSummaryTxtAnalyticsiOS}
@@ -196,7 +201,7 @@ Review Calories Daily UI - Food Logged iOS
     @{list}=    Create List                                 ${breakfastLabelAnalyticsiOS}
     ...                                                     ${lunchLabelAnalyticsiOS}
     ...                                                     ${dinnerLabelAnalyticsiOS}
-    ...                                                     ${snaksLabelAnalyticsiOS}
+    ...                                                     ${snacksLabelAnalyticsiOS}
     ...                                                     ${dailyCalorieGoalTxtAnalyticsiOS}
     ...                                                     ${consumedCaloriesTxtAnalyticsiOS}
     ...                                                     ${highestInCaloriesTxtAnalyticsiOS}
@@ -220,7 +225,7 @@ Review Calories Weekly UI - Food Logged iOS
     ...                                                         ${barChartAnalyticsCaloriesAnalyticsiOS}
     ...                                                         ${lunchLabelAnalyticsiOS}
     ...                                                         ${dinnerLabelAnalyticsiOS}
-    ...                                                         ${snaksLabelAnalyticsiOS}
+    ...                                                         ${snacksLabelAnalyticsiOS}
     ...                                                         ${averageDailyCaloriesTxtiOS}
     ...                                                         ${highestInCaloriesTxtAnalyticsiOS}
     ...                                                         ${lowestInCaloriesTxtAnalyticsiOS}
