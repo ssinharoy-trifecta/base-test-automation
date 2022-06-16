@@ -63,7 +63,7 @@ ${pieChartFourEvementsAnalyticsiOS}         xpath=//XCUIElementTypeOther[@name="
 ${breakfastLabelAnalyticsiOS}               xpath=//XCUIElementTypeStaticText[@name="BREAKFAST"]
 ${lunchLabelAnalyticsiOS}                   xpath=//XCUIElementTypeStaticText[@name="LUNCH"]
 ${dinnerLabelAnalyticsiOS}                  xpath=//XCUIElementTypeStaticText[@name="DINNER"]
-${snacksLabelAnalyticsiOS}                   xpath=//XCUIElementTypeStaticText[@name="SNACKS"]
+${snacksLabelAnalyticsiOS}                  xpath=//XCUIElementTypeStaticText[@name="SNACKS"]
 ${dailyCalorieGoalTxtAnalyticsiOS}          xpath=//XCUIElementTypeStaticText[@name="Daily Calorie Goal"]
 ${consumedCaloriesTxtAnalyticsiOS}          xpath=//XCUIElementTypeStaticText[@name="Consumed Calories"]
 ${macrosSummaryTxtAnalyticsiOS}             xpath=//XCUIElementTypeStaticText[@name="Macros Summary"]
