@@ -19,7 +19,10 @@ ${apiGetUrl}        ${apiBaseEndpoint}parse/classes/Challenges
 
 *** Test Cases ***
 Test Parse Returns Data  
-  Create Session        TestSession       @{apiSessionList}
-  ${response}=          Get On Session    TestSession   ${apiGetUrl}
+  Create Session        TestSession              @{apiSessionList}
+  ${response}=          Get On Session           TestSession   ${apiGetUrl}
   Log                   ${response.content}
-  ${response.content}   Should Not Be Empty
+  Log                   ${response.status_code}
+  Should Not Be Empty   ${response.content}   
+  ${statusCode}         Convert To String        ${response.status_code}
+  Should Be Equal       ${statusCode}  200
