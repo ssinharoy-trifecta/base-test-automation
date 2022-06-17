@@ -163,39 +163,40 @@ Add Custom Food Android
     Capture Page Screenshot
 
 #NUTRITION ANALYTICS
-Open Nutrition Analytics Android
+Open Nutrition Analytics And Select Category Android
+    [Arguments]                                             ${nutritionAnalyticsCategoryElement}
     CommonApps.Wait Until Visible And Click Element Apps    ${nutritionAnalyticsTopBtnAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${nutritionAnalyticsCategoryElement}
 
-Close Nutrition Analytics Android
-    CommonApps.Wait Until Visible And Click Element Apps    ${backBtnAnalyticsAndroid}
-
-Open Daily View Analytics Android
+Select Daily View Nutrition Analytics Android
     CommonApps.Wait Until Visible And Click Element Apps    ${weeklyPickerAnalyticsAndroid}
     Wait Until Element Is Visible                           ${modePickerAnalyticsAndroid}
     Swipe By Percent                                        start_x=0    start_y=90
     ...                                                     end_x=0    end_y=95
     Click Element                                           ${saveDailyBtnAndroid}
 
-Review My Day UI - Food Logged Android
-    Open Nutrition Analytics Android
-    Wait Until Element Is Visible    ${pieChartFourEvementsAnalyticsAndroid}
-    @{list}=    Create List          ${breakfastLabelAnalyticsAndroid}
-    ...                              ${lunchLabelAnalyticsAndroid}
-    ...                              ${dinnerLabelAnalyticsAndroid}
-    ...                              ${snacksLabelAnalyticsAndroid}
-    ...                              ${dailyCalorieGoalTxtAnalyticsAndroid}
-    ...                              ${consumedCaloriesTxtAnalyticsAndroid}
-    ...                              ${macrosSummaryTxtAnalyticsAndroid}
-    FOR                              ${item}    IN    @{list}
-        Element Should Be Visible    ${item}
-    END
+Capture Screenshot And Close Nutrition Analytics Android
     Capture Page Screenshot
-    Close Nutrition Analytics Android
+    CommonApps.Wait Until Visible And Click Element Apps    ${backBtnAnalyticsAndroid}
+
+Review My Day UI - Food Logged Android
+    CommonApps.Wait Until Visible And Click Element Apps    ${nutritionAnalyticsTopBtnAndroid}
+    Wait Until Element Is Visible                           ${pieChartFourEvementsAnalyticsAndroid}
+    @{list}=    Create List                                 ${breakfastLabelAnalyticsAndroid}
+    ...                                                     ${lunchLabelAnalyticsAndroid}
+    ...                                                     ${dinnerLabelAnalyticsAndroid}
+    ...                                                     ${snacksLabelAnalyticsAndroid}
+    ...                                                     ${dailyCalorieGoalTxtAnalyticsAndroid}
+    ...                                                     ${consumedCaloriesTxtAnalyticsAndroid}
+    ...                                                     ${macrosSummaryTxtAnalyticsAndroid}
+    FOR                                                     ${item}    IN    @{list}
+        Element Should Be Visible                           ${item}
+    END
+    Capture Screenshot And Close Nutrition Analytics Android
 
 Review Calories Daily UI - Food Logged Android
-    Open Nutrition Analytics Android
-    CommonApps.Wait Until Visible And Click Element Apps    ${caloriesBtnAnalyticsAndroid}
-    Open Daily View Analytics Android
+    Open Nutrition Analytics And Select Category Android    ${caloriesBtnAnalyticsAndroid}
+    Select Daily View Nutrition Analytics Android
     Wait Until Element Is Visible                           ${pieChartFourEvementsAnalyticsAndroid}
     @{list}=    Create List                                 ${breakfastLabelAnalyticsAndroid}
     ...                                                     ${lunchLabelAnalyticsAndroid}
@@ -208,12 +209,10 @@ Review Calories Daily UI - Food Logged Android
     FOR                                                     ${item}    IN    @{list}
         Element Should Be Visible                           ${item}
     END
-    Capture Page Screenshot
-    Close Nutrition Analytics Android
+    Capture Screenshot And Close Nutrition Analytics Android
 
 Review Calories Weekly UI - Food Logged Android
-    Open Nutrition Analytics Android
-    CommonApps.Wait Until Visible And Click Element Apps    ${caloriesBtnAnalyticsAndroid}
+    Open Nutrition Analytics And Select Category Android    ${caloriesBtnAnalyticsAndroid}
     Wait Until Element Is Visible                           ${barChartAnalyticsCaloriesAnalyticsAndroid}
     @{list}=    Create List                                 ${dailyAverageTxtAnalyticsAndroid}
     ...                                                     ${breakfastLabelAnalyticsAndroid}
@@ -226,13 +225,11 @@ Review Calories Weekly UI - Food Logged Android
     FOR                                                     ${item}    IN    @{list}
         Element Should Be Visible                           ${item}
     END
-    Capture Page Screenshot
-    Close Nutrition Analytics Android
+    Capture Screenshot And Close Nutrition Analytics Android
 
 Review Nutrients Daily UI - Food Logged Android
-    Open Nutrition Analytics Android
-    CommonApps.Wait Until Visible And Click Element Apps    ${nutrientsBtnAnalyticsAndroid}
-    Open Daily View Analytics Android
+    Open Nutrition Analytics And Select Category Android    ${nutrientsBtnAnalyticsAndroid}
+    Select Daily View Nutrition Analytics Android
     Wait Until Element Is Visible                           ${macrosSummaryTxtAnalyticsAndroid}
     @{list}=    Create List                                 ${proteinProgressBarAnalyticsAndroid}
     ...                                                     ${fatProgressBarAnalyticsAndroid}
@@ -240,12 +237,10 @@ Review Nutrients Daily UI - Food Logged Android
     FOR                                                     ${item}    IN    @{list}
         Wait Until Element Is Visible                       ${item}
     END
-    Capture Page Screenshot
-    Close Nutrition Analytics Android
+    Capture Screenshot And Close Nutrition Analytics Android
 
 Review Nutrients Weekly UI - Food Logged Android
-    Open Nutrition Analytics Android
-    CommonApps.Wait Until Visible And Click Element Apps    ${nutrientsBtnAnalyticsAndroid}
+    Open Nutrition Analytics And Select Category Android    ${nutrientsBtnAnalyticsAndroid}
     Wait Until Element Is Visible                           ${barChartAnalyticsCaloriesAnalyticsAndroid}
     @{list}=    Create List                                 ${proteinLabelAnalyticsAndroid}
     ...                                                     ${carbsLabelAnalyticsAndroid}
@@ -254,12 +249,10 @@ Review Nutrients Weekly UI - Food Logged Android
     FOR                                                     ${item}    IN    @{list}
         Element Should Be Visible                           ${item}
     END
-    Capture Page Screenshot
-    Close Nutrition Analytics Android
+    Capture Screenshot And Close Nutrition Analytics Android
 
 Review Weight UI - Weight Logged Android
-    Open Nutrition Analytics Android
-    CommonApps.Wait Until Visible And Click Element Apps    ${weightBtnAnalyticsAndroid}
+    Open Nutrition Analytics And Select Category Android    ${weightBtnAnalyticsAndroid}
     Wait Until Element Is Visible                           ${weightGraphAnalyticsAndroid}
     @{list}=    Create List                                 ${weightRangePickerAnalyticsAndroid}
     ...                                                     ${weightLogTxtAnalyticsAndroid}
@@ -267,13 +260,11 @@ Review Weight UI - Weight Logged Android
     FOR                                                     ${item}    IN    @{list}
         Element Should Be Visible                           ${item}    timeout=10
     END
-    Capture Page Screenshot
-    Close Nutrition Analytics Android
+    Capture Screenshot And Close Nutrition Analytics Android
 
 Add New Weight To The Weight Log Android
     [Arguments]                                             ${userWeightTypeIntSpaceLbs }
-    Open Nutrition Analytics Android
-    CommonApps.Wait Until Visible And Click Element Apps    ${weightBtnAnalyticsAndroid}
+    Open Nutrition Analytics And Select Category Android    ${weightBtnAnalyticsAndroid}
     CommonApps.Wait Until Visible And Click Element Apps    ${addWeightBtnAnalyticsAndroid}
     Wait Until Element Is Visible                           ${inputWeightFieldAnalyticsAndroid}
     Clear Text                                              ${inputWeightFieldAnalyticsAndroid}
@@ -281,13 +272,15 @@ Add New Weight To The Weight Log Android
     Click Element                                           ${addWeightBtnCardAnalyticsAndroid}
     Capture Page Screenshot
     Page Should Contain Text                                180
-    Capture Page Screenshot
-    Close Nutrition Analytics Android
+    Capture Screenshot And Close Nutrition Analytics Android
 
 #NUTRITION GOALS
-Review Nutrition Goals UI Android
+Open Nutrition Goals Android
     CommonApps.Wait Until Visible And Click Element Apps    ${nutritionGoalsBtnAndroid}
     Wait Until Element Is Visible                           ${updateNutritionGoalsTxtAndroid}
+
+Review Nutrition Goals UI Android
+    Open Nutrition Goals Android
     @{list}=    Create List                                 PROTEIN
     ...                                                     FAT
     ...                                                     CARBS
@@ -299,8 +292,7 @@ Review Nutrition Goals UI Android
     Click Element                                            ${closeNutritionGoalsAndroid}
 
 Update Nutrition Goals For Non-Premium Users Android
-    CommonApps.Wait Until Visible And Click Element Apps    ${nutritionGoalsBtnAndroid}
-    Wait Until Element Is Visible                           ${updateNutritionGoalsTxtAndroid}
+    Open Nutrition Goals Android
     Clear Text                                              ${caloriesFieldNutritionGoalsAndroid}
     Input Value                                             ${caloriesFieldNutritionGoalsAndroid}   2000
     Capture Page Screenshot

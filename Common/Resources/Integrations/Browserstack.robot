@@ -34,8 +34,8 @@ ${BS_APP_UPLOADER_ANDROID}    curl -u "${BS_USER}:${BS_KEY}"
 ${BS_PROJECT_ANDROID}         Android System Smoke Test
 ${BS_BUILD_ANDROID}           Android
 ${BS_NAME_ANDROID}            Android_System_Smoke_Test
-${BS_DEVICE_ANDROID}          Google Pixel 6 Pro
-${BS_OS_VERSION_ANDROID}      13 Beta
+${BS_DEVICE_ANDROID}          Google Pixel 6
+${BS_OS_VERSION_ANDROID}      12.0
 
 #WEB
 ${BS_BUILD_WEB}         ${SUITE NAME}
