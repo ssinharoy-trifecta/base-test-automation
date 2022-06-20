@@ -104,6 +104,7 @@ ${proteinFieldNutritionGoalsAndroid}            id=com.n_ix.pocket_wod:id/protei
 ${fatFieldNutritionGoalsAndroid}                id=com.n_ix.pocket_wod:id/fatEditText
 ${carbsFieldNutritionGoalsAndroid}              id=com.n_ix.pocket_wod:id/carbsEditText
 ${caloriesFieldNutritionGoalsAndroid}           id=com.n_ix.pocket_wod:id/caloriesEditText
+${useRecommendedValBtnNutritionGoalsiOS}        id=com.n_ix.pocket_wod:id/useRecommendedButton
 ${updateNutritionGoalsBtnAndroid}               id=com.n_ix.pocket_wod:id/updateButton
 
 #LISTS
