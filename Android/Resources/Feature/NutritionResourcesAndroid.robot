@@ -146,8 +146,7 @@ ${updateNutritionGoalsBtnAndroid}               id=com.n_ix.pocket_wod:id/update
 ...                                           ${fatLabelAnalyticsAndroid}
 ...                                           ${nutrientsViewAnalyticsAndroid}
 
-@{weightElementsAnalyticsAndroid}    ${weightGraphAnalyticsAndroid}
-...                                  ${weightRangePickerAnalyticsAndroid}
+@{weightElementsAnalyticsAndroid}    ${weightRangePickerAnalyticsAndroid}
 ...                                  ${weightLogTxtAnalyticsAndroid}
 ...                                  ${addWeightBtnAnalyticsAndroid}
 
