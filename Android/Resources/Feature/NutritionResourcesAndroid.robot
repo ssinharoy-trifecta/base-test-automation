@@ -140,7 +140,8 @@ ${updateNutritionGoalsBtnAndroid}               id=com.n_ix.pocket_wod:id/update
 ...                                          ${fatProgressBarAnalyticsAndroid}
 ...                                          ${carbsProgressBarAnalyticsAndroid}
 
-@{nutrientsWeeklyElementsAnalyticsAndroid}    ${barChartAnalyticsCaloriesAnalyticsAndroid}                             ${proteinLabelAnalyticsAndroid}
+@{nutrientsWeeklyElementsAnalyticsAndroid}    ${barChartAnalyticsCaloriesAnalyticsAndroid}
+...                                           ${proteinLabelAnalyticsAndroid}
 ...                                           ${carbsLabelAnalyticsAndroid}
 ...                                           ${fatLabelAnalyticsAndroid}
 ...                                           ${nutrientsViewAnalyticsAndroid}
