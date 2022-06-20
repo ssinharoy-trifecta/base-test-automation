@@ -65,22 +65,22 @@ Add Custom Food
     NutritionResourcesAndroid.Add Custom Food Android    Test Food Item    Test Brand    1    100
 
 Review My Day UI - Food Logged
-    NutritionResourcesAndroid.Review My Day UI - Food Logged Android
+    NutritionResourcesAndroid.Review Weekly View UI Analytics - Food Logged Android    ${myDayBtnAnalyticsAndroid}    ${myDayElementsAnalyticsAndroid}
 
 Review Calories Weekly UI - Food Logged
-    NutritionResourcesAndroid.Review Calories Weekly UI - Food Logged Android
+    NutritionResourcesAndroid.Review Weekly View UI Analytics - Food Logged Android     ${caloriesBtnAnalyticsAndroid}    ${caloriesWeeklyElementsAnalyticsAndroid}
 
 Review Nutrients Weekly UI - Food Logged
-    NutritionResourcesAndroid.Review Nutrients Weekly UI - Food Logged Android
+    NutritionResourcesAndroid.Review Weekly View UI Analytics - Food Logged Android     ${nutrientsBtnAnalyticsAndroid}    ${nutrientsWeeklyElementsAnalyticsAndroid}
 
 Review Calories Daily UI - Food Logged
-    NutritionResourcesAndroid.Review Calories Daily UI - Food Logged Android
+    NutritionResourcesAndroid.Review Daily View UI Analytics - Food Logged Android     ${caloriesBtnAnalyticsAndroid}    ${caloriesDailyElementsAnalyticsAndroid}
 
 Review Nutrients Daily UI - Food Logged
-    NutritionResourcesAndroid.Review Nutrients Daily UI - Food Logged Android
+    NutritionResourcesAndroid.Review Daily View UI Analytics - Food Logged Android     ${nutrientsBtnAnalyticsAndroid}    ${nutrientsDailyElementsAnalyticsAndroid}
 
 Review Weight UI - Weight Logged
-    NutritionResourcesAndroid.Review Weight UI - Weight Logged Android
+    NutritionResourcesAndroid.Review Weekly View UI Analytics - Food Logged Android     ${weightBtnAnalyticsAndroid}    ${weightElementsAnalyticsAndroid}
 
 Add New Weight To The Weight Log
     NutritionResourcesAndroid.Add New Weight To The Weight Log Android    180 lbs

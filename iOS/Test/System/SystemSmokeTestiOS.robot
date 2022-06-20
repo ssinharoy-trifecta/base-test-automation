@@ -66,22 +66,22 @@ Add Custom Food
     NutritionResourcesiOS.Add Custom Food iOS    Test Food Item    Test Brand    1    100
 
 Review My Day UI - Food Logged
-    NutritionResourcesiOS.Review My Day UI - Food Logged iOS
+    NutritionResourcesiOS.Review Daily View UI Analytics - Food Logged iOS    ${myDayBtnAnalyticsiOS}    ${myDayElementsAnalyticsiOS}
 
 Review Calories Daily UI - Food Logged
-    NutritionResourcesiOS.Review Calories Daily UI - Food Logged iOS
+    NutritionResourcesiOS.Review Daily View UI Analytics - Food Logged iOS     ${caloriesBtnAnalyticsiOS}    ${caloriesDailyElementsAnalyticsiOS}
 
 Review Calories Weekly UI - Food Logged
-    NutritionResourcesiOS.Review Calories Weekly UI - Food Logged iOS
+    NutritionResourcesiOS.Review Weekly View UI Analytics - Food Logged iOS     ${caloriesBtnAnalyticsiOS}    ${caloriesWeeklyElementsAnalyticsiOS} 
 
 Review Nutrients Daily UI - Food Logged
-    NutritionResourcesiOS.Review Nutrients Daily UI - Food Logged iOS
+    NutritionResourcesiOS.Review Daily View UI Analytics - Food Logged iOS     ${nutrientsBtnAnalyticsiOS}    ${nutrientsDailyElementsAnalyticsiOS}
 
 Review Nutrients Weekly UI - Food Logged
-    NutritionResourcesiOS.Review Nutrients Weekly UI - Food Logged iOS
+    NutritionResourcesiOS.Review Weekly View UI Analytics - Food Logged iOS     ${nutrientsBtnAnalyticsiOS}    ${nutrientsWeeklyElementsAnalyticsiOS}
 
 Review Weight UI - Weight Logged
-    NutritionResourcesiOS.Review Weight UI - Weight Logged iOS
+    NutritionResourcesiOS.Review Daily View UI Analytics - Food Logged iOS     ${weightBtnAnalyticsiOS}    ${weightElementsAnalyticsiOS}
 
 Add New Weight To The Weight Log
     NutritionResourcesiOS.Add New Weight To The Weight Log iOS    180

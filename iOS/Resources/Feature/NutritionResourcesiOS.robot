@@ -112,6 +112,52 @@ ${twoBtnKeyboardiOS}                        xpath=//XCUIElementTypeKey[@name="2"
 ${zeroBtnKeyboardiOS}                       xpath=//XCUIElementTypeKey[@name="0"]
 ${deleteBtnKeyboardiOS}                     xpath=//XCUIElementTypeKey[@name="Delete"]
 
+#LISTS
+@{myDayElementsAnalyticsiOS}    ${pieChartFourEvementsAnalyticsiOS}
+...                             ${breakfastLabelAnalyticsiOS}
+...                             ${lunchLabelAnalyticsiOS}
+...                             ${dinnerLabelAnalyticsiOS}
+...                             ${snacksLabelAnalyticsiOS}
+...                             ${dailyCalorieGoalTxtAnalyticsiOS}
+...                             ${consumedCaloriesTxtAnalyticsiOS}
+...                             ${macrosSummaryTxtAnalyticsiOS}
+
+@{caloriesDailyElementsAnalyticsiOS}    ${pieChartFourEvementsAnalyticsiOS}
+...                                     ${breakfastLabelAnalyticsiOS}
+...                                     ${lunchLabelAnalyticsiOS}
+...                                     ${dinnerLabelAnalyticsiOS}
+...                                     ${snacksLabelAnalyticsiOS}
+...                                     ${dailyCalorieGoalTxtAnalyticsiOS}
+...                                     ${consumedCaloriesTxtAnalyticsiOS}
+...                                     ${highestInCaloriesTxtAnalyticsiOS}
+...                                     ${lowestInCaloriesTxtAnalyticsiOS}
+
+@{caloriesWeeklyElementsAnalyticsiOS}    ${barChartAnalyticsCaloriesAnalyticsiOS}
+...                                      ${dailyAverageTxtAnalyticsiOS}
+...                                      ${breakfastLabelAnalyticsiOS}
+...                                      ${lunchLabelAnalyticsiOS}
+...                                      ${dinnerLabelAnalyticsiOS}
+...                                      ${snacksLabelAnalyticsiOS}
+...                                      ${dailyAverageTxtAnalyticsiOS}
+...                                      ${highestInCaloriesTxtAnalyticsiOS}
+...                                      ${lowestInCaloriesTxtAnalyticsiOS}
+
+@{nutrientsDailyElementsAnalyticsiOS}    ${macrosSummaryTxtAnalyticsiOS}
+...                                      ${proteinLabelAnalytics}
+...                                      ${carbsLabelAnalytics}
+...                                      ${fatLabelAnalytics}
+...                                      ${nutrientSummaryAnalyticsiOS}
+
+@{nutrientsWeeklyElementsAnalyticsiOS}    ${barChartAnalyticsCaloriesAnalyticsiOS}
+...                                       ${proteinLabelAnalytics}
+...                                       ${carbsLabelAnalytics}
+...                                       ${fatLabelAnalytics}
+
+@{weightElementsAnalyticsiOS}    ${weightGraphAnalyticsiOS}
+...                              ${weightRangePickerAnalyticsiOS}
+...                              ${weightLogTxtAnalyticsiOS}
+...                              ${addWeightBtnAnalyticsiOS}
+
 *** Keywords ***
 
 Add Weight To The Weight Card iOS
@@ -185,88 +231,17 @@ Capture Screenshot And Close Nutrition Analytics iOS
     Capture Page Screenshot
     CommonApps.Wait Until Visible And Click Element Apps    ${backBtnAnalyticsiOS}
 
-Review My Day UI - Food Logged iOS
-    CommonApps.Wait Until Visible And Click Element Apps    ${nutritionAnalyticsTopBtniOS}
-    Wait Until Element Is Visible                           ${pieChartFourEvementsAnalyticsiOS}
-    @{list}=    Create List                                 ${breakfastLabelAnalyticsiOS}
-    ...                                                     ${lunchLabelAnalyticsiOS}
-    ...                                                     ${dinnerLabelAnalyticsiOS}
-    ...                                                     ${snacksLabelAnalyticsiOS}
-    ...                                                     ${dailyCalorieGoalTxtAnalyticsiOS}
-    ...                                                     ${consumedCaloriesTxtAnalyticsiOS}
-    ...                                                     ${macrosSummaryTxtAnalyticsiOS}
-    FOR                                                     ${item}    IN    @{list}
-        Element Should Be Visible                           ${item}
-    END
+Review Daily View UI Analytics - Food Logged iOS
+    [Arguments]                                             ${selectTabBtnAnalytics}    ${listOfElementsAnalytics}
+    Open Nutrition Analytics And Select Category iOS        ${selectTabBtnAnalytics}
+    CommonApps.Loop Through List And Wait Until Visible     ${listOfElementsAnalytics}
     Capture Screenshot And Close Nutrition Analytics iOS
 
-Review Calories Daily UI - Food Logged iOS
-    Open Nutrition Analytics And Select Category iOS    ${caloriesBtnAnalyticsiOS}
-    Wait Until Element Is Visible                       ${pieChartFourEvementsAnalyticsiOS}
-    @{list}=    Create List                             ${breakfastLabelAnalyticsiOS}
-    ...                                                 ${lunchLabelAnalyticsiOS}
-    ...                                                 ${dinnerLabelAnalyticsiOS}
-    ...                                                 ${snacksLabelAnalyticsiOS}
-    ...                                                 ${dailyCalorieGoalTxtAnalyticsiOS}
-    ...                                                 ${consumedCaloriesTxtAnalyticsiOS}
-    ...                                                 ${highestInCaloriesTxtAnalyticsiOS}
-    ...                                                 ${lowestInCaloriesTxtAnalyticsiOS}
-    FOR                                                 ${item}    IN    @{list}
-        Element Should Be Visible                       ${item}
-    END
-    Capture Screenshot And Close Nutrition Analytics iOS
-
-Review Calories Weekly UI - Food Logged iOS
-    Open Nutrition Analytics And Select Category iOS    ${caloriesBtnAnalyticsiOS}
+Review Weekly View UI Analytics - Food Logged iOS
+    [Arguments]                                             ${selectTabBtnAnalytics}    ${listOfElementsAnalytics}
+    Open Nutrition Analytics And Select Category iOS        ${selectTabBtnAnalytics}
     Select Weekly View Nutrition Analytics iOS
-    Wait Until Element Is Visible                       ${dailyAverageTxtAnalyticsiOS}
-    @{list}=    Create List                             ${breakfastLabelAnalyticsiOS}
-    ...                                                 ${barChartAnalyticsCaloriesAnalyticsiOS}
-    ...                                                 ${lunchLabelAnalyticsiOS}
-    ...                                                 ${dinnerLabelAnalyticsiOS}
-    ...                                                 ${snacksLabelAnalyticsiOS}
-    ...                                                 ${averageDailyCaloriesTxtiOS}
-    ...                                                 ${highestInCaloriesTxtAnalyticsiOS}
-    ...                                                 ${lowestInCaloriesTxtAnalyticsiOS}
-    FOR                                                 ${item}    IN    @{list}
-        Element Should Be Visible                       ${item}
-    END
-    Capture Screenshot And Close Nutrition Analytics iOS
-
-Review Nutrients Daily UI - Food Logged iOS
-    Open Nutrition Analytics And Select Category iOS    ${nutrientsBtnAnalyticsiOS}
-    Wait Until Element Is Visible                       ${macrosSummaryTxtAnalyticsiOS}
-    @{list}=    Create List                             ${proteinLabelAnalytics}
-    ...                                                 ${carbsLabelAnalytics}
-    ...                                                 ${fatLabelAnalytics}
-    ...                                                 ${nutrientSummaryAnalyticsiOS}
-    FOR                                                 ${item}    IN    @{list}
-        Element Should Be Visible                       ${item}
-    END
-    Capture Screenshot And Close Nutrition Analytics iOS
-
-Review Nutrients Weekly UI - Food Logged iOS
-    Open Nutrition Analytics And Select Category iOS    ${nutrientsBtnAnalyticsiOS}
-    Select Weekly View Nutrition Analytics iOS
-    Wait Until Element Is Visible                       ${barChartAnalyticsCaloriesAnalyticsiOS}
-    @{list}=    Create List                             ${proteinLabelAnalytics}
-    ...                                                 ${carbsLabelAnalytics}
-    ...                                                 ${fatLabelAnalytics}
-    ...                                                 ${nutrientDailyAverageTxtAnalyticsiOS}
-    FOR                                                 ${item}    IN    @{list}
-        Element Should Be Visible                       ${item}
-    END
-    Capture Screenshot And Close Nutrition Analytics iOS
-
-Review Weight UI - Weight Logged iOS
-    Open Nutrition Analytics And Select Category iOS    ${weightBtnAnalyticsiOS}
-    Wait Until Element Is Visible                       ${weightGraphAnalyticsiOS}
-    @{list}=    Create List                             ${weightRangePickerAnalyticsiOS}
-    ...                                                 ${weightLogTxtAnalyticsiOS}
-    ...                                                 ${addWeightBtnAnalyticsiOS}
-    FOR                                                 ${item}    IN    @{list}
-        Element Should Be Visible                       ${item}    timeout=10
-    END
+    CommonApps.Loop Through List And Wait Until Visible     ${listOfElementsAnalytics}
     Capture Screenshot And Close Nutrition Analytics iOS
 
 Add New Weight To The Weight Log iOS

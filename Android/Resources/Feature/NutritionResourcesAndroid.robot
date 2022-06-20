@@ -104,8 +104,50 @@ ${proteinFieldNutritionGoalsAndroid}            id=com.n_ix.pocket_wod:id/protei
 ${fatFieldNutritionGoalsAndroid}                id=com.n_ix.pocket_wod:id/fatEditText
 ${carbsFieldNutritionGoalsAndroid}              id=com.n_ix.pocket_wod:id/carbsEditText
 ${caloriesFieldNutritionGoalsAndroid}           id=com.n_ix.pocket_wod:id/caloriesEditText
-${useRecommendedValBtnNutritionGoalsAndroid}    id=com.n_ix.pocket_wod:id/useRecommendedButton
 ${updateNutritionGoalsBtnAndroid}               id=com.n_ix.pocket_wod:id/updateButton
+
+#LISTS
+@{myDayElementsAnalyticsAndroid}    ${breakfastLabelAnalyticsAndroid}
+...                                 ${lunchLabelAnalyticsAndroid}
+...                                 ${dinnerLabelAnalyticsAndroid}
+...                                 ${snacksLabelAnalyticsAndroid}
+...                                 ${dailyCalorieGoalTxtAnalyticsAndroid}
+...                                 ${consumedCaloriesTxtAnalyticsAndroid}
+...                                 ${macrosSummaryTxtAnalyticsAndroid}
+
+@{caloriesDailyElementsAnalyticsAndroid}    ${pieChartFourEvementsAnalyticsAndroid}
+...                                         ${breakfastLabelAnalyticsAndroid}
+...                                         ${lunchLabelAnalyticsAndroid}
+...                                         ${dinnerLabelAnalyticsAndroid}
+...                                         ${snacksLabelAnalyticsAndroid}
+...                                         ${dailyCalorieGoalTxtAnalyticsAndroid}
+...                                         ${consumedCaloriesTxtAnalyticsAndroid}
+...                                         ${highestCaloriesViewAnalyticsAndroid}
+...                                         ${lowestCaloriesViewAnalyticsAndroid}
+
+@{caloriesWeeklyElementsAnalyticsAndroid}    ${barChartAnalyticsCaloriesAnalyticsAndroid}
+...                                          ${dailyAverageTxtAnalyticsAndroid}
+...                                          ${breakfastLabelAnalyticsAndroid}
+...                                          ${lunchLabelAnalyticsAndroid}
+...                                          ${dinnerLabelAnalyticsAndroid}
+...                                          ${snacksLabelAnalyticsAndroid}
+...                                          ${dailyAverageTxtAnalyticsAndroid}
+...                                          ${highestCaloriesViewAnalyticsAndroid}
+...                                          ${lowestCaloriesViewAnalyticsAndroid}
+
+@{nutrientsDailyElementsAnalyticsAndroid}    ${proteinProgressBarAnalyticsAndroid}
+...                                          ${fatProgressBarAnalyticsAndroid}
+...                                          ${carbsProgressBarAnalyticsAndroid}
+
+@{nutrientsWeeklyElementsAnalyticsAndroid}    ${barChartAnalyticsCaloriesAnalyticsAndroid}                             ${proteinLabelAnalyticsAndroid}
+...                                           ${carbsLabelAnalyticsAndroid}
+...                                           ${fatLabelAnalyticsAndroid}
+...                                           ${nutrientsViewAnalyticsAndroid}
+
+@{weightElementsAnalyticsAndroid}    ${weightGraphAnalyticsAndroid}
+...                                  ${weightRangePickerAnalyticsAndroid}
+...                                  ${weightLogTxtAnalyticsAndroid}
+...                                  ${addWeightBtnAnalyticsAndroid}
 
 *** Keywords ***
 
@@ -179,87 +221,17 @@ Capture Screenshot And Close Nutrition Analytics Android
     Capture Page Screenshot
     CommonApps.Wait Until Visible And Click Element Apps    ${backBtnAnalyticsAndroid}
 
-Review My Day UI - Food Logged Android
-    CommonApps.Wait Until Visible And Click Element Apps    ${nutritionAnalyticsTopBtnAndroid}
-    Wait Until Element Is Visible                           ${pieChartFourEvementsAnalyticsAndroid}
-    @{list}=    Create List                                 ${breakfastLabelAnalyticsAndroid}
-    ...                                                     ${lunchLabelAnalyticsAndroid}
-    ...                                                     ${dinnerLabelAnalyticsAndroid}
-    ...                                                     ${snacksLabelAnalyticsAndroid}
-    ...                                                     ${dailyCalorieGoalTxtAnalyticsAndroid}
-    ...                                                     ${consumedCaloriesTxtAnalyticsAndroid}
-    ...                                                     ${macrosSummaryTxtAnalyticsAndroid}
-    FOR                                                     ${item}    IN    @{list}
-        Element Should Be Visible                           ${item}
-    END
-    Capture Screenshot And Close Nutrition Analytics Android
-
-Review Calories Daily UI - Food Logged Android
-    Open Nutrition Analytics And Select Category Android    ${caloriesBtnAnalyticsAndroid}
+Review Daily View UI Analytics - Food Logged Android
+    [Arguments]                                             ${selectTabBtnAnalytics}    ${listOfElementsAnalytics}
+    Open Nutrition Analytics And Select Category Android    ${selectTabBtnAnalytics}
     Select Daily View Nutrition Analytics Android
-    Wait Until Element Is Visible                           ${pieChartFourEvementsAnalyticsAndroid}
-    @{list}=    Create List                                 ${breakfastLabelAnalyticsAndroid}
-    ...                                                     ${lunchLabelAnalyticsAndroid}
-    ...                                                     ${dinnerLabelAnalyticsAndroid}
-    ...                                                     ${snacksLabelAnalyticsAndroid}
-    ...                                                     ${dailyCalorieGoalTxtAnalyticsAndroid}
-    ...                                                     ${consumedCaloriesTxtAnalyticsAndroid}
-    ...                                                     ${highestCaloriesViewAnalyticsAndroid}
-    ...                                                     ${lowestCaloriesViewAnalyticsAndroid}
-    FOR                                                     ${item}    IN    @{list}
-        Element Should Be Visible                           ${item}
-    END
+    CommonApps.Loop Through List And Wait Until Visible     ${listOfElementsAnalytics}
     Capture Screenshot And Close Nutrition Analytics Android
 
-Review Calories Weekly UI - Food Logged Android
-    Open Nutrition Analytics And Select Category Android    ${caloriesBtnAnalyticsAndroid}
-    Wait Until Element Is Visible                           ${barChartAnalyticsCaloriesAnalyticsAndroid}
-    @{list}=    Create List                                 ${dailyAverageTxtAnalyticsAndroid}
-    ...                                                     ${breakfastLabelAnalyticsAndroid}
-    ...                                                     ${lunchLabelAnalyticsAndroid}
-    ...                                                     ${dinnerLabelAnalyticsAndroid}
-    ...                                                     ${snacksLabelAnalyticsAndroid}
-    ...                                                     ${dailyAverageTxtAnalyticsAndroid}
-    ...                                                     ${highestCaloriesViewAnalyticsAndroid}
-    ...                                                     ${lowestCaloriesViewAnalyticsAndroid}
-    FOR                                                     ${item}    IN    @{list}
-        Element Should Be Visible                           ${item}
-    END
-    Capture Screenshot And Close Nutrition Analytics Android
-
-Review Nutrients Daily UI - Food Logged Android
-    Open Nutrition Analytics And Select Category Android    ${nutrientsBtnAnalyticsAndroid}
-    Select Daily View Nutrition Analytics Android
-    Wait Until Element Is Visible                           ${macrosSummaryTxtAnalyticsAndroid}
-    @{list}=    Create List                                 ${proteinProgressBarAnalyticsAndroid}
-    ...                                                     ${fatProgressBarAnalyticsAndroid}
-    ...                                                     ${carbsProgressBarAnalyticsAndroid}  
-    FOR                                                     ${item}    IN    @{list}
-        Wait Until Element Is Visible                       ${item}
-    END
-    Capture Screenshot And Close Nutrition Analytics Android
-
-Review Nutrients Weekly UI - Food Logged Android
-    Open Nutrition Analytics And Select Category Android    ${nutrientsBtnAnalyticsAndroid}
-    Wait Until Element Is Visible                           ${barChartAnalyticsCaloriesAnalyticsAndroid}
-    @{list}=    Create List                                 ${proteinLabelAnalyticsAndroid}
-    ...                                                     ${carbsLabelAnalyticsAndroid}
-    ...                                                     ${fatLabelAnalyticsAndroid}
-    ...                                                     ${nutrientsViewAnalyticsAndroid}          
-    FOR                                                     ${item}    IN    @{list}
-        Element Should Be Visible                           ${item}
-    END
-    Capture Screenshot And Close Nutrition Analytics Android
-
-Review Weight UI - Weight Logged Android
-    Open Nutrition Analytics And Select Category Android    ${weightBtnAnalyticsAndroid}
-    Wait Until Element Is Visible                           ${weightGraphAnalyticsAndroid}
-    @{list}=    Create List                                 ${weightRangePickerAnalyticsAndroid}
-    ...                                                     ${weightLogTxtAnalyticsAndroid}
-    ...                                                     ${addWeightBtnAnalyticsAndroid}
-    FOR                                                     ${item}    IN    @{list}
-        Element Should Be Visible                           ${item}    timeout=10
-    END
+Review Weekly View UI Analytics - Food Logged Android
+    [Arguments]                                             ${selectTabBtnAnalytics}    ${listOfElementsAnalytics}
+    Open Nutrition Analytics And Select Category Android    ${selectTabBtnAnalytics}
+    CommonApps.Loop Through List And Wait Until Visible     ${listOfElementsAnalytics}
     Capture Screenshot And Close Nutrition Analytics Android
 
 Add New Weight To The Weight Log Android

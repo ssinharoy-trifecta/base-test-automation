@@ -17,4 +17,3 @@ Resource   ../../../Common/Resources/CommonApps.robot
 
 Launch Aplication On Emulator
     Launch iOS Application On Emulator
-
