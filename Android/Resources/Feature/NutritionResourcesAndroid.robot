@@ -9,7 +9,7 @@ Library    BuiltIn
 ${addWeightNutritionBtnAndroid}    id=com.n_ix.pocket_wod:id/weight_text_view
 ${addWeightCardBtnAndroid}         id=com.n_ix.pocket_wod:id/addBtn
 ${closeWeightCardBtnAndroid}       id=com.n_ix.pocket_wod:id/closeBtn
-${weightFieldAndroid}              id=com.n_ix.pocket_wod:id/weightView
+${weightFieldCardAndroid}          id=com.n_ix.pocket_wod:id/weightView
 ${addWeightFieldAndroid}           id=com.n_ix.pocket_wod:id/first_value_edit_text
 ${setWeightBtnAndroid}             id=com.n_ix.pocket_wod:id/set_button
 
@@ -52,15 +52,113 @@ ${customFoodServingSizeFieldAndroid}  id=com.n_ix.pocket_wod:id/serving_size_inp
 ${customFoodCaloriesFieldAndroid}     id=com.n_ix.pocket_wod:id/calories_input
 ${addToBreakfastBtnAndroid}           id=com.n_ix.pocket_wod:id/add_button
 
+#NUTRITION ANALYTICS
+${nutritionAnalyticsTopBtnAndroid}              id=com.n_ix.pocket_wod:id/analyticsButtonTop
+${backBtnAnalyticsAndroid}                      xpath=//android.widget.ImageButton[@content-desc="Navigate up"]
+${myDayBtnAnalyticsAndroid}                     xpath=//android.widget.LinearLayout[@content-desc="My Day"]
+${caloriesBtnAnalyticsAndroid}                  xpath=//android.widget.LinearLayout[@content-desc="Calories"]
+${nutrientsBtnAnalyticsAndroid}                 xpath=//android.widget.LinearLayout[@content-desc="Nutrients"]
+${weightBtnAnalyticsAndroid}                    xpath=//android.widget.LinearLayout[@content-desc="Weight"]
+${pieChartFourEvementsAnalyticsAndroid}         id=com.n_ix.pocket_wod:id/pieChart
+${breakfastLabelAnalyticsAndroid}               id=com.n_ix.pocket_wod:id/breakfastCalories
+${lunchLabelAnalyticsAndroid}                   id=com.n_ix.pocket_wod:id/lunchCalories
+${dinnerLabelAnalyticsAndroid}                  id=com.n_ix.pocket_wod:id/dinnerCalories
+${snacksLabelAnalyticsAndroid}                  id=com.n_ix.pocket_wod:id/snacksCalories
+${dailyCalorieGoalTxtAnalyticsAndroid}          id=com.n_ix.pocket_wod:id/dailyGoalCaloriesContainer
+${consumedCaloriesTxtAnalyticsAndroid}          id=com.n_ix.pocket_wod:id/consumedCaloriesContainer
+${macrosSummaryTxtAnalyticsAndroid}             id=com.n_ix.pocket_wod:id/titleTextView
+${weeklyPickerAnalyticsAndroid}                 id=com.n_ix.pocket_wod:id/modeButton
+${datePickerAnalyticsAndroid}                   id=com.n_ix.pocket_wod:id/date
+${weeklySelectorAnalyticsAndroid}               xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout
+...                                             /android.widget.FrameLayout/android.widget.LinearLayout
+...                                             /android.widget.FrameLayout/android.widget.FrameLayout
+...                                             /android.widget.LinearLayout/androidx.viewpager.widget.ViewPager
+...                                             /android.widget.FrameLayout/android.widget.RelativeLayout
+...                                             /android.widget.RelativeLayout/android.widget.LinearLayout[2]
+...                                             /android.widget.FrameLayout[4]/android.view.View[2]
+${saveDailyBtnAndroid}                          id=com.n_ix.pocket_wod:id/saveButton
+${barChartAnalyticsCaloriesAnalyticsAndroid}    id=com.n_ix.pocket_wod:id/chart
+${dailyAverageTxtAnalyticsAndroid}              id=com.n_ix.pocket_wod:id/dailyAverageLabel
+${highestCaloriesViewAnalyticsAndroid}          id=com.n_ix.pocket_wod:id/highestValueView
+${lowestCaloriesViewAnalyticsAndroid}           id=com.n_ix.pocket_wod:id/lowestValueView
+${proteinLabelAnalyticsAndroid}                 id=com.n_ix.pocket_wod:id/food_detail_protein_gram
+${fatLabelAnalyticsAndroid}                     id=com.n_ix.pocket_wod:id/food_detail_fat_gram
+${carbsLabelAnalyticsAndroid}                   id=com.n_ix.pocket_wod:id/food_detail_carbs_gram
+${proteinProgressBarAnalyticsAndroid}           id=com.n_ix.pocket_wod:id/proteinProgressBar
+${fatProgressBarAnalyticsAndroid}               id=com.n_ix.pocket_wod:id/fatProgressBar
+${carbsProgressBarAnalyticsAndroid}             id=com.n_ix.pocket_wod:id/carbsProgressBar
+${nutrientsViewAnalyticsAndroid}                id=com.n_ix.pocket_wod:id/nutritionsView
+${weightRangePickerAnalyticsAndroid}            id=com.n_ix.pocket_wod:id/modeButton
+${weightGraphAnalyticsAndroid}                  id=com.n_ix.pocket_wod:id/chart
+${weightLogTxtAnalyticsAndroid}                 id=com.n_ix.pocket_wod:id/weightLogLabel
+${addWeightBtnAnalyticsAndroid}                 id=com.n_ix.pocket_wod:id/addWeightButton
+${inputWeightFieldAnalyticsAndroid}             id=com.n_ix.pocket_wod:id/weightView
+${addWeightBtnCardAnalyticsAndroid}             id=com.n_ix.pocket_wod:id/addBtn
+${modePickerAnalyticsAndroid}                   id=com.n_ix.pocket_wod:id/modePicker
+
+#NUTRITION GOALS
+${nutritionGoalsBtnAndroid}                     id=com.n_ix.pocket_wod:id/edit_button
+${updateNutritionGoalsTxtAndroid}               id=com.n_ix.pocket_wod:id/titleView
+${closeNutritionGoalsAndroid}                   id=com.n_ix.pocket_wod:id/closeBtn
+${proteinFieldNutritionGoalsAndroid}            id=com.n_ix.pocket_wod:id/proteinEditText
+${fatFieldNutritionGoalsAndroid}                id=com.n_ix.pocket_wod:id/fatEditText
+${carbsFieldNutritionGoalsAndroid}              id=com.n_ix.pocket_wod:id/carbsEditText
+${caloriesFieldNutritionGoalsAndroid}           id=com.n_ix.pocket_wod:id/caloriesEditText
+${useRecommendedValBtnNutritionGoalsAndroid}    id=com.n_ix.pocket_wod:id/useRecommendedButton
+${updateNutritionGoalsBtnAndroid}               id=com.n_ix.pocket_wod:id/updateButton
+
+#LISTS
+@{myDayElementsAnalyticsAndroid}    ${breakfastLabelAnalyticsAndroid}
+...                                 ${lunchLabelAnalyticsAndroid}
+...                                 ${dinnerLabelAnalyticsAndroid}
+...                                 ${snacksLabelAnalyticsAndroid}
+...                                 ${dailyCalorieGoalTxtAnalyticsAndroid}
+...                                 ${consumedCaloriesTxtAnalyticsAndroid}
+...                                 ${macrosSummaryTxtAnalyticsAndroid}
+
+@{caloriesDailyElementsAnalyticsAndroid}    ${pieChartFourEvementsAnalyticsAndroid}
+...                                         ${breakfastLabelAnalyticsAndroid}
+...                                         ${lunchLabelAnalyticsAndroid}
+...                                         ${dinnerLabelAnalyticsAndroid}
+...                                         ${snacksLabelAnalyticsAndroid}
+...                                         ${dailyCalorieGoalTxtAnalyticsAndroid}
+...                                         ${consumedCaloriesTxtAnalyticsAndroid}
+...                                         ${highestCaloriesViewAnalyticsAndroid}
+...                                         ${lowestCaloriesViewAnalyticsAndroid}
+
+@{caloriesWeeklyElementsAnalyticsAndroid}    ${barChartAnalyticsCaloriesAnalyticsAndroid}
+...                                          ${dailyAverageTxtAnalyticsAndroid}
+...                                          ${breakfastLabelAnalyticsAndroid}
+...                                          ${lunchLabelAnalyticsAndroid}
+...                                          ${dinnerLabelAnalyticsAndroid}
+...                                          ${snacksLabelAnalyticsAndroid}
+...                                          ${dailyAverageTxtAnalyticsAndroid}
+...                                          ${highestCaloriesViewAnalyticsAndroid}
+...                                          ${lowestCaloriesViewAnalyticsAndroid}
+
+@{nutrientsDailyElementsAnalyticsAndroid}    ${proteinProgressBarAnalyticsAndroid}
+...                                          ${fatProgressBarAnalyticsAndroid}
+...                                          ${carbsProgressBarAnalyticsAndroid}
+
+@{nutrientsWeeklyElementsAnalyticsAndroid}    ${barChartAnalyticsCaloriesAnalyticsAndroid}
+...                                           ${proteinLabelAnalyticsAndroid}
+...                                           ${carbsLabelAnalyticsAndroid}
+...                                           ${fatLabelAnalyticsAndroid}
+...                                           ${nutrientsViewAnalyticsAndroid}
+
+@{weightElementsAnalyticsAndroid}    ${weightRangePickerAnalyticsAndroid}
+...                                  ${weightLogTxtAnalyticsAndroid}
+...                                  ${addWeightBtnAnalyticsAndroid}
+
 *** Keywords ***
 
 Add Weight To The Weight Card Android
-    [Arguments]                                             ${userWeight}
+    [Arguments]                                             ${userWeightTypeIntSpaceLbs }
     CommonApps.Wait Until Visible And Click Element Apps    ${addWeightNutritionBtnAndroid}
-    CommonApps.Wait Until Visible And Click Element Apps    ${weightFieldAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${weightFieldCardAndroid}
     Wait Until Element Is Visible                           ${addWeightFieldAndroid}
     Clear Text                                              ${addWeightFieldAndroid}
-    Input Value                                             ${addWeightFieldAndroid}    ${userWeight}
+    Input Value                                             ${addWeightFieldAndroid}    ${userWeightTypeIntSpaceLbs }
     Click Element                                           ${setWeightBtnAndroid}
     Capture Page Screenshot
     CommonApps.Wait Until Visible And Click Element Apps    ${addWeightCardBtnAndroid}
@@ -77,7 +175,7 @@ Add Water To The Water Card Android
     Capture Page Screenshot
     Click Element                   ${addWaterCardBtnAndroid}
    
-
+#FOOD LOG
 Log Food Android
     [Arguments]                                            ${mealButton}    ${foodItem}
     CommonApps.Wait Until Visible And Click Element Apps   ${mealButton}
@@ -106,3 +204,80 @@ Add Custom Food Android
     CommonApps.Wait Until Visible And Click Element Apps    ${addToBreakfastBtnAndroid}
     Wait Until Page Contains                                ${foodName}
     Capture Page Screenshot
+
+#NUTRITION ANALYTICS
+Open Nutrition Analytics And Select Category Android
+    [Arguments]                                             ${nutritionAnalyticsCategoryElement}
+    CommonApps.Wait Until Visible And Click Element Apps    ${nutritionAnalyticsTopBtnAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${nutritionAnalyticsCategoryElement}
+
+Select Daily View Nutrition Analytics Android
+    CommonApps.Wait Until Visible And Click Element Apps    ${weeklyPickerAnalyticsAndroid}
+    Wait Until Element Is Visible                           ${modePickerAnalyticsAndroid}
+    Swipe By Percent                                        start_x=0    start_y=90
+    ...                                                     end_x=0    end_y=95
+    Click Element                                           ${saveDailyBtnAndroid}
+
+Capture Screenshot And Close Nutrition Analytics Android
+    Capture Page Screenshot
+    CommonApps.Wait Until Visible And Click Element Apps    ${backBtnAnalyticsAndroid}
+
+Review Daily View UI Analytics - Food Logged Android
+    [Arguments]                                             ${selectTabBtnAnalytics}    ${listOfElementsAnalytics}
+    Open Nutrition Analytics And Select Category Android    ${selectTabBtnAnalytics}
+    Select Daily View Nutrition Analytics Android
+    CommonApps.Loop Through List And Wait Until Visible     ${listOfElementsAnalytics}
+    Capture Screenshot And Close Nutrition Analytics Android
+
+Review Weekly View UI Analytics - Food Logged Android
+    [Arguments]                                             ${selectTabBtnAnalytics}    ${listOfElementsAnalytics}
+    Open Nutrition Analytics And Select Category Android    ${selectTabBtnAnalytics}
+    CommonApps.Loop Through List And Wait Until Visible     ${listOfElementsAnalytics}
+    Capture Screenshot And Close Nutrition Analytics Android
+
+Add New Weight To The Weight Log Android
+    [Arguments]                                             ${userWeightTypeIntSpaceLbs }
+    Open Nutrition Analytics And Select Category Android    ${weightBtnAnalyticsAndroid}
+    CommonApps.Wait Until Visible And Click Element Apps    ${addWeightBtnAnalyticsAndroid}
+    Wait Until Element Is Visible                           ${inputWeightFieldAnalyticsAndroid}
+    Clear Text                                              ${inputWeightFieldAnalyticsAndroid}
+    Input Value                                             ${inputWeightFieldAnalyticsAndroid}    ${userWeightTypeIntSpaceLbs }
+    Click Element                                           ${addWeightBtnCardAnalyticsAndroid}
+    Capture Page Screenshot
+    Page Should Contain Text                                180
+    Capture Screenshot And Close Nutrition Analytics Android
+
+#NUTRITION GOALS
+Open Nutrition Goals Android
+    CommonApps.Wait Until Visible And Click Element Apps    ${nutritionGoalsBtnAndroid}
+    Wait Until Element Is Visible                           ${updateNutritionGoalsTxtAndroid}
+
+Review Nutrition Goals UI Android
+    Open Nutrition Goals Android
+    @{list}=    Create List                                 PROTEIN
+    ...                                                     FAT
+    ...                                                     CARBS
+    ...                                                     CALORIES
+    FOR                                                     ${item}    IN    @{list}
+        Text Should Be Visible                              ${item}
+    END
+    Capture Page Screenshot
+    Click Element                                            ${closeNutritionGoalsAndroid}
+
+Update Nutrition Goals For Non-Premium Users Android
+    Open Nutrition Goals Android
+    Clear Text                                              ${caloriesFieldNutritionGoalsAndroid}
+    Input Value                                             ${caloriesFieldNutritionGoalsAndroid}   2000
+    Capture Page Screenshot
+    Click Element                                           ${updateNutritionGoalsBtnAndroid}
+    Text Should Be Visible                                  2,000
+
+Use Recommended Values For Non-Premium Users Android
+    @{list}=    Create List                                     ${nutritionGoalsBtnAndroid}
+    ...                                                         ${useRecommendedValBtnNutritionGoalsAndroid}
+    ...                                                         ${updateNutritionGoalsBtnAndroid}
+    FOR                                                         ${item}    IN    @{list}
+        CommonApps.Wait Until Visible And Click Element Apps    ${item}
+    END
+    Capture Page Screenshot
+    Text Should Be Visible                                      2,150

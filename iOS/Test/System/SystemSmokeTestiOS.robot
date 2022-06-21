@@ -40,6 +40,15 @@ Add Weight To The Weight Card
 
 Add Water To The Water Card
     NutritionResourcesiOS.Add Water To The Water Card iOS
+
+Review Nutrition Goals UI
+    NutritionResourcesiOS.Review Nutrition Goals UI iOS
+
+Update Nutrition Goals For Non-Premium Users
+    NutritionResourcesiOS.Update Nutrition Goals For Non-Premium Users iOS
+
+Use Recommended Values For Non-Premium Users
+    NutritionResourcesiOS.Use Recommended Values For Non-Premium Users iOS
     
 Log Food To Snacks
     NutritionResourcesiOS.Log Food iOS    ${snacksBtniOS}    Apple
@@ -55,6 +64,27 @@ Log Food To Breakfast
 
 Add Custom Food
     NutritionResourcesiOS.Add Custom Food iOS    Test Food Item    Test Brand    1    100
+
+Review My Day UI - Food Logged
+    NutritionResourcesiOS.Review Daily View UI Analytics - Food Logged iOS    ${myDayBtnAnalyticsiOS}    ${myDayElementsAnalyticsiOS}
+
+Review Calories Daily UI - Food Logged
+    NutritionResourcesiOS.Review Daily View UI Analytics - Food Logged iOS     ${caloriesBtnAnalyticsiOS}    ${caloriesDailyElementsAnalyticsiOS}
+
+Review Calories Weekly UI - Food Logged
+    NutritionResourcesiOS.Review Weekly View UI Analytics - Food Logged iOS     ${caloriesBtnAnalyticsiOS}    ${caloriesWeeklyElementsAnalyticsiOS} 
+
+Review Nutrients Daily UI - Food Logged
+    NutritionResourcesiOS.Review Daily View UI Analytics - Food Logged iOS     ${nutrientsBtnAnalyticsiOS}    ${nutrientsDailyElementsAnalyticsiOS}
+
+Review Nutrients Weekly UI - Food Logged
+    NutritionResourcesiOS.Review Weekly View UI Analytics - Food Logged iOS     ${nutrientsBtnAnalyticsiOS}    ${nutrientsWeeklyElementsAnalyticsiOS}
+
+Review Weight UI - Weight Logged
+    NutritionResourcesiOS.Review Daily View UI Analytics - Food Logged iOS     ${weightBtnAnalyticsiOS}    ${weightElementsAnalyticsiOS}
+
+Add New Weight To The Weight Log
+    NutritionResourcesiOS.Add New Weight To The Weight Log iOS    180
 
 Review Main Menu UI
     AccountMgmtResourcesiOS.Review Main Menu UI iOS

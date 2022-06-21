@@ -13,6 +13,8 @@ Resource   ../../Resources/Feature/ShopWooResourcesAndroid.robot
 Resource   ../../Resources/System/EmulatorLauncherAndroid.robot
 Resource   ../../../Common/Resources/CommonApps.robot
 
+Test Teardown     Run Keyword If Test Failed    Fatal Error
+
 #THIS IS A WORKING SPACE FOR TEST CASES DEVELOPMENT
 *** Test Cases ***
 
