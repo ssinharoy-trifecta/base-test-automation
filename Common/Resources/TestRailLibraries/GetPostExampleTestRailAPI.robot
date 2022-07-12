@@ -14,9 +14,12 @@ ${multiCasePost}    index.php?/api/v2/add_results_for_cases/365
 ${headers}          Authorization=Basic
 ...                 Content-Type=application/json
 ...                 accept=application/json
-@{authData}         ${TESTRAIL_USER}      ${TESTRAIL_APIKEY}
-&{infoAPISession}   url=${baseURL}        auth=@{authData}
-&{sessionDict}      url=${baseURL}        auth=@{authData}
+@{authData}         ${TESTRAIL_USER}
+...                 ${TESTRAIL_APIKEY}
+&{infoAPISession}   url=${baseURL}
+...                 auth=@{authData}
+&{sessionDict}      url=${baseURL}
+...                 auth=@{authData}
 ${passFailStatus}
 ${passFailComment}
 
