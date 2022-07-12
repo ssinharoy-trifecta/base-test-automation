@@ -38,14 +38,18 @@ GET Request And Fetch Status Code
     [Return]            ${response}
 
 Simple GET Request
-    [Arguments]         
-    ...                 ${apiBaseEndpoint}          
-    ...                 ${apiGetUrl}           
-    ...                 @{apiAuthData}	
-    Create Session      Test_Session                
-    ...                 ${apiBaseEndpoint}     
-    ...                 auth=${apiAuthData}    
+    [Arguments]
+    ...                 ${apiSessionList}
+    ...                 ${apiGetUrl}
+    Create Session      Test_Session                &{apiSessionList}
     ...                 verify=True
+    # ...                 ${apiBaseEndpoint}          
+    # ...                 ${apiGetUrl}           
+    # ...                 @{apiAuthData}	
+    # Create Session      Test_Session                
+    # ...                 ${apiBaseEndpoint}     
+    # ...                 auth=${apiAuthData}    
+    # ...                 verify=True
     ${response}=        GET On Session              Test_Session           ${apiGetUrl} 
     Delete All Sessions
     [Return]            ${response}
