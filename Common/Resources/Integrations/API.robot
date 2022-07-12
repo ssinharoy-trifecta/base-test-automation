@@ -22,18 +22,16 @@ ${apiPostUrl}
 
 *** Keywords ***
 GET Request And Fetch Status Code
-    [Arguments]         
-    ...                 ${apiBaseEndpoint}          
-    ...                 ${apiGetUrl}           
-    ...                 @{apiAuthData}	
-    Create Session      Test_Session                
-    ...                 ${apiBaseEndpoint}     
-    ...                 auth=${apiAuthData}    
+    [Arguments]
+    ...                 ${apiSessionList}
+    ...                 ${apiGetUrl}
+    Create Session      Test_Session
+    ...                 &{apiSessionList}
     ...                 verify=True	
     ${response}=        GET On Session              Test_Session           ${apiGetUrl} 
     # Get response code
     ${statusCode}       Convert To String           ${response.status_code}
-    Should Be Equal     ${statusCode}               200                      
+    Should Be Equal     ${statusCode}               200
     Delete All Sessions
     [Return]            ${response}
 
@@ -41,35 +39,27 @@ Simple GET Request
     [Arguments]
     ...                 ${apiSessionList}
     ...                 ${apiGetUrl}
-    Create Session      Test_Session                &{apiSessionList}
+    Create Session      Test_Session
+    ...                 &{apiSessionList}
     ...                 verify=True
-    # ...                 ${apiBaseEndpoint}          
-    # ...                 ${apiGetUrl}           
-    # ...                 @{apiAuthData}	
-    # Create Session      Test_Session                
-    # ...                 ${apiBaseEndpoint}     
-    # ...                 auth=${apiAuthData}    
-    # ...                 verify=True
     ${response}=        GET On Session              Test_Session           ${apiGetUrl} 
     Delete All Sessions
     [Return]            ${response}
 
 Send POST Request
     [Arguments]         
-    ...                 ${apiBaseEndpoint}      
-    ...                 ${dictJSON}               
-    ...                 ${apiPostUrl}          
-    ...                 @{apiAuthData}	
-    Create Session      Test_Session            
-    ...                 ${apiBaseEndpoint}          
-    ...                 auth=${apiAuthData}    
+    ...                 ${apiSessionList}
+    ...                 ${dictJSON}
+    ...                 ${apiPostUrl}
+    Create Session      Test_Session
+    ...                 &{apiSessionList}
     ...                 verify=True
     ${postJSON}=        evaluate                json.dumps(${dictJSON})     json
     Log                 ${postJSON}
     # Post results to TestRail using JSON
-    ${response}=        POST On Session			
-    ...                 Test_Session		        
-    ...                 url=${apiPostUrl}		
+    ${response}=        POST On Session
+    ...                 Test_Session
+    ...                 url=${apiPostUrl}
     ...                 json=${dictJSON}
     Log                 ${response} 
     Delete All Sessions

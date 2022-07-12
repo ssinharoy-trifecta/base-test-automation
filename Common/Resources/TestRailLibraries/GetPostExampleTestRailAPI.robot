@@ -14,14 +14,14 @@ ${multiCasePost}    index.php?/api/v2/add_results_for_cases/365
 ${headers}          Authorization=Basic    Content-Type=application/json  accept=application/json
 @{authData}         ${TESTRAIL_USER}      ${TESTRAIL_APIKEY}
 &{infoAPISession}   url=${baseURL}        auth=@{authData}
-&{TRSessionList}    url=${baseURL}        auth=@{authData}
+&{sessionDict}      url=${baseURL}        auth=@{authData}
 ${passFailStatus}
 ${passFailComment}
 
 *** Test Cases ***
 Simple Get Request
   ${response}=          API.Simple GET Request
-  ...                   ${TRSessionList}
+  ...                   ${sessionDict}
   ...                   ${baseURL}${getURL}
   Log                   ${response.content}
   Log                   ${response.status_code}
@@ -33,9 +33,8 @@ Sample Get Request And Fetch Status
   [Documentation]
   ...    Returns the contents of the Purchase A Meal Plan test case 
   ${returnedResponse}=    API.GET Request And Fetch Status Code    
-  ...                     ${baseURL}    
-  ...                     ${getURL}    
-  ...                     @{authData}
+  ...                     ${sessionDict}    
+  ...                     ${getURL}
   Log                     ${returnedResponse}
 
 Sample Post Request
@@ -45,10 +44,9 @@ Sample Post Request
   ${passFailComment}=     Set Variable          This is a test from rob ot
   ${dictJSON}=            Create Dictionary     status_id=${passFailStatus}     comment=${passFailComment}
   ${returnedResponse}=    API.Send POST Request
-  ...                     ${baseURL}    
+  ...                     ${sessionDict}    
   ...                     ${dictJSON}
   ...                     ${singleCasePost}
-  ...                     @{authData}
   Log                     ${returnedResponse}
 
 Sample Post Request For Cases
@@ -68,8 +66,7 @@ Sample Post Request For Cases
   Log                     '${handWrittenFinal}'
   # Post created
   ${returnedResponse}=    API.Send POST Request   
-  ...                     ${baseURL}    
+  ...                     ${sessionDict}    
   ...                     ${handWrittenFinal}
   ...                     ${multiCasePost}
-  ...                     @{authData}
   Log                     ${returnedResponse}
