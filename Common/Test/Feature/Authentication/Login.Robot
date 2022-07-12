@@ -29,7 +29,7 @@ Test 1.1 - User can register for a new account from the My Account link
   ...       and create a newaccount from the My Account link in the header"
   ...   Customer can create a new account successfully. Uses TRI Theme.
   ...   This will generate a new eMail if it's not passed in at the command line
-  [Tags]                      Auth  TRI   Smoke   testcaseid=16873  1.1
+  [Tags]                      Auth  TRI   Smoke   testcaseid=16783  1.1
   ${customerInfo}=            CustomerController.Create A New Account    ${customerInfo}
   CustomerController.Logout From My Account
   CustomerController.Login    ${customerInfo}
