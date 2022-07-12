@@ -13,10 +13,14 @@ ${singleCaseGet}        ${baseURL}index.php?/api/v2/get_case/
 ${multiCaseGet}         ${baseURL}index.php?/api/v2/get_cases/
 ${singleCasePost}       ${baseURL}index.php?/api/v2/add_result_for_case/
 ${multiCasePost}        ${baseURL}index.php?/api/v2/add_results_for_cases/
-${headers}              Authorization=Basic
+&{headers}              Authorization=Basic
 ...                     Content-Type=application/json
 ...                     accept=application/json
-@{authData}             ${TESTRAIL_USER}      ${TESTRAIL_APIKEY}
+@{authData}             ${TESTRAIL_USER}
+...                     ${TESTRAIL_APIKEY}
+&{sessionDict}          url=${baseURL}
+...                     headers=${headers}
+...                     auth=@{authData}
 ${testCaseID}
 ${testProjectID}        7       # Test Project: https://trifectatest.testrail.com/index.php?/projects/overview/7
 ${testSuiteID}          60      # Test Suite: https://trifectatest.testrail.com/index.php?/suites/view/60
@@ -30,17 +34,15 @@ ${testCaseTagSize}      11      # Accounts for `testcaseid=` which is 11 chars
 Return Test Case From TestRail
   [Arguments]             ${testCaseID}
   ${returnedResponse}=    API.GET Request And Fetch Status Code
-  ...                     ${baseURL}
+  ...                     ${sessionDict}
   ...                     ${singleCaseGet}${testCaseID}
-  ...                     @{authData}
   Log                     ${returnedResponse}
   [Return]                ${returnedResponse}
 
 Return Test Suite From TestRail
   ${returnedResponse}=    API.GET Request And Fetch Status Code
-  ...                     ${baseURL}
+  ...                     ${sessionDict}
   ...                     ${multiCaseGet}${testProjectID}&suite_id=${testSuiteID}
-  ...                     @{authData}
   Log                     ${returnedResponse}
   [Return]                ${returnedResponse}
 
@@ -51,10 +53,9 @@ Post Test Suite Results to TestRail
     IF                            ${resultsListLength} > ${emptyListSize}
       &{resultsDictionary}=       Create Dictionary   results=${TESTRUN_RESULTS_LIST}
       ${returnedResponse}=        API.Send POST Request
-      ...                         ${baseURL}
+      ...                         ${sessionDict}
       ...                         ${resultsDictionary}
-      ...                         ${multiCasePost}/${testRunID}
-      ...                         @{authData}
+      ...                         ${multiCasePost}${testRunID}
       Log                         ${returnedResponse}
     ELSE
       ${returnedResponse}=        Set Variable    Results Not Available for Posting
@@ -123,8 +124,6 @@ Parse Test Tags
       ${itemEvaluator}=   Evaluate    '${item}'.find('testcaseid=')
       IF                  ${itemEvaluator} > -1
           ${testCaseID}=  Get Substring   ${item}   ${testCaseTagSize}
-      ELSE
-          ${testCaseID}=  Set Variable    ${EMPTY}
       END
       Log                 This is the TestCaseID: ${testCaseID}
     END
