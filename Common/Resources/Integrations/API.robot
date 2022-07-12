@@ -1,8 +1,8 @@
 *** Settings ***
-Library	    RequestsLibrary
+Library      RequestsLibrary
 
 Documentation
-...		This needs to take a couple of dictionary of items such as:
+...    This needs to take a couple of dictionary of items such as:
 ...   * headers
 ...   * Cookies
 ...   The following items need to be passed in as parameters
@@ -12,10 +12,10 @@ Documentation
 
 *** Variables ***
 ${apiBaseEndpoint}
-${apiGetUrl}      
-${apiUser}          
-${apiKey}        
-@{apiAuthData}	 					${apiUser}		${apiKey}
+${apiGetUrl}
+${apiUser}
+${apiKey}
+@{apiAuthData}          ${apiUser}    ${apiKey}
 ${passFailID}
 ${resultComment}
 ${apiPostUrl}
@@ -27,8 +27,8 @@ GET Request And Fetch Status Code
     ...                 ${apiGetUrl}
     Create Session      Test_Session
     ...                 &{apiSessionList}
-    ...                 verify=True	
-    ${response}=        GET On Session              Test_Session           ${apiGetUrl} 
+    ...                 verify=True
+    ${response}=        GET On Session              Test_Session           ${apiGetUrl}
     # Get response code
     ${statusCode}       Convert To String           ${response.status_code}
     Should Be Equal     ${statusCode}               200
@@ -42,12 +42,12 @@ Simple GET Request
     Create Session      Test_Session
     ...                 &{apiSessionList}
     ...                 verify=True
-    ${response}=        GET On Session              Test_Session           ${apiGetUrl} 
+    ${response}=        GET On Session              Test_Session           ${apiGetUrl}
     Delete All Sessions
     [Return]            ${response}
 
 Send POST Request
-    [Arguments]         
+    [Arguments]
     ...                 ${apiSessionList}
     ...                 ${dictJSON}
     ...                 ${apiPostUrl}
@@ -61,6 +61,6 @@ Send POST Request
     ...                 Test_Session
     ...                 url=${apiPostUrl}
     ...                 json=${dictJSON}
-    Log                 ${response} 
+    Log                 ${response}
     Delete All Sessions
     [Return]            ${response}

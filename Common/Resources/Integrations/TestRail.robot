@@ -29,7 +29,7 @@ ${testCaseTagSize}      11      # Accounts for `testcaseid=` which is 11 chars
 *** Keywords ***
 Return Test Case From TestRail
   [Arguments]             ${testCaseID}
-  ${returnedResponse}=    API.GET Request And Fetch Status Code    
+  ${returnedResponse}=    API.GET Request And Fetch Status Code
   ...                     ${baseURL}
   ...                     ${singleCaseGet}${testCaseID}
   ...                     @{authData}
@@ -37,8 +37,8 @@ Return Test Case From TestRail
   [Return]                ${returnedResponse}
 
 Return Test Suite From TestRail
-  ${returnedResponse}=    API.GET Request And Fetch Status Code    
-  ...                     ${baseURL}    
+  ${returnedResponse}=    API.GET Request And Fetch Status Code
+  ...                     ${baseURL}
   ...                     ${multiCaseGet}${testProjectID}&suite_id=${testSuiteID}
   ...                     @{authData}
   Log                     ${returnedResponse}
@@ -50,8 +50,8 @@ Post Test Suite Results to TestRail
     ${resultsListLength}=         Get Length    '${TESTRUN_RESULTS_LIST}'
     IF                            ${resultsListLength} > ${emptyListSize}
       &{resultsDictionary}=       Create Dictionary   results=${TESTRUN_RESULTS_LIST}
-      ${returnedResponse}=        API.Send POST Request   
-      ...                         ${baseURL}		
+      ${returnedResponse}=        API.Send POST Request
+      ...                         ${baseURL}
       ...                         ${resultsDictionary}
       ...                         ${multiCasePost}/${testRunID}
       ...                         @{authData}
@@ -68,7 +68,7 @@ Gather Test Results
   [Documentation]
   ...   Called by the Common.End Browser Test, this retrieves the current test's
   ...   results and logs them to a List of Results Dictionaries.  Data is converted
-  ...   from Robot's Pass/Fail statuses to TestRail's Pass/Fail statuses, a 1 for 
+  ...   from Robot's Pass/Fail statuses to TestRail's Pass/Fail statuses, a 1 for
   ...   PASS and a 5 for a FAIL.
   ...   The logic is:
   ...   1. Retrieve the Tags
@@ -76,7 +76,7 @@ Gather Test Results
   ...   3. Convert the Robot Pass/Fail to TestRail's Pass/Fail statuses
   ...   4. Create a dictionary containing the Test Case ID, Test Status, and Error
   ...       message
-  ...   5. Create a GLOBAL list from the Dictionary if one doesn't exist or append  
+  ...   5. Create a GLOBAL list from the Dictionary if one doesn't exist or append
   ...       the dictionary to the existing list
   Log                           Tags are: ${TEST TAGS}
   ${testCaseID}=                Parse Test Tags
@@ -87,11 +87,11 @@ Gather Test Results
     ELSE
         ${testStatusID}=        Set Variable    ${testCaseFailStatus}
     END
-    ${testResultDict}=          Create Dictionary   case_id=${testCaseID}   
+    ${testResultDict}=          Create Dictionary   case_id=${testCaseID}
     ...   status_id=${testStatusID}
     ...   comment=${TEST MESSAGE}
     ${resultsListLength}        Get Length    '${TESTRUN_RESULTS_LIST}'
-    IF                          ${resultsListLength} > ${emptyListSize} 
+    IF                          ${resultsListLength} > ${emptyListSize}
         Append To List          ${TESTRUN_RESULTS_LIST}   ${testResultDict}
         Set Global Variable     @{TESTRUN_RESULTS_LIST}
     ELSE
@@ -103,7 +103,7 @@ Gather Test Results
 Parse Test Tags
   [Documentation]
   ...   Called by `Gather Test Result`, this retrieves all tags and loops through them
-  ...   to obtain the `testcaseid`.  Since it's specifically looking for the following 
+  ...   to obtain the `testcaseid`.  Since it's specifically looking for the following
   ...   format:
   ...   `testcaseid=#####`
   ...   it will retrieve the Test Case ID SubString by offsetting it by 11 characters

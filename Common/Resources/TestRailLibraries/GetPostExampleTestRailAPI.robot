@@ -11,7 +11,9 @@ ${baseURL}          ${TESTRAIL_URL}
 ${getURL}           index.php?/api/v2/get_case/8696
 ${singleCasePost}   index.php?/api/v2/add_result_for_case/365/8696
 ${multiCasePost}    index.php?/api/v2/add_results_for_cases/365
-${headers}          Authorization=Basic    Content-Type=application/json  accept=application/json
+${headers}          Authorization=Basic
+...                 Content-Type=application/json
+...                 accept=application/json
 @{authData}         ${TESTRAIL_USER}      ${TESTRAIL_APIKEY}
 &{infoAPISession}   url=${baseURL}        auth=@{authData}
 &{sessionDict}      url=${baseURL}        auth=@{authData}
@@ -25,26 +27,26 @@ Simple Get Request
   ...                   ${baseURL}${getURL}
   Log                   ${response.content}
   Log                   ${response.status_code}
-  Should Not Be Empty   ${response.content}   
+  Should Not Be Empty   ${response.content}
   ${statusCode}         Convert To String        ${response.status_code}
   Should Be Equal       ${statusCode}  200
 
 Sample Get Request And Fetch Status
   [Documentation]
-  ...    Returns the contents of the Purchase A Meal Plan test case 
-  ${returnedResponse}=    API.GET Request And Fetch Status Code    
-  ...                     ${sessionDict}    
+  ...    Returns the contents of the Purchase A Meal Plan test case
+  ${returnedResponse}=    API.GET Request And Fetch Status Code
+  ...                     ${sessionDict}
   ...                     ${getURL}
   Log                     ${returnedResponse}
 
 Sample Post Request
   [Documentation]
-  ...                     Posts a result to the Purchase A Meal Plan 
+  ...                     Posts a result to the Purchase A Meal Plan
   ${passFailStatus}=      Set Variable          1
   ${passFailComment}=     Set Variable          This is a test from rob ot
   ${dictJSON}=            Create Dictionary     status_id=${passFailStatus}     comment=${passFailComment}
   ${returnedResponse}=    API.Send POST Request
-  ...                     ${sessionDict}    
+  ...                     ${sessionDict}
   ...                     ${dictJSON}
   ...                     ${singleCasePost}
   Log                     ${returnedResponse}
@@ -65,8 +67,8 @@ Sample Post Request For Cases
   ${handWrittenFinal}=    Create Dictionary   results=${handWritten3}
   Log                     '${handWrittenFinal}'
   # Post created
-  ${returnedResponse}=    API.Send POST Request   
-  ...                     ${sessionDict}    
+  ${returnedResponse}=    API.Send POST Request
+  ...                     ${sessionDict}
   ...                     ${handWrittenFinal}
   ...                     ${multiCasePost}
   Log                     ${returnedResponse}
