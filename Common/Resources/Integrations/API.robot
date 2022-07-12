@@ -23,10 +23,10 @@ ${apiPostUrl}
 *** Keywords ***
 GET Request And Fetch Status Code
     [Arguments]
-    ...                 ${apiSessionList}
+    ...                 ${apiSessionDict}
     ...                 ${apiGetUrl}
     Create Session      Test_Session
-    ...                 &{apiSessionList}
+    ...                 &{apiSessionDict}
     ...                 verify=True
     ${response}=        GET On Session              Test_Session           ${apiGetUrl}
     # Get response code
@@ -37,10 +37,10 @@ GET Request And Fetch Status Code
 
 Simple GET Request
     [Arguments]
-    ...                 ${apiSessionList}
+    ...                 ${apiSessionDict}
     ...                 ${apiGetUrl}
     Create Session      Test_Session
-    ...                 &{apiSessionList}
+    ...                 &{apiSessionDict}
     ...                 verify=True
     ${response}=        GET On Session              Test_Session           ${apiGetUrl}
     Delete All Sessions
@@ -48,11 +48,11 @@ Simple GET Request
 
 Send POST Request
     [Arguments]
-    ...                 ${apiSessionList}
+    ...                 ${apiSessionDict}
     ...                 ${dictJSON}
     ...                 ${apiPostUrl}
     Create Session      Test_Session
-    ...                 &{apiSessionList}
+    ...                 &{apiSessionDict}
     ...                 verify=True
     ${postJSON}=        evaluate                json.dumps(${dictJSON})     json
     Log                 ${postJSON}
