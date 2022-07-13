@@ -33,9 +33,10 @@ ${testCaseTagSize}      11      # Accounts for `testcaseid=` which is 11 chars
 *** Keywords ***
 Return Test Case From TestRail
   [Arguments]             ${testCaseID}
+  ${requestURL}=          Set Variable  ${singleCaseGet}${testCaseID}
   ${returnedResponse}=    API.GET Request And Verify 200 Status
   ...                     ${sessionDict}
-  ...                     ${singleCaseGet}${testCaseID}
+  ...                     ${requestURL}
   Log                     ${returnedResponse}
   [Return]                ${returnedResponse}
 
