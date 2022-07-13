@@ -33,14 +33,14 @@ ${testCaseTagSize}      11      # Accounts for `testcaseid=` which is 11 chars
 *** Keywords ***
 Return Test Case From TestRail
   [Arguments]             ${testCaseID}
-  ${returnedResponse}=    API.GET Request And Fetch Status Code
+  ${returnedResponse}=    API.GET Request And Verify 200 Status
   ...                     ${sessionDict}
   ...                     ${singleCaseGet}${testCaseID}
   Log                     ${returnedResponse}
   [Return]                ${returnedResponse}
 
 Return Test Suite From TestRail
-  ${returnedResponse}=    API.GET Request And Fetch Status Code
+  ${returnedResponse}=    API.GET Request And Verify 200 Status
   ...                     ${sessionDict}
   ...                     ${multiCaseGet}${testProjectID}&suite_id=${testSuiteID}
   Log                     ${returnedResponse}

@@ -21,7 +21,7 @@ ${resultComment}
 ${apiPostUrl}
 
 *** Keywords ***
-GET Request And Fetch Status Code
+GET Request And Verify 200 Status
     [Arguments]
     ...                 ${apiSessionDict}
     ...                 ${apiGetUrl}

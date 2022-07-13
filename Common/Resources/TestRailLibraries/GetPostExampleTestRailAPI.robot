@@ -37,7 +37,7 @@ Simple Get Request
 Sample Get Request And Fetch Status
   [Documentation]
   ...    Returns the contents of the Purchase A Meal Plan test case
-  ${returnedResponse}=    API.GET Request And Fetch Status Code
+  ${returnedResponse}=    API.GET Request And Verify 200 Status
   ...                     ${sessionDict}
   ...                     ${getURL}
   Log                     ${returnedResponse}
