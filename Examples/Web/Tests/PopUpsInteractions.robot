@@ -48,9 +48,10 @@ Interact With Social Login Popups
   Sleep                     5s
   #The following 4 lists can be used to identify the open windows to be interacted with.
   @{WindowHandles}=         Get Window Handles
-  #@{WindowIdentifier}=      Get Window Identifiers
   #@{WindowNames}=           Get Window Names
   #@{WindowTitle}=           Get Window Titles
+  #WindowIdentifier was working the same as the others, but between Handles, Names, and Titles, we should be able to deal with popups effectively.
+  #@{WindowIdentifier}=      Get Window Identifiers
   Switch Window             ${WindowHandles}[1]
   Input Text                ${socialPopUpEmailField}            ${popUpTestEmail}
   Sleep                     5s
