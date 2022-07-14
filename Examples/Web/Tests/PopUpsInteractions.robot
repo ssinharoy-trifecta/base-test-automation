@@ -50,7 +50,7 @@ Interact With Social Login Popups
   @{WindowHandles}=         Get Window Handles
   #@{WindowNames}=           Get Window Names
   #@{WindowTitle}=           Get Window Titles
-  #WindowIdentifier was working the same as the others, but between Handles, Names, and Titles, we should be able to deal with popups effectively.
+  #WindowIdentifier wasn't working the same as the others, but between Handles, Names, and Titles, we should be able to deal with popups effectively.
   #@{WindowIdentifier}=      Get Window Identifiers
   Switch Window             ${WindowHandles}[1]
   Input Text                ${socialPopUpEmailField}            ${popUpTestEmail}
