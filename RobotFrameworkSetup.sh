@@ -20,16 +20,48 @@ source env/bin/activate
 pip3 install -U -r requirements.txt
 webdrivermanager chrome firefox
 
-# Move Selenium drivers into virtual environment location that is part of the PATH
+# Download and extract Selenium drivers into virtual environment location that is part of the PATH
 if [[ ${OSTYPE} == 'linux-gnu'* ]]; then
-    # move linux contents
-    cp -r SeleniumDrivers/linux/ env/bin
+    #Download Chromedriver
+    curl https://chromedriver.storage.googleapis.com/103.0.5060.53/chromedriver_linux64.zip \
+      -o env/bin/chromedriver_linux64.zip
+    #Download Geckdriver
+    curl -L https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-linux64.tar.gz \
+      -o env/bin/geckodriver-v0.31.0-linux64.tar.gz
+    #Download Edge
+    curl https://msedgedriver.azureedge.net/103.0.1264.62/edgedriver_linux64.zip \
+      -o env/bin/edgedriver_linux64.zip
+    #Unzip the files
+    tar -xvzf env/bin/geckodriver-v0.31.0-linux64.tar.gz  -C env/bin/
+    unzip env/bin/chromedriver_linux64.zip -d env/bin/ 
+    unzip env/bin/edgedriver_linux64.zip -d env/bin/ 
 elif [[ ${OSTYPE} == 'darwin'* ]]; then
-    # move mac contents
-    cp -r SeleniumDrivers/mac/ env/bin
+    #Download Chromedriver
+    curl https://chromedriver.storage.googleapis.com/103.0.5060.53/chromedriver_mac64.zip \
+      -o env/bin/chromedriver_mac64.zip
+    #Download Geckdriver
+    curl -L https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-macos.tar.gz \
+      -o env/bin/geckodriver-v0.31.0-macos.tar.gz
+    #Download Edge
+    curl https://msedgedriver.azureedge.net/103.0.1264.62/edgedriver_mac64.zip \
+      -o env/bin/edgedriver_mac64.zip
+    #Unzip the files
+    tar -xvzf env/bin/geckodriver-v0.31.0-macos.tar.gz  -C env/bin/
+    unzip env/bin/chromedriver_mac64.zip -d env/bin/
+    unzip env/bin/edgedriver_mac64.zip -d env/bin/
 elif [[ ${OSTYPE} == 'cygwin'* || ${OSTYPE} == 'msys' ]]; then
-    # move win contents
-    cp -r SeleniumDrivers/win/ env/bin
+    #Download Chromedriver
+    curl https://chromedriver.storage.googleapis.com/103.0.5060.53/chromedriver_win32.zip \
+      -o env\bin\chromedriver_win32.zip
+    #Download Geckdriver
+    curl -L https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-win64.zip \
+      -o env\bin\geckodriver-v0.31.0-win64.zip
+    #Download Edge
+    curl https://msedgedriver.azureedge.net/103.0.1264.62/edgedriver_win64.zip \
+      -o env\bin\edgedriver_win64.zip
+    powershell -command "Expand-Archive env\bin\chromedriver_win32.zip env\bin\"
+    powershell -command "Expand-Archive env\bin\geckodriver-v0.31.0-win64.zip env\bin\"
+    powershell -command "Expand-Archive env\bin\edgedriver_win64.zip env\bin\"
 else 
     echo "ERROR: Unknown OS type";
 fi
