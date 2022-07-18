@@ -26,7 +26,7 @@ After running the script make sure to activate the virtual environment by runnin
 When you are done testing in that repository make sure to deactivate your python virtual environment -  
 `deactivate`
 ### Updating Packages
-If packages are updated via the `requirements.txt` file, please run the following command from the CLI:
+Packages are updated via the `requirements.txt` file, please run the following command from the CLI:
 
 - `pip3 install -U -r requirements.txt`
 
@@ -38,15 +38,17 @@ Conversely, you can just rerun the two setup scripts:
 You can uninstall the packages and their associated support packages by running:
 - `pip3 uninstall -r removalRequirements.txt -y`
 
+### Selenium WebDrivers
+As part of the Setup Script, Selenium WebDrivers will downloaded to the 
+`env/bin` directory and extracted.  These are currently hardcoded to a build 
+number but because the Setup Script also installs `webdriver-manager`, it will 
+automatically update the Selenium Webdriver based on the currently used version 
+of the browser on the host computer.  Safari, for Mac, will need to manually be 
+updated from time to time.
+
 ## Test Automation Organization
 The directory structure follows a pattern of thinking that is relative to the Features our Trifecta teams implement
-across all products. 
-
-### Selenium WebDrivers
-As part of the Setup Script, Selenium WebDrivers will downloaded to the `env/bin` directory and extracted.  These are 
-currently hardcoded to a build number but because the Setup Script also installs `webdriver-manager`, it will 
-automatically update the Selenium Webdriver based on the currently used version of the browser on the host computer.
-Safari, for Mac, will need to manually be updated from time to time.
+across all products.
 
 ### Examples
 This `Examples` directory contains a good deal of POC code that the QA team initially created when evaluating Robot as a 
