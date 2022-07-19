@@ -26,7 +26,7 @@ After running the script make sure to activate the virtual environment by runnin
 When you are done testing in that repository make sure to deactivate your python virtual environment -  
 `deactivate`
 ### Updating Packages
-If packages are updated via the `requirements.txt` file, please run the following command from the CLI:
+Packages are updated via the `requirements.txt` file, please run the following command from the CLI:
 
 - `pip3 install -U -r requirements.txt`
 
@@ -34,17 +34,21 @@ Conversely, you can just rerun the two setup scripts:
 - Bash: `RobotFrameworkSetup.sh`
 - ZSH:  `RobotFrameworkSetup.zsh`
 
+#### Uninstalling packages
+You can uninstall the packages and their associated support packages by running:
+- `pip3 uninstall -r removalRequirements.txt -y`
+
+### Selenium WebDrivers
+As part of the Setup Script, Selenium WebDrivers will downloaded to the 
+`env/bin` directory and extracted.  These are currently hardcoded to a build 
+number but because the Setup Script also installs `webdriver-manager`, it will 
+automatically update the Selenium Webdriver based on the currently used version 
+of the browser on the host computer.  Safari, for Mac, will need to manually be 
+updated from time to time.
+
 ## Test Automation Organization
 The directory structure follows a pattern of thinking that is relative to the Features our Trifecta teams implement
-across all products. 
-
-### SeleniumDrivers
-This `SeleniumDrivers` directory contains drivers required in order for Selenium to be able to actually use the browsers we
-want to support. There are drivers specific to the machine/OS type that is executing the test cases. Occasionally these
-drivers will need to be updated. There is a python package installed called `webdriver-manager` that can almost be used to
-manage these drivers. It works fine at this time for Chrome and Firefox, but other drivers will need to be manually
-downloaded and moved into this directory. The installation script referenced above will move these drivers into a location
-that Robot can reference them when running tests.  Edge and Safari will need to manually be updated from time to time.
+across all products.
 
 ### Examples
 This `Examples` directory contains a good deal of POC code that the QA team initially created when evaluating Robot as a 
