@@ -25,6 +25,14 @@ After running the script make sure to activate the virtual environment by runnin
 
 When you are done testing in that repository make sure to deactivate your python virtual environment -  
 `deactivate`
+
+### Configuration
+You'll need to create a `.env` file in the root of this repo.  The contents for 
+this comes from two files located in LastPass.  Both file contents need to be
+added to the `.env` file for successful execution.
+- `Robot Framework .ENV file` contains the Browserstack and TestRail secrets
+- `Parse Tests (.env)` contains the Parse secrets
+
 ### Updating Packages
 Packages are updated via the `requirements.txt` file, please run the following command from the CLI:
 
