@@ -1,33 +1,29 @@
 *** Settings ***
-Library      RequestsLibrary
+Library     RequestsLibrary
+Library     BuiltIn
+Library     Collections
+Library     ../GetEnvVars.py
 Resource    ../Integrations/API.robot
-Variables    testrail_env.py
 Documentation
 ...    You'll need to update the testrail_env.py file with the TestRail User, password, and API Key
 ...    This is found in LastPass
 
 *** Variables ***
-${baseURL}          ${TESTRAIL_URL}
+${pathToDotEnv}     .env
 ${getURL}           index.php?/api/v2/get_case/8696
 ${singleCasePost}   index.php?/api/v2/add_result_for_case/365/8696
 ${multiCasePost}    index.php?/api/v2/add_results_for_cases/365
-${headers}          Authorization=Basic
-...                 Content-Type=application/json
-...                 accept=application/json
-@{authData}         ${TESTRAIL_USER}
-...                 ${TESTRAIL_APIKEY}
-&{infoAPISession}   url=${baseURL}
-...                 auth=@{authData}
-&{sessionDict}      url=${baseURL}
-...                 auth=@{authData}
 ${passFailStatus}
 ${passFailComment}
 
 *** Test Cases ***
 Simple Get Request
+  ${sessionDict}=       Set TestRail Variables
+  ${baseURL}=           Get From Dictionary   ${sessionDict}  url
+  ${getCaseURL}=        Set Variable    ${baseURL}${getURL}
   ${response}=          API.Simple GET Request
   ...                   ${sessionDict}
-  ...                   ${baseURL}${getURL}
+  ...                   ${getCaseURL}
   Log                   ${response.content}
   Log                   ${response.status_code}
   Should Not Be Empty   ${response.content}
@@ -37,6 +33,8 @@ Simple Get Request
 Sample Get Request And Fetch Status
   [Documentation]
   ...    Returns the contents of the Purchase A Meal Plan test case
+  ${sessionDict}=         Set TestRail Variables
+  ${baseURL}=             Get From Dictionary   ${sessionDict}  url
   ${returnedResponse}=    API.GET Request And Verify 200 Status
   ...                     ${sessionDict}
   ...                     ${getURL}
@@ -45,6 +43,8 @@ Sample Get Request And Fetch Status
 Sample Post Request
   [Documentation]
   ...                     Posts a result to the Purchase A Meal Plan
+  ${sessionDict}=         Set TestRail Variables
+  ${baseURL}=             Get From Dictionary   ${sessionDict}  url
   ${passFailStatus}=      Set Variable          1
   ${passFailComment}=     Set Variable          This is a test from rob ot
   ${dictJSON}=            Create Dictionary     status_id=${passFailStatus}     comment=${passFailComment}
@@ -69,9 +69,26 @@ Sample Post Request For Cases
   # Results list is added to a final dictionary for submission
   ${handWrittenFinal}=    Create Dictionary   results=${handWritten3}
   Log                     '${handWrittenFinal}'
+  ${sessionDict}=         Set TestRail Variables
+  ${baseURL}=             Get From Dictionary   ${sessionDict}  url
   # Post created
   ${returnedResponse}=    API.Send POST Request
   ...                     ${sessionDict}
   ...                     ${handWrittenFinal}
   ...                     ${multiCasePost}
   Log                     ${returnedResponse}
+
+*** Keywords ***
+Set TestRail Variables
+  #retreive variables, then return the dictionary here.  From there, set variables inside the test
+  &{envVars}=           GetEnvVars.Retrieve_DotEnv    ${pathToDotEnv}
+  ${testRailURL}        Get From Dictionary   ${envVars}    TESTRAIL_URL
+  ${testRailUser}       Get From Dictionary   ${envVars}    TESTRAIL_USER
+  ${testRailAPIKey}     Get From Dictionary   ${envVars}    TESTRAIL_APIKEY
+  @{authData}=          Set Variable
+  ...                   ${testRailUser}
+  ...                   ${testRailAPIKey}
+  &{testRailSession}=   Create Dictionary 
+  ...                   url=${testRailURL}
+  ...                   auth=@{authData}
+  [Return]              &{testRailSession}
