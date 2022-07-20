@@ -1,26 +1,18 @@
 *** Settings ***
 Library     String
 Library     Collections
+Library     ../GetEnvVars.py
 Resource    API.robot
-Variables   ../TestRailLibraries/testrail_env.py
 Documentation
 ...    You'll need to update the testrail_env.py file with the TestRail User, password, and API Key
 ...    This is found in LastPass
 
 *** Variables ***
-${baseURL}              ${TESTRAIL_URL}
-${singleCaseGet}        ${baseURL}index.php?/api/v2/get_case/
-${multiCaseGet}         ${baseURL}index.php?/api/v2/get_cases/
-${singleCasePost}       ${baseURL}index.php?/api/v2/add_result_for_case/
-${multiCasePost}        ${baseURL}index.php?/api/v2/add_results_for_cases/
-&{headers}              Authorization=Basic
-...                     Content-Type=application/json
-...                     accept=application/json
-@{authData}             ${TESTRAIL_USER}
-...                     ${TESTRAIL_APIKEY}
-&{sessionDict}          url=${baseURL}
-...                     headers=${headers}
-...                     auth=@{authData}
+${pathToDotEnv}         .env
+${singleCaseGet}        index.php?/api/v2/get_case/
+${multiCaseGet}         index.php?/api/v2/get_cases/
+${singleCasePost}       index.php?/api/v2/add_result_for_case/
+${multiCasePost}        index.php?/api/v2/add_results_for_cases/
 ${testCaseID}
 ${testProjectID}        7       # Test Project: https://trifectatest.testrail.com/index.php?/projects/overview/7
 ${testSuiteID}          60      # Test Suite: https://trifectatest.testrail.com/index.php?/suites/view/60
@@ -33,6 +25,7 @@ ${testCaseTagSize}      11      # Accounts for `testcaseid=` which is 11 chars
 *** Keywords ***
 Return Test Case From TestRail
   [Arguments]             ${testCaseID}
+  ${sessionDict}=         Set TestRail Variables
   ${requestURL}=          Set Variable  ${singleCaseGet}${testCaseID}
   ${returnedResponse}=    API.GET Request And Verify 200 Status
   ...                     ${sessionDict}
@@ -41,6 +34,7 @@ Return Test Case From TestRail
   [Return]                ${returnedResponse}
 
 Return Test Suite From TestRail
+  ${sessionDict}=         Set TestRail Variables
   ${returnedResponse}=    API.GET Request And Verify 200 Status
   ...                     ${sessionDict}
   ...                     ${multiCaseGet}${testProjectID}&suite_id=${testSuiteID}
@@ -49,6 +43,7 @@ Return Test Suite From TestRail
 
 Post Test Suite Results to TestRail
   [Arguments]                     ${testRunID}
+  ${sessionDict}=                 Set TestRail Variables
   IF                              '${testRunID}' != 'SkipMe'
     ${resultsListLength}=         Get Length    '${TESTRUN_RESULTS_LIST}'
     IF                            ${resultsListLength} > ${emptyListSize}
@@ -131,3 +126,16 @@ Parse Test Tags
   END
   # Return the tag
   [Return]                ${testCaseID}
+
+Set TestRail Variables
+  &{envVars}=           GetEnvVars.Retrieve_DotEnv    ${pathToDotEnv}
+  ${testRailURL}        Get From Dictionary   ${envVars}    TESTRAIL_URL
+  ${testRailUser}       Get From Dictionary   ${envVars}    TESTRAIL_USER
+  ${testRailAPIKey}     Get From Dictionary   ${envVars}    TESTRAIL_APIKEY
+  @{authData}=          Set Variable
+  ...                   ${testRailUser}
+  ...                   ${testRailAPIKey}
+  &{testRailSession}=   Create Dictionary 
+  ...                   url=${testRailURL}
+  ...                   auth=@{authData}
+  [Return]              &{testRailSession}
