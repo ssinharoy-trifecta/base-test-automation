@@ -19,11 +19,9 @@ ${passFailComment}
 *** Test Cases ***
 Simple Get Request
   ${sessionDict}=       Set TestRail Variables
-  ${baseURL}=           Get From Dictionary   ${sessionDict}  url
-  ${getCaseURL}=        Set Variable    ${baseURL}${getURL}
   ${response}=          API.Simple GET Request
   ...                   ${sessionDict}
-  ...                   ${getCaseURL}
+  ...                   ${getURL}
   Log                   ${response.content}
   Log                   ${response.status_code}
   Should Not Be Empty   ${response.content}
@@ -34,7 +32,6 @@ Sample Get Request And Fetch Status
   [Documentation]
   ...    Returns the contents of the Purchase A Meal Plan test case
   ${sessionDict}=         Set TestRail Variables
-  ${baseURL}=             Get From Dictionary   ${sessionDict}  url
   ${returnedResponse}=    API.GET Request And Verify 200 Status
   ...                     ${sessionDict}
   ...                     ${getURL}
@@ -44,7 +41,6 @@ Sample Post Request
   [Documentation]
   ...                     Posts a result to the Purchase A Meal Plan
   ${sessionDict}=         Set TestRail Variables
-  ${baseURL}=             Get From Dictionary   ${sessionDict}  url
   ${passFailStatus}=      Set Variable          1
   ${passFailComment}=     Set Variable          This is a test from rob ot
   ${dictJSON}=            Create Dictionary     status_id=${passFailStatus}     comment=${passFailComment}
@@ -70,7 +66,6 @@ Sample Post Request For Cases
   ${handWrittenFinal}=    Create Dictionary   results=${handWritten3}
   Log                     '${handWrittenFinal}'
   ${sessionDict}=         Set TestRail Variables
-  ${baseURL}=             Get From Dictionary   ${sessionDict}  url
   # Post created
   ${returnedResponse}=    API.Send POST Request
   ...                     ${sessionDict}
