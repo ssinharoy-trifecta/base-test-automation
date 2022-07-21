@@ -2,12 +2,14 @@
 Library      RequestsLibrary
 
 Documentation
-...    This needs to take a couple of dictionary of items such as:
-...   * headers
-...   * Cookies
 ...   The following items need to be passed in as parameters
-...   * Authentication info
+...   * Session Dictionary variable
 ...   * URL
+...   The session dictionary variable contains items such as:
+...   * headers
+...   * authentincation info
+...   * cookies
+...   * any other kwargs
 
 
 *** Variables ***
