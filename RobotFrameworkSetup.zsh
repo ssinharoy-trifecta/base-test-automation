@@ -66,7 +66,6 @@ fi
 
 # Pip Install the items in the Requirements.txt file
 pip3 install -U -r requirements.txt
-webdrivermanager chrome firefox
 
 echo "========================================================================"
 echo "A Python virtual environment has been created for you.

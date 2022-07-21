@@ -8,8 +8,8 @@ working with a web browser.
 [SeleniumLibrary](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html)
 
 ## Installation
-In order to configure your environment to use Robot, please run either of the following scripts.  
-There's one for ZSH and one for Bash depending on what you're using:  
+In order to configure your environment to use Robot, please run either of the following scripts from the root of the repo.  There's one for ZSH and one for  
+Bash depending on what you're using:  
 - Bash: `RobotFrameworkSetup.sh`
 - ZSH:  `RobotFrameworkSetup.zsh`
 
