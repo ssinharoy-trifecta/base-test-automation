@@ -7,6 +7,7 @@ Documentation
 
 Resource            ../../Common/Resources/Common.robot
 Resource            ../../Common/Resources/CustomerController.robot
+Resource            ../../Common/Resources/ECommerce/TopNav.robot
 
 Suite Setup         Common.Begin Suite Test
 Suite Teardown      Common.End Suite Test   ${testRunID}
@@ -20,5 +21,12 @@ Test Teardown       Common.End Browser Test
 
 *** Test Cases ***
 #This is a test test case and will be replaced in following story.
-Test Sleep Sleep Baby
+Test Purchase A Meal Plan
+  TopNav.Navigate To Product Selector
   Sleep  2s
+
+#Test Purchase The Budget Bundle
+
+#Test Purchase An A La Carte Subscription
+
+#Test Checkout Using Hubspot Link
