@@ -8,17 +8,18 @@ Library     BuiltIn
 Library     Collections
 Resource    ../../Common/Resources/Integrations/API.robot
 Library     ../../Common/Resources/GetEnvVars.py
+Variables   ../../Common/Resources/GetEnvVars.py
 
 *** Variables ***
 ${apiBaseEndpoint}  https://parse-preprod.trifectanutrition.com/
 ${apiGetUrl}        ${apiBaseEndpoint}parse/classes/Challenges
 &{headers}          
 &{apiSessionList}   
-${pathToDotEnv}     .env
+${envPath}          ${PATH_TO_ENV}
 
 *** Test Cases ***
 Test Parse Returns Data
-  &{apiSessionList}     Set Parse Variables
+  &{apiSessionList}     Set Parse Variables   ${envPath}
   ${response}=          API.Simple GET Request
   ...   ${apiSessionList}
   ...   ${apiGetUrl}
@@ -30,13 +31,12 @@ Test Parse Returns Data
 
 *** Keywords ***
 Set Parse Variables
+  [Arguments]           ${envPath}
   #retreive variables, then return the dictionary here.  From there, set variables inside the test
-  &{envVars}=           GetEnvVars.Retrieve_DotEnv    ${pathToDotEnv}
-  ${parseAppID}=        Get From Dictionary   ${envVars}    PARSE_APP_ID
-  ${parseMasterKey}=    Get From Dictionary   ${envVars}    PARSE_MASTER_KEY
+  &{envVars}=           GetEnvVars.Retrieve_DotEnv    ${envPath}
   ${headers}            Create Dictionary
-  ...                   X-Parse-Application-Id=${parseAppID}
-  ...                   X-Parse-Master-Key=${parseMasterKey}
+  ...                   X-Parse-Application-Id=${envVars.PARSE_APP_ID}
+  ...                   X-Parse-Master-Key=${envVars.PARSE_MASTER_KEY}
   ...                   Content-Type=application/json
   ${parseSession}       Create Dictionary
   ...                   url=${apiBaseEndpoint}

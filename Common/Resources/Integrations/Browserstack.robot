@@ -1,10 +1,8 @@
 *** Settings ***
 
-Library   Process
-Library   Collections
-Library   BuiltIn
-Library   ../GetEnvVars.py
-Resource  API.robot
+Library     Process
+Library     ../GetEnvVars.py
+Resource    API.robot
 
 *** Variables ***
 #COMMON
@@ -12,7 +10,7 @@ ${BS_REMOTE_URL}                hub-cloud.browserstack.com/wd/hub
 ${BS_APP_AUTOMATE_CLOUD_API}    api-cloud.browserstack.com/app-automate
 ${BS_IDLE_TIMEOUT}              5
 ${configBS}                     win10Chrome
-${pathToDotEnv}                 .env
+${defaultEnvPath}               ${PATH_TO_ENV}
 
 #iOS
 ${APP_FILE_iOS}           iOS/Resources/System/TrifectaAppiOS.ipa
@@ -147,11 +145,10 @@ Mark App Automate Session Status Failed
 #UPLOAD APPLICATION TO BROWSERSTACK CLOUD API
 Upload iOS Application To Browserstack
 # TODO: Instead of using the Run Process keyword, try API.Send POST Request
-  &{authDict}=             Get BrowserStack ENV Variables
-  ${user}=                 Get From Dictionary  ${authDict}   user
-  ${key}=                  Get From Dictionary  ${authDict}   key
+  [Arguments]                  ${envPath}
+  &{authDict}=             Get BrowserStack ENV Variables   ${envPath}
   ${BS_APP_UPLOADER_iOS}=  Set Variable
-  ...                      curl -u "${user}:${key}" 
+  ...                      curl -u "${authDict.user}:${authDict.key}" 
   ...                      -X POST "https://${BS_APP_AUTOMATE_CLOUD_API}/upload" 
   ...                      -F "file=@${APP_FILE_iOS}" 
   ...                      -F "custom_id=${BS_CUSTOM_ID_iOS}"
@@ -159,11 +156,10 @@ Upload iOS Application To Browserstack
   Wait For Process         UploadiOSApp    timeout=30
 
 Upload Android Application To Browserstack
-  &{authDict}=                 Get BrowserStack ENV Variables
-  ${user}=                     Get From Dictionary  ${authDict}   user
-  ${key}=                      Get From Dictionary  ${authDict}   key
+  [Arguments]                  ${envPath}
+  &{authDict}=                 Get BrowserStack ENV Variables   ${envPath}
   ${BS_APP_UPLOADER_ANDROID}=  Set Variable
-  ...                          curl -u "${user}:${key}" 
+  ...                          curl -u "${authDict.user}:${authDict.key}" 
   ...                          -X POST "https://${BS_APP_AUTOMATE_CLOUD_API}/upload" 
   ...                          -F "file=@${APP_FILE_ANDROID}" 
   ...                          -F "custom_id=${BS_CUSTOM_ID_ANDROID}"
@@ -172,17 +168,15 @@ Upload Android Application To Browserstack
 
 #iOS BROWSERSTACK LAUNCHER
 Launch iOS Application On Browserstack Device
-    [Arguments]              ${configBS}
-    &{authDict}=             Get BrowserStack ENV Variables
-    ${user}=                 Get From Dictionary  ${authDict}   user
-    ${key}=                  Get From Dictionary  ${authDict}   key
+    [Arguments]              ${configBS}    ${envPath}
+    &{authDict}=             Get BrowserStack ENV Variables   ${envPath}
     &{desiredCapabilities}=  Check Default Apps Desired Capabilities  
     ...                      ${configBS}
     ...                      ${BS_DEVICE_iOS}
     ...                      ${BS_OS_VERSION_iOS}
     Open Application         remote_url=http://${BS_REMOTE_URL}
-    ...                      browserstack.user=${user} 
-    ...                      browserstack.key=${key}
+    ...                      browserstack.user=${authDict.user} 
+    ...                      browserstack.key=${authDict.key}
     ...                      app_url=${BS_CUSTOM_ID_iOS}
     ...                      device=${desiredCapabilities.device}
     ...                      os_version=${desiredCapabilities.os_version}
@@ -193,17 +187,15 @@ Launch iOS Application On Browserstack Device
 
 #ANDROID BROWSERSTACK LAUNCHER
 Launch Android Application On Browserstack Device
-    [Arguments]              ${configBS}
-    &{authDict}=             Get BrowserStack ENV Variables
-    ${user}=                 Get From Dictionary  ${authDict}   user
-    ${key}=                  Get From Dictionary  ${authDict}   key
+    [Arguments]              ${configBS}  ${envPath}
+    &{authDict}=             Get BrowserStack ENV Variables  ${envPath}
     &{desiredCapabilities}=  Check Default Apps Desired Capabilities  
     ...                      ${configBS}
     ...                      ${BS_DEVICE_ANDROID}
     ...                      ${BS_OS_VERSION_ANDROID}
     Open Application         remote_url=http://${BS_REMOTE_URL}
-    ...                      browserstack.user=${user} 
-    ...                      browserstack.key=${key}
+    ...                      browserstack.user=${authDict.user} 
+    ...                      browserstack.key=${authDict.key}
     ...                      app_url=${BS_CUSTOM_ID_ANDROID}
     ...                      device=${desiredCapabilities.device}
     ...                      os_version=${desiredCapabilities.os_version}
@@ -214,11 +206,9 @@ Launch Android Application On Browserstack Device
 
 # WEB BROWSERSTACK LAUNCHER
 Setup Browserstack For WEB
-  [Arguments]                    ${urlForNavigation}         ${configBS}
-  &{authDict}=                   Get BrowserStack ENV Variables
-  ${user}=                       Get From Dictionary  ${authDict}   user
-  ${key}=                        Get From Dictionary  ${authDict}   key
-  ${remoteUrl}                   Set Variable                http://${user}:${key}@${BS_REMOTE_URL}
+  [Arguments]                    ${urlForNavigation}  ${configBS}  ${envPath}
+  &{authDict}=                   Get BrowserStack ENV Variables  ${envPath}
+  ${remoteUrl}                   Set Variable                http://${authDict.user}:${authDict.key}@${BS_REMOTE_URL}
   &{desiredCapabilities}=        Set Desired Capabilities    ${configBS}
   ${desiredCapabilities.build}=  Set Variable                ${BS_BUILD_WEB}
   ${desiredCapabilities.name}=   Set Variable                ${TEST NAME}
@@ -247,10 +237,9 @@ Check Default Apps Desired Capabilities
     [Return]                   ${desiredCapabilities}
 
 Get BrowserStack ENV Variables
-  &{envVars}=           GetEnvVars.Retrieve_DotEnv    ${pathToDotEnv}
-  ${user}               Get From Dictionary   ${envVars}    BS_USER
-  ${key}                Get From Dictionary   ${envVars}    BS_KEY
+  [Arguments]           ${envPath}
+  &{envVars}=           GetEnvVars.Retrieve_DotEnv    ${envPath}
   &{browserStackAuth}=  Create Dictionary
-  ...                   user=${user}
-  ...                   key=${key}
+  ...                   user=${envVars.BS_USER}
+  ...                   key=${envVars.BS_KEY}
   [Return]              &{browserStackAuth}

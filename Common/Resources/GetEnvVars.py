@@ -9,4 +9,5 @@ def Retrieve_DotEnv(path_to_dotenv):
   myDotEnv = dotenv_values(path_to_dotenv)
   return myDotEnv
 
+PATH_TO_ENV = '.env'
 print(Retrieve_DotEnv(str(sys.argv[1])))

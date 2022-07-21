@@ -1,6 +1,5 @@
 *** Settings ***
 Library     String
-Library     Collections
 Library     ../GetEnvVars.py
 Resource    API.robot
 Documentation
@@ -8,7 +7,6 @@ Documentation
 ...    This is found in LastPass
 
 *** Variables ***
-${pathToDotEnv}         .env
 ${singleCaseGet}        index.php?/api/v2/get_case/
 ${multiCaseGet}         index.php?/api/v2/get_cases/
 ${singleCasePost}       index.php?/api/v2/add_result_for_case/
@@ -24,8 +22,8 @@ ${testCaseTagSize}      11      # Accounts for `testcaseid=` which is 11 chars
 
 *** Keywords ***
 Return Test Case From TestRail
-  [Arguments]             ${testCaseID}
-  ${sessionDict}=         Set TestRail Variables
+  [Arguments]             ${testCaseID}   ${envPath}
+  ${sessionDict}=         Set TestRail Variables   ${envPath}
   ${requestURL}=          Set Variable  ${singleCaseGet}${testCaseID}
   ${returnedResponse}=    API.GET Request And Verify 200 Status
   ...                     ${sessionDict}
@@ -34,7 +32,8 @@ Return Test Case From TestRail
   [Return]                ${returnedResponse}
 
 Return Test Suite From TestRail
-  ${sessionDict}=         Set TestRail Variables
+  [Arguments]             ${envPath}
+  ${sessionDict}=         Set TestRail Variables    ${envPath}
   ${returnedResponse}=    API.GET Request And Verify 200 Status
   ...                     ${sessionDict}
   ...                     ${multiCaseGet}${testProjectID}&suite_id=${testSuiteID}
@@ -42,8 +41,8 @@ Return Test Suite From TestRail
   [Return]                ${returnedResponse}
 
 Post Test Suite Results to TestRail
-  [Arguments]                     ${testRunID}
-  ${sessionDict}=                 Set TestRail Variables
+  [Arguments]                     ${testRunID}    ${envPath}
+  ${sessionDict}=                 Set TestRail Variables    ${envPath}
   IF                              '${testRunID}' != 'SkipMe'
     ${resultsListLength}=         Get Length    '${TESTRUN_RESULTS_LIST}'
     IF                            ${resultsListLength} > ${emptyListSize}
@@ -128,14 +127,12 @@ Parse Test Tags
   [Return]                ${testCaseID}
 
 Set TestRail Variables
-  &{envVars}=           GetEnvVars.Retrieve_DotEnv    ${pathToDotEnv}
-  ${testRailURL}        Get From Dictionary   ${envVars}    TESTRAIL_URL
-  ${testRailUser}       Get From Dictionary   ${envVars}    TESTRAIL_USER
-  ${testRailAPIKey}     Get From Dictionary   ${envVars}    TESTRAIL_APIKEY
+  [Arguments]           ${envPath}
+  &{envVars}=           GetEnvVars.Retrieve_DotEnv    ${envPath}
   @{authData}=          Set Variable
-  ...                   ${testRailUser}
-  ...                   ${testRailAPIKey}
+  ...                   ${envVars.TESTRAIL_USER}
+  ...                   ${envVars.TESTRAIL_APIKEY}
   &{testRailSession}=   Create Dictionary 
-  ...                   url=${testRailURL}
+  ...                   url=${envVars.TESTRAIL_URL}
   ...                   auth=@{authData}
   [Return]              &{testRailSession}
