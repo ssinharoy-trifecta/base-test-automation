@@ -9,11 +9,11 @@ Resource                        Integrations/TestRail.robot
 # This allows you to submit which browser you want to leverage, but the default is Chrome
 ${BROWSER}                      chrome
 # These are the environment variable values. The default will use QA1
-${ENV}                          qa-1
-${MAGENTO_ENV}                  qa1
+${WOO_ENV}                          qa-1
+${MAG_ENV}                          qa1
 # This builds out the various common launch points URLs
-${MAGENTO_SHOP_HOME}            https://test-magento-app-trifecta-${MAGENTO_ENV}.trifecta.dev/
-${WOOCOMMERCE_SHOP_HOME}        https://woocommerce-trifecta-${ENV}.trifecta.dev/
+${MAGENTO_SHOP_HOME}            https://test-magento-app-trifecta-${MAG_ENV}.trifecta.dev/
+${WOOCOMMERCE_SHOP_HOME}        https://woocommerce-trifecta-${WOO_ENV}.trifecta.dev/
 # This aids in generating dynamic eMail addresses for user creation
 ${urlForNavigation}             about:blank
 # This keyword is to run locally or through Browserstack. Browserstack is default
