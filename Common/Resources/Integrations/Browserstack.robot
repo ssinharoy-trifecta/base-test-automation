@@ -10,7 +10,6 @@ ${BS_REMOTE_URL}                hub-cloud.browserstack.com/wd/hub
 ${BS_APP_AUTOMATE_CLOUD_API}    api-cloud.browserstack.com/app-automate
 ${BS_IDLE_TIMEOUT}              5
 ${configBS}                     win10Chrome
-${defaultEnvPath}               ${PATH_TO_ENV}
 
 #iOS
 ${APP_FILE_iOS}           iOS/Resources/System/TrifectaAppiOS.ipa
