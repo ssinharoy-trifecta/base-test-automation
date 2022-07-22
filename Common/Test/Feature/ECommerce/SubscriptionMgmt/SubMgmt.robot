@@ -20,6 +20,8 @@ Documentation
 Resource            ../../../../Resources/Common.robot
 Resource            ../../../../Resources/CustomerController.robot
 Resource            ../../../../Resources/Authentication/CustomerCreate.robot
+Resource            ../../../../Resources/DataFiles/CustomerTestData.robot
+
 Suite Setup         Common.Begin Suite Test
 Suite Teardown      Common.End Suite Test   ${testRunID}
 Test Setup          Common.Begin Browser Test
@@ -29,16 +31,6 @@ Test Setup          Common.Begin Browser Test
 Test Teardown       Common.End Browser Test
 
 *** Variables ***
-${testCaseEmail}          selenium+default@trifectanutrition.com
-${firstName}              Elden
-${lastName}               Ring
-${password}               tester123!
-#Customer list variable
-&{customerInfo}
-...                       firstName=${firstName}
-...                       lastName=${lastName}
-...                       email=${testCaseEmail}
-...                       password=${password}
 
 *** Test Cases ***
 Test 1.2 Non-Logged In User Can Create Account From Checkout

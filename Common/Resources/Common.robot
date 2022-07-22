@@ -45,8 +45,14 @@ End Suite Test
   Log                   '${returnedResponse}'
 
 Begin Maximize Browser Test
-  Log                           Browser Test is starting at maximum size!
-  Set Window Size               2000                      1600
+  [Arguments]         ${urlForNavigation}       
+  ...                 ${runLocal}
+  ...                 ${configBS}
+  Begin Browser Test  ${urlForNavigation}
+  ...                 ${runlocal}
+  ...                 ${configBS}
+  Log                 Browser Test is starting at maximum size!
+  Set Window Size     2000                      1600
 
 Scroll To Element
   Documentation  
