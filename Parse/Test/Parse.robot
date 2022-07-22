@@ -3,18 +3,13 @@ Documentation
 ...     This is a documentation block and every file needs this at the top
 
 Library     json
-Library     OperatingSystem
-Library     BuiltIn
-Library     Collections
 Resource    ../../Common/Resources/Integrations/API.robot
 Library     ../../Common/Resources/GetEnvVars.py
 Variables   ../../Common/Resources/GetEnvVars.py
 
 *** Variables ***
 ${apiBaseEndpoint}  https://parse-preprod.trifectanutrition.com/
-${apiGetUrl}        ${apiBaseEndpoint}parse/classes/Challenges
-&{headers}          
-&{apiSessionList}   
+${apiGetUrl}        ${apiBaseEndpoint}parse/classes/Challenges 
 ${envPath}          ${PATH_TO_ENV}
 
 *** Test Cases ***
