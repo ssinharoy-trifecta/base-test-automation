@@ -144,7 +144,7 @@ Mark App Automate Session Status Failed
 #UPLOAD APPLICATION TO BROWSERSTACK CLOUD API
 Upload iOS Application To Browserstack
 # TODO: Instead of using the Run Process keyword, try API.Send POST Request
-  [Arguments]              {envPath}
+  [Arguments]              ${envPath}
   &{authDict}=             Get BrowserStack ENV Variables   ${envPath}
   ${BS_APP_UPLOADER_iOS}=  Set Variable
   ...                      curl -u "${authDict.user}:${authDict.key}" 
