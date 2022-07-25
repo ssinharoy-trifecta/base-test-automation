@@ -8,7 +8,7 @@ ${address2}               Suite 800
 ${city}                   Sacramento
 ${zip}                    34122
 ${phone}                  5305648388 
-#Customer Dictionary variable
+#Customer Dictionary
 &{customerInfo}
 ...                       firstName=${firstName}
 ...                       lastName=${lastName}

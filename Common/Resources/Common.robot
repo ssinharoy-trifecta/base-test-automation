@@ -21,6 +21,9 @@ ${hsBundleParams}               ${WOOCOMMERCE_SHOP_HOME}?bundle_data=%7B%22bundl
 ${hsMealPlanParams}             ${WOOCOMMERCE_SHOP_HOME}checkout/?hs_add_var_id=243704&parent_id=765&meal_preferences=FS,WF
 # This keyword is to run locally or through Browserstack. Browserstack is default
 ${runLocal}                     no
+# Screen size variables
+${windowWidth}                  2000
+${windowHeight}                 1000
 @{TESTRUN_RESULTS_LIST}
 
 *** Keywords ***
@@ -50,7 +53,7 @@ End Suite Test
 
 Begin Maximize Browser Test
   Log                           Browser Test is starting at maximum size!
-  Set Window Size               2000                      1000
+  Set Window Size               ${windowWidth}  ${windowHeight}
 
 Scroll To Element
   Documentation  
