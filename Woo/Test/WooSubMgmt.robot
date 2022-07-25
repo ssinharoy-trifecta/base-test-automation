@@ -9,11 +9,14 @@ Resource            ../../Common/Resources/Common.robot
 Resource            ../../Common/Resources/CustomerController.robot
 
 Suite Setup         Common.Begin Suite Test
-Suite Teardown      Common.End Suite Test   ${testRunID}
+Suite Teardown      Common.End Suite Test
+...                 ${testRunID}
+...                 ${envPath}
 Test Setup          Common.Begin Browser Test
 ...                 ${WOOCOMMERCE_SHOP_HOME}
 ...                 ${runlocal}
 ...                 ${configBS}
+...                 ${envPath}
 Test Teardown       Common.End Browser Test
 
 *** Variables ***
