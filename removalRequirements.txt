@@ -7,7 +7,6 @@ furl
 idna
 lxml
 orderedmultidict
-python-dotenv
 requests
 robotframework
 robotframework-appiumlibrary

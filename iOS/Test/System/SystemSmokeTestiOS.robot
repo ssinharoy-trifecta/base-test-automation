@@ -11,20 +11,16 @@ Resource   ../../Resources/Feature/OnboardingResourcesiOS.robot
 Resource   ../../Resources/Feature/ShopWooResourcesiOS.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 Resource   ../../../Common/Resources/CommonApps.robot
-Variables  ../../../Common/Resources/GetEnvVars.py
 
-Suite Setup       Browserstack.Upload iOS Application To Browserstack   ${envPath}
+Suite Setup       Browserstack.Upload iOS Application To Browserstack
 Suite Teardown    Run Keyword If All Tests Passed    Browserstack.Mark App Automate Session Status Passed
 
 Test Teardown     Run Keyword If Test Failed    Browserstack.Mark App Automate Session Status Failed
 
-*** Variables ***
-${envPath}  ${PATH_TO_ENV}
-
 *** Test Cases ***
 
 Launch Application
-    Browserstack.Launch iOS Application On Browserstack Device  ${configBS}   ${envPath}
+    Browserstack.Launch iOS Application On Browserstack Device  ${configBS}
 
 Intro Screen UI Review
     OnboardingResourcesiOS.Check Data Alert iOS
