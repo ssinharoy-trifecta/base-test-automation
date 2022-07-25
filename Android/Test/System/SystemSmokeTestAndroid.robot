@@ -11,16 +11,20 @@ Resource   ../../Resources/Feature/OnboardingResourcesAndroid.robot
 Resource   ../../Resources/Feature/ShopWooResourcesAndroid.robot
 Resource   ../../../Common/Resources/Integrations/Browserstack.robot
 Resource   ../../../Common/Resources/CommonApps.robot
+Variables  ../../../Common/Resources/GetEnvVars.py
 
-Suite Setup       Browserstack.Upload Android Application To Browserstack
+Suite Setup       Browserstack.Upload Android Application To Browserstack   ${envPath}
 Suite Teardown    Run Keyword If All Tests Passed    Browserstack.Mark App Automate Session Status Passed
 
 Test Teardown     Run Keyword If Test Failed    Browserstack.Mark App Automate Session Status Failed
 
+*** Variables ***
+${envPath}  ${PATH_TO_ENV}
+
 *** Test Cases ***
 
 Launch Application
-    Browserstack.Launch Android Application On Browserstack Device  ${configBS}
+    Browserstack.Launch Android Application On Browserstack Device  ${configBS}   ${envPath}
 
 Intro Screen UI Review
     OnboardingResourcesAndroid.Validate Intro Screen Details Android
