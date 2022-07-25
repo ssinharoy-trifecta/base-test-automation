@@ -9,13 +9,16 @@ Resource                        Integrations/TestRail.robot
 # This allows you to submit which browser you want to leverage, but the default is Chrome
 ${BROWSER}                      chrome
 # These are the environment variable values. The default will use QA1
-${WOO_ENV}                          qa-1
-${MAG_ENV}                          qa1
+${WOO_ENV}                      qa-1
+${MAG_ENV}                      qa1
 # This builds out the various common launch points URLs
 ${MAGENTO_SHOP_HOME}            https://test-magento-app-trifecta-${MAG_ENV}.trifecta.dev/
 ${WOOCOMMERCE_SHOP_HOME}        https://woocommerce-trifecta-${WOO_ENV}.trifecta.dev/
 # This aids in generating dynamic eMail addresses for user creation
 ${urlForNavigation}             about:blank
+# Hubspot url parameters to add products from HS domain to Woo shop.
+${hsBundleParams}               ${WOOCOMMERCE_SHOP_HOME}?bundle_data=%7B%22bundleName%22%3A%22budget_bundle%22%2C%22bundleData%22%3A%5B%7B%22sku%22%3A%22BP1302%22%2C%22qty%22%3A2%7D%2C%7B%22sku%22%3A%22BP1305%22%2C%22qty%22%3A2%7D%2C%7B%22sku%22%3A%22BP1304%22%2C%22qty%22%3A2%7D%2C%7B%22sku%22%3A%22BC1618%22%2C%22qty%22%3A2%7D%2C%7B%22sku%22%3A%22BC1628%22%2C%22qty%22%3A2%7D%5D%7D
+${hsMealPlanParams}             ${WOOCOMMERCE_SHOP_HOME}checkout/?hs_add_var_id=243704&parent_id=765&meal_preferences=FS,WF
 # This keyword is to run locally or through Browserstack. Browserstack is default
 ${runLocal}                     no
 @{TESTRUN_RESULTS_LIST}
@@ -31,6 +34,7 @@ Begin Browser Test
   ELSE       
     Open Browser                                  ${urlForNavigation}       ${BROWSER}
   END
+  Begin Maximize Browser Test
 
 End Browser Test
   TestRail.Gather Test Results
@@ -45,14 +49,8 @@ End Suite Test
   Log                   '${returnedResponse}'
 
 Begin Maximize Browser Test
-  [Arguments]         ${urlForNavigation}       
-  ...                 ${runLocal}
-  ...                 ${configBS}
-  Begin Browser Test  ${urlForNavigation}
-  ...                 ${runlocal}
-  ...                 ${configBS}
-  Log                 Browser Test is starting at maximum size!
-  Set Window Size     2000                      1600
+  Log                           Browser Test is starting at maximum size!
+  Set Window Size               2000                      1000
 
 Scroll To Element
   Documentation  

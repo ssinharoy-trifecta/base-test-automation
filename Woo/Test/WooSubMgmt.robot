@@ -19,15 +19,26 @@ Test Teardown       Common.End Browser Test
 *** Variables ***
 
 *** Test Cases ***
-#This is a test test case and will be replaced in following story.
 Test Purchase A Meal Plan
+  [Tags]  Smoke  Checkout  testcaseid=8696
   WooCustController.Add A Single Meal Plan To Cart
   WooCustController.Continue To Checkout
-  WooCustController.Complete Checkout Forms
-  WooCustController.Complete Checkout Transaction
+  WooCustController.Complete Checkout
 
-#Test Purchase The Budget Bundle
+Test Purchase The Budget Bundle
+  [Tags]  Smoke  Checkout  testcaseid=8706
+  Go To  ${hsBundleParams}
+  WooProductSelector.Validate Product Selector Page Load
+  WooCustController.Continue To Checkout
+  WooCustController.Complete Checkout
 
-#Test Purchase An A La Carte Subscription
+Test Purchase An A La Carte Subscription
+  [Tags]  Smoke  Checkout  testcaseid=8708
+  WooCustController.Add A La Carte To Cart
+  WooCustController.Continue To Checkout
+  WooCustController.Complete Checkout
 
-#Test Checkout Using Hubspot Link
+Test Checkout Using Hubspot Link
+  [Tags]  Smoke  Checkout  testcaseid=7101
+  Go To  ${hsMealPlanParams}
+  WooCustController.Complete Checkout

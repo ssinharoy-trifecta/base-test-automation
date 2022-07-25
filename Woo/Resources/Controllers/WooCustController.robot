@@ -26,6 +26,12 @@ Complete Checkout Transaction
   WooCheckout.Place Order
   WooThankYou.Validate Thank You Page Load
 
-Go To My Account
+Complete Checkout
+  Complete Checkout Forms
+  Complete Checkout Transaction
 
-Logout
+Add A La Carte To Cart
+  WooTopNav.Navigate To Product Selector
+  WooProductSelector.Validate Product Selector Page Load
+  WooProductSelector.Add A La Carte Product
+

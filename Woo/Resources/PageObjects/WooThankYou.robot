@@ -3,4 +3,4 @@ ${thankYouConfirmationBtn}  xpath = //*[@id="trifecta-checkout"]/div/div/div/div
 
 *** Keywords ***
 Validate Thank You Page Load
-  Wait Until Element Is Visible  ${thankYouConfirmationBtn}  timeout=30
+  Wait Until Element Is Visible  ${thankYouConfirmationBtn}  timeout=60
