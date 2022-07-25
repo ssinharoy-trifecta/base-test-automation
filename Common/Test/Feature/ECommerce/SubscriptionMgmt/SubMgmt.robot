@@ -21,24 +21,27 @@ Resource            ../../../../Resources/Common.robot
 Resource            ../../../../Resources/CustomerController.robot
 Resource            ../../../../Resources/Authentication/CustomerCreate.robot
 Suite Setup         Common.Begin Suite Test
-Suite Teardown      Common.End Suite Test   ${testRunID}
+Suite Teardown      Common.End Suite Test
+...                 ${testRunID}
+...                 ${envPath}
 Test Setup          Common.Begin Browser Test
 ...                 ${MAGENTO_SHOP_HOME}
 ...                 ${runlocal}
 ...                 ${configBS}
+...                 ${envPath}
 Test Teardown       Common.End Browser Test
 
 *** Variables ***
-${testCaseEmail}          selenium+default@trifectanutrition.com
-${firstName}              Elden
-${lastName}               Ring
-${password}               tester123!
+${testCaseEmail}  selenium+default@trifectanutrition.com
+${firstName}      Elden
+${lastName}       Ring
+${password}       tester123!
 #Customer list variable
 &{customerInfo}
-...                       firstName=${firstName}
-...                       lastName=${lastName}
-...                       email=${testCaseEmail}
-...                       password=${password}
+...               firstName=${firstName}
+...               lastName=${lastName}
+...               email=${testCaseEmail}
+...               password=${password}
 
 *** Test Cases ***
 Test 1.2 Non-Logged In User Can Create Account From Checkout
