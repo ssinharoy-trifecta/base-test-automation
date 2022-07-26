@@ -12,7 +12,7 @@ ${BROWSER}                      chrome
 ${WOO_ENV}                      qa-1
 ${MAG_ENV}                      qa1
 # This builds out the various common launch points URLs
-${MAGENTO_SHOP_HOME}            https://test-magento-app-trifecta-${ENV}.trifecta.dev/
+${MAGENTO_SHOP_HOME}            https://test-magento-app-trifecta-${MAG_ENV}.trifecta.dev/
 ${WOOCOMMERCE_SHOP_HOME}        https://woocommerce-trifecta-${WOO_ENV}.trifecta.dev/
 # This aids in generating dynamic eMail addresses for user creation
 ${urlForNavigation}             about:blank
