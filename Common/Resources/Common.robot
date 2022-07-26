@@ -2,6 +2,7 @@
 Documentation
 ...   Common Keywords and Variables to be used across all Features
 Library                         SeleniumLibrary
+Variables                       GetEnvVars.py
 Resource                        Integrations/Browserstack.robot
 Resource                        Integrations/TestRail.robot
 
@@ -32,9 +33,12 @@ Begin Browser Test
   [Arguments]                                     ${urlForNavigation}       
   ...                                             ${runLocal}
   ...                                             ${configBS}
+  ...                                             ${envPath}
   Log                                             Browser Test is starting!
   IF                                              '${runLocal}' == 'no'
-    Browserstack.Setup Browserstack For WEB       ${urlForNavigation}       ${configBS}
+    Browserstack.Setup Browserstack For WEB       ${urlForNavigation}      
+    ...                                           ${configBS}      
+    ...                                           ${envPath}
   ELSE       
     Open Browser                                  ${urlForNavigation}       ${BROWSER}
   END
@@ -48,8 +52,8 @@ Begin Suite Test
   Set Global Variable   @{TESTRUN_RESULTS_LIST}
 
 End Suite Test
-  [Arguments]           ${testRunID}
-  ${returnedResponse}=  TestRail.Post Test Suite Results to TestRail    ${testRunID}
+  [Arguments]           ${testRunID}    ${envPath}
+  ${returnedResponse}=  TestRail.Post Test Suite Results to TestRail    ${testRunID}    ${envPath}
   Log                   '${returnedResponse}'
 
 Begin Maximize Browser Test

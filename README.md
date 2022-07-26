@@ -8,8 +8,8 @@ working with a web browser.
 [SeleniumLibrary](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html)
 
 ## Installation
-In order to configure your environment to use Robot, please run either of the following scripts.  
-There's one for ZSH and one for Bash depending on what you're using:  
+In order to configure your environment to use Robot, please run either of the following scripts from the root of the repo.  There's one for ZSH and one for  
+Bash depending on what you're using:  
 - Bash: `RobotFrameworkSetup.sh`
 - ZSH:  `RobotFrameworkSetup.zsh`
 
@@ -25,6 +25,14 @@ After running the script make sure to activate the virtual environment by runnin
 
 When you are done testing in that repository make sure to deactivate your python virtual environment -  
 `deactivate`
+
+### Configuration
+You'll need to create a `.env` file in the root of this repo.  The contents for 
+this comes from two files located in LastPass.  Both file contents need to be
+added to the `.env` file for successful execution.
+- `Robot Framework .ENV file` contains the Browserstack and TestRail secrets
+- `Parse Tests (.env)` contains the Parse secrets
+
 ### Updating Packages
 Packages are updated via the `requirements.txt` file, please run the following command from the CLI:
 

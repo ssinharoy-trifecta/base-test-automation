@@ -23,7 +23,7 @@ Resource            ../../../../Resources/Authentication/CustomerCreate.robot
 Resource            ../../../../Resources/DataFiles/CustomerTestData.robot
 
 Suite Setup         Common.Begin Suite Test
-Suite Teardown      Common.End Suite Test   
+Suite Teardown      Common.End Suite Test
 ...                 ${testRunID}
 ...                 ${envPath}
 Test Setup          Common.Begin Browser Test

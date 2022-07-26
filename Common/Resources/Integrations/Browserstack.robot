@@ -1,23 +1,19 @@
 *** Settings ***
 
-Library    Process
+Library     Process
+Library     ../GetEnvVars.py
+Resource    API.robot
 
 *** Variables ***
 #COMMON
 ${BS_REMOTE_URL}                hub-cloud.browserstack.com/wd/hub
 ${BS_APP_AUTOMATE_CLOUD_API}    api-cloud.browserstack.com/app-automate
-${BS_USER}                      tylerthomas6    
-${BS_KEY}                       FQtVoY5xMMxVa9bh1c1Z       
 ${BS_IDLE_TIMEOUT}              5
 ${configBS}                     win10Chrome
 
 #iOS
 ${APP_FILE_iOS}           iOS/Resources/System/TrifectaAppiOS.ipa
 ${BS_CUSTOM_ID_iOS}       TrifectaAppiOS
-${BS_APP_UPLOADER_iOS}    curl -u "${BS_USER}:${BS_KEY}" 
-...                       -X POST "https://${BS_APP_AUTOMATE_CLOUD_API}/upload" 
-...                       -F "file=@${APP_FILE_iOS}" 
-...                       -F "custom_id=${BS_CUSTOM_ID_iOS}"
 ${BS_PROJECT_iOS}         iOS System Smoke Test
 ${BS_BUILD_iOS}           iOS
 ${BS_NAME_iOS}            iOS_System_Smoke_Test
@@ -27,10 +23,6 @@ ${BS_OS_VERSION_iOS}      15
 #ANDROID
 ${APP_FILE_ANDROID}           Android/Resources/System/TrifectaAppAndroid.apk
 ${BS_CUSTOM_ID_ANDROID}       TrifectaAppAndroid
-${BS_APP_UPLOADER_ANDROID}    curl -u "${BS_USER}:${BS_KEY}" 
-...                           -X POST "https://${BS_APP_AUTOMATE_CLOUD_API}/upload" 
-...                           -F "file=@${APP_FILE_ANDROID}" 
-...                           -F "custom_id=${BS_CUSTOM_ID_ANDROID}"
 ${BS_PROJECT_ANDROID}         Android System Smoke Test
 ${BS_BUILD_ANDROID}           Android
 ${BS_NAME_ANDROID}            Android_System_Smoke_Test
@@ -152,23 +144,38 @@ Mark App Automate Session Status Failed
 #UPLOAD APPLICATION TO BROWSERSTACK CLOUD API
 Upload iOS Application To Browserstack
 # TODO: Instead of using the Run Process keyword, try API.Send POST Request
-   Run Process          ${BS_APP_UPLOADER_iOS}    shell=True   alias=UploadiOSApp
-   Wait For Process     UploadiOSApp    timeout=30
+  [Arguments]              ${envPath}
+  &{authDict}=             Get BrowserStack ENV Variables   ${envPath}
+  ${BS_APP_UPLOADER_iOS}=  Set Variable
+  ...                      curl -u "${authDict.user}:${authDict.key}" 
+  ...                      -X POST "https://${BS_APP_AUTOMATE_CLOUD_API}/upload" 
+  ...                      -F "file=@${APP_FILE_iOS}" 
+  ...                      -F "custom_id=${BS_CUSTOM_ID_iOS}"
+  Run Process              ${BS_APP_UPLOADER_iOS}    shell=True   alias=UploadiOSApp
+  Wait For Process         UploadiOSApp    timeout=30
 
 Upload Android Application To Browserstack
-   Run Process         ${BS_APP_UPLOADER_ANDROID}    shell=True   alias=UploadAndroidApp
-   Wait For Process    UploadAndroidApp    timeout=30
+  [Arguments]                  ${envPath}
+  &{authDict}=                 Get BrowserStack ENV Variables   ${envPath}
+  ${BS_APP_UPLOADER_ANDROID}=  Set Variable
+  ...                          curl -u "${authDict.user}:${authDict.key}" 
+  ...                          -X POST "https://${BS_APP_AUTOMATE_CLOUD_API}/upload" 
+  ...                          -F "file=@${APP_FILE_ANDROID}" 
+  ...                          -F "custom_id=${BS_CUSTOM_ID_ANDROID}"
+  Run Process                  ${BS_APP_UPLOADER_ANDROID}    shell=True   alias=UploadAndroidApp
+  Wait For Process             UploadAndroidApp    timeout=30
 
 #iOS BROWSERSTACK LAUNCHER
 Launch iOS Application On Browserstack Device
-    [Arguments]              ${configBS}
+    [Arguments]              ${configBS}    ${envPath}
+    &{authDict}=             Get BrowserStack ENV Variables   ${envPath}
     &{desiredCapabilities}=  Check Default Apps Desired Capabilities  
     ...                      ${configBS}
     ...                      ${BS_DEVICE_iOS}
     ...                      ${BS_OS_VERSION_iOS}
     Open Application         remote_url=http://${BS_REMOTE_URL}
-    ...                      browserstack.user=${BS_USER} 
-    ...                      browserstack.key=${BS_KEY}
+    ...                      browserstack.user=${authDict.user} 
+    ...                      browserstack.key=${authDict.key}
     ...                      app_url=${BS_CUSTOM_ID_iOS}
     ...                      device=${desiredCapabilities.device}
     ...                      os_version=${desiredCapabilities.os_version}
@@ -179,14 +186,15 @@ Launch iOS Application On Browserstack Device
 
 #ANDROID BROWSERSTACK LAUNCHER
 Launch Android Application On Browserstack Device
-    [Arguments]              ${configBS}
+    [Arguments]              ${configBS}  ${envPath}
+    &{authDict}=             Get BrowserStack ENV Variables  ${envPath}
     &{desiredCapabilities}=  Check Default Apps Desired Capabilities  
     ...                      ${configBS}
     ...                      ${BS_DEVICE_ANDROID}
     ...                      ${BS_OS_VERSION_ANDROID}
     Open Application         remote_url=http://${BS_REMOTE_URL}
-    ...                      browserstack.user=${BS_USER} 
-    ...                      browserstack.key=${BS_KEY}
+    ...                      browserstack.user=${authDict.user} 
+    ...                      browserstack.key=${authDict.key}
     ...                      app_url=${BS_CUSTOM_ID_ANDROID}
     ...                      device=${desiredCapabilities.device}
     ...                      os_version=${desiredCapabilities.os_version}
@@ -197,8 +205,9 @@ Launch Android Application On Browserstack Device
 
 # WEB BROWSERSTACK LAUNCHER
 Setup Browserstack For WEB
-  [Arguments]                    ${urlForNavigation}         ${configBS}
-  ${remoteUrl}                   Set Variable                http://${BS_USER}:${BS_KEY}@${BS_REMOTE_URL}
+  [Arguments]                    ${urlForNavigation}  ${configBS}  ${envPath}
+  &{authDict}=                   Get BrowserStack ENV Variables  ${envPath}
+  ${remoteUrl}                   Set Variable                http://${authDict.user}:${authDict.key}@${BS_REMOTE_URL}
   &{desiredCapabilities}=        Set Desired Capabilities    ${configBS}
   ${desiredCapabilities.build}=  Set Variable                ${BS_BUILD_WEB}
   ${desiredCapabilities.name}=   Set Variable                ${TEST NAME}
@@ -225,3 +234,10 @@ Check Default Apps Desired Capabilities
     END
     [Return]                   ${desiredCapabilities}
 
+Get BrowserStack ENV Variables
+  [Arguments]           ${envPath}
+  &{envVars}=           GetEnvVars.Retrieve_DotEnv    ${envPath}
+  &{browserStackAuth}=  Create Dictionary
+  ...                   user=${envVars.BS_USER}
+  ...                   key=${envVars.BS_KEY}
+  [Return]              &{browserStackAuth}
