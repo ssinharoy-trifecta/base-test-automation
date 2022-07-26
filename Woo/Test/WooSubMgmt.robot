@@ -6,10 +6,10 @@ Documentation
 # If so, these two keywords can be merged or should they remain standalone
 
 Resource            ../../Common/Resources/Common.robot
-Resource            ../../Common/Resources/CustomerController.robot
+Resource            ../Resources/Controllers/WooCustController.robot
 
 Suite Setup         Common.Begin Suite Test
-Suite Teardown      Common.End Suite Test
+Suite Teardown      Common.End Suite Test   
 ...                 ${testRunID}
 ...                 ${envPath}
 Test Setup          Common.Begin Browser Test
@@ -22,6 +22,24 @@ Test Teardown       Common.End Browser Test
 *** Variables ***
 
 *** Test Cases ***
-#This is a test test case and will be replaced in following story.
-Test Sleep Sleep Baby
-  Sleep  2s
+Test Purchase A Meal Plan
+  [Tags]  Smoke  Checkout  testcaseid=8696
+  WooCustController.Add A Single Meal Plan To Cart
+  WooCustController.Complete Checkout From Product Selector
+
+Test Purchase The Budget Bundle
+  [Tags]  Smoke  Checkout  testcaseid=8706
+  Go To  ${hsBundleParams}
+  WooProductSelector.Validate Product Selector Page Load
+  WooCustController.Complete Checkout From Product Selector
+
+Test Purchase An A La Carte Subscription
+  [Tags]  Smoke  Checkout  testcaseid=8708
+  WooCustController.Add A La Carte To Cart
+  WooCustController.Complete Checkout From Product Selector
+
+Test Checkout Using Hubspot Link
+  [Tags]  Smoke  Checkout  testcaseid=7101
+  Go To  ${hsMealPlanParams}
+  WooCustController.Complete Checkout
+  

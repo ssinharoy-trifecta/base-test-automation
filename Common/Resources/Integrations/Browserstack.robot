@@ -214,7 +214,6 @@ Setup Browserstack For WEB
   Open Browser                   ${urlForNavigation}
   ...                            remote_url=${remoteUrl}     
   ...                            desired_capabilities=${desiredCapabilities}
-  Begin Maximize Browser Test
 
 Set Desired Capabilities
   [Arguments]          ${configBS}
