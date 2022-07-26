@@ -2,6 +2,7 @@
 Documentation
 ...   Common Keywords and Variables to be used across all Features
 Library                         SeleniumLibrary
+Variables                       GetEnvVars.py
 Resource                        Integrations/Browserstack.robot
 Resource                        Integrations/TestRail.robot
 
@@ -9,13 +10,16 @@ Resource                        Integrations/TestRail.robot
 # This allows you to submit which browser you want to leverage, but the default is Chrome
 ${BROWSER}                      chrome
 # These are the environment variable values. The default will use QA1
-${ENV}                          qa1
+${WOO_ENV}                      qa-1
+${MAG_ENV}                      qa1
 # This builds out the various common launch points URLs
-${MAGENTO_SHOP_HOME}            https://test-magento-app-trifecta-${ENV}.trifecta.dev/
+${MAGENTO_SHOP_HOME}            https://test-magento-app-trifecta-${MAG_ENV}.trifecta.dev/
+${WOOCOMMERCE_SHOP_HOME}        https://woocommerce-trifecta-${WOO_ENV}.trifecta.dev/
 # This aids in generating dynamic eMail addresses for user creation
 ${urlForNavigation}             about:blank
 # This keyword is to run locally or through Browserstack. Browserstack is default
 ${runLocal}                     no
+${envPath}                      ${PATH_TO_ENV}
 @{TESTRUN_RESULTS_LIST}
 
 *** Keywords ***
@@ -23,9 +27,12 @@ Begin Browser Test
   [Arguments]                                     ${urlForNavigation}       
   ...                                             ${runLocal}
   ...                                             ${configBS}
+  ...                                             ${envPath}
   Log                                             Browser Test is starting!
   IF                                              '${runLocal}' == 'no'
-    Browserstack.Setup Browserstack For WEB       ${urlForNavigation}       ${configBS}
+    Browserstack.Setup Browserstack For WEB       ${urlForNavigation}      
+    ...                                           ${configBS}      
+    ...                                           ${envPath}
   ELSE       
     Open Browser                                  ${urlForNavigation}       ${BROWSER}
   END
@@ -38,8 +45,8 @@ Begin Suite Test
   Set Global Variable   @{TESTRUN_RESULTS_LIST}
 
 End Suite Test
-  [Arguments]           ${testRunID}
-  ${returnedResponse}=  TestRail.Post Test Suite Results to TestRail    ${testRunID}
+  [Arguments]           ${testRunID}    ${envPath}
+  ${returnedResponse}=  TestRail.Post Test Suite Results to TestRail    ${testRunID}    ${envPath}
   Log                   '${returnedResponse}'
 
 Begin Maximize Browser Test
