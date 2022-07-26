@@ -2,11 +2,11 @@
 Documentation
 ...   Common Keywords and Variables to be used across all customer flow features.
 
-Resource            ../PageObjects/WooTopNav.robot
-Resource            ../PageObjects/WooProductSelector.robot
-Resource            ../PageObjects/WooCart.robot
-Resource            ../PageObjects/WooCheckout.robot
-Resource            ../PageObjects/WooThankYou.robot
+Resource  ../PageObjects/WooTopNav.robot
+Resource  ../PageObjects/WooProductSelector.robot
+Resource  ../PageObjects/WooCart.robot
+Resource  ../PageObjects/WooCheckout.robot
+Resource  ../PageObjects/WooThankYou.robot
 
 *** Keywords ***
 Add A Single Meal Plan To Cart
@@ -34,4 +34,9 @@ Add A La Carte To Cart
   WooTopNav.Navigate To Product Selector
   WooProductSelector.Validate Product Selector Page Load
   WooProductSelector.Add A La Carte Product
+
+Complete Checkout From Product Selector
+  Continue To Checkout
+  Complete Checkout
+
 

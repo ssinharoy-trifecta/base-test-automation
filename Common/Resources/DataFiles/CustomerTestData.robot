@@ -1,3 +1,5 @@
+# TODO: Use data driven tests and expand dictionaries to use a wide variety of customer data.
+
 *** Variable ***
 ${testCaseEmail}          selenium+default@trifectanutrition.com
 ${firstName}              Elden
@@ -19,5 +21,3 @@ ${phone}                  5305648388
 ...                       city=${city}
 ...                       zip=${zip}
 ...                       phone=${phone}
-
-
