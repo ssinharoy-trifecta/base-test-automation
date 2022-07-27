@@ -10,6 +10,7 @@ ${closeSkipModalBtn}     xpath = //*[@id="wcts_skip_content"]/button
 ${unskipWeek2Btn}        id = wcts-2-unskip-button
 ${unskipWeek3Btn}        id = wcts-3-unskip-button
 ${unskipWeek4Btn}        id = wcts-4-unskip-button
+${modifySubBtn}          id = ts-ps-open-btn
 
 @{skipWeeksList}
 ...                      ${skipWeek2Btn}
@@ -42,3 +43,7 @@ Validate All Weeks Are Skipped
   FOR                              ${item}    IN    @{unskipWeeksList}
     Wait Until Element Is Visible  ${item}
   END  
+
+Click Modify Button
+  Log                            Opening Skip Modal...
+  Click Button                   ${modifySubBtn}

@@ -24,8 +24,7 @@ Test Teardown       Common.End Browser Test
 *** Test Cases ***
 Test Purchase A Meal Plan
   [Tags]  Smoke  Checkout  testcaseid=8696
-  WooCustController.Add A Single Meal Plan To Cart
-  WooCustController.Complete Checkout From Product Selector
+  WooCustController.Purchase Meal Plan Complete Flow
 
 Test Purchase The Budget Bundle
   [Tags]  Smoke  Checkout  testcaseid=8706
@@ -45,7 +44,22 @@ Test Checkout Using Hubspot Link
   
 Test Skip Weeks
   [Tags]  Smoke  Skips  SubMgmt  testcaseid=8715
-  WooCustController.Add A Single Meal Plan To Cart
-  WooCustController.Complete Checkout From Product Selector
+  WooCustController.Purchase Meal Plan Complete Flow
   WooCustController.Go To My Account
   WooCustController.Skip All Weeks
+
+Test Update An Existing Subscription's Items
+  [Tags]  Smoke  SubMgmt  testcaseid=8709  
+  WooCustController.Purchase Meal Plan Complete Flow
+  WooCustController.Go To My Account
+  WooCustController.Modify Existing Subscription Items
+
+Test Purchase A Second Subscription
+  [Tags]  Smoke  Checkout  testcaseid=8710  ExistingSub
+  WooCustController.Purchase Meal Plan Complete Flow
+  Go To  ${hsBundleParams}
+  Sleep  3s
+  WooCustController.Continue To Checkout
+  WooCheckout.Confirm Adding A Second Subscription
+  WooCustController.Complete Checkout
+

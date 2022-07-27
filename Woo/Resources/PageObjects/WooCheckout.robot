@@ -15,6 +15,7 @@ ${shippingZipField}           id = shipping_postcode
 ${shippingPhoneField}         id = billing_phone
 ${continueToBillingFormBtn}   id = proceed-to-step-4
 ${placeOrderBtn}              id = place_order
+${activeSubModalAddBtn}       xpath = //*[@id="ts-duplicate-sub"]/div/div/div[3]/button
 
 *** Keywords ***
 Validate Checkout Step 2 Page Load
@@ -38,3 +39,8 @@ Complete Shipping Address Form
 
 Place Order 
   Click Button              ${placeOrderBtn}
+
+Confirm Adding A Second Subscription
+  Wait Until Element Is Visible  ${activeSubModalAddBtn}
+  Click Button                   ${activeSubModalAddBtn}
+  Sleep                          1s

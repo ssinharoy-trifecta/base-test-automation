@@ -48,3 +48,16 @@ Skip All Weeks
   WooMyAccount.Open Skip Weeks Modal
   WooMyAccount.Click All Skip Buttons In Skip Modal
   WooMyAccount.Validate All Weeks Are Skipped
+
+Modify Existing Subscription Items
+  WooMyAccount.Click Modify Button
+  WooProductSelector.Validate Product Selector Page Load
+  WooProductSelector.Add A Carbohydrates Product
+  WooCart.Remove Item From Cart
+  WooCart.Save Subscription Modify
+  WooProductSelector.Agree To Changes Affect Delivery On Notification 
+  WooMyAccount.Validate My Account Loaded
+
+Purchase Meal Plan Complete Flow
+  Add A Single Meal Plan To Cart
+  Complete Checkout From Product Selector

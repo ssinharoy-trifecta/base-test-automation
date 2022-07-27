@@ -24,7 +24,7 @@ ${hsMealPlanParams}             ${WOOCOMMERCE_SHOP_HOME}checkout/?hs_add_var_id=
 ${runLocal}                     no
 # Screen size variables
 ${windowWidth}                  2000
-${windowHeight}                 1000
+${windowHeight}                 1100
 ${envPath}                      ${PATH_TO_ENV}
 @{TESTRUN_RESULTS_LIST}
 
