@@ -2,7 +2,6 @@
 Library         SeleniumLibrary
 
 *** Variables ***
-${myAccountWelcomeText}  Trifecta Cash
 ${skipWeeksModalBtn}     id = ts-sw-open-btn
 ${skipWeek2Btn}          id = wcts-2-skip-button
 ${skipWeek3Btn}          id = wcts-3-skip-button
