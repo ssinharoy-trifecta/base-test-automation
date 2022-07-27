@@ -7,6 +7,7 @@ Resource  ../PageObjects/WooProductSelector.robot
 Resource  ../PageObjects/WooCart.robot
 Resource  ../PageObjects/WooCheckout.robot
 Resource  ../PageObjects/WooThankYou.robot
+Resource  ../PageObjects/WooMyAccount.robot
 
 *** Keywords ***
 Add A Single Meal Plan To Cart
@@ -39,4 +40,11 @@ Complete Checkout From Product Selector
   Continue To Checkout
   Complete Checkout
 
+Go To My Account
+  WooTopNav.Click Header Account Element
+  WooMyAccount.Validate My Account Loaded
 
+Skip All Weeks
+  WooMyAccount.Open Skip Weeks Modal
+  WooMyAccount.Click All Skip Buttons In Skip Modal
+  WooMyAccount.Validate All Weeks Are Skipped

@@ -43,3 +43,10 @@ Test Checkout Using Hubspot Link
   Go To  ${hsMealPlanParams}
   WooCustController.Complete Checkout
   
+Test Skip Weeks
+  [Tags]  Smoke  Skips  SubMgmt  testcaseid=8715
+  WooCustController.Add A Single Meal Plan To Cart
+  WooCustController.Complete Checkout From Product Selector
+  WooCustController.Go To My Account
+  WooCustController.Skip All Weeks
+  Sleep  2s
