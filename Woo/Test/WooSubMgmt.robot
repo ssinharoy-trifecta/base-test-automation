@@ -49,4 +49,3 @@ Test Skip Weeks
   WooCustController.Complete Checkout From Product Selector
   WooCustController.Go To My Account
   WooCustController.Skip All Weeks
-  Sleep  2s
