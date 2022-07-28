@@ -61,3 +61,12 @@ Modify Existing Subscription Items
 Purchase Meal Plan Complete Flow
   Add A Single Meal Plan To Cart
   Complete Checkout From Product Selector
+
+Edit And Save New Billing Address
+  WooMyAccount.Click Account Settings Tab
+  WooMyAccount.Change Billing Address
+  WooMyAccount.Validate Account Settings Tab
+
+Edit And Save New Shipping Address
+  WooMyAccount.Change Shipping Address
+  WooMyAccount.Validate Customer Subscription View Load

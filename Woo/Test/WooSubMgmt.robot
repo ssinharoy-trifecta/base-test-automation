@@ -71,8 +71,15 @@ Test Edit Payment Method
   WooMyAccount.Edit Payment
 
 Test Edit Billing Address
+  [Tags]  Smoke  SubMgmt  testcaseid=7101
+  WooCustController.Purchase Meal Plan Complete Flow
+  WooCustController.Go To My Account
+  WooCustController.Edit And Save New Billing Address
+
+Test Edit Shipping Address
   [Tags]  Smoke  SubMgmt  testcaseid=7101  ExistingSub
   WooCustController.Purchase Meal Plan Complete Flow
   WooCustController.Go To My Account
+  WooCustController.Edit And Save New Shipping Address
 
 
