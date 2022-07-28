@@ -55,11 +55,24 @@ Test Update An Existing Subscription's Items
   WooCustController.Modify Existing Subscription Items
 
 Test Purchase A Second Subscription
-  [Tags]  Smoke  Checkout  testcaseid=8710  ExistingSub
+  [Tags]  Smoke  Checkout  testcaseid=8710
   WooCustController.Purchase Meal Plan Complete Flow
   Go To  ${hsBundleParams}
   Sleep  3s
   WooCustController.Continue To Checkout
   WooCheckout.Confirm Adding A Second Subscription
+  WooCheckout.Complete Shipping Address Form
   WooCustController.Complete Checkout
+
+Test Edit Payment Method
+  [Tags]  Smoke  SubMgmt  testcaseid=8712  
+  WooCustController.Purchase Meal Plan Complete Flow
+  WooCustController.Go To My Account
+  WooMyAccount.Edit Payment
+
+Test Edit Billing Address
+  [Tags]  Smoke  SubMgmt  testcaseid=7101  ExistingSub
+  WooCustController.Purchase Meal Plan Complete Flow
+  WooCustController.Go To My Account
+
 
