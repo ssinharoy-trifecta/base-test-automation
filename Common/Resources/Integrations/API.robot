@@ -46,14 +46,16 @@ GET Request And Verify 200 Status
 Send Delete Request
     [Arguments]
     ...             ${apiSessionDict}
+    ...             ${jsonDict}
     ...             ${apiDeleteUrl}
     ...             ${expectedStatus}
     Create Session  Test_Session
     ...             &{apiSessionDict}
     ...             verify=True
     ${response}=    DELETE On Session   Test_Session
-    ...             ${apiDeleteUrl}
-    ...             ${expectedStatus}
+    ...             url=${apiDeleteUrl}
+    ...             json=${jsonDict}
+    ...             expected_status=${expectedStatus}
     Delete All Sessions
 
 Simple GET Request
@@ -67,13 +69,11 @@ Simple GET Request
     Delete All Sessions
     [Return]        ${response}
 
-
 Send Patch Request
     # TODO: Refactor this so that it can OPTIONALLY take the Data/JSON as a param
     [Arguments]
     ...             ${apiSessionDict}
-    ...             ${dictData}
-    ...             ${dictJSON}
+    ...             ${patchDataOrJSONDict}
     ...             ${apiPatchUrl}
     ...             ${expectedStatus}
     Create Session  Test_Session
@@ -82,27 +82,29 @@ Send Patch Request
     # Handle ${dictData} or ${dictJSON} cases.  Both empty, full, or only 1
     # If both empty, else if both full else if one empty, else, end
     ${response}=    DELETE On Session   Test_Session
-    ...             ${apiPatchUrl}
-    ...             ${expectedStatus}
-    ...             ${patchData}
+    ...             url=${apiPatchUrl}
+    ...             expected_status=${expectedStatus}
+    ...             json=${patchDataOrJSONDict}
     Delete All Sessions
     
 Send POST Request
     # TODO: Refactor this so that it can OPTIONALLY take the JSON as a param
     [Arguments]
     ...             ${apiSessionDict}
-    ...             ${dictJSON}
+    ...             ${postDataOrJSONDict}
     ...             ${apiPostUrl}
     Create Session  Test_Session
     ...             &{apiSessionDict}
     ...             verify=True
-    ${postJSON}=    evaluate  json.dumps(${dictJSON})   json
-    Log             ${postJSON}
+    # ${postJSON}=    evaluate  json.dumps(${postDataOrJSONDict})   json
+    # Log             ${postJSON}
     # Post results to TestRail using JSON
+    # Handle ${dictData} or ${dictJSON} cases.  Both empty, full, or only 1
+    # If both empty, else if both full else if one empty, else, en
     ${response}=    POST On Session
     ...             Test_Session
     ...             url=${apiPostUrl}
-    ...             json=${dictJSON}
+    ...             json=${postDataOrJSONDict}
     Log             ${response}
     Delete All Sessions
     [Return]        ${response}
@@ -111,8 +113,7 @@ Send Put Request
     # TODO: Refactor this so that it can OPTIONALLY take the Data/JSON as a param
     [Arguments]
     ...             ${apiSessionDict}
-    ...             ${dictData}
-    ...             ${dictJSON}
+    ...             ${putDataOrJSONDict}
     ...             ${apiPutUrl}
     ...             ${expectedStatus}
     Create Session  Test_Session
@@ -120,9 +121,9 @@ Send Put Request
     ...             verify=True
     # Handle ${dictData} or ${dictJSON} cases.  Both empty, full, or only 1
     # If both empty, else if both full else if one empty, else, end
-    ${response}=    DELETE On Session   Test_Session
-    ...             ${apiPutUrl}
-    ...             ${expectedStatus}
-    ...             ${putData}
+    ${response}=    PUT On Session   Test_Session
+    ...             url=${apiPutUrl}
+    ...             json=${putDataOrJSONDict}
+    ...             expected_status=${expectedStatus}
     Delete All Sessions
 
