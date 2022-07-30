@@ -29,17 +29,27 @@ Complete Create Your Account Form
   Click Button              ${continueToShippingFormBtn}
 
 Complete Shipping Address Form
+  Check If Second Sub Notification Appears
   Input Text                ${shippingFirstNameField}  ${customerInfo.firstName}
   Input Text                ${shippingLastNameField}   ${customerInfo.lastName}
   Input Text                ${shippingAddressField}    ${customerInfo.address1}
   Input Text                ${shippingCityField}       ${customerInfo.city}
   Input Text                ${shippingZipField}        ${customerInfo.zip}
   Input Text                ${shippingPhoneField}      ${customerInfo.phone}
+  Check If Second Sub Notification Appears
   Click Button              ${continueToBillingFormBtn}
 
 Place Order 
+  Check If Second Sub Notification Appears
   Click Button              ${placeOrderBtn}
 
 Confirm Adding A Second Subscription
   Wait Until Element Is Visible  ${activeSubModalAddBtn}
   Click Element                  ${activeSubModalAddBtn}
+  Sleep                          5s
+
+Check If Second Sub Notification Appears
+  ${present}=     Run Keyword And Return Status  Element Should Be Visible  ${activeSubModalAddBtn}
+  Run Keyword If  '${present}' == 'True'         Click Element              ${activeSubModalAddBtn}
+  Sleep           1s
+

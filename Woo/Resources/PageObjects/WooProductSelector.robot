@@ -30,7 +30,7 @@ Add A La Carte Product
   Click Element                     ${catSelectorProteinTab}
   Wait Until Element Is Visible     ${proteinInfoBtn}
   Click Element                     ${proteinInfoBtn}
-  Repeat Keyword                    5  Click Button  ${proteinModalAddBtn}
+  Repeat Keyword                    10  Click Button  ${proteinModalAddBtn}
   Click Button                      ${addBtn}
 
 Add A Carbohydrates Product

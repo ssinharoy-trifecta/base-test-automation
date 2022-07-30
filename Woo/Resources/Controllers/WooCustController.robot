@@ -70,3 +70,15 @@ Edit And Save New Billing Address
 Edit And Save New Shipping Address
   WooMyAccount.Change Shipping Address
   WooMyAccount.Validate Customer Subscription View Load
+
+Add Second Subscription
+  Go To  ${WOOCOMMERCE_SHOP_HOME}
+  Add A Single Meal Plan To Cart
+  Continue To Checkout
+  WooCheckout.Confirm Adding A Second Subscription
+  WooCheckout.Complete Shipping Address Form
+  Complete Checkout Transaction
+
+Go To My Account After Completing Subscription
+  WooCustController.Purchase Meal Plan Complete Flow
+  WooCustController.Go To My Account
