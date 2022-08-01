@@ -11,7 +11,7 @@ Documentation
 ...     - https://trifectanutrition.free.beeceptor.com/put
 
 Resource  ../../../Common/Resources/Integrations/API.robot
-Library 	SeleniumLibrary
+Library   SeleniumLibrary
 
 *** Variables ***
 ${beeCeptorURL}   https://trifectanutrition.free.beeceptor.com/

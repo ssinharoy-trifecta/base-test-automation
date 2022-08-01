@@ -81,7 +81,7 @@ Send Patch Request
     ...             verify=True
     # Handle ${dictData} or ${dictJSON} cases.  Both empty, full, or only 1
     # If both empty, else if both full else if one empty, else, end
-    ${response}=    DELETE On Session   Test_Session
+    ${response}=    PATCH On Session   Test_Session
     ...             url=${apiPatchUrl}
     ...             expected_status=${expectedStatus}
     ...             json=${patchDataOrJSONDict}
