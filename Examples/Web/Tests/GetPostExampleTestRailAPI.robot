@@ -1,8 +1,8 @@
 *** Settings ***
 Library     RequestsLibrary
-Library     ../GetEnvVars.py
-Variables   ../GetEnvVars.py
-Resource    ../Integrations/API.robot
+Library     ../../../Common/Resources/GetEnvVars.py
+Variables   ../../../Common/Resources/GetEnvVars.py
+Resource    ../../../Common/Resources/Integrations/API.robot
 Documentation
 ...    You'll need to update the testrail_env.py file with the TestRail User, password, and API Key
 ...    This is found in LastPass
