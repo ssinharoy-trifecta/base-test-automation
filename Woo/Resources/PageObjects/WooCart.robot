@@ -1,6 +1,6 @@
 *** Variables ***
 ${cartCheckoutBtn}    Checkout
-${removeFromCartBtn}  xpath = //*[@id="cart-item-105521-cart-remove"]/span
+${removeFromCartBtn}  id = cart-item-243704-cart-remove
 ${saveCartBtn}        Save
 
 *** Keywords ***
@@ -8,7 +8,8 @@ Click Checkout
   Click Button  ${cartCheckoutBtn}
 
 Remove Item From Cart
-  Click Element  ${removeFromCartBtn}       
+  Sleep          1s
+  Click Button  ${removeFromCartBtn}       
 
 Save Subscription Modify
   Click Button  ${saveCartBtn}

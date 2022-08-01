@@ -34,7 +34,7 @@ Complete Checkout
 Add A La Carte To Cart
   WooTopNav.Navigate To Product Selector
   WooProductSelector.Validate Product Selector Page Load
-  WooProductSelector.Add A La Carte Product
+  WooProductSelector.Add A La Carte Product  ${catSelectorProteinTab}  ${proteinInfoBtn}  10
 
 Complete Checkout From Product Selector
   Continue To Checkout
@@ -52,7 +52,7 @@ Skip All Weeks
 Modify Existing Subscription Items
   WooMyAccount.Click Modify Button
   WooProductSelector.Validate Product Selector Page Load
-  WooProductSelector.Add A Carbohydrates Product
+  WooProductSelector.Add A La Carte Product  ${catSelectorProteinTab}  ${proteinInfoBtn}  12
   WooCart.Remove Item From Cart
   WooCart.Save Subscription Modify
   WooProductSelector.Agree To Changes Affect Delivery On Notification 

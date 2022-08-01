@@ -81,7 +81,8 @@ Validate All Weeks Are Skipped
   END  
 
 Click Modify Button
-  Log                            Opening Skip Modal...
+  Log                            Opening Product Selector to modify subscription...
+  Sleep                          1s
   Click Button                   ${modifySubBtn}
 
 Validate Subscriptions Tab In My Account

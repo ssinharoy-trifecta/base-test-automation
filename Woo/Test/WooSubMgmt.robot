@@ -47,13 +47,13 @@ Test Skip Weeks
   WooCustController.Go To My Account After Completing Subscription
   WooCustController.Skip All Weeks
 
-Test Update An Existing Subscription's Items
-  [Tags]  Smoke  SubMgmt  testcaseid=8709  ExistingSub
+Test Update An Existing Subscription's Items  
+  [Tags]  Smoke  SubMgmt  testcaseid=8709  ExistingSub 
   WooCustController.Go To My Account After Completing Subscription
   WooCustController.Modify Existing Subscription Items
 
 Test Purchase A Second Subscription  
-  [Tags]  Smoke  Checkout  testcaseid=8710  ExistingSub  Test
+  [Tags]  Smoke  Checkout  testcaseid=8710  ExistingSub 
   WooCustController.Purchase Meal Plan Complete Flow
   WooCustController.Add Second Subscription
 
