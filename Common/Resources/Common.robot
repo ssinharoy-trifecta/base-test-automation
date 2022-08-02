@@ -68,3 +68,13 @@ Scroll To Element
   ${x}=                         Get Horizontal Position   ${locator}
   ${y}=                         Get Vertical Position     ${locator}
   Execute Javascript            window.scrollTo(${x}, ${y})
+
+Wait For And Click Element
+  [Arguments]                    ${element}
+  Wait Until Element Is Visible  ${element}
+  Click Element                  ${element}
+
+Wait For And Click Button
+  [Arguments]                    ${button}
+  Wait Until Element Is Visible  ${button}
+  Click Button                   ${button}

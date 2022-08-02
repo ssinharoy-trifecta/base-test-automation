@@ -102,7 +102,7 @@ Click Account Settings Tab
   Click Element  ${accountSettingsTab}
 
 Change Billing Address
-  Click Element                  ${changeBillingLink}
+  Wait For And Click Element     ${changeBillingLink}
   Wait Until Element Is Visible  ${billingFirstNameField}
   Input Text                     ${billingFirstNameField}      ${changeCustInfo.firstName}
   Input Text                     ${billingLastNameField}       ${changeCustInfo.lastName}
@@ -118,8 +118,7 @@ Validate Account Settings Tab
 
 Change Shipping Address
   Click Element                  ${changeShippingLink}
-  Wait Until Element Is Visible  ${deliveryModalBtn}
-  Click Button                   ${deliveryModalBtn}
+  Wait For And Click Button      ${deliveryModalBtn}
   Sleep                          1s
   Input Text                     ${shippingFirstNameField}      ${changeCustInfo.firstName}
   Input Text                     ${shippingLastNameField}       ${changeCustInfo.lastName}

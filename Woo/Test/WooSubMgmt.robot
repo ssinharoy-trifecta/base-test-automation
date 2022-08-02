@@ -43,7 +43,7 @@ Test Checkout Using Hubspot Link
   WooCustController.Complete Checkout
   
 Test Skip Weeks
-  [Tags]  Smoke  Skips  SubMgmt  testcaseid=8715  ExistingSub
+  [Tags]  Smoke  Skips  SubMgmt  testcaseid=8715  ExistingSub  
   WooCustController.Go To My Account After Completing Subscription
   WooCustController.Skip All Weeks
 
@@ -58,16 +58,16 @@ Test Purchase A Second Subscription
   WooCustController.Add Second Subscription
 
 Test Edit Payment Method
-  [Tags]  Smoke  SubMgmt  testcaseid=8712  ExistingSub
+  [Tags]  Smoke  SubMgmt  testcaseid=8712  ExistingSub   
   WooCustController.Go To My Account After Completing Subscription
   WooMyAccount.Edit Payment
 
 Test Edit Billing Address
-  [Tags]  Smoke  SubMgmt  testcaseid=8713  ExistingSub
+  [Tags]  Smoke  SubMgmt  testcaseid=8713  ExistingSub  
   WooCustController.Go To My Account After Completing Subscription
   WooCustController.Edit And Save New Billing Address
 
 Test Edit Shipping Address
-  [Tags]  Smoke  SubMgmt  testcaseid=8714  ExistingSub
+  [Tags]  Smoke  SubMgmt  testcaseid=8714  ExistingSub  Test
   WooCustController.Go To My Account After Completing Subscription
   WooCustController.Edit And Save New Shipping Address

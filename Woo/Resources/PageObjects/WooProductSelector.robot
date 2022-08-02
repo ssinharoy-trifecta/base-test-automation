@@ -29,11 +29,9 @@ Add A La Carte Product
   [Arguments]                       ${categoryTab}  ${infoBtn}    ${quantity}
   #Wait Until Element Is Visible     ${categoryTab}                        
   Click Element                     ${categoryTab}
-  Wait Until Element Is Visible     ${infoBtn}
-  Click Element                     ${infoBtn}
+  Wait For And Click Element        ${infoBtn}
   Repeat Keyword                    ${quantity}     Click Button  ${aLaCarteModalAddBtn}
   Click Button                      ${addBtn}
 
 Agree To Changes Affect Delivery On Notification 
-  Wait Until Element Is Visible  ${changeTakeAffectNotification}
-  Click Button                   ${changeTakeAffectNotification}
+  Wait For And Click Button      ${changeTakeAffectNotification}

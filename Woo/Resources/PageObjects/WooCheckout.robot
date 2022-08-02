@@ -1,6 +1,8 @@
 *** Settings ***
 Resource            ../../../Common/Resources/DataFiles/CustomerTestData.robot
 Resource            ../../../Common/Resources/Authentication/CustomerCreate.robot
+Resource            ../../../Common/Resources/Authentication/CustomerCreate.robot
+Resource            ../../../Common/Resources/Common.robot
 
 *** Variables ***
 ${billingEmailField}          id = billing_email
@@ -44,8 +46,7 @@ Place Order
   Click Button              ${placeOrderBtn}
 
 Confirm Adding A Second Subscription
-  Wait Until Element Is Visible  ${activeSubModalAddBtn}
-  Click Element                  ${activeSubModalAddBtn}
+  Wait For And Click Element     ${activeSubModalAddBtn}
   Sleep                          5s
 
 Check If Second Sub Notification Appears
