@@ -44,3 +44,8 @@ ${phone2}                 7282022100
 ...                       city=${city2}
 ...                       zip=${zip2}
 ...                       phone=${phone2}
+#Test Card Numbers
+&{cardNumber1}
+...                       number=4111111111111111
+...                       exp=0123
+...                       cvv=900

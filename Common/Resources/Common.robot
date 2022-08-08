@@ -25,6 +25,9 @@ ${runLocal}                     no
 # Screen size variables
 ${windowWidth}                  1500
 ${windowHeight}                 1100
+&{windowSize}
+...                             width=${windowWidth}
+...                             height=${windowHeight}
 ${envPath}                      ${PATH_TO_ENV}
 @{TESTRUN_RESULTS_LIST}
 
@@ -58,7 +61,7 @@ End Suite Test
 
 Begin Maximize Browser Test
   Log                           Browser Test is starting at maximum size!
-  Set Window Size               ${windowWidth}  ${windowHeight}
+  Set Window Size               ${windowSize.width}  ${windowSize.height}
 
 Scroll To Element
   Documentation  

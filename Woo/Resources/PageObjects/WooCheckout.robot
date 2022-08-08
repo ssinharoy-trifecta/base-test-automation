@@ -47,7 +47,6 @@ Place Order
 
 Confirm Adding A Second Subscription
   Wait For And Click Element     ${activeSubModalAddBtn}
-  Sleep                          5s
 
 Check If Second Sub Notification Appears
   ${present}=     Run Keyword And Return Status  Element Should Be Visible  ${activeSubModalAddBtn}

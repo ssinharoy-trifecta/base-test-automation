@@ -48,17 +48,17 @@ Test Skip Weeks
   WooCustController.Skip All Weeks
 
 Test Update An Existing Subscription's Items  
-  [Tags]  Smoke  SubMgmt  testcaseid=8709  ExistingSub 
+  [Tags]  Smoke  SubMgmt  testcaseid=8709  ExistingSub
   WooCustController.Go To My Account After Completing Subscription
   WooCustController.Modify Existing Subscription Items
 
 Test Purchase A Second Subscription  
-  [Tags]  Smoke  Checkout  testcaseid=8710  ExistingSub 
+  [Tags]  Smoke  Checkout  testcaseid=8710  ExistingSub  Test 
   WooCustController.Purchase Meal Plan Complete Flow
   WooCustController.Add Second Subscription
 
 Test Edit Payment Method
-  [Tags]  Smoke  SubMgmt  testcaseid=8712  ExistingSub   
+  [Tags]  Smoke  SubMgmt  testcaseid=8712  ExistingSub
   WooCustController.Go To My Account After Completing Subscription
   WooMyAccount.Edit Payment
 
@@ -68,6 +68,6 @@ Test Edit Billing Address
   WooCustController.Edit And Save New Billing Address
 
 Test Edit Shipping Address
-  [Tags]  Smoke  SubMgmt  testcaseid=8714  ExistingSub  Test
+  [Tags]  Smoke  SubMgmt  testcaseid=8714  ExistingSub
   WooCustController.Go To My Account After Completing Subscription
   WooCustController.Edit And Save New Shipping Address

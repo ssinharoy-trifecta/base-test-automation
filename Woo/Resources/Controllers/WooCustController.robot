@@ -53,7 +53,6 @@ Modify Existing Subscription Items
   WooMyAccount.Click Modify Button
   WooProductSelector.Validate Product Selector Page Load
   WooProductSelector.Add A La Carte Product  ${catSelectorProteinTab}  ${proteinInfoBtn}  12
-  WooCart.Remove Item From Cart
   WooCart.Save Subscription Modify
   WooProductSelector.Agree To Changes Affect Delivery On Notification 
   WooMyAccount.Validate My Account Loaded

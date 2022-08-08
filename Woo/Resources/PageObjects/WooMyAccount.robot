@@ -28,13 +28,10 @@ ${viewSubBtn}                  xpath = //*[@id="content-block"]/div[4]/div/div/d
 # Update Payment Info elements
 ${editPaymentLink}             xpath = //*[@id="content-block"]/div[4]/div/div/div/div/div/div[2]/div[2]/div[3]/div[6]/a
 ${changePaymentSaveBtn}        id = place_order
-${useNewCardRadio}             xpath = //*[@id="payment"]/ul/li/div/p[3]/label[2]
+${useNewCardRadio}             xpath = //*[@for="wc-authorize-net-cim-credit-card-use-new-payment-method"]
 ${newCardNumberField}          xpath = //*[@id="wc-authorize-net-cim-credit-card-account-number"]
-${newCardNumberValue}          4111111111111111
 ${newCardExpField}             id = wc-authorize-net-cim-credit-card-expiry
-${newCardExpValue}             0123
 ${newCardCVCField}             xpath = //*[@id="wc-authorize-net-cim-credit-card-csc"]
-${newCardCVCValue}             900
 
 ${accountSettingsTab}          xpath = //*[@id="mya-scrolling-menu"]/div/ul/li[3]/a
 # Change Billing Address elements
@@ -93,9 +90,9 @@ Edit Payment
   Wait Until Element Is Visible  ${changePaymentSaveBtn}
   Click Element                  ${useNewCardRadio}
   Wait Until Element Is Visible  ${newCardNumberField} 
-  Input Text                     ${newCardNumberField}  ${newCardNumberValue} 
-  Input Text                     ${newCardExpField}     ${newCardExpValue}
-  Input Text                     ${newCardCVCField}     ${newCardCVCValue}
+  Input Text                     ${newCardNumberField}  ${cardNumber1.number} 
+  Input Text                     ${newCardExpField}     ${cardNumber1.exp}
+  Input Text                     ${newCardCVCField}     ${cardNumber1.cvv}
   Click Button                   ${changePaymentSaveBtn}
 
 Click Account Settings Tab
