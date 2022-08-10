@@ -23,8 +23,11 @@ ${hsMealPlanParams}             ${WOOCOMMERCE_SHOP_HOME}checkout/?hs_add_var_id=
 # This keyword is to run locally or through Browserstack. Browserstack is default
 ${runLocal}                     no
 # Screen size variables
-${windowWidth}                  2000
-${windowHeight}                 1000
+${windowWidth}                  1500
+${windowHeight}                 1100
+&{windowSize}
+...                             width=${windowWidth}
+...                             height=${windowHeight}
 ${envPath}                      ${PATH_TO_ENV}
 @{TESTRUN_RESULTS_LIST}
 
@@ -58,7 +61,7 @@ End Suite Test
 
 Begin Maximize Browser Test
   Log                           Browser Test is starting at maximum size!
-  Set Window Size               ${windowWidth}  ${windowHeight}
+  Set Window Size               ${windowSize.width}  ${windowSize.height}
 
 Scroll To Element
   Documentation  
@@ -68,3 +71,13 @@ Scroll To Element
   ${x}=                         Get Horizontal Position   ${locator}
   ${y}=                         Get Vertical Position     ${locator}
   Execute Javascript            window.scrollTo(${x}, ${y})
+
+Wait For And Click Element
+  [Arguments]                    ${element}
+  Wait Until Element Is Visible  ${element}
+  Click Element                  ${element}
+
+Wait For And Click Button
+  [Arguments]                    ${button}
+  Wait Until Element Is Visible  ${button}
+  Click Button                   ${button}

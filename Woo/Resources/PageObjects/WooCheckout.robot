@@ -1,6 +1,8 @@
 *** Settings ***
 Resource            ../../../Common/Resources/DataFiles/CustomerTestData.robot
 Resource            ../../../Common/Resources/Authentication/CustomerCreate.robot
+Resource            ../../../Common/Resources/Authentication/CustomerCreate.robot
+Resource            ../../../Common/Resources/Common.robot
 
 *** Variables ***
 ${billingEmailField}          id = billing_email
@@ -15,6 +17,7 @@ ${shippingZipField}           id = shipping_postcode
 ${shippingPhoneField}         id = billing_phone
 ${continueToBillingFormBtn}   id = proceed-to-step-4
 ${placeOrderBtn}              id = place_order
+${activeSubModalAddBtn}       xpath = //*[@id="ts-duplicate-sub"]/div/div/div[1]/button/span/img
 
 *** Keywords ***
 Validate Checkout Step 2 Page Load
@@ -28,13 +31,25 @@ Complete Create Your Account Form
   Click Button              ${continueToShippingFormBtn}
 
 Complete Shipping Address Form
+  Check If Second Sub Notification Appears
   Input Text                ${shippingFirstNameField}  ${customerInfo.firstName}
   Input Text                ${shippingLastNameField}   ${customerInfo.lastName}
   Input Text                ${shippingAddressField}    ${customerInfo.address1}
   Input Text                ${shippingCityField}       ${customerInfo.city}
   Input Text                ${shippingZipField}        ${customerInfo.zip}
   Input Text                ${shippingPhoneField}      ${customerInfo.phone}
+  Check If Second Sub Notification Appears
   Click Button              ${continueToBillingFormBtn}
 
 Place Order 
+  Check If Second Sub Notification Appears
   Click Button              ${placeOrderBtn}
+
+Confirm Adding A Second Subscription
+  Wait For And Click Element     ${activeSubModalAddBtn}
+
+Check If Second Sub Notification Appears
+  ${present}=     Run Keyword And Return Status  Element Should Be Visible  ${activeSubModalAddBtn}
+  Run Keyword If  '${present}' == 'True'         Click Element              ${activeSubModalAddBtn}
+  Sleep           1s
+

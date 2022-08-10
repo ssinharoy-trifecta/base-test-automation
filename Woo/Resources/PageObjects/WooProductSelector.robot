@@ -2,12 +2,16 @@
 Library         SeleniumLibrary
 
 *** Variables ***
-${addBtn}                 id = add-btn
-${noPrefBtn}              id = gq-no-btn
-${productAddedTxt}        has been added
-${catSelectorProteinTab}  xpath = //*[@id="ps-desktop-nav-ul"]/li[2]/a
-${proteinInfoBtn}         id = protein-0-prod-title
-${proteinModalAddBtn}     xpath = //*[@id="psm-add-to-cart-entry"]/div[2]/div[2]/div/div[3]/button
+${addBtn}                        id = add-btn
+${noPrefBtn}                     id = gq-no-btn
+${productAddedTxt}               has been added
+${catSelectorProteinTab}         xpath = //*[@id="ps-mobile-nav-ul"]/li[2]
+${proteinInfoBtn}                id = protein-0-prod-title
+${aLaCarteModalAddBtn}           xpath = //*[@id="psm-add-to-cart-entry"]/div[2]/div[2]/div/div[3]/button
+${catSelectorCarbTab}            xpath = //*[@id="ps-desktop-nav-ul"]/li[3]
+${carbInfoBtn}                   id = carbohydrates-0-prod-title
+${changeTakeAffectNotification}  id = gq-yes-btn
+
 
 *** Keywords ***
 Validate Product Selector Page Load
@@ -22,9 +26,12 @@ Add Meal Plan
   Wait Until Page Does Not Contain  ${productAddedTxt}
 
 Add A La Carte Product
-  Wait Until Element Is Visible     ${catSelectorProteinTab}                          
-  Click Element                     ${catSelectorProteinTab}
-  Wait Until Element Is Visible     ${proteinInfoBtn}
-  Click Element                     ${proteinInfoBtn}
-  Repeat Keyword                    5  Click Button  ${proteinModalAddBtn}
+  [Arguments]                       ${categoryTab}  ${infoBtn}    ${quantity}
+  #Wait Until Element Is Visible     ${categoryTab}                        
+  Click Element                     ${categoryTab}
+  Wait For And Click Element        ${infoBtn}
+  Repeat Keyword                    ${quantity}     Click Button  ${aLaCarteModalAddBtn}
   Click Button                      ${addBtn}
+
+Agree To Changes Affect Delivery On Notification 
+  Wait For And Click Button      ${changeTakeAffectNotification}
