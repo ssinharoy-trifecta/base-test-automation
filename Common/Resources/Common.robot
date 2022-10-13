@@ -81,3 +81,12 @@ Wait For And Click Button
   [Arguments]                    ${button}
   Wait Until Element Is Visible  ${button}
   Click Button                   ${button}
+
+Resize Window
+  [Arguments]                   ${windowHeight}      ${windowWidth}
+  Set Window Size               ${windowSize.width}  ${windowSize.height}
+
+Take Screenshot
+
+Take Screenshot And Resize Window
+ Resize Window
