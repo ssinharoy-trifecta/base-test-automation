@@ -15,6 +15,7 @@ ${MAG_ENV}                      qa1
 # This builds out the various common launch points URLs
 ${MAGENTO_SHOP_HOME}            https://test-magento-app-trifecta-${MAG_ENV}.trifecta.dev/
 ${WOOCOMMERCE_SHOP_HOME}        https://woocommerce-trifecta-${WOO_ENV}.trifecta.dev/
+${TEST_URL}                     ${WOOCOMMERCE_SHOP_HOME}
 # This aids in generating dynamic eMail addresses for user creation
 ${urlForNavigation}             about:blank
 # Hubspot url parameters to add products from HS domain to Woo shop.
@@ -82,11 +83,8 @@ Wait For And Click Button
   Wait Until Element Is Visible  ${button}
   Click Button                   ${button}
 
-Resize Window
-  [Arguments]                   ${windowHeight}      ${windowWidth}
-  Set Window Size               ${windowSize.width}  ${windowSize.height}
-
-Take Screenshot
-
-Take Screenshot And Resize Window
- Resize Window
+Screenshot At Desired Resolution
+  [Arguments]              ${resizedWidth}  ${resizedHeight}
+  Set Window Size          ${resizedWidth}  ${resizedHeight}
+  Sleep                    1s
+  Capture Page Screenshot  ${resizedWidth}x${resizedHeight}.png
