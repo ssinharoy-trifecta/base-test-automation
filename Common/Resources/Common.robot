@@ -82,9 +82,3 @@ Wait For And Click Button
   [Arguments]                    ${button}
   Wait Until Element Is Visible  ${button}
   Click Button                   ${button}
-
-Screenshot At Desired Resolution
-  [Arguments]              ${resizedWidth}  ${resizedHeight}
-  Set Window Size          ${resizedWidth}  ${resizedHeight}
-  Sleep                    1s
-  Capture Page Screenshot  ${resizedWidth}x${resizedHeight}.png
