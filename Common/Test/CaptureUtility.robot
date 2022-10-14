@@ -21,11 +21,11 @@ Test Teardown       Common.End Browser Test
 *** Test Cases ***
 Desktop Browser Resolution Compatability Captures
   [Tags]  Desktop
-  FOR     ${item}                           IN             @{screenResolutionList}
-          Set Window Size                   ${item.width}  ${item.height}
-          FOR                               ${yScroll}     IN  @{scrollDestinationList}
-            Execute Javascript              window.scrollTo(0,${yScroll})
-            Capture Page Screenshot         ${item.width}x${item.height}Scrolled${yScroll}.png
+  FOR     ${item}                    IN             @{screenResolutionList}
+          Set Window Size            ${item.width}  ${item.height}
+          FOR                        ${yScroll}     IN  @{scrollDestinationList}
+            Execute Javascript       window.scrollTo(0,${yScroll})
+            Capture Page Screenshot  ${item.width}x${item.height}Scrolled${yScroll}.png
           END
   END
 
