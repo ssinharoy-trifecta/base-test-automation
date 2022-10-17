@@ -15,6 +15,7 @@ ${MAG_ENV}                      qa1
 # This builds out the various common launch points URLs
 ${MAGENTO_SHOP_HOME}            https://test-magento-app-trifecta-${MAG_ENV}.trifecta.dev/
 ${WOOCOMMERCE_SHOP_HOME}        https://woocommerce-trifecta-${WOO_ENV}.trifecta.dev/
+${TEST_URL}                     ${WOOCOMMERCE_SHOP_HOME}
 # This aids in generating dynamic eMail addresses for user creation
 ${urlForNavigation}             about:blank
 # Hubspot url parameters to add products from HS domain to Woo shop.
