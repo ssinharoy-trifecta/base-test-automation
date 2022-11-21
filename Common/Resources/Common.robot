@@ -10,7 +10,7 @@ Resource                        Integrations/TestRail.robot
 # This allows you to submit which browser you want to leverage, but the default is Chrome
 ${BROWSER}                      chrome
 # These are the environment variable values. The default will use QA1
-${WOO_ENV}                      qa-1
+${WOO_ENV}                      qa-3
 ${MAG_ENV}                      qa1
 # This builds out the various common launch points URLs
 ${MAGENTO_SHOP_HOME}            https://test-magento-app-trifecta-${MAG_ENV}.trifecta.dev/
